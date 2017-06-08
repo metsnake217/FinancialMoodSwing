@@ -10,6 +10,11 @@ var express = require('express');
 var util = require('util');
 var router = express.Router();
 
+
+var request = require('request'); // "Request" library
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
+
 var multer = require('multer');
 var xlstojson = require("xls-to-json-lc");
 var xlsxtojson = require("xlsx-to-json-lc");
@@ -163,78 +168,78 @@ router.get('/refresh_token', function(req, res) {
 
 
 
-/*	router.get('/transferusertolab', function(req, res) {
-		res.redirect('/users');
-	});
+/*  router.get('/transferusertolab', function(req, res) {
+    res.redirect('/users');
+  });
 
-	router.get('/help', function(req, res) {
-		res.render('help', {
-			ordersnum: req.session.orders,
-			sharesnum: req.session.shares,
-			title : 'Help',
-			loggedIn : req.session.loggedin,
-			labyoker : req.session.user,
-			isLoggedInAdmin: req.session.admin,
-			menu : 'help',
-			title: 'Help'
-		});
+  router.get('/help', function(req, res) {
+    res.render('help', {
+      ordersnum: req.session.orders,
+      sharesnum: req.session.shares,
+      title : 'Help',
+      loggedIn : req.session.loggedin,
+      labyoker : req.session.user,
+      isLoggedInAdmin: req.session.admin,
+      menu : 'help',
+      title: 'Help'
+    });
 
-	});
+  });
 */
 
-	router.get('/logout', function(req, res) {
-		req.logout();
-		req.session.user = null;
-		req.session.loggedin = false;
-		res.redirect('/login');
-	});
+  router.get('/logout', function(req, res) {
+    req.logout();
+    req.session.user = null;
+    req.session.loggedin = false;
+    res.redirect('/login');
+  });
 
-	function isLoggedIn(req, res, next) {
-		if (req.session.user)
-			return next();
-		console.log('requested url: '+req.originalUrl);
-		req.session.to = req.originalUrl;
-		res.redirect('/login');
-	}
-	function isLoggedInAdmin(req, res, next) {
-		if (req.session.user && (req.session.useradmin || req.session.usersuperadmin))
-			return next();
-		console.log('requested url: '+req.originalUrl);
-		req.session.to = req.originalUrl;
-		res.redirect('/login');
-	}
+  function isLoggedIn(req, res, next) {
+    if (req.session.user)
+      return next();
+    console.log('requested url: '+req.originalUrl);
+    req.session.to = req.originalUrl;
+    res.redirect('/login');
+  }
+  function isLoggedInAdmin(req, res, next) {
+    if (req.session.user && (req.session.useradmin || req.session.usersuperadmin))
+      return next();
+    console.log('requested url: '+req.originalUrl);
+    req.session.to = req.originalUrl;
+    res.redirect('/login');
+  }
 
-/*	router.get('/login', function(req, res) {
-		console.log("login req.session.user: " + req.session.user);
-		if (req.session.user) {
-			res.redirect('/querytool');
-		} else {
-			var labyokerLabs = new LabyokerLabs('','');
-			labyokerLabs.getlabs(function(error, labs) {
-				req.session.labs = labs;
-				console.log("loggin in labs: " + labs);
-				res.render('login', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, title: 'Login',isLoggedInAdmin: req.session.admin});
-				req.session.messages = null;
-			});
+/*  router.get('/login', function(req, res) {
+    console.log("login req.session.user: " + req.session.user);
+    if (req.session.user) {
+      res.redirect('/querytool');
+    } else {
+      var labyokerLabs = new LabyokerLabs('','');
+      labyokerLabs.getlabs(function(error, labs) {
+        req.session.labs = labs;
+        console.log("loggin in labs: " + labs);
+        res.render('login', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, title: 'Login',isLoggedInAdmin: req.session.admin});
+        req.session.messages = null;
+      });
 
-		}
-	});
+    }
+  });
 
-	router.get('/querytool', isLoggedInSuperAdmin, function(req, res) {
-		if (req.session.user) {
-			var labYokeSearch = new LabYokeSearch("",req.session.email);
-			labYokeSearch.findagents(function(error, results) {			
-				if (results != null && results.length > 0){
-					res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, agentsResults : results, loggedIn : true, title: 'Query Tool'});
-				} else {
-					res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Query Tool'});
-				}
-				req.session.messages = null;
-			});
-		} else {
-			res.redirect('/login');
-		}
-	});
+  router.get('/querytool', isLoggedInSuperAdmin, function(req, res) {
+    if (req.session.user) {
+      var labYokeSearch = new LabYokeSearch("",req.session.email);
+      labYokeSearch.findagents(function(error, results) {     
+        if (results != null && results.length > 0){
+          res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, agentsResults : results, loggedIn : true, title: 'Query Tool'});
+        } else {
+          res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Query Tool'});
+        }
+        req.session.messages = null;
+      });
+    } else {
+      res.redirect('/login');
+    }
+  });
 */
 
 
