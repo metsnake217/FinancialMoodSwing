@@ -73,7 +73,7 @@ block content
                 url: 'https://api.spotify.com/v1/me/playlists',
                 headers: {'Authorization': bearer},
                 success: function (response) {
-                    playlistresPlaceholder.innerHTML = template(response);
+                    playlistresPlaceholder.innerHTML = templateplay(response);
                 }
             });
         };
