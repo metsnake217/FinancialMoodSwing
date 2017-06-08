@@ -194,6 +194,13 @@ router.get('/refresh_token', function(req, res) {
     res.redirect('/login');
   });
 
+  router.get('/', function(req, res) {
+    //req.logout();
+    //req.session.user = null;
+    //req.session.loggedin = false;
+    res.redirect('/test');
+  });
+
   function isLoggedIn(req, res, next) {
     if (req.session.user)
       return next();
