@@ -16,7 +16,7 @@ body {
 #search-form, .form-control {
     margin-bottom: 20px;
 }
-.cover {
+.covering {
     /*width: 300px;
     height: 300px;
     display: inline-block;
@@ -25,7 +25,7 @@ body {
             position: relative;
     float: left;
 }
-.cover:hover {
+.covering:hover {
     cursor: pointer;
 }
 .cover.playing {
