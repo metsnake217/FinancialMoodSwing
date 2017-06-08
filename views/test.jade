@@ -17,11 +17,9 @@ block content
         
         form(id="playlistfill-form")
             div(id="playlistres")
-                select(name="playSelect" type="text" id="playSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist")
-                    option value="select playlist")!= "Select Playlist"
                 script(id="playlistres-template" type="text/x-handlebars-template")
                     {{#each playlists.items}}
-                    <option value="{{id}}">{{name}}</option>
+                    <span value="{{id}}">{{name}}</span>
                     {{/each}}
             div(id="results")
                 script(id="results-template" type="text/x-handlebars-template")
