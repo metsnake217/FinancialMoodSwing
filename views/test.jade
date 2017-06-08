@@ -15,19 +15,19 @@ block content
             input(type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
             input(type="submit" id="search" class="btn btn-primary" value="Search")
         
-            form(id="playlistfill-form")
-                div(id="playlistres")
-                    script(id="playlistres-template" type="text/x-handlebars-template")
-                        <select name="chartSelect" type="text" id="chartSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
-                        {{#each playlists.items}}
-                        <option value="{{id}}">{{name}}</option>
-                        {{/each}}
-                        </select>
-                div(id="results")
-                    script(id="results-template" type="text/x-handlebars-template")
-                        {{#each albums.items}}
-                        <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /></div>
-                        {{/each}}
+        form(id="playlistfill-form")
+            div(id="playlistres")
+                script(id="playlistres-template" type="text/x-handlebars-template")
+                    <select name="chartSelect" type="text" id="chartSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                    {{#each playlists.items}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                    </select>
+            div(id="results")
+                script(id="results-template" type="text/x-handlebars-template")
+                    {{#each albums.items}}
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /></div>
+                    {{/each}}
 
     script.
         var bearer = "Bearer " + "#{access_token}";
@@ -40,7 +40,7 @@ block content
             audioObject = null,
             templateSourceplay = document.getElementById('playlistres-template').innerHTML,
             templateplay = Handlebars.compile(templateSourceplay),
-            playlistresPlaceholder = document.getElementById('playlistres'),
+            playlistresPlaceholder = document.getElementById('playlistres');
 
         var fetchTracks = function (albumId, callback) {
             $.ajax({
