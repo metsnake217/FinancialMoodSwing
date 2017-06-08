@@ -65,6 +65,7 @@ block content
                 },
                 success: function (response) {
                     resultsPlaceholder.innerHTML = template(response);
+                    console.debug("success albums: " + response);
                 }
             });
         };
@@ -77,7 +78,7 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
-                    console.debug(response);
+                    console.log("success play: " + response);
                 }
             });
         };
