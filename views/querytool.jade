@@ -1,0 +1,107 @@
+extends layout
+
+block content
+    div(class="container login marginbottom")
+        div
+            h1= 'Query.'
+            p!="Start querying the database."
+            - var remove = 0
+            - searchText = "Looking for reagent..."
+            - searchTextCatalog = "Looking for catalog number..."
+            - classButton = "btn-success"
+            - classButtonCatalog = "btn-success"
+            if searchformText
+                - searchText = "" + searchformText
+                - classButton = "btn-success-results"
+            if searchformTextCatalog
+                - searchTextCatalog = "Search: " + searchformTextCatalog
+                - searchformTextCatalog = "Search: " + searchformTextCatalog
+                - classButtonCatalog = "btn-success-results"            
+            div(id="ctl00_Div2" class="row")
+                div
+                    if message
+                        div(class="alert alert-danger")!= message
+                    form(action="/querytool" method="post")
+                        textarea(name="queryText" list="agent-datalist" class="form-control" id="queryText" placeholder="Select * from ..." cols="30" rows="5" style="outline: none;overflow:auto;width: 100%;")
+                        div(class="buttons")
+                            //input(type="submit" class="button" value="Get in")
+                            button(class="btn " + classButton + " btn-lg btn-block" type='submit') Submit
+                            img(src="images/yoke5.png", alt="The Search", title="Search", style="border-width:0px; width: 50px; margin-top: -77px; margin-left: 300px;")
+        
+        - if((searchResults != null && searchResults.length > 0) || (rowCount != null && rowCount != undefined))
+            
+            div
+              div(id="queryresults")
+                  div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
+                  div
+                    span(style="text-align: center")
+                      -var count = 0
+                      - if(error != "error")
+                        - count = rowCount
+                      h3="Your query: "
+                        if searchformText
+                            span(style="color: #3d9dcb;")=" " + searchText
+                            span(style="color: #8a6d3b;")=" (" + count + ")"
+              - style = ""
+              - if(error != "error" && type == "select")
+                  - style = "overflow: auto; max-height: 300px; border-style: solid;"
+            - if(error != "error" && type == "select" && searchResults != null && searchResults.length > 0)
+                div(class="results")
+                    div(id="ctl00_Div2" class="row rank")
+                        - var keys
+                        div(class="table-responsive")                
+                            table(id="rankTblload" class="table rankTbl")
+                                thead
+                                    tr(class="you info-best" style="font-weight: bold")
+                                        - keys = Object.keys(searchResults[0])
+                                        - for(var prop in keys)
+                                            td(class="wrapped") #{keys[prop]}
+                                tbody
+                                  - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
+                                  - keys = Object.keys(searchResults[0])
+                                  -for(var prop in searchResults)
+                                    tr(class="wrapped")
+                                        - var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
+                                        -for(var val in values)
+                                            - var valobj = values[val]
+                                            - if(Object.prototype.toString.call(valobj) === '[object Date]')
+                                                - var d = new Date(valobj)
+                                                - valobj = d.toLocaleDateString("en-US")
+                                            td #{valobj}
+                            script.
+                                $(document).ready(function() {
+                                   $('#rankTblload').DataTable();
+                                });
+
+            div(id="raw")
+                h4(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
+                #labyokers.results(style="width:100%;word-wrap:break-word;"+style)
+                    div(id="ctl00_Div2" class="row rank").match
+                       - i = 
+                       - var j = 1
+                       - className = ""
+                       div(class="table-responsive" style="margin-top: 20px;")
+                         - if(error != "error" && type == "select")  
+                           - for(var prop in searchResults)
+                                p!="<span class='labColor'><b>" + j + ". </b></span>" + JSON.stringify(searchResults[prop])
+                                - j = j + 1
+                                - remove = 1
+                         - if(error == "error")
+                             p(style="text-align:center")="Your query cannot be processed - "
+                                span!=JSON.stringify(errorStr).replace(/&quot;/g, '"')
+                             - remove = 1
+                         - if(error != "error" && type != "select" && rowCount != "error" && remove == 0)
+                             p(style="text-align:center")!="" + type + " - " + rowCount + " row(s) affected."
+                             - remove = 1
+             
+            script.
+                var rem = #{remove};
+                if(rem == '0'){
+                    $('#raw').remove();
+                    $('#queryresults').remove();
+                } else {
+                    $(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);
+                }
+
+        
+

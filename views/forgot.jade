@@ -1,0 +1,55 @@
+extends layout
+
+block content
+
+
+  div(class="container login front", style="margin-top: 5%;text-align: center;position: relative;")
+     a(href="/querytool")
+        img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo")
+       div
+        if !userfound && !usernotfound
+            h1="We got You."
+            p 
+                span!="Please enter your "
+                span(class="labColor")="username"
+                span!= " below and we shall send you an email to change your password and <a href='/login'>login</a> again."
+            div(id="ctl00_Div2" class="frontdiv")
+                if message
+                    div(class="alert alert-danger")!= message
+                form(action="/forgot" method="post")
+                    div(style="margin-bottom: 20px;")
+                        div(class="textentry")
+                            input(name="forgotuser" type="text" id="forgotuser" class="form-control" placeholder="Username" style="border-color:#8a6d3b")
+                        div(class="buttons")
+                        //input(type="submit" class="button" value="Register")
+                        button.btn.btn-success.btn-lg.btn-block(type='submit',style='width:85%') Email me
+                        img(src="images/email_icon.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -45px; float: right;")
+
+        if userfound
+            div(id="ctl00_Div2" class="frontdiv")
+                    h1(class="centerText")
+                        span= "Hello again "
+                        span(class="labColor")=" " + userfound
+                        span="."
+                    p Yes we indeed found your account! Please check your inbox in order to change your password. Then
+                        span=" "
+                        a(href="/login")="login"
+                        span=" again."
+                    
+            
+        if usernotfound
+            div(id="ctl00_Div2" class="frontdiv")
+                    h1(class="centerText")
+                        span= "Oops..."
+                    p!=message
+                    if !noforgotform
+                        form(action="/forgot" method="post")
+                            div(style="margin-bottom: 20px;")
+                                div(class="textentry")
+                                    input(name="forgotuser" type="text" id="forgotuser" class="form-control" placeholder="Username" style="border-color:#8a6d3b")
+                                div(class="buttons")
+                                //input(type="submit" class="button" value="Register")
+                                button.btn.btn-success.btn-lg.btn-block(type='submit',style='width:85%') Email me
+                                img(src="images/email_icon.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -45px; margin-top: -45px;float: right;")
+        
+

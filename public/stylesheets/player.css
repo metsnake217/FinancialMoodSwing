@@ -1,0 +1,68 @@
+ @media (min-width: 440px) {
+  .player{
+  border-width:0px; 
+  //width: 250px; 
+  float: right !important;
+  }
+  
+  .logo {
+  border-width:0px; 
+  width: 50px;
+  float: right;
+  }
+  
+  .armadillo {
+  width: 20%;
+  float: right;
+  }
+  
+  img {
+  max-width: 20%;
+  height:auto;
+  width: auto\9;
+  }
+ }
+
+@media (max-width: 440px) {
+ .player{
+    float: right !important;
+  }
+  
+  .logo {
+    float: left !important;
+    width: 50px;
+  }
+
+ .vs {
+    font-size: 32px !important;
+    margin: 35px;
+  }
+  
+  img {
+  max-width: 50%;
+  height:auto;
+  width: auto\9;
+  }
+}
+
+@media (max-width: 767px){
+body {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+  img {
+  max-width: 50%;
+  height:auto;
+  width: auto\9;
+  }
+}
+
+@media (max-width: 980px){  
+  .navmenu {
+  	left: 5% !important;
+  }
+}
+
+.footer {
+	position: relative !important;
+}

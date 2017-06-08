@@ -1,0 +1,90 @@
+extends layout
+
+block content
+
+
+  div(class="container login front", style="margin-top: 5%;text-align: center;position: relative;")
+     a(href="/search" class=labentered)
+        img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo")
+       div
+        if !labentered && !regsuccess && !confirmReset
+            h1= 'Sign Up.'
+            p 
+                span!="You are on your way to <a href='/login'>Lab Yoking</a> with fellow researchers. "
+                span(class="labColor")="Registering "
+                span!="is a breeze! <span class='labColor'><b>All</b></span> fields are <span class='yokeColor'><b>required</b></span>."
+            div(id="ctl00_Div2" class="frontdiv")
+                if message
+                    div(class="alert alert-danger")!= message
+                form(action="/register" method="post")
+                    div(style="margin-bottom: 20px;")
+                        div(class="textentry")
+                            input(name="regfirstname" type="text" id="regfirstname" class="form-control" placeholder="First Name")
+                        div(class="textentry")
+                            input(name="reglastname" type="text" id="lastname" class="form-control" placeholder="Last Name")
+                    div(style="margin-bottom: 20px;")
+                        div(class="textentry")
+                            input(name="regemail" type="text" id="regemail" class="form-control" placeholder="Email Address")
+                        div(class="textentry")
+                            input(name="regtel" type="text" id="tel" class="form-control" placeholder="Telephone")
+                    div(class="buttons")
+                        button.btn.btn-success.btn-lg.btn-block(type='submit',style='width:85%') Next
+                        img(src="/images/add.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; height:57px; margin-top: -45px; float: right;")  
+
+        if labentered
+            h1= 'Almost there.'
+            p Now... Tell us more about yourself!
+            div(id="ctl00_Div2" class="frontdiv")
+                if message
+                    div(class="alert alert-danger")!= message
+                form(action="/register" method="post")
+                    div(style="margin-bottom: 20px;")
+                        div(class="textentry")
+                            input(name="reguser" type="text" id="reguser" class="form-control" placeholder="Username" style="border-color:#8a6d3b")
+                        div(class="textentry")
+                            input(name="regpass" type="password" id="regpass" class="form-control" placeholder="Password" style="border-color:#8a6d3b")
+                        div(class="textentry")
+                            input(name="regverpass" type="password" id="regverpass" class="form-control" placeholder="Verify Password" style="border-color:#8a6d3b")
+
+                    div(style="margin-bottom: 20px;")
+                        div(class="textentry")
+                            select(name="reglab" type="text" id="reglab" class="form-control" style="border-color:#3d9dcb" placeholder="Lab")
+                             if(labs != undefined)
+                                 - var ob = labs
+                                 - for(var prop in ob)
+                                   - var lab = ob[prop].labname
+                                   option(value=lab) #{lab}
+                            div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
+                                div(class="arrow-up")
+                                div(class="arrow-down")
+                        input(name="regfirstname" type="hidden" id="regfirstname" value=firstname)
+                        input(name="reglastname" type="hidden" id="reglastname" value=lastname)
+                        input(name="regemail" type="hidden" id="regemail" value=email)
+                        input(name="regtel" type="hidden" id="regtel" value=tel)
+                    div(class="buttons")
+                        //input(type="submit" class="button" value="Register")
+                        button.btn.btn-success.btn-lg.btn-block(type='submit',style='width:85%') Start Lab Yoking
+                        img(src="/images/add.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -45px; float: right;")
+            
+        if regsuccess && !labentered
+                div(id="ctl00_Div2" class="frontdiv")
+                    span(style="text-align: center")
+                        h3="Thanks for pre-registering"
+                            span(style="color: #3d9dcb;")=" " + regsuccess + "!"
+                        h4="We have sent you an email to "
+                            span(class="labColor")="complete"
+                            span=" your registration. "
+        if confirmReset
+                div(id="ctl00_Div2" class="frontdiv")
+                    span(style="text-align: center")
+                        h3="Thanks for registering"
+                            span(style="color: #3d9dcb;")=" " + regsuccess + "!"
+                        h4="You can now start "
+                            a(href="/search")="searching"
+                            span=" or "
+                            a(href="/share")="sharing"
+                            span=" your own chemicals."        
+    script.
+      $(document).ready(function(){
+        $('#tel').mask("(999) 999-9999");
+      }); 

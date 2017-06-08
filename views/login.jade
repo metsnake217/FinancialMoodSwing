@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+    div(class="container login front", style="margin-top: 5%;")
+         div(style="text-align: center;position: relative;")
+             a(href="/querytool")
+                img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo")
+             h1= 'Hello Sys Admins.'
+             p="Welcome to LabYoke Admin. You are one step away from managing useful entities!"
+         div(id="ctl00_Div2" class="frontdiv results")
+           div
+            if message
+                div(class="alert alert-danger fade in alert-dismissable")!= message
+            form(action="/login" method="post")
+                div(class="textentry")
+                    input(name="user" type="text" id="user" class="form-control placeholderColor" placeholder="Username" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+                div(class="textentry")
+                    input(name="pass" type="password" id="pass" class="form-control placeholderColor" placeholder="Password" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+                div(class="buttons")
+                    //input(type="submit" class="button" value="Get in")
+                    button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Get in
+                    img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+            div(style="max-width: 550px;margin-top: 10px;")
+                span(class="floatleft")
+                    a(href="https://team-labyoke.herokuapp.com/login", style="z-index:10")="Labyoke"
+                span(style="float:right;")
+                    a(href="/forgot", style="z-index:10")="Forgot password"
+    div(class="help")
+       a(href="/help" title="Help")
+        img(src="images/bouee3.png", alt="Help", title="Help", class="helplogin")

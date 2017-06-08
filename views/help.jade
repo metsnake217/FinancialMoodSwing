@@ -1,0 +1,87 @@
+extends layout
+
+block content
+                           
+ div(class="container")
+   - if (loggedIn!=true)
+    div(class="fronthelp")
+       a(href="/querytool")
+         img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo")
+   - if (loggedIn==true)
+    div(class="fronthelp", style="margin-top: 15px;")
+      a(href="/search")
+        img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo", style="width: 209px;height: 143.78px;")
+   div
+    div
+     //img(src="/images/referee.png" alt="" style="border-width:0px; width: 250px;float: right;")
+     h1!= title + "."
+     div(style="text-align:center; color:white;margin-top: 15px;").alert.alert-warning.labColorBackground
+      h3(style="margin-top: 10px;")="What is LabYoke?!"
+     div.pointsLayout.alert.results
+        span="LabYoke is a web based software application that links multiple labs together within a department to share chemicals and reagents. Utilizing LabYoke will allow students and trainees to share lab reagents which will help lower costs and save time making experiments more efficient."
+
+     div(style="text-align:center; color:white;margin-top: 15px;").alert.alert-warning.labColorBackground
+      h3(style="margin-top: 10px;")="How To LabYoke?!"
+     p!= "You have to come to the right place to share your chemicals with your colleagues in a fun and efficient environment."
+     
+
+     h3!= "This is how it works:"
+     h1()
+        //span!= 'Order system'
+     div.pointsLayout.alert.results
+      span="Each department registers to use the web app. Each lab or group designates an administrator (lab manager or technician) who will upload an Excel file containing all of the chemicals and reagents ordered within the past 1-2 years. Each lab member within the department can create a user name and login to search through a cumulative department inventory before they make an order."
+      span="This generates a searchable inventory database linked with location and contact information which can be used to complete and experiment or procedure while you are waiting on a reagent or chemical to arrive or if you wish to try a product before you buy it. This database can also be used to identify chemicals, products and reagents which are routinely ordered and could possibly be ordered in bulk to save money by purchasing larger orders and reducing shipping costs."
+     div.pointsLayout.alert.alert-success
+      span!="This web app will also <b>reduce institution wide emails</b> requesting a reagent or help, allow people to use LabYoke as a <b>social interface</b>. The most important feature is that it can be used to <b>reduce purchasing prices</b>. A number of lab chemicals and reagents have an expiration date, and this will allow enzymes and perishable products to be used to completion through sharing. You can also use this web app to help identify items that you might want to consider buying in bulk to reduce shipping fees, or buying a larger quantity and sharing the reagent or chemical amongst the department. Lastly having an uploaded searchable database can also be used by environmental health and safety teams to <b>identify potentially hazardous chemicals</b> and biological reagents and link these purchases with a location."
+
+     h3 Reagent Search Results Sample:
+     ul(class="pointsLayout")
+         table(class="table table-striped table-responsive table-hover" )
+           thead
+              tr
+                 th!='Reagent'
+                 th!='Vendor'
+                 th!='Location'
+                 th!='Order'
+           tbody
+              tr
+                 td!= "reagent1"
+                 td!= "vendor1"
+                 td!= "James Hewitt"
+                 td
+                  span
+                    img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")
+              tr
+                 td!= "reagent2"
+                 td!= "vendor2"
+                 td!= "Marge Harvey"
+                 td
+                  span
+                    img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")
+              tr
+                 td!= "reagent3"
+                 td!= "vendor3"
+                 td!= "Meghan Jones"
+                 td
+                  span
+                    img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")
+              tr
+                 td!= "reagent3"
+                 td!= "vendor3"
+                 td!= "Laura Willet"
+                 td
+                  span
+                    img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")
+              tr
+                 td!= "reagent4"
+                 td!= "vendor4"
+                 td!= "Mark Mitchelson"
+                 td
+                  span
+                    img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")                                                           
+     if (loggedIn==true)
+        p.alert.alert-success
+           span!= ''+labyoker +', you can of course always reach us at:'
+           a(href="mailto:labyoke@gmail.com")!= ' labyoke@gmail.com <br/>'
+               
+               

@@ -1,0 +1,107 @@
+extends layout
+
+block content
+  div(id="ios-light")
+    center
+      p(id="disableText")
+      div
+        div(id="actionorder" class="exit" style="width: 50%; float: left; background-color: rgba(138, 109, 59, 0.55);")="OK"
+        div(class="exit" id="actioncancel")="Cancel"
+  div(class="shade" id="shade")
+  div(class="shade-light" id="shade-light")
+  div(class="container login marginbottom")
+    div
+      h1= 'Users.'
+      p!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
+      if users
+        if erroruser == "error1"
+            div(class="alert alert-danger fade in alert-dismissable")!= "This user has already been assigned to a lab. Please first select a new admin for the lab and try again."
+        if erroruser == "error2"
+            div(class="alert alert-danger fade in alert-dismissable")!= "There was an issue with updating the user. Please try again."
+        if transfermess == "fail"
+            div(class="alert alert-danger fade in alert-dismissable")!= "There was an issue transferring the user to a different lab"
+        if transfermess == "success"
+            div(class="alert alert-success fade in alert-dismissable")!= "You have successfully transferred the user <b>" + transferuser + "</b> to another lab."
+        if transfermess == "nochange"
+            div(class="alert alert-warning fade in alert-dismissable")!= "No change has been applied for the user <b>" + transferuser + "</b>. You have selected the same lab."
+        div(id="results")
+          div(id="ctl00_Div2" class="row rank")
+            div(class="table-responsive")                
+              table(id="rankTblload" class="table rankTbl")
+                thead
+                  tr(class="you info-best" style="font-weight: bold")
+                    td= 'id '
+                    td(class="wrapped desktabonly")!= 'Name'
+                    td(class="desktabonly")= 'Surname'
+                    td= 'Lab'
+                    td(class="desktabonly")= 'Email'
+                    td= 'Admin'
+                    td= 'Disable'
+                tbody
+                  -var ob = users
+                  -for(var prop in ob)
+                    - var checkedstr = false
+                    - var checkedstradmin = false
+                    - var isdisabled = ""
+                    - var isadminclass = ""
+                    - var disabled = parseInt(ob[prop].disable)
+                    - if(disabled == 0)
+                      - isdisabled = "yokeBackColor"
+                      - checkedstr = true
+                    - var isadmin = parseInt(ob[prop].admin)
+                    - if(isadmin == 1)
+                      - isadminclass = "labColor"
+                      - checkedstradmin = true
+                    tr(class= isadminclass + " " + isdisabled)
+                      td #{ob[prop].id}
+                      td(class="wrapped desktabonly") #{ob[prop].name}
+                      td(class="desktabonly") #{ob[prop].surname}
+                      td(class="wrapped")
+                        form(action="/transferusertolab" method="post" id="transform")
+                          select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
+                            option(value"selectlabnameedit")="Select a Lab"
+                            - if(labs != undefined)
+                              - for(var pr in labs)
+                                - var lab = labs[pr].labname
+                                - var checkedstrLab = false;
+                                - if(lab == ob[prop].lab)
+                                  - checkedstrLab = true
+                                option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
+                          input(type="hidden" name="id" value=ob[prop].id)
+                          input(type="hidden" name="name" value=ob[prop].name)
+                          input(type="hidden" name="surname" value=ob[prop].surname)
+                          input(type="hidden" name="oldlab" value=ob[prop].lab)
+                          input(type="hidden" name="email" value=ob[prop].email)
+                          div(style="top: -35px;position: relative;float: right;margin-right: 10px;")
+                            div(class="arrow-up", style="margin-bottom: 5px;")
+                            div(class="arrow-down")
+                      td(class="desktabonly") #{ob[prop].email}
+                      td
+                        - if(isadmin != 2)
+                            form(action="/isadmin" method="post")
+                              input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+                              input(type="hidden" name="id" value=ob[prop].id)
+                              input(type="hidden" name="name" value=ob[prop].name)
+                              input(type="hidden" name="surname" value=ob[prop].surname)
+                              input(type="hidden" name="email" value=ob[prop].email)
+                              input(type="hidden" name="admin" value=ob[prop].admin)
+                      td
+                        form(action="/disable" method="post")
+                          input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
+                          input(type="hidden" name="id" value=ob[prop].id)
+                          input(type="hidden" name="name" value=ob[prop].name)
+                          input(type="hidden" name="surname" value=ob[prop].surname)
+                          input(type="hidden" name="email" value=ob[prop].email)
+              script.
+                $(document).ready(function() {
+                  $('#rankTblload').DataTable();
+                $(".labnameedit").on('change', function () {
+                    console.log("changing lab " + $(this).val());
+                    console.debug($(this).parent());
+                    $(this).parent().submit();
+                  });
+
+                });
+
+      if !users
+        div(class="alert alert-danger")!= "No Users have registered"

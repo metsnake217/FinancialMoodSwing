@@ -1,0 +1,160 @@
+doctype html
+html(lang='en')
+   head
+     title= 'Admin LabYoke - ' + title
+     link(href='/css/animate.css', rel='stylesheet')
+     link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css")
+     link(href='/css/popup.css', rel='stylesheet')
+     link(href='/css/bootstrap.css', rel='stylesheet')
+     link(href='/css/bl.css', rel='stylesheet')
+     link(href='/css/fontello.css', rel='stylesheet')
+     link(href='/css/font-awesome.css', rel='stylesheet')
+     link(href='/css/animation.css', rel='stylesheet')
+     if (title=='Users')
+       link(href='/css/normalize.css', rel='stylesheet')
+       link(href='/css/component.css', rel='stylesheet')
+       link(href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet')
+     if (title=='Orders')
+      link(href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet')
+     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+     meta(http-equiv='X-UA-Compatible', content='IE=edge')
+     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=0')
+     meta(name='robots', content='noindex, nofollow')
+     link(rel='shortcut icon', href='/images/BLlogin.png')
+     script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+     script(type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js")
+     if (title=='Share')
+       script(type="text/javascript" src="/javascripts/canvas2svg.js")
+       script(type="text/javascript" src="/javascripts/jvenn.min.js")
+       script(type="text/javascript" src="/javascripts/jquery.twbsPagination.min.js")
+     link(rel="shortcut icon" href="/images/adminico.png" type="image/x-icon")
+     link(rel="icon" href="/images/adminico.png" type="image/x-icon")
+
+     if scripts
+       each script in scripts
+          script(type='text/javascript', src=script)
+   - var user = labyoker
+
+   - var sharesnumber = sharesnum
+   - var ordersnumber = ordersnum
+   - var ordersnumclass = "num"
+   - var sharesnumclass = "num"
+   - if(sharesnumber == null || sharesnumber == undefined)
+       - sharesnumber = 0
+   - if(ordersnumber == null || ordersnumber == undefined)
+       - ordersnumber = 0
+   - if(sharesnumber != null && sharesnumber <10)
+        - sharesnumclass = "num"
+   - else if(sharesnumber != null && sharesnumber <100)
+        - sharesnumclass = "num greatherthannine"
+   - else if(sharesnumber != null && sharesnumber <1000)
+        - sharesnumclass = "num greatherthanninetynine"
+
+   - if(ordersnumber != null && ordersnumber <10)
+        - ordersnumclass = "num"
+   - else if(ordersnumber != null && ordersnumber <100)
+        - ordersnumclass = "num greatherthannine"
+   - else if(ordersnumber != null && ordersnumber <1000)
+        - ordersnumclass = "num greatherthanninetynine"
+   - if(user != null && user != undefined && user.length>11)
+        - user = user.substring(0, 8)
+        - if(user.substring(8,8) == " ")
+           - user = user.substring(0,7)
+   body(class=loggedIn)
+     if (loggedIn==true)
+        .navbar.navbar-inverse.navbar-fixed-top.adjustnav(role='navigation')
+            .container.nobottom
+                .navbar-header(style="float:left; margin-left:auto;")
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
+                        
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+
+                    - activateReports = "addMargin "
+                    - activateDepartments = "addMargin "
+                    - activateTool = "addMargin "
+                    - activateHelp = "addMargin "
+                    - activateAbout = "addMargin "
+                    - activateUsers = "addMargin "
+                    - activateAccount = "account-border addMargin "
+                    - activateAdmin = "addMargin "
+                    - if (title == 'Reports')
+                        - activateReports = activateDepartments + "yokeBackColor"
+                    - if (title == 'Departments')
+                        - activateDepartments = activateDepartments + "yokeBackColor"
+                    - if (title == 'Query Tool')
+                        - activateTool = activateTool + "yokeBackColor"
+                    - if (title == 'Help')
+                        - activateHelp = activateHelp + "yokeBackColor"
+                    - if (title == 'Users')
+                        - activateUsers = activateUsers + "yokeBackColor"
+                    - if (title == 'Account')
+                        - activateAccount = activateAccount + "yokeBackColor"
+                    - if (title == 'About Us')
+                        - activateAbout = activateAbout + "yokeBackColor"
+
+                .collapse.navbar-collapse
+                    div.adjustWidthSearch(style="float:left")
+                        - adjustWidth = ""
+                        - menuaccount = "menumyaccountadmin"
+                        if(isLoggedInAdmin == false)
+                            - adjustWidth =  "width: 111px;"
+                            - menuaccount = "menumyaccount"
+                        ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
+                            li(class=activateTool)
+                                a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
+                                    span(class="fa fa-search colmenu")
+                                    span=" Tool"
+                            
+                    div(class="paddingMobile")
+                        ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
+                            li(class=activateDepartments)
+                                a(href="/departments",class="nav-menu",id="menushare")
+                                    span(class="fa fa-exchange colmenu")
+                                    span=" Labs & Deps"
+                            li(class=activateUsers)
+                                a(href="/users",class="nav-menu",id="menushare")
+                                    span(class="fa fa-ship colmenu")
+                                    span=" Users"
+                        ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
+                            li(class=activateAccount)
+                                a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
+                                    span(class="fa fa-cog colmenu")
+                                    span(class="desktabonly2")=" " + user + "'s"
+                                    span=" Profile"
+                            li(class=activateHelp)
+                                a(href='/help', class="nav-menu",id="menumyaccounta")
+                                    span(class="fa fa-anchor colmenu")
+                                    span!=" Help "
+                            li(class=activateAbout)
+                                a(href='/about', class="nav-menu",id="menumyaccounta")
+                                    span(class="fa fa-home colmenu")
+                                    span!=" Us "
+                    ul.nav.navbar-nav.navbar-right
+                        li(class="nav-menu-logout", style="cursor:pointer")
+                            a 
+                                span(style="margin-left: 5px;")="Logout"
+
+     block content
+     script(type="text/javascript" src="/javascripts/bootstrap.min.js")
+     script(type="text/javascript" src="/javascripts/popup.js")
+     if (title=='Users')
+       script(type="text/javascript" src="/javascripts/custom-file-input.js")
+     if (title=='Reports' || title=='Account' || title=='Register')
+       script(type="text/javascript" src="/javascripts/jquery.maskedinput.min.js")
+     - if (title!='Forgot Password' && title!='Register' && title!='About Us' && title!='Help' && title!='Login' && title!='Change Password')
+       div(style="position: relative;width: 100%;text-align: center;z-index: -1;")
+            img(src="/images/yoke4.png", alt="The Yoke", title="Yoke", class="yokelogofooter")
+       script.
+          var h = $(window).height() - 125;
+          $(".marginbottom").css("min-height",h);
+     div(style="margin-top: 40px; background-color: #8a6d3b; position: fixed;bottom: 0;width: 100%;")
+            div(style="color:white; text-align:center; font-size:11px;")="@labyoke"
+    script.
+        $(".nav-menu-logout").click(function() {
+                    $( this ).addClass( "animated hinge" );
+                    setTimeout(function() {
+                      window.location.href = "/logout";
+                    }, 2000);
+                    });

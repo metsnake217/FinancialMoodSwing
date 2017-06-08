@@ -1,0 +1,232 @@
+
+  
+@font-face{font-family:'TeXGyreAdventorBold';src:url("fonts/texgyreadventor-bold-webfont.eot");src:url("fonts/texgyreadventor-bold-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/texgyreadventor-bold-webfont.woff") format("woff"),url("fonts/texgyreadventor-bold-webfont.ttf") format("truetype"),url("fonts/texgyreadventor-bold-webfont.svg#TeXGyreAdventorBold") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'TeXGyreAdventorBoldItalic';src:url("fonts/texgyreadventor-bolditalic-webfont.eot");src:url("fonts/texgyreadventor-bolditalic-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/texgyreadventor-bolditalic-webfont.woff") format("woff"),url("fonts/texgyreadventor-bolditalic-webfont.ttf") format("truetype"),url("fonts/texgyreadventor-bolditalic-webfont.svg#TeXGyreAdventorBoldItalic") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'PTSansBoldItalic';src:url("fonts/pts76f-webfont.eot");src:url("fonts/pts76f-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/pts76f-webfont.woff") format("woff"),url("fonts/pts76f-webfont.ttf") format("truetype"),url("fonts/pts76f-webfont.svg#fonts/ptsansBoldItalic") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'PTSansRegular';src:url("fonts/pts55f-webfont.eot");src:url("fonts/pts55f-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/pts55f-webfont.woff") format("woff"),url("fonts/pts55f-webfont.ttf") format("truetype"),url("fonts/pts55f-webfont.svg#fonts/ptsansRegular") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'PTSansItalic';src:url("fonts/pts56f-webfont.eot");src:url("fonts/pts56f-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/pts56f-webfont.woff") format("woff"),url("fonts/pts56f-webfont.ttf") format("truetype"),url("fonts/pts56f-webfont.svg#fonts/ptsansItalic") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'PTSansBold';src:url("fonts/pts75f-webfont.eot");src:url("fonts/pts75f-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/pts75f-webfont.woff") format("woff"),url("fonts/pts75f-webfont.ttf") format("truetype"),url("fonts/pts75f-webfont.svg#fonts/ptsansBold") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:'TeXGyreAdventorRegular';src:url("fonts/texgyreadventor-regular-webfont.eot");src:url("fonts/texgyreadventor-regular-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/texgyreadventor-regular-webfont.woff") format("woff"),url("fonts/texgyreadventor-regular-webfont.ttf") format("truetype"),url("fonts/texgyreadventor-regular-webfont.svg#TeXGyreAdventorRegular") format("svg");font-weight:normal;font-style:normal}
+
+  input.score {
+  	width: 22px !important;
+  	font-size: 38.5px !important;
+  	height: 80px !important;
+  }
+  
+    input.advancing {
+  	width: 150px !important;
+  	font-size: 14.5px !important;
+  	height: 20px !important;
+  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'PTSansRegular', sans-serif;
+  font-size: 15px;
+}
+
+h1 {
+  font-family: 'TeXGyreAdventorBold', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #36185F;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+p {
+  color: #484848;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 0.9em 0;
+}
+
+.container {
+  width: 320px;
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+.footer {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #36185F;
+}
+
+.footer div {
+  padding: 20px 10px;
+  border-right: 5px solid #CC9933;
+  text-align: right;
+}
+
+
+.MainArea {
+  background-color: #fff;
+}
+
+.GroupLargeMargin {
+  margin: 10px;
+}
+
+.MainActionContainer  {
+  margin: 10px;
+}
+
+.GroupXLargeMargin {
+  color: #484848;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 31px;
+}
+
+.UsernamePasswordTable {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  margin: 0 auto;
+}
+
+.UsernamePasswordTable td {
+  text-align: right;
+  padding: 2px 10px;
+}
+
+.header {
+  padding: 6px;
+  background: white;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(10%, white), color-stop(100%, #F7F7F7));
+  background: -webkit-linear-gradient(white 10%,#F7F7F7);
+  background: -moz-linear-gradient(white 10%,#F7F7F7);
+  background: -o-linear-gradient(white 10%,#F7F7F7);
+  background: -ms-linear-gradient(white 10%,#F7F7F7);
+  background: linear-gradient(white 10%,#F7F7F7);
+}
+
+.buttons {
+  text-align: right;
+}
+
+.buttons input {
+  color: white;
+  text-transform: uppercase;
+  line-height: 25px;
+  margin: 3px 0 0 10px;
+  height: 25px;
+  background-color: #333;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  background-image: url("../images/arrow-yellow-fwd.png");
+  background-position: right center;
+  padding: 0 30px 0 15px;
+}
+
+@media (min-width: 640px) {
+    body {
+    height: auto;
+    background: #f1f1f1;
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 34px;
+  }
+  
+    .footer {
+    position: relative;
+    bottom: auto;
+  }
+    
+  .MainArea {
+    width: 640px;
+    margin: 0 auto;
+    margin-top: 12%;
+    border: 3px solid #e3e3e3;
+    background: #fff;
+  }
+  
+    .container {
+    width: 640px;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 3px solid #e3e3e3;
+    background: #fff;
+  }
+
+  .content {
+    padding: 30px;
+  }
+
+  .GroupLargeMargin {
+    margin: 30px 40px 10px 40px;
+  }
+
+  .MainActionContainer  {
+    margin: 10px 40px 40px 40px;
+  }
+
+  .TextSizeXLarge {
+    font-size: 34px;
+    line-height: 34px;
+  }
+  
+  .AdGroupEntry {
+    font-size: 10px;
+    font-style:italic;
+  }
+  
+  .AdGroupHeader {
+    font-size: 16px;
+    font-style:normal;
+  }
+
+  .UsernamePassword {
+
+  }
+  
+  .textentry
+  {
+  	width: 271px;
+      margin-left: 5px;
+      margin-bottom: 9px;
+      float: left;
+      
+  }
+
+    .textentry label {
+        color: #333;
+    }
+  
+  .failureNotification
+  {
+  	color:Red;
+  }
+  
+   .successNotification
+  {
+  	color:Green;
+  }
+  
+}
+
+@media (max-width: 770px) {
+  input.score {
+  	width: 42px !important;
+  	font-size: 18.5px !important;
+  	height: 40px !important;
+  }
+  
+}
