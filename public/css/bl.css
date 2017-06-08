@@ -22,14 +22,15 @@ body {
     display: inline-block;
     background-size: cover;*/
     padding: 10px;
+            position: relative;
+    float: left;
 }
 .cover:hover {
     cursor: pointer;
 }
 .cover.playing {
     /*border: 5px solid #e45343;*/
-        position: relative;
-    float: left;
+
 }
 .cannotplay{
     pointer-events: none;
