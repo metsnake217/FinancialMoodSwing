@@ -12,7 +12,7 @@ block content
         div(id="results")
         script(id="results-template" type="text/x-handlebars-template")
             {{#each albums.items}}
-            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/></div>
+            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input(type="checkbox" name="add" value="add" class="add" /></div>
             {{/each}}
 
     script.
