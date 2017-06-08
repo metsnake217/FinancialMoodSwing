@@ -33,8 +33,11 @@ block content
         };
 
         var searchAlbums = function (query) {
+            var bearer = "Bearer " + #{access_token};
+            console.log("access: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
+                headers: {'Authorization': bearer},
                 data: {
                     q: query,
                     type: 'album'

@@ -195,10 +195,12 @@ router.get('/refresh_token', function(req, res) {
   });
 
     router.get('/test', function(req, res) {
+      var access_token = body.access_token;
     res.render('test', {
       /*ordersnum: req.session.orders,
       sharesnum: req.session.shares,*/
       title : 'Test spotify',
+      access_token:access_token,
       /*loggedIn : req.session.loggedin,
       labyoker : req.session.user,
       isLoggedInAdmin: req.session.admin,*/
