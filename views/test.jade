@@ -60,9 +60,9 @@ block content
                         audioObject.pause();
                     }
                     fetchTracks(target.getAttribute('data-album-id'), function (data) {
-                        var preview = data.tracks.items[0].preview_url);
+                        var preview = data.tracks.items[0].preview_url;
                         if(preview != null){
-                        audioObject = new Audio(data.tracks.items[0].preview_url);
+                        audioObject = new Audio(preview);
                         audioObject.play();
                         target.classList.add(playingCssClass);
                         audioObject.addEventListener('ended', function () {
