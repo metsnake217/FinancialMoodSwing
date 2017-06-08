@@ -61,7 +61,7 @@ block content
                     }
                     fetchTracks(target.getAttribute('data-album-id'), function (data) {
                         var preview = data.tracks.items[0].preview_url;
-                        if(preview != null){
+                        //if(preview != null){
                         audioObject = new Audio(preview);
                         audioObject.play();
                         target.classList.add(playingCssClass);
@@ -71,9 +71,9 @@ block content
                         audioObject.addEventListener('pause', function () {
                             target.classList.remove(playingCssClass);
                         });
-                        } else {
-                            target.classList.add(noplayingClass);
-                        }
+                        //} else {
+                         //   target.classList.add(noplayingClass);
+                        //}
                     });
                 }
             }
