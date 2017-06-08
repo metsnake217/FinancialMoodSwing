@@ -194,6 +194,20 @@ router.get('/refresh_token', function(req, res) {
     res.redirect('/login');
   });
 
+    router.get('/test', function(req, res) {
+    res.render('test', {
+      /*ordersnum: req.session.orders,
+      sharesnum: req.session.shares,*/
+      title : 'Test spotify',
+      /*loggedIn : req.session.loggedin,
+      labyoker : req.session.user,
+      isLoggedInAdmin: req.session.admin,*/
+      menu : 'help',
+      title: 'Help'
+    });
+
+  });
+
   router.get('/', function(req, res) {
     //req.logout();
     //req.session.user = null;
