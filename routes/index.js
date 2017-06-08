@@ -58,7 +58,7 @@ module.exports = function(router) {
 
 var client_id = '7c7e3e774ee3460292e5fe3695819cb0'; // Your client id
 var client_secret = 'f3bbc2590f7143c5b8ffa3e5bf3c7698'; // Your secret
-var redirect_uri = 'https://financialmoodswing.herokuapp.com/callback'; // Your redirect uri
+var redirect_uri = 'https://financialmoodswing.herokuapp.com/callback/'; // Your redirect uri
 var stateKey = 'spotify_auth_state';
 
 
