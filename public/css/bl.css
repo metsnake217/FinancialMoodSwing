@@ -28,13 +28,14 @@ body {
 }
 .cover.playing {
     /*border: 5px solid #e45343;*/
-    border-bottom: 2px solid #3c763d;
-    width:120px;
 }
 .cannotplay{
     pointer-events: none;
    cursor: default;
+    background-color: #555;
 }
+
+
 
 
 
