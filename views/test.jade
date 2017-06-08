@@ -18,6 +18,7 @@ block content
         form(id="playlistfill-form")
             div(id="playlistres")
                 script(id="playlistres-template" type="text/x-handlebars-template")
+                    {{playlists}}
                     <select name="playSelect" type="text" id="playSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                     <option value="select playlist">Select Playlist</option>
                     {{#each playlists.items}}
@@ -65,7 +66,7 @@ block content
                 },
                 success: function (response) {
                     resultsPlaceholder.innerHTML = template(response);
-                    console.debug("success albums: " + response);
+                    console.log("success albums: " + resultsPlaceholder.innerHTML);
                 }
             });
         };
@@ -78,7 +79,7 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
-                    console.log("success play: " + response);
+                    console.log("success play: " + playlistresPlaceholder.innerHTML );
                 }
             });
         };
