@@ -17,10 +17,11 @@ body {
     margin-bottom: 20px;
 }
 .cover {
-    width: 300px;
+    /*width: 300px;
     height: 300px;
     display: inline-block;
-    background-size: cover;
+    background-size: cover;*/
+    padding: 10px;
 }
 .cover:hover {
     cursor: pointer;

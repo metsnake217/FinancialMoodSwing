@@ -81,7 +81,7 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/callback', function(req, res) {
-
+  console.log("inside callback0");
   // your application requests refresh and access tokens
   // after checking the state parameter
 
@@ -95,6 +95,7 @@ router.get('/callback', function(req, res) {
         error: 'state_mismatch'
       }));
   } else {
+    console.log("inside callback0");
     res.clearCookie(stateKey);
     var authOptions = {
       url: 'https://accounts.spotify.com/api/token',
@@ -209,8 +210,8 @@ router.get('/refresh_token', function(req, res) {
       /*loggedIn : req.session.loggedin,
       labyoker : req.session.user,
       isLoggedInAdmin: req.session.admin,*/
-      menu : 'help',
-      title: 'Help'
+      menu : 'test',
+      title: 'Test'
     });
 
   });
