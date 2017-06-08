@@ -114,7 +114,7 @@ router.get('/callback', function(req, res) {
 
         var access_token = body.access_token,
             refresh_token = body.refresh_token;
-
+        req.session.access = access_token;
         var options = {
           url: 'https://api.spotify.com/v1/me',
           headers: { 'Authorization': 'Bearer ' + access_token },
@@ -195,7 +195,7 @@ router.get('/refresh_token', function(req, res) {
   });
 
     router.get('/test', function(req, res) {
-      var access_token = body.access_token;
+      var access_token = req.session.access;
     res.render('test', {
       /*ordersnum: req.session.orders,
       sharesnum: req.session.shares,*/
