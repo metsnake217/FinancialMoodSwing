@@ -4,19 +4,27 @@ extends layout
 block content
 
     div(class="container")
+        h1!= "Create a Playlist"
+        p!= "Type a playlist name and click on 'Create'."
+        form(id="playlist-form")
+            input(type="text" id="query" value="" class="form-control" placeholder="Type Playlist title")
+            input(type="submit" id="createplaylit" class="btn btn-primary" value="Create")
         h1!= "Search for an Artist"
-        p!= "Type an artist name and click on 'Search'. Then, click on any album from the results to play 30 seconds of its first track."
+        p!= "Type an artist name and click on 'Search'. Then, click on any album from the results to play 30 seconds of its first track if available."
         form(id="search-form")
             input(type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
             input(type="submit" id="search" class="btn btn-primary" value="Search")
         div(id="results")
-        form(id="playlist-form", style="display:none;height:1000px")
-            input(type="text" id="query" value="" class="form-control" placeholder="Type Playlist title")
-            input(type="submit" id="createplaylit" class="btn btn-primary" value="Create")
-            script(id="results-template" type="text/x-handlebars-template")
-                {{#each albums.items}}
-                <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /></div>
-                {{/each}}
+            form(id="playlistfill-form")
+                script(id="results-template" type="text/x-handlebars-template")
+                    <select name="chartSelect" type="text" id="chartSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                    {{#each playlists.items}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                    </select>
+                    {{#each albums.items}}
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /></div>
+                    {{/each}}
 
     script.
         var bearer = "Bearer " + "#{access_token}";
@@ -47,6 +55,17 @@ block content
                     q: query,
                     type: 'album'
                 },
+                success: function (response) {
+                    resultsPlaceholder.innerHTML = template(response);
+                }
+            });
+        };
+
+        var searchPlaylists = function (query) {
+            console.log("access token in playlists: " + bearer);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/playlists',
+                headers: {'Authorization': bearer},
                 success: function (response) {
                     resultsPlaceholder.innerHTML = template(response);
                 }
@@ -86,4 +105,5 @@ block content
             e.preventDefault();
             document.getElementById('playlist-form').style.display = "block";
             searchAlbums(document.getElementById('query').value);
+            searchPlaylists();
         }, false);
