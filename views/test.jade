@@ -16,6 +16,7 @@ block content
             {{/each}}
 
     script.
+        var bearer = "Bearer " + "#{access_token}";
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -26,6 +27,7 @@ block content
         var fetchTracks = function (albumId, callback) {
             $.ajax({
                 url: 'https://api.spotify.com/v1/albums/' + albumId,
+                headers: {'Authorization': bearer},
                 success: function (response) {
                     callback(response);
                 }
@@ -33,7 +35,6 @@ block content
         };
 
         var searchAlbums = function (query) {
-            var bearer = "Bearer " + "#{access_token}";
             console.log("access: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
