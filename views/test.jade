@@ -53,6 +53,7 @@ block content
         };
 
         var searchAlbums = function (query) {
+            console.log("looking for albums");
             console.log("access: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
@@ -67,7 +68,8 @@ block content
             });
         };
 
-        var searchPlaylists = function (query) {
+        var searchPlaylists = function () {
+            console.log("looking for playlists");
             console.log("access token in playlists: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/playlists',
