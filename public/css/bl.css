@@ -58,6 +58,7 @@ body {
     position: relative;
     float: left;
     width: 130px;
+    height:250px;
 }
 .covering:hover {
     cursor: pointer;
