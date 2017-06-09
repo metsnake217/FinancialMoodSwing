@@ -65,22 +65,33 @@ block content
                     type: 'album'
                 },
                 success: function (response) {
-                    var res = [];
+                    var res = {'results':[]};
+                    var album = {'albumid':"",'albumimage':"",'tracks':[]};
+                    var tracks = [];
+
                     console.log("response albums items: ");
                     console.dir(response.albums.items);
                     var items = response.albums.items;
+
                     var i=0;
                     for(var j in response.albums.items){
+
                     var item = items[i];
                     console.dir(item);
-                    console.dir(item.id);
+                    album.albumid=item.id;
+                    album.albumimage=item.images.0.url;
+                    
 
                     fetchTracks(item.id, function (data) {
-                        res.push(data.tracks.items);
+                        tracks.push(data.tracks.items);
                     });
-                       i++; 
+                       i++;
+                       album.tracks = tracks;
+                       console.log("album");
+                        console.dir(album);
+                       res.results.push(album);
                         //console.log("jeux length: " + res.jeux.length);
-                        console.log("res length: " + res.length);
+                        console.dir("res length: " + res);
 
                     }
                     console.log("res is:");
