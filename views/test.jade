@@ -26,8 +26,8 @@ block content
                     </select>
             div(id="results")
                 script(id="results-template" type="text/x-handlebars-template")
-                    {{#each albums.items}}
-                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
+                    {{#each results}}
+                    <div style="/*background-image:url({{albumimage}})*/" data-album-id="{{albumid}}" class="covering"><img data-album-id="{{albumid}}" src="{{albumimage}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{albumid}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
@@ -96,7 +96,7 @@ block content
                     }
                     console.log("res is:");
                     console.dir(res);
-                    resultsPlaceholder.innerHTML = template(response);
+                    resultsPlaceholder.innerHTML = template(res);
                     console.log("success albums: " + resultsPlaceholder.innerHTML);
                 }
             });
