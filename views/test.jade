@@ -34,8 +34,6 @@ block content
                     {{/each}}
                     {{#each tracks.items}}
                     <div data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select>
-                    script(id="audio-template" type="text/x-handlebars-template")
-                        <span title="{{displayTitle this}}">Details</span>
                     </div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
@@ -51,10 +49,10 @@ block content
             audioObject = null,
             templateSourceplay = document.getElementById('playlistres-template').innerHTML,
             templateplay = Handlebars.compile(templateSourceplay),
-            playlistresPlaceholder = document.getElementById('playlistres'),
-            templateSourceaud = document.getElementById('audio-template').innerHTML,
-            templateaud = Handlebars.compile(templateSourceaud),
-            audPlaceholder = document.getElementById('audio');
+            playlistresPlaceholder = document.getElementById('playlistres');
+            //templateSourceaud = document.getElementById('audio-template').innerHTML,
+            //templateaud = Handlebars.compile(templateSourceaud),
+            //audPlaceholder = document.getElementById('audio');
 
         var fetchTracks = function (albumId, callback) {
             $.ajax({
