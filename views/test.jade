@@ -67,9 +67,9 @@ block content
                 success: function (response) {
                     var res = {};
                     res.jeux = [];
-                    console.log("response albums items: " + response.items.length);
+                    //console.log("response albums items: " + response.items.length);
                     console.log("response albums items0: " + response.length);
-                    for(var item in response.items){
+                    for(var item in response){
                         res.push(
                     fetchTracks(target.getAttribute(item.id), function (data) {
                         res.jeux.push(data.tracks.items);
