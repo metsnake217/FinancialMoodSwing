@@ -27,13 +27,13 @@ block content
             div(id="results")
                 script(id="results-template" type="text/x-handlebars-template")
                     {{#each albums.items}}
-                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
                     {{#each artists.items}}
-                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
                     {{#each tracks.items}}
-                    <div data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
+                    <div data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
@@ -118,6 +118,11 @@ block content
                     });
                 }
             }
+        });
+
+        Handlebars.registerHelper('trimString', function(passedString) {
+            var theString = passedString.substring(0,25);
+            return new Handlebars.SafeString(theString)
         });
 
         document.getElementById('search-form').addEventListener('submit', function (e) {
