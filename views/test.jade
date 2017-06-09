@@ -70,9 +70,11 @@ block content
                     console.dir(response.albums.items);
                     var items = response.albums.items;
                     var i=0;
-                    for(var item in response.albums.items){
-                    console.dir(items[i]);
-                    
+                    for(var j in response.albums.items){
+                    var item = items[i];
+                    console.dir(item);
+                    console.dir(item.id);
+
                     fetchTracks(item.id, function (data) {
                         res.jeux.push(data.tracks.items);
                     });
