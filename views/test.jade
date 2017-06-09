@@ -89,18 +89,19 @@ block content
                         console.log("data:");
                         console.dir(data)
                         tracks.push(data.tracks.items);
-                        console.log("tracks:");
+                        console.log("tracks0:");
                         console.dir(tracks);
-                        album.tracks = tracks;
+                    });
+                       i++;
+
+                       console.log("tracks1:");
+                        console.dir(tracks);
+                       album.tracks = tracks;
                        console.log("album:");
                         console.dir(album);
                        res.results.push(album);
                         console.log("res: ");
                         console.dir(res);
-                    });
-                       i++;
-
-                       
 
                     }
                     console.log("res is:");
