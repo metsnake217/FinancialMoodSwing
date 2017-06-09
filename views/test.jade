@@ -26,8 +26,8 @@ block content
                     </select>
             div(id="results")
                 script(id="results-template" type="text/x-handlebars-template")
-                    {{#each results}}
-                    <div style="/*background-image:url({{albumimage}})*/" data-album-id="{{albumid}}" class="covering"><img data-album-id="{{albumid}}" src="{{albumimage}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{albumid}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
+                    {{#each albums.items}}
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
@@ -62,60 +62,12 @@ block content
                 headers: {'Authorization': bearer},
                 data: {
                     q: query,
-                    type: 'album'
+                    type: 'album,track,artist'
                 },
                 success: function (response) {
-                    var res = {'results':[]};
-                    
-                    
-
-                    console.log("response albums items: ");
-                    console.dir(response.albums.items);
-                    var items = response.albums.items;
-
-                    var i=0;
-                    for(var j in response.albums.items){
-                    var album = {'albumid':"",'albumimage':"",'tracks':[]};
-                    var tracks = [];
-                    console.log("i: " + i);
-                    var item = items[i];
-                    console.dir(item);
-                    album.albumid=item.id;
-                    album.albumimage=item.images[0].url;
-                    
-            $.ajax({
-                url: 'https://api.spotify.com/v1/albums/' + item.id,
-                headers: {'Authorization': bearer},
-                success: function (response) {
-                    tracks.push(response.tracks.items);
-                    console.log("tracks0:");
-                    console.dir(tracks);
-                }
-            });
-
-                   /* fetchTracks(item.id, function (data) {
-                        console.log("data:");
-                        console.dir(data)
-                        tracks.push(data.tracks.items);
-                        console.log("tracks0:");
-                        console.dir(tracks);
-                    });*/
-                       i++;
-
-                       console.log("tracks1:");
-                        console.dir(tracks);
-                       album.tracks = tracks;
-                       console.log("album:");
-                        console.dir(album);
-                       res.results.push(album);
-                        console.log("res: ");
-                        console.dir(res);
-
-                    }
-                    console.log("res is:");
-                    console.dir(res);
-                    resultsPlaceholder.innerHTML = template(res);
+                    resultsPlaceholder.innerHTML = template(response);
                     console.log("success albums: " + resultsPlaceholder.innerHTML);
+                    console.dir(response);
                 }
             });
         };
