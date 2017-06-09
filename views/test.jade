@@ -68,12 +68,15 @@ block content
                     var res = {jeux:[]};
                     console.log("response albums items: ");
                     console.dir(response.albums.items);
+                    var items = response.albums.items;
+                    var i=0;
                     for(var item in response.albums.items){
-                    console.dir(item);
+                    console.dir(items[i]);
+                    
                     fetchTracks(item.id, function (data) {
                         res.jeux.push(data.tracks.items);
                     });
-                        
+                       i++; 
                         //console.log("jeux length: " + res.jeux.length);
                         //console.log("res length: " + res.length);
 
