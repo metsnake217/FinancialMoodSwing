@@ -55,8 +55,9 @@ body {
     display: inline-block;
     background-size: cover;*/
     padding: 10px;
-            position: relative;
+    position: relative;
     float: left;
+    width: 130px;
 }
 .covering:hover {
     cursor: pointer;
