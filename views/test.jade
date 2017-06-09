@@ -65,6 +65,18 @@ block content
                     type: 'album'
                 },
                 success: function (response) {
+                    var res = {};
+                    res.jeux = [];
+                    for(var item in response.items){
+                        res.push(
+                    fetchTracks(target.getAttribute(item.id), function (data) {
+                        res.jeux.push(data.tracks.items);
+                    })
+                        );
+                        console.log("jeux length: " + res.jeux.length);
+                        console.log("res length: " + res.length);
+
+                    }
                     resultsPlaceholder.innerHTML = template(response);
                     console.log("success albums: " + resultsPlaceholder.innerHTML);
                 }
