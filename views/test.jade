@@ -79,7 +79,7 @@ block content
                     var item = items[i];
                     console.dir(item);
                     album.albumid=item.id;
-                    album.albumimage=item.images.0.url;
+                    album.albumimage=item.images[0].url;
                     
 
                     fetchTracks(item.id, function (data) {
