@@ -65,10 +65,10 @@ block content
                     type: 'album'
                 },
                 success: function (response) {
-                    var res = {};
+                    var res = {jeux:[]};
                     res.jeux = [];
                     //console.log("response albums items: " + response.items.length);
-                    console.log("response albums items0: " + response.length);
+                    console.log("response albums items: " + JSON.parse(response));
                     for(var item in response){
                         
                     fetchTracks(item.id, function (data) {
