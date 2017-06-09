@@ -91,15 +91,16 @@ block content
                         tracks.push(data.tracks.items);
                         console.log("tracks:");
                         console.dir(tracks);
-                    });
-                       i++;
-
-                       album.tracks = tracks;
+                        album.tracks = tracks;
                        console.log("album:");
                         console.dir(album);
                        res.results.push(album);
                         console.log("res: ");
                         console.dir(res);
+                    });
+                       i++;
+
+                       
 
                     }
                     console.log("res is:");
