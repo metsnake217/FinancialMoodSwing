@@ -70,11 +70,11 @@ block content
                     //console.log("response albums items: " + response.items.length);
                     console.log("response albums items0: " + response.length);
                     for(var item in response){
-                        res.push(
+                        
                     fetchTracks(item.id, function (data) {
                         res.jeux.push(data.tracks.items);
-                    })
-                        );
+                    });
+                        
                         console.log("jeux length: " + res.jeux.length);
                         console.log("res length: " + res.length);
 
