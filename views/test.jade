@@ -121,7 +121,12 @@ block content
         });
 
         Handlebars.registerHelper('trimString', function(passedString) {
-            var theString = passedString.substring(0,25);
+            var len = passedString.length;
+            var add = "";
+            if(len > 24){
+                add = "...";
+            }
+            var theString = passedString.substring(0,25) + add;
             return new Handlebars.SafeString(theString)
         });
 
