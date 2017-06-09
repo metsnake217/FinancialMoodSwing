@@ -15,7 +15,7 @@ block content
             input(type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
             input(type="submit" id="search" class="btn btn-primary" value="Search")
         
-        form(id="playlistfill-form", style="display:none")
+        form(id="playlistfill-form")
             div(id="playlistres")
                 script(id="playlistres-template" type="text/x-handlebars-template")
                     <select name="playSelect" type="text" id="playSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
@@ -29,7 +29,7 @@ block content
                     {{#each albums.items}}
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
                     {{/each}}
-            input(type="submit" style="margin: 0 auto;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
+            input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
     script.
         var bearer = "Bearer " + "#{access_token}";
@@ -115,7 +115,7 @@ block content
 
         document.getElementById('search-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            document.getElementById('playlist-form').style.display = "block";
+            document.getElementById('addtoplaylist').style.display = "block";
             searchAlbums(document.getElementById('query').value);
             searchPlaylists();
         }, false);
