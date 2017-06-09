@@ -87,9 +87,7 @@ block content
                 url: 'https://api.spotify.com/v1/albums/' + item.id,
                 headers: {'Authorization': bearer},
                 success: function (response) {
-                    console.log("data:");
-                    console.dir(data)
-                    tracks.push(data.tracks.items);
+                    tracks.push(response.tracks.items);
                     console.log("tracks0:");
                     console.dir(tracks);
                 }
