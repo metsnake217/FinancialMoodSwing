@@ -66,8 +66,8 @@ block content
                 },
                 success: function (response) {
                     var res = {'results':[]};
-                    var album = {'albumid':"",'albumimage':"",'tracks':[]};
-                    var tracks = [];
+                    
+                    
 
                     console.log("response albums items: ");
                     console.dir(response.albums.items);
@@ -75,11 +75,14 @@ block content
 
                     var i=0;
                     for(var j in response.albums.items){
+                    var album = {'albumid':"",'albumimage':"",'tracks':[]};
+                    var tracks = [];
                     console.log("i: " + i);
                     var item = items[i];
                     console.dir(item);
                     album.albumid=item.id;
                     album.albumimage=item.images[0].url;
+                    console.dir(album);
                     
 
                     fetchTracks(item.id, function (data) {
