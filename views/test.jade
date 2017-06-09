@@ -67,8 +67,8 @@ block content
                 success: function (response) {
                     var res = {jeux:[]};
                     res.jeux = [];
-                    //console.log("response albums items: " + response.items.length);
-                    console.log("response albums items: " + response);
+                    console.log("response albums items: ");
+                    console.dir(response);
                     for(var item in response){
                         
                     fetchTracks(item.id, function (data) {
