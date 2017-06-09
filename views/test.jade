@@ -82,13 +82,18 @@ block content
                     console.dir(item);
                     album.albumid=item.id;
                     album.albumimage=item.images[0].url;
-                    console.dir(album);
+                    
                     
 
                     fetchTracks(item.id, function (data) {
+                        console.log("data:");
+                        console.dir(data)
                         tracks.push(data.tracks.items);
+                        console.log("tracks:");
+                        console.dir(tracks);
                     });
                        i++;
+
                        album.tracks = tracks;
                        console.log("album:");
                         console.dir(album);
