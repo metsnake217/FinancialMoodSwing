@@ -24,6 +24,9 @@ body {
 
 .add{
     margin-left: 4px !important;
+    position: relative;
+    bottom: -70px;
+    right: 18px;
 }
 
 #search-form, .form-control {
