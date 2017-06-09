@@ -29,6 +29,7 @@ block content
                     {{#each albums.items}}
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div>
                     {{/each}}
+            input(type="submit" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
     script.
         var bearer = "Bearer " + "#{access_token}";
