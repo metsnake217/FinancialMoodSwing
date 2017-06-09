@@ -65,7 +65,7 @@ block content
                     type: 'album'
                 },
                 success: function (response) {
-                    var res = {jeux:[]};
+                    var res = [];
                     console.log("response albums items: ");
                     console.dir(response.albums.items);
                     var items = response.albums.items;
@@ -76,10 +76,10 @@ block content
                     console.dir(item.id);
 
                     fetchTracks(item.id, function (data) {
-                        res.jeux.push(data.tracks.items);
+                        res.push(data.tracks.items);
                     });
                        i++; 
-                        console.log("jeux length: " + res.jeux.length);
+                        //console.log("jeux length: " + res.jeux.length);
                         console.log("res length: " + res.length);
 
                     }
