@@ -151,6 +151,7 @@ block content
                                     headers: {'Authorization': bearer},
                                     success: function (features) {
                                         console.log("success audio: " + features);
+                                        console.dir(features);
                                         //audPlaceholder.innerHTML = templateaud(features);
                                 for(var feature in features){
                                 var feat = "";
