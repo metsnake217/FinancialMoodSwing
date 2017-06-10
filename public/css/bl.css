@@ -40,6 +40,19 @@ body {
   hyphens: auto;
       font-size: 9pt;
 }
+
+  [] {
+      cursor: default;
+      /*font: normal 1em sans-serif;*/
+  }
+
+  [data-tooltip]:hover:after {
+      display: block;
+      content: attr(data-tooltip);
+      white-space: pre-wrap;
+      /*color: #f00;*/
+  }
+
 .add{
     margin-left: 4px !important;
     position: relative;
