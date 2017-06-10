@@ -193,47 +193,48 @@ block content
             searchAlbums(document.getElementById('query').value);
             searchPlaylists();
         }, false);
-$( document ).ready(function() {
-var trackids = "";
-var i=0;
-$( "div[data-track-id]" ).each(function(){
-    if(i>0){
-    trackids += ",";
-    }
-    trackids += $(this).attr( 'data-track-id' );
-    i++;
-});
-    var testdata = $(this).data('test');
-
-            $.ajax({
-                url: 'https://api.spotify.com/v1/audio-features?ids=' + trackIds,
-                headers: {'Authorization': bearer},
-                success: function (features) {
-                    console.log("success audio: " + features);
-                    //audPlaceholder.innerHTML = templateaud(features);
-            for(var feature in features){
-            var feat = "";
-            feat +="Danceability: " + feature.danceability + "/r";
-            feat +="Energy: " + feature.energy + "/r";
-            feat +="Loudness: " + feature.loudness + "/r";
-            feat +="Mode: " + feature.mode + "/r";
-            feat +="Speechiness: " + feature.speechiness + "/r";
-            feat +="Acousticness: " + feature.acousticness + "/r";
-            feat +="Instrumentalness: " + feature.instrumentalness + "/r";
-            feat +="Liveness: " + feature.liveness + "/r";
-            feat +="Valence: " + feature.valence + "/r";
-            feat +="Tempo: " + feature.tempo + "/r";
-            console.log("feature: " + feat);
-            var findtrack = '#' + feature.id;
-            $(findtrack).find("title-"+feature.id).attr("title",feat);
-            console.dir($(findtrack).find("title-"+feature.id));
-            //console.debug($("#results").find(findtrack));
+        
+        $( document ).ready(function() {
+        var trackids = "";
+        var i=0;
+        $( "div[data-track-id]" ).each(function(){
+            if(i>0){
+            trackids += ",";
             }
+            trackids += $(this).attr( 'data-track-id' );
+            i++;
+        });
+            var testdata = $(this).data('test');
 
-                }
-            });
+                    $.ajax({
+                        url: 'https://api.spotify.com/v1/audio-features?ids=' + trackIds,
+                        headers: {'Authorization': bearer},
+                        success: function (features) {
+                            console.log("success audio: " + features);
+                            //audPlaceholder.innerHTML = templateaud(features);
+                    for(var feature in features){
+                    var feat = "";
+                    feat +="Danceability: " + feature.danceability + "/r";
+                    feat +="Energy: " + feature.energy + "/r";
+                    feat +="Loudness: " + feature.loudness + "/r";
+                    feat +="Mode: " + feature.mode + "/r";
+                    feat +="Speechiness: " + feature.speechiness + "/r";
+                    feat +="Acousticness: " + feature.acousticness + "/r";
+                    feat +="Instrumentalness: " + feature.instrumentalness + "/r";
+                    feat +="Liveness: " + feature.liveness + "/r";
+                    feat +="Valence: " + feature.valence + "/r";
+                    feat +="Tempo: " + feature.tempo + "/r";
+                    console.log("feature: " + feat);
+                    var findtrack = '#' + feature.id;
+                    $(findtrack).find("title-"+feature.id).attr("title",feat);
+                    console.dir($(findtrack).find("title-"+feature.id));
+                    //console.debug($("#results").find(findtrack));
+                    }
 
-    $(this).val(testdata);
+                        }
+                    });
 
-    console.log( "ready!" );
-});
+            $(this).val(testdata);
+
+            console.log( "ready!" );
+        });
