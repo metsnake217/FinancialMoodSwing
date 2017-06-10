@@ -162,7 +162,9 @@ block content
         });
 
         Handlebars.registerHelper('test', function(trackid) {
-            return new Handlebars.SafeString(fetchAudioFeature(trackid));
+            var i = fetchAudioFeature(trackid);
+            console.log("I is: " + i);
+            return new Handlebars.SafeString(i);
         });
 
         Handlebars.registerHelper('displayTitle', function(features) {
