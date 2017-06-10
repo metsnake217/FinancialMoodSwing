@@ -157,16 +157,16 @@ block content
                                 for(var featur in features.audio_features){
                                 var feat = "";
                                 var feature = features.audio_features[j];
-                                feat +="Danceability: " + feature.danceability + "<br>";
-                                feat +="Energy: " + feature.energy + "<br>";
-                                feat +="Loudness: " + feature.loudness + "<br>";
-                                feat +="Mode: " + feature.mode + "<br>";
-                                feat +="Speechiness: " + feature.speechiness + "<br>";
-                                feat +="Acousticness: " + feature.acousticness + "<br>";
-                                feat +="Instrumentalness: " + feature.instrumentalness + "<br>";
-                                feat +="Liveness: " + feature.liveness + "<br>";
-                                feat +="Valence: " + feature.valence + "<br>";
-                                feat +="Tempo: " + feature.tempo;
+                                feat +="<b>Danceability</b>: " + feature.danceability + "<br>";
+                                feat +="<b>Energy</b>: " + feature.energy + "<br>";
+                                feat +="<b>Loudness</b>: " + feature.loudness + "<br>";
+                                feat +="<b>Mode</b>: " + feature.mode + "<br>";
+                                feat +="<b>Speechiness</b>: " + feature.speechiness + "<br>";
+                                feat +="<b>Acousticness</b>: " + feature.acousticness + "<br>";
+                                feat +="<b>Instrumentalness</b>: " + feature.instrumentalness + "<br>";
+                                feat +="<b>Liveness</b>: " + feature.liveness + "<br>";
+                                feat +="<b>Valence</b>: " + feature.valence + "<br>";
+                                feat +="<b>Tempo</b>: " + feature.tempo;
                                 console.log("feature: " + feat);
                                 var findtrack = '#' + feature.id;
                                 //$("#title-"+feature.id).attr("data-tooltip",feat);
