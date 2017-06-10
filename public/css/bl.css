@@ -54,17 +54,16 @@ body {
       background-color: rgba(138, 109, 59, 0.70);
     font-size: 9pt;
     width: 135%;
-    padding: 10px;
       /*color: #f00;*/
 
     color: #fff;
     border-radius: 6px;
-    padding: 5px 0;
     /*height: 200px;*/
 
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
+    padding: 10px;
   }
 
 .add{
