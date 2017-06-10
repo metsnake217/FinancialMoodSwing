@@ -153,7 +153,7 @@ block content
                                         console.log("success audio: " + features);
                                         console.dir(features);
                                         //audPlaceholder.innerHTML = templateaud(features);
-                                for(var feature in features){
+                                for(var feature in features.audio_features){
                                 var feat = "";
                                 feat +="Danceability: " + feature.danceability + "/r";
                                 feat +="Energy: " + feature.energy + "/r";
