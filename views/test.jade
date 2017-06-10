@@ -139,7 +139,7 @@ block content
                         if(i>0){
                         trackids += ",";
                         }
-                        trackids += track.id;
+                        trackids += response.tracks.items[i].id;
                         i++;
                         }
                         console.dir(response.tracks.items);
