@@ -98,6 +98,7 @@ body {
 .tooltip2{
         margin: 0 auto;
     display: block;
+    text-align: center;
 }
 
 .add{
