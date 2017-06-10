@@ -33,7 +33,7 @@ block content
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
                     {{#each tracks.items}}
-                    <div data-track-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select><span id="title-{{id}}" data-tooltip="tooltip" title="">Features</span></div></div>
+                    <div data-track-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select><span id="title-{{id}}" data-tooltip="tooltip" rel="tooltip" title="">Features</span></div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
@@ -157,7 +157,7 @@ block content
                                 for(var featur in features.audio_features){
                                 var feat = "";
                                 var feature = features.audio_features[j];
-                                feat +="Danceability: " + feature.danceability + " &#xa; ";
+                                feat +="Danceability: " + feature.danceability + " <br> ";
                                 feat +="Energy: " + feature.energy + " &#xa; ";
                                 feat +="Loudness: " + feature.loudness + " &#013; ";
                                 feat +="Mode: " + feature.mode + " &#013; ";
