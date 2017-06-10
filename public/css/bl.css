@@ -72,9 +72,9 @@ body {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 10px;
+    bottom: 35px;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -85px;
     opacity: 0;
     transition: opacity 1s;
         font-size: 9pt;
@@ -94,6 +94,10 @@ body {
 .tooltip2:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+.tooltip2{
+        margin: 0 auto;
+    display: block;
 }
 
 .add{
