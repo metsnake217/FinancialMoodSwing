@@ -41,7 +41,7 @@ body {
       font-size: 9pt;
 }
 
-  [] {
+  [data-tooltip] {
       cursor: default;
       /*font: normal 1em sans-serif;*/
   }
