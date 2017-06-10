@@ -157,15 +157,15 @@ block content
                                 for(var featur in features.audio_features){
                                 var feat = "";
                                 var feature = features.audio_features[j];
-                                feat +="Danceability: " + feature.danceability + "&#xa;";
-                                feat +="Energy: " + feature.energy + "&#xa;";
+                                feat +="Danceability: " + feature.danceability + " \A ";
+                                feat +="Energy: " + feature.energy + " \A ";
                                 feat +="Loudness: " + feature.loudness + "&#xa;";
-                                feat +="Mode: " + feature.mode + "&#xa;";
-                                feat +="Speechiness: " + feature.speechiness + "&#xa;";
-                                feat +="Acousticness: " + feature.acousticness + "&#xa;";
-                                feat +="Instrumentalness: " + feature.instrumentalness + "&#xa;";
-                                feat +="Liveness: " + feature.liveness + "&#xa;";
-                                feat +="Valence: " + feature.valence + "&#xa;";
+                                feat +="Mode: " + feature.mode + " \A ";
+                                feat +="Speechiness: " + feature.speechiness + " \A ";
+                                feat +="Acousticness: " + feature.acousticness + " \A ";
+                                feat +="Instrumentalness: " + feature.instrumentalness + " \A ";
+                                feat +="Liveness: " + feature.liveness + " \A ";
+                                feat +="Valence: " + feature.valence + " \A ";
                                 feat +="Tempo: " + feature.tempo;
                                 console.log("feature: " + feat);
                                 var findtrack = '#' + feature.id;
