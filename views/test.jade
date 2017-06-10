@@ -33,7 +33,7 @@ block content
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
                     {{#each tracks.items}}
-                    <div data-album-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select><span title="{{test id}}">Features</span></div></div>
+                    <div data-track-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select><span id="title-{{id}}" title="">Features</span></div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
 
@@ -68,7 +68,7 @@ block content
                 url: 'https://api.spotify.com/v1/audio-features/' + trackId,
                 headers: {'Authorization': bearer},
                 success: function (features) {
-                    console.log("success audio");
+                    console.log("success audio: " + features);
                     //audPlaceholder.innerHTML = templateaud(features);
             var feat = "";
             feat +="Danceability: " + features.danceability + "/r";
@@ -193,3 +193,47 @@ block content
             searchAlbums(document.getElementById('query').value);
             searchPlaylists();
         }, false);
+$( document ).ready(function() {
+var trackids = "";
+var i=0;
+$( "div[data-track-id]" ).each(function(){
+    if(i>0){
+    trackids += ",";
+    }
+    trackids += $(this).attr( 'data-track-id' );
+    i++;
+});
+    var testdata = $(this).data('test');
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/audio-features?ids=' + trackIds,
+                headers: {'Authorization': bearer},
+                success: function (features) {
+                    console.log("success audio: " + features);
+                    //audPlaceholder.innerHTML = templateaud(features);
+            for(var feature in features){
+            var feat = "";
+            feat +="Danceability: " + feature.danceability + "/r";
+            feat +="Energy: " + feature.energy + "/r";
+            feat +="Loudness: " + feature.loudness + "/r";
+            feat +="Mode: " + feature.mode + "/r";
+            feat +="Speechiness: " + feature.speechiness + "/r";
+            feat +="Acousticness: " + feature.acousticness + "/r";
+            feat +="Instrumentalness: " + feature.instrumentalness + "/r";
+            feat +="Liveness: " + feature.liveness + "/r";
+            feat +="Valence: " + feature.valence + "/r";
+            feat +="Tempo: " + feature.tempo + "/r";
+            console.log("feature: " + feat);
+            var findtrack = '#' + feature.id;
+            $(findtrack).find("title-"+feature.id).attr("title",feat);
+            console.dir($(findtrack).find("title-"+feature.id));
+            //console.debug($("#results").find(findtrack));
+            }
+
+                }
+            });
+
+    $(this).val(testdata);
+
+    console.log( "ready!" );
+});
