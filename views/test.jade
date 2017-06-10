@@ -207,7 +207,7 @@ block content
             var testdata = $(this).data('test');
 
                     $.ajax({
-                        url: 'https://api.spotify.com/v1/audio-features?ids=' + trackIds,
+                        url: 'https://api.spotify.com/v1/audio-features?ids=' + trackids,
                         headers: {'Authorization': bearer},
                         success: function (features) {
                             console.log("success audio: " + features);
