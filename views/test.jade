@@ -162,6 +162,7 @@ block content
         });
 
         Handlebars.registerHelper('test', function(trackid) {
+            console.log("before fetch audio features");
             var i = fetchAudioFeature(trackid);
             console.log("I is: " + i);
             return new Handlebars.SafeString(i);
