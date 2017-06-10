@@ -153,8 +153,10 @@ block content
                                         console.log("success audio: " + features);
                                         console.dir(features);
                                         //audPlaceholder.innerHTML = templateaud(features);
-                                for(var feature in features.audio_features){
+                                        var j = 0;
+                                for(var featur in features.audio_features){
                                 var feat = "";
+                                var feature = features.audio_features[j];
                                 feat +="Danceability: " + feature.danceability + "/r";
                                 feat +="Energy: " + feature.energy + "/r";
                                 feat +="Loudness: " + feature.loudness + "/r";
@@ -170,6 +172,7 @@ block content
                                 $(findtrack).find("title-"+feature.id).attr("title",feat);
                                 console.dir($(findtrack).find("title-"+feature.id));
                                 //console.debug($("#results").find(findtrack));
+                                j++;
                                 }
 
                                     }
