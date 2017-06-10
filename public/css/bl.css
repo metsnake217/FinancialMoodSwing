@@ -51,6 +51,7 @@ body {
       content: attr(data-tooltip);
       white-space: pre-wrap;
       z-index: 9999999;
+      background-color: blue;
       /*color: #f00;*/
   }
 
