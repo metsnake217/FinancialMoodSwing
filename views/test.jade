@@ -33,7 +33,8 @@ block content
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
                     {{#each tracks.items}}
-                    <div data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select>
+                    <div data-album-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select>
+                    <span title="{{test id}}">Features</span>
                     </div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
@@ -68,9 +69,26 @@ block content
             $.ajax({
                 url: 'https://api.spotify.com/v1/audio-features/' + trackId,
                 headers: {'Authorization': bearer},
-                success: function (response) {
+                success: function (features) {
                     console.log("success audio");
-                    audPlaceholder.innerHTML = templateaud(response);
+                    //audPlaceholder.innerHTML = templateaud(features);
+            var feat = "";
+            feat +="Danceability: " + features.danceability + "/r";
+            feat +="Energy: " + features.energy + "/r";
+            feat +="Loudness: " + features.loudness + "/r";
+            feat +="Mode: " + features.mode + "/r";
+            feat +="Speechiness: " + features.speechiness + "/r";
+            feat +="Acousticness: " + features.acousticness + "/r";
+            feat +="Instrumentalness: " + features.instrumentalness + "/r";
+            feat +="Liveness: " + features.liveness + "/r";
+            feat +="Valence: " + features.valence + "/r";
+            feat +="Tempo: " + features.tempo + "/r";
+            console.log("features: " + feat);
+            //var findtrack = '#'+trackId;
+            //$("#results").find(findtrack).append(feat);
+            //console.debug($("#results"));
+            //console.debug($("#results").find(findtrack));
+
                 }
             });
         };
@@ -143,6 +161,10 @@ block content
             }
             var theString = passedString.substring(0,25) + add;
             return new Handlebars.SafeString(theString)
+        });
+
+        Handlebars.registerHelper('test', function(trackid) {
+            return new Handlebars.SafeString(fetchAudioFeature(trackid));
         });
 
         Handlebars.registerHelper('displayTitle', function(features) {
