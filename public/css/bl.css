@@ -101,6 +101,10 @@ body {
     text-align: center;
 }
 
+.tooltiptext{
+    text-align: left;
+}
+
 .add{
     margin-left: 4px !important;
     position: relative;
