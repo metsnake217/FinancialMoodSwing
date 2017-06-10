@@ -64,6 +64,8 @@ body {
     position: absolute;
     z-index: 1;
     padding: 10px;
+    display: inline-block;
+    left: 10px;
   }
 
 .add{
