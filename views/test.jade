@@ -142,6 +142,7 @@ block content
                         trackids += track.id;
                         i++;
                         }
+                        console.dir(response.tracks.items);
                         console.log("looking for trackids: " + trackids);
                         
 
@@ -173,7 +174,7 @@ block content
                                     }
                                 });
 
-                        $(this).val(testdata);
+                        //$(this).val(testdata);
 
                         console.log( "ready!" );
                 }
