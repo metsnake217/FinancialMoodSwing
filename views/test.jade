@@ -126,14 +126,24 @@ block content
 
                     var trackids = "";
                     var i=0;
-                    $( "div[data-track-id]" ).each(function(){
+                    /*$( "div[data-track-id]" ).each(function(){
                         if(i>0){
                         trackids += ",";
                         }
                         trackids += $(this).attr( 'data-track-id' );
+                        
                         i++;
-                    });
-                        var testdata = $(this).data('test');
+                    });*/
+                        //var testdata = $(this).data('test');
+                        for(var track in response.tracks.items){
+                        if(i>0){
+                        trackids += ",";
+                        }
+                        trackids += track.id;
+                        i++;
+                        }
+                        console.log("looking for trackids: " + trackids);
+                        
 
                                 $.ajax({
                                     url: 'https://api.spotify.com/v1/audio-features?ids=' + trackids,
