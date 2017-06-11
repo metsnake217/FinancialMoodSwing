@@ -4,12 +4,17 @@ extends layout
 block content
 
     div(class="container", style="height: 1213px;")
-        h1!= "Create a Playlist"
-        p!= "Type a playlist name and click on 'Create'."
-        form(id="playlist-form")
-            input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-            input(type="submit" id="createplaylit" class="btn btn-primary" value="Create")
-        h1!= "Search for an Artist"
+
+        input(id="toggle" type="checkbox" class="inputexpand")
+        label(for="toggle", class="labelexpand")!= "Create a Playlist"
+        div(id="expand")
+            section
+                h1!= "Create a Playlist"
+                p!= "Type a playlist name and click on 'Create'."
+                form(id="playlist-form")
+                    input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
+                    input(type="submit" id="createplaylist" class="btn btn-primary" value="Create")
+        h1!= "Search Music"
         p!= "Type an artist name and click on 'Search'. Then, click on any album from the results to play 30 seconds of its first track if available."
         form(id="search-form")
             input(type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
