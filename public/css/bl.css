@@ -25,7 +25,8 @@ body {
 .fa-cog{
     position: relative;
     top: -130px;
-    left: 50%;
+    right:-40px;
+    z-index: 2;
     color: #ff9800;
 }
 
