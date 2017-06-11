@@ -27,17 +27,17 @@ body {
   display: none;
   visibility: hidden;
 }
-.labelexpand {
+.labelexpand, .labelexpand2 {
   display: block;
   padding: 0.5em;
   border-bottom: 1px solid #CCC;
   color: #666;
   font-size: 20pt; font-weight: bold;
 }
-.labelexpand:hover {
+.labelexpand:hover, .labelexpand2:hover {
   color: #000;
 }
-.labelexpand::before {
+.labelexpand::before, .labelexpand2::before {
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
@@ -65,13 +65,13 @@ section {
 #toggle:checked ~ #expand {
   height: 250px;
 }
-#toggle:checked ~ label::before {
+#toggle:checked ~ .labelexpand::before {
   content: "-";
 }
 #toggle2:checked ~ #expand {
   height: 250px;
 }
-#toggle2:checked ~ label::before {
+#toggle2:checked ~ .labelexpand2::before {
   content: "-";
 }
 
