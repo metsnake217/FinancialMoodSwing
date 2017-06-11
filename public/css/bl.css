@@ -44,10 +44,12 @@ body {
   content: "+";
   vertical-align: text-top;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   margin-right: 3px;
-  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+  padding-left: 6px;
+  color: white;
+  background: radial-gradient(ellipse at center, #8a6d3b 50%, transparent 50%);
 }
 #expand {
   height: 0px;
