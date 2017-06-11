@@ -27,17 +27,17 @@ body {
   display: none;
   visibility: hidden;
 }
-.labelexpand, .labelexpand2 {
+.labelexpand {
   display: block;
   padding: 0.5em;
   border-bottom: 1px solid #CCC;
   color: #666;
   font-size: 20pt; font-weight: bold;
 }
-.labelexpand:hover, .labelexpand2:hover {
+.labelexpand:hover {
   color: #000;
 }
-.labelexpand::before, .labelexpand2::before {
+.labelexpand::before {
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
@@ -65,15 +65,10 @@ section {
 #toggle:checked ~ #expand {
   height: 250px;
 }
-#toggle:checked ~ .labelexpand::before {
+#toggle:checked ~ label::before {
   content: "-";
 }
-#toggle2:checked ~ #expand {
-  height: 250px;
-}
-#toggle2:checked ~ .labelexpand2::before {
-  content: "-";
-}
+
 
 .fa-cog{
     position: relative;
