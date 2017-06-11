@@ -30,9 +30,9 @@ body {
 .labelexpand {
   display: block;
   padding: 0.5em;
-  text-align: center;
   border-bottom: 1px solid #CCC;
   color: #666;
+  font-size: 20pt; font-weight: bold;
 }
 .labelexpand:hover {
   color: #000;
@@ -44,10 +44,11 @@ body {
   content: "+";
   vertical-align: text-top;
   display: inline-block;
-  width: 23px;
-  height: 23px;
+  width: 30px;
+  height: 30px;
   margin-right: 3px;
-  padding-left: 6px;
+padding-left: 11px;
+padding-top: 3px;
   color: white;
   background: radial-gradient(ellipse at center, #8a6d3b 50%, transparent 50%);
 }
