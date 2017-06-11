@@ -22,6 +22,17 @@ body {
     padding-top:5px;
 }
 
+.fa-cog{
+    position: relative;
+    top: -130px;
+    left: 50%;
+    color: #ff9800;
+}
+
+.fa-cog:hover{
+    color: #8a6d3b;
+}
+
 .wrap{
 /* These are technically the same, but use both */
   overflow-wrap: break-word;
@@ -72,7 +83,7 @@ body {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 40px;
+    bottom: 95px;
     left: 50%;
     margin-left: -92px;
     opacity: 0;
@@ -99,6 +110,8 @@ body {
         margin: 0 auto;
     display: block;
     text-align: center;
+        width: 101px;
+    font-size: 11pt;
 }
 
 .tooltiptext{
