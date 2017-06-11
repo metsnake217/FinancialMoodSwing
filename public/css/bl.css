@@ -74,7 +74,7 @@ body {
     z-index: 1;
     bottom: 40px;
     left: 50%;
-    margin-left: -85px;
+    margin-left: -92px;
     opacity: 0;
     transition: opacity 1s;
         font-size: 9pt;
@@ -341,7 +341,7 @@ body {
     padding: 10px;
     position: relative;
     float: left;
-    width: 120px;
+    width: 140px;
     height: 225px;
 
 }
