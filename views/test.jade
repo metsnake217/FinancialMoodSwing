@@ -26,16 +26,16 @@ block content
                     </select>
             div(id="results")
                 script(id="results-template" type="text/x-handlebars-template")
-                    {{#each albums.items}}
                     <h1>Pick Albums</h1>
+                    {{#each albums.items}}
                     <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
                     {{/each}}
-                    {{#each artists.items}}
                     <h1>Pick Artists</h1>
-                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><select name="mood" type="text" id="mood" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;width: 75px;margin: 5px;height: 30px;" placeholder="Mood"><option value="wayup">Mood</option><option value="wayup">Way Up</option><option value="up">Up</option></select></div></div>
+                    {{#each artists.items}}
+                    <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering"><img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="cancel3" name="cancel" value="cancel" checked="checked" class="cancel"><label for="cancel3" class="labelcheck1 shadow"></label></div></div></div>
                     {{/each}}
-                    {{#each tracks.items}}
                     <h1>Pick Tracks</h1>
+                    {{#each tracks.items}}
                     <div data-track-id="{{id}}" class="covering" id="{{id}}"><img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/><div><span class="wrap">{{trimString name}}</span><input type="checkbox" name="add" value="{{id}}" class="add" /><span class="tooltip2">Features<span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div></div>
                     {{/each}}
             input(type="submit" style="margin: 0 auto; display: none;" id="addtoplaylist" class="btn btn-primary" value="Add to Playlist")
