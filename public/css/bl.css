@@ -280,7 +280,7 @@ body {
     border-width: thin;
     border:none;
     float:left;
-    top: 21px;
+    top: 2px;
 }
 
 .checkboxThree1:before {
@@ -341,7 +341,7 @@ body {
     padding: 10px;
     position: relative;
     float: left;
-    width: 130px;
+    width: 120px;
     height: 225px;
 
 }
@@ -578,19 +578,7 @@ display: none;
     transition: all .5s ease;
 }
 
-.checkboxThree1 {
-    /*width: 63px;*/
-    height: 25px;
-    /*background: #333;
-    margin: 20px 60px;*/
-    /*background: rgba(255,255,255,0.9);
-    border-radius: 50px;*/
-    position: relative;
-    border-color: rgba(138, 109, 59, 0.64);
-    border-style: solid;
-    border-width: thin;
-    border:none;
-}
+
 
 .ct-chart-bar .ct-label.ct-horizontal.ct-end{
           /* These are technically the same, but use both */
