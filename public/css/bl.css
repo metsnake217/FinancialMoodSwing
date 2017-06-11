@@ -68,6 +68,12 @@ section {
 #toggle:checked ~ label::before {
   content: "-";
 }
+#toggle2:checked ~ #expand {
+  height: 250px;
+}
+#toggle2:checked ~ label::before {
+  content: "-";
+}
 
 .fa-cog{
     position: relative;
