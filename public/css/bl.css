@@ -442,6 +442,13 @@ padding-top: 3px;
     opacity: 1;
     z-index: 3;
 }
+
+.tooltip2:active .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+}
+
 .tooltip2{
         margin: 0 auto;
     display: block;
