@@ -4,8 +4,8 @@ extends layout
 block content
 
     div(class="container", style="")
-        img(src="/images/unknown.png" width="50px", style="position: relative;left: 68%;top: 10px;")
-        img(src="/images/test1.png" width="50%", height="15%", style="text-align: center; margin: 0 auto; display: block;")
+        img(src="/images/unknown.png" width="50px", style="position: relative;left: 64%;top: 10px;")
+        img(src="/images/test1.png" width="40%", height="15%", style="text-align: center; margin: 0 auto; display: block;")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
         div(id="expand")
@@ -70,7 +70,15 @@ block content
                             {{/each}}
                             </div>
                             <div style="position: relative;float: left;top: -35px;left: 37.5%;"><input type="submit" style="margin: 0 auto;" id="addtoplaylist" class="btn btn-primary boutton" value="Add to Playlist"/></div>
-
+        
+        input(id="togglerules" type="checkbox" class="inputexpandrules")
+        label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
+        div(id="expandrules")
+            section
+                p!= "Set up the business rules for the stock market."
+                form(id="playlistrules-form")
+                    div(id="playlistrules")
+                                                    
     script.
         var bearer = "Bearer " + "#{access_token}";
         // find template and compile it

@@ -175,6 +175,55 @@ padding-top: 3px;
   content: "-";
 }
 
+/*Expand sections on page*/
+.inputexpandrules {
+  display: none;
+  visibility: hidden;
+}
+.labelexpandrules {
+  display: block;
+  padding: 0.5em;
+  /*border-bottom: 1px solid #CCC;*/
+  color: #666;
+  font-size: 20pt; font-weight: bold;
+}
+.labelexpandrules:hover {
+  color: #000;
+}
+.labelexpandrules::before {
+  font-family: Consolas, monaco, monospace;
+  font-weight: bold;
+  font-size: 15px;
+  content: "+";
+  vertical-align: text-top;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 3px;
+padding-left: 10px;
+padding-top: 3px;
+  color: white;
+  background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
+}
+#expandrules {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+    /*background: url(http://placekitten.com/g/600/300);*/
+    /*color: #FFF;*/
+   /* background-color: rgba(70, 0, 119, 0.33);*/
+    margin-bottom: 6px;
+    margin-left: 5px;
+    overflow:scroll;
+}
+
+#togglerules:checked ~ #expandrules {
+  height: 1000px;
+}
+#togglerules:checked ~ .labelexpandrules::before {
+  content: "-";
+}
+
 .labelexpandadd, .labelexpandedit, .labelexpand{
     padding-top: 20px !important;
     background-color: #8a6d3b !important;
