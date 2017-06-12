@@ -30,7 +30,7 @@ block content
                             <option value="{{id}}">{{name}}</option>
                             {{/each}}
                             </select>
-                        input(type="submit" id="editplaylist" class="btn btn-primary" value="Edit")
+                    input(type="submit" id="editplaylist" class="btn btn-primary" value="Edit")
         h1!= "Search Music"
         p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
         form(id="search-form")
@@ -222,6 +222,20 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
+                    //editPlaceholder.innerHTML = templateedit(response);
+                    console.log("success get playlist.");
+                }
+            });
+        };
+
+        var searchPlaylistsEdit = function () {
+            console.log("looking for playlists");
+            console.log("access token in playlists: " + bearer);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/playlists',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    //playlistresPlaceholder.innerHTML = templateplay(response);
                     editPlaceholder.innerHTML = templateedit(response);
                     console.log("success get playlist.");
                 }
@@ -299,5 +313,7 @@ block content
             searchAlbums(document.getElementById('query').value);
             searchPlaylists();
         }, false);
+
+        searchPlaylistsEdit();
 
 
