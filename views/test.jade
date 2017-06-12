@@ -509,9 +509,17 @@ block content
 
         rangeSlider();
 
-        if($('.sectiontracks').is(':visible')) {
+        /*if($('.sectiontracks').is(':visible')) {
           var h = $( ".sectionalbums" ).height() + $( ".sectionartists" ).height() + $( ".sectiontracks" ).height();
           console.log("add music height: " + h);
           $(".expandadd").height(h);
-        };
+        };*/
+        $( ".fa-cog" ).click(function() {
+            console.dir($( this ).next(".tooltiptext"));
+            $( this ).next(".tooltiptext").show();
+        });
+
+        $( "body" ).click(function() {
+            $(".tooltiptext").hide();
+        });
 
