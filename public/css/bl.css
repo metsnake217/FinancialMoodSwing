@@ -263,7 +263,7 @@ padding-top: 3px;
 }
 
 #toggleadd:checked ~ #expandadd {
-  height: 300px;
+  height: 1000px;
 }
 #toggleadd:checked ~ .labelexpandadd::before {
   content: "-";
