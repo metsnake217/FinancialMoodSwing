@@ -21,8 +21,8 @@ block content
             section
                 h1!= "Edit a Playlist"
                 p!= "Select a playlist to load its contents."
-                div(id="playlistedit")
-                    form(id="playlistedit-form")
+                form(id="playlistedit-form")
+                    div(id="playlistedit")
                         script(id="playlistedit-template" type="text/x-handlebars-template")
                             <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>
