@@ -30,7 +30,8 @@ input{
 
 /*Start range sliders*/
 .range-slider {
-  margin: 20px 0 0 0%;
+  /*margin: 20px 0 0 0%;*/
+  margin-bottom: 20px;
 }
 
 .range-slider {
