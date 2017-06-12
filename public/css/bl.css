@@ -437,13 +437,7 @@ padding-top: 3px;
     border-color: rgba(138, 109, 59, 0.70) transparent transparent transparent;
 }
 
-.tooltip2:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    z-index: 3;
-}
-
-.tooltip2:active .tooltiptext {
+.tooltip2:hover .tooltiptext, .tooltip2:active .tooltiptext {
     visibility: visible;
     opacity: 1;
     z-index: 3;
