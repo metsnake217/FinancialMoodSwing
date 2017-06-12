@@ -15,6 +15,22 @@ block content
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
                     input(type="submit" id="createplaylist" class="btn btn-primary" value="Create")
 
+        input(id="toggleedit" type="checkbox" class="inputexpandedit")
+        label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
+        div(id="expandedit")
+            section
+                h1!= "Edit a Playlist"
+                p!= "Select a playlist to load its contents."
+                div(id="playlistedit")
+                    form(id="playlistedit-form")
+                        script(id="playlistedit-template" type="text/x-handlebars-template")
+                            <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                            <option value="select playlist">Select Playlist</option>
+                            {{#each items}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                            </select>
+                        input(type="submit" id="editplaylist" class="btn btn-primary" value="Edit")
         h1!= "Search Music"
         p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
         form(id="search-form")
@@ -60,10 +76,10 @@ block content
             audioObject = null,
             templateSourceplay = document.getElementById('playlistres-template').innerHTML,
             templateplay = Handlebars.compile(templateSourceplay),
-            playlistresPlaceholder = document.getElementById('playlistres');
-            //templateSourceaud = document.getElementById('audio-template').innerHTML,
-            //templateaud = Handlebars.compile(templateSourceaud),
-            //audPlaceholder = document.getElementById('audio');
+            playlistresPlaceholder = document.getElementById('playlistres'),
+            templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML,;
+            templateedit = Handlebars.compile(templateSourceplayedit),
+            editPlaceholder = document.getElementById('playlistedit');
 
         var fetchTracks = function (albumId, callback) {
             $.ajax({
@@ -206,7 +222,8 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
-                    console.log("success play: " + playlistresPlaceholder.innerHTML );
+                    editPlaceholder.innerHTML = templateedit(response);
+                    console.log("success get playlist.");
                 }
             });
         };

@@ -65,10 +65,56 @@ section {
 #toggle:checked ~ #expand {
   height: 250px;
 }
-#toggle:checked ~ label::before {
+#toggle:checked ~ .labelexpand::before {
   content: "-";
 }
 
+/*Expand sections on page*/
+.inputexpandedit {
+  display: none;
+  visibility: hidden;
+}
+.labelexpandedit {
+  display: block;
+  padding: 0.5em;
+  border-bottom: 1px solid #CCC;
+  color: #666;
+  font-size: 20pt; font-weight: bold;
+}
+.labelexpandedit:hover {
+  color: #000;
+}
+.labelexpandedit::before {
+  font-family: Consolas, monaco, monospace;
+  font-weight: bold;
+  font-size: 15px;
+  content: "+";
+  vertical-align: text-top;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 3px;
+padding-left: 11px;
+padding-top: 3px;
+  color: white;
+  background: radial-gradient(ellipse at center, #8a6d3b 50%, transparent 50%);
+}
+#expandedit {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s;
+  /*background: url(http://placekitten.com/g/600/300);*/
+  /*color: #FFF;*/
+}
+section {
+  padding: 0 20px;
+}
+#toggleedit:checked ~ #expandedit {
+  height: 250px;
+}
+#toggleedit:checked ~ .labelexpandedit::before {
+  content: "-";
+}
 
 .fa-cog{
     position: relative;
