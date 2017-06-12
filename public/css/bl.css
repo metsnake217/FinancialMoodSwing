@@ -233,7 +233,7 @@ padding-top: 3px;
     /*background-color: rgba(70, 0, 119, 0.33);*/
     margin-bottom: 6px;
     margin-left: 5px;
-    overflow:scroll;
+    overflow:overlay;
 }
 
 #toggleedit:checked ~ #expandedit {
@@ -282,7 +282,7 @@ padding-top: 3px;
    /* background-color: rgba(70, 0, 119, 0.33);*/
     margin-bottom: 6px;
     margin-left: 5px;
-    overflow:scroll;
+    overflow:overlay;
 }
 
 #toggleadd:checked ~ #expandadd {
