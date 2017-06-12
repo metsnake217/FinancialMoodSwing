@@ -80,13 +80,13 @@ block content
                     div(id="playlistrules")
 
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="100" min="0" max="500")
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="250" min="0" max="500" step="50")
+                          input(class="range-slider__range" type="range" value="250" min="0" max="100" step="10")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="400" min="0" max="500")
+                          input(class="range-slider__range" type="range" value="400" min="0" max="100")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select")
@@ -94,7 +94,7 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="opt1"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="opt1"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="400" min="0" max="500")
+                          input(class="range-slider__range" type="range" value="400" min="0" max="100")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select")
@@ -102,10 +102,10 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="400" min="0" max="500")
+                          input(class="range-slider__range" type="range" value="400" min="0" max="100")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="400" min="0" max="500")
+                          input(class="range-slider__range" type="range" value="400" min="0" max="100")
                           span(class="range-slider__value")!="0"
 
     script.
