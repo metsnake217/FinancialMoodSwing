@@ -4,7 +4,8 @@ extends layout
 block content
 
     div(class="container", style="height: 1213px;")
-        img(src="/images/test1.png" width="50%")
+        img(src="/images/unknown.png" width="100px", style="position: relative;left: 50%;top: 90px;")
+        img(src="/images/test1.png" width="50%", style="text-align: center; margin: 0 auto; display: block;")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
         div(id="expand")
