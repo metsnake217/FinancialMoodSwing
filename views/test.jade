@@ -514,12 +514,15 @@ block content
           console.log("add music height: " + h);
           $(".expandadd").height(h);
         };*/
+
+        $( "body" ).click(function() {
+            $(".tooltiptext").hide();
+        });
+
         $( ".fa-cog" ).click(function() {
             console.dir($( this ).next(".tooltiptext"));
             $( this ).next(".tooltiptext").show();
         });
 
-        $( "body" ).click(function() {
-            $(".tooltiptext").hide();
-        });
+
 
