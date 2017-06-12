@@ -61,6 +61,9 @@ padding-top: 3px;
   transition: height 0.5s;
   /*background: url(http://placekitten.com/g/600/300);*/
   /*color: #FFF;*/
+    background-color: rgba(70, 0, 119, 0.33);
+    margin-bottom: 6px;
+    margin-left: 5px;
 }
 section {
   padding: 25px 50px;
@@ -108,6 +111,9 @@ padding-top: 3px;
   transition: height 0.5s;
   /*background: url(http://placekitten.com/g/600/300);*/
   /*color: #FFF;*/
+    background-color: rgba(70, 0, 119, 0.33);
+    margin-bottom: 6px;
+    margin-left: 5px;
 }
 
 #toggleedit:checked ~ #expandedit {
@@ -148,11 +154,14 @@ padding-top: 3px;
   background: radial-gradient(ellipse at center, #8a6d3b 50%, transparent 50%);
 }
 #expandadd {
-  height: 0px;
-  overflow: hidden;
-  transition: height 0.5s;
-  /*background: url(http://placekitten.com/g/600/300);*/
-  /*color: #FFF;*/
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+    /*background: url(http://placekitten.com/g/600/300);*/
+    /*color: #FFF;*/
+    background-color: rgba(70, 0, 119, 0.33);
+    margin-bottom: 6px;
+    margin-left: 5px;
 }
 
 #toggleadd:checked ~ #expandadd {
@@ -160,6 +169,12 @@ padding-top: 3px;
 }
 #toggleadd:checked ~ .labelexpandadd::before {
   content: "-";
+}
+
+.labelexpandadd, .labelexpandedit, .labelexpand{
+    padding-top: 20px !important;
+    background-color: #460077 !important;
+    color: white !important;
 }
 
 .fa-cog{
