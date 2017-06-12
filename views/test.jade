@@ -4,8 +4,8 @@ extends layout
 block content
 
     div(class="container", style="")
-        img(src="/images/unknown.png" width="5%", style="position: relative;left: 63.5%;top: 10px;")
-        img(src="/images/test1.png" width="40%", height="15%", style="text-align: center; margin: 0 auto; display: block;")
+        img(src="/images/unknown.png" width="5%", class="logofin1")
+        img(src="/images/test1.png" class="logofin")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
         div(id="expand")
@@ -46,7 +46,7 @@ block content
                     div(id="playlistres")
                         script(id="playlistres-template" type="text/x-handlebars-template")
                             <p style="margin-top:50px">Select an existing Playlist below and make a wise decision about the music tracks you would want to associate. Then click on "Add to Playlist" button.</p>
-                            <select name="playSelect" type="text" id="playSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom: 50px; width: 50%; height: 50px; font-size: 15pt;" placeholder="Select Playlist">
+                            <select name="playSelect" type="text" id="playSelect" class="form-control" style="" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>
                             {{#each items}}
                             <option value="{{id}}">{{name}}</option>
@@ -69,7 +69,7 @@ block content
                             <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:ccenter;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
-                            <div style="position: relative;float: left;top: -35px;left: 37.5%;"><input type="submit" style="margin: 0 auto;" id="addtoplaylist" class="btn btn-primary boutton" value="Add to Playlist"/></div>
+                            <div><input type="submit" style="margin: 0 auto;" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist"/></div>
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"

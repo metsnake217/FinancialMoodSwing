@@ -28,6 +28,26 @@ input{
     margin-top: 10px !important;
 }
 
+.bouttoncontainer{
+    position: relative;float: left;top: -35px;left: 37.5%;
+}
+
+#playSelect{
+    border-color: #3d9dcb;
+    margin-bottom: 50px;
+    width: 50%;
+    height: 50px;
+    font-size: 15pt;
+}
+.logofin1{
+    position: relative;left: 63.5%;top: 10px;
+    width:5%;
+}
+
+.logofin{
+    text-align: center; margin: 0 auto; display: block;
+    width: 40%;
+}
 #rulesup, #rulesdown, #ruleswayup, #ruleswaydown{
     position: relative; float: left;margin-top:50px;
 }
@@ -165,7 +185,7 @@ padding-top: 3px;
     margin-left: 5px;
 }
 section {
-  padding: 25px 50px;
+  padding: 25px 5px;
 }
 #toggle:checked ~ #expand {
   height: 250px;
@@ -3573,6 +3593,18 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+.bouttoncontainer{
+    left: 0%;
+}
+#playSelect{
+    width:100%;
+}
+.logofin1{
+left:77.5%;
+}
+.logofin{
+    width:75%;
+}
 #rulesup, #rulesdown, #ruleswayup, #ruleswaydown{
     position: relative; float: none;margin-top:50px;
 }
