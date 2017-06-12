@@ -85,7 +85,7 @@ section {
 .labelexpandedit {
   display: block;
   padding: 0.5em;
-  border-bottom: 1px solid #CCC;
+  /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
 }
@@ -134,7 +134,7 @@ padding-top: 3px;
 .labelexpandadd {
   display: block;
   padding: 0.5em;
-  border-bottom: 1px solid #CCC;
+  /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
 }
