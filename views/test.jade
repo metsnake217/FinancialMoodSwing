@@ -117,6 +117,44 @@ block content
                           input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valenceup" name="valenceup")
                           span(class="range-slider__value")!="0"
 
+                        h2!="Down"
+                        div(class="range-slider")!="Acousticness"
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticdown" name="acousticdown")
+                            span(class="range-slider__value")!= "0"
+                        div(class="range-slider")!="Danceability"
+                          input(class="range-slider__range" type="range" value="550" min="0" max="100" step="10" id="dancedown" name="dancedown")
+                          span(class="range-slider__value")!="0"
+                        div(class="range-slider")!="Energy"
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energydown" name="energydown")
+                          span(class="range-slider__value")!="0"
+                        div(class="range-slider")!="Key"
+                            select(name="keydown" type="text" id="keydown" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select")
+                                option(value="select key")!="None"
+                                option(value="1")!="1"
+                                option(value="2")!="2"
+                                option(value="3")!="3"
+                                option(value="4")!="4"
+                                option(value="5")!="5"
+                                option(value="6")!="6"
+                                option(value="7")!="7"
+                                option(value="8")!="8"
+                                option(value="9")!="9"
+                                option(value="10")!="10"
+                                option(value="11")!="11"
+                        div(class="range-slider")!="Liveness"
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livedown" name="livedown")
+                          span(class="range-slider__value")!="0"
+                        div(class="range-slider")!="Mode"
+                            select(name="modedown" type="text" id="modedown" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select")
+                                option(value="select playlist")!="None"
+                                option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
+                                option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
+                        div(class="range-slider")!="Speechiness"
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechdown" name="speechdown")
+                          span(class="range-slider__value")!="0"
+                        div(class="range-slider")!="Valence"
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencedown" name="valencedown")
+                          span(class="range-slider__value")!="0"
     script.
         var bearer = "Bearer " + "#{access_token}";
         // find template and compile it
