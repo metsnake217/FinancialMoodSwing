@@ -509,9 +509,9 @@ block content
 
         rangeSlider();
 
-        $(".searchmusic").click(function() {
+        if($('.sectiontracks:visible').length > 0) {
           var h = $( ".sectionalbums" ).height() + $( ".sectionartists" ).height() + $( ".sectiontracks" ).height();
           console.log("add music height: " + h);
           $(".expandadd").height(h);
-        });
+        };
 
