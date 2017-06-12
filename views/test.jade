@@ -509,7 +509,7 @@ block content
 
         rangeSlider();
 
-        if($('.sectiontracks:visible').length > 0) {
+        if($('.sectiontracks').is(':visible')) {
           var h = $( ".sectionalbums" ).height() + $( ".sectionartists" ).height() + $( ".sectiontracks" ).height();
           console.log("add music height: " + h);
           $(".expandadd").height(h);
