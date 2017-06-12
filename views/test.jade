@@ -509,4 +509,9 @@ block content
 
         rangeSlider();
 
+        $(".labelexpandadd").click(function() {
+          var h = $( ".sectionalbums" ).height() + $( ".sectionartists" ).height() + $( ".sectiontracks" ).height();
+          console.log("add music height: " + h);
+          $(".expandadd").height(h);
+        });
 
