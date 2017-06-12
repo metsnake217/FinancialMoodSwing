@@ -515,13 +515,10 @@ block content
           $(".expandadd").height(h);
         };*/
 
-        $( "body" ).click(function() {
-            $(".tooltiptext").hide();
-        });
 
         $( ".fa-cog" ).click(function() {
             console.dir($( this ).next(".tooltiptext"));
-            $( this ).next(".tooltiptext").show();
+            $( this ).next(".tooltiptext").toggle();
         });
 
 
