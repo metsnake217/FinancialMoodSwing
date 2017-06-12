@@ -3594,6 +3594,12 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+.covering{
+    width: 165px;
+}
+.tooltip2 .tooltiptext{
+    left:55%;
+}
 .bouttoncontainer{
     left: 0%;
 }
