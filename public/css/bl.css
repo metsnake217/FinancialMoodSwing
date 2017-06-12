@@ -34,7 +34,10 @@ input{
 }
 
 .range-slider {
-  width: 100%;
+  width: 25%;
+      position: relative;
+    float: left;
+    padding-right: 50px;
 }
 
 .range-slider__range {
@@ -90,12 +93,12 @@ input{
   text-align: center;
   border-radius: 3px;
   background: #8a6d3b;
-  padding: 5px 10px;
+  /*padding: 5px 10px;*/
   margin-left: 8px;
 }
 .range-slider__value:after {
   position: absolute;
-  top: 8px;
+  top: 4px;
   left: -7px;
   width: 0;
   height: 0;
