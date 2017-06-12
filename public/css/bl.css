@@ -224,7 +224,7 @@ padding-top: 3px;
   content: "-";
 }
 
-.labelexpandadd, .labelexpandedit, .labelexpand{
+.labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
     padding-top: 20px !important;
     background-color: #8a6d3b !important;
     color: white !important;
