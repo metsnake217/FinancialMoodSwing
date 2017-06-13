@@ -1482,7 +1482,7 @@ a {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #008500; /*rgba(138, 109, 59, 0.70);*/
+    background: #2975b4; /*rgba(138, 109, 59, 0.70);*/
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
