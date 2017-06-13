@@ -89,7 +89,7 @@ input{
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #00bc00; /*#8a6d3b;*/
+  background: #8a6d3b;
   cursor: pointer;
   -webkit-transition: background .15s ease-in-out;
   transition: background .15s ease-in-out;
