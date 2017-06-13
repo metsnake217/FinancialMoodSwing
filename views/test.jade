@@ -128,7 +128,7 @@ block content
                         div(class="range-slider")!="Energy"
                           input(class="range-slider__range" type="range" value="#{enup}" min="0" max="100" id="energyup" name="energyup")
                           span(class="range-slider__value")!="0"
-                        div(class="range-slider")!="Key " + #{keyup}
+                        div(class="range-slider")!="Key " + keyup
                             select(name="keyup" type="text" id="keyup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
                                 option(value="0" selected=("#{keyup}"=="0" ? "selected" : undefined))!="0"
                                 option(value="1" selected=("#{keyup}"=="1" ? "selected" : undefined))!="1"
@@ -145,7 +145,7 @@ block content
                         div(class="range-slider")!="Liveness"
                           input(class="range-slider__range" type="range" value="#{liveup}" min="0" max="100" id="liveup" name="liveup")
                           span(class="range-slider__value")!="0"
-                        div(class="range-slider")!="Mode " + #{modeup} 
+                        div(class="range-slider")!="Mode " + modeup
                             select(name="modeup" type="text" id="modeup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
                                 option(value="select playlist" selected=(modeup==="none" ? "selected" : undefined))!="None"
                                 option(value="minor" selected=("#{modeup}"=="minor" ? "selected" : undefined))!="Minor"
