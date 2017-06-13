@@ -15,7 +15,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create")
+                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;")
 
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
@@ -32,6 +32,7 @@ block content
                             <option value="{{id}}">{{name}}</option>
                             {{/each}}
                             </select>
+                            <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     input(type="submit" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
@@ -40,7 +41,7 @@ block content
                 //h1!= "Add Music"
                 p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
                 form(id="search-form")
-                    input(style="padding: 10px;height: 60px;font-size: 20pt;" type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
+                    input(style="padding: 10px;height: 60px;font-size: 20pt;color: #8a6d3b !important;" type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name")
                     input(type="submit" id="searchmusic" class="btn btn-primary searchmusic boutton" value="Search")
                 
                 form(id="playlistfill-form")
@@ -53,6 +54,7 @@ block content
                             <option value="{{id}}">{{name}}</option>
                             {{/each}}
                             </select>
+                            <span style="" class="fa fa-sort addmusicplaylistsort"></span>
                     div(id="resultsss")
                         script(id="results-template" type="text/x-handlebars-template")
                             {{#if albums.items}}

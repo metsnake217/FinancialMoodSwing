@@ -24,6 +24,10 @@ body {
     color: white;
 }
 
+.addmusicplaylistsort{
+    color: #8a6d3b;float: right;top: -88px;right: 51%;position: relative;font-size: 20pt;
+}
+
 select{
     border: 0 !important; border-radius: 5px !important;
 }
@@ -3603,6 +3607,9 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+.addmusicplaylistsort{
+    right: 1.5%;
+}
 .sectionartists, .sectionalbums, .sectiontracks{
     padding-left: 0px;
 }
