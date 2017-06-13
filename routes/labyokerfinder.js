@@ -181,7 +181,7 @@ LabYokeUsers = function(id,name,surname,email,checked) {
 
 MusicRules.prototype.getrules = function(callback) {
 	var results;
-	var query = client.query("SELECT * FROM rules");
+	var query = client.query("SELECT * FROM rules order by id asc");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
