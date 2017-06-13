@@ -202,6 +202,7 @@ router.get('/refresh_token', function(req, res) {
     router.get('/test', function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
+    if(req.session.access != undefined){
     res.render('test', {
       /*ordersnum: req.session.orders,
       sharesnum: req.session.shares,*/
@@ -213,6 +214,9 @@ router.get('/refresh_token', function(req, res) {
       menu : 'test',
       title: 'Test'
     });
+  } else{
+    res.redirect('/login');
+  }
 
   });
 
