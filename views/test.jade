@@ -56,7 +56,7 @@ block content
                     div(id="resultsss")
                         script(id="results-template" type="text/x-handlebars-template")
                             {{#if albums.items}}
-                            <div class="sectionalbums"><h1>Pick Albums</h1>
+                            <div class="sectionalbums", style="style="position: relative;float: left;"><h1>Pick Albums</h1>
                             {{#each albums.items}}
                             <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span></div><div style="display:block;text-align:ccenter;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
@@ -74,10 +74,11 @@ block content
                             {{#each tracks.items}}
                             <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:ccenter;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
-                            <div><input type="submit" style="margin: 0 auto;" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist"/></div>
                             </div>
                             {{/if}}
-
+                    br(style="clear: both;")
+                    div
+                        input(type="submit" style="margin: 0 auto;margin-bottom:20px" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
