@@ -78,7 +78,7 @@ block content
                             {{/if}}
                     br(style="clear: both;")
                     div
-                        input(type="submit" style="margin: 0 auto;margin-bottom:20px" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
+                        input(type="submit" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
@@ -525,10 +525,12 @@ block content
         };*/
 
 
-        /*$( ".fa-cog" ).click(function() {
-            console.dir($( this ).next(".tooltiptext"));
-            $( this ).next(".tooltiptext").toggle();
-        });*/
+        $( "#searchmusic" ).click(function() {
+            console.dir($( "#addtoplaylist" ));
+            $( "#addtoplaylist" ).show();
+        });
+
+        
 
 
 
