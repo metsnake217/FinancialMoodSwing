@@ -82,10 +82,10 @@ block content
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
         div(id="expandrules")
             - var results = rules
-            - var acup = parseInt(results[0].acousticness)*100
-            - var acdown = parseInt(results[1].acousticness)*100
-            - var acwayup = parseInt(results[2].acousticness)*100
-            - var acwaydown = parseInt(results[3].acousticness)*100
+            - var acup = results[0].acousticness*100
+            - var acdown = results[1].acousticness*100
+            - var acwayup = results[2].acousticness*100
+            - var acwaydown = results[3].acousticness*100
             section
                 p!= "Set up the business rules for the stock market."
                 form(id="playlistrules-form" action="/updaterule" method="post")
