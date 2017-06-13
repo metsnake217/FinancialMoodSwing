@@ -30,6 +30,7 @@ select{
 
 input{
     margin-top: 10px !important;
+    border: 0 !important; border-radius: 5px !important;
 }
 
 .sectionartists, .sectionalbums, .sectiontracks{
