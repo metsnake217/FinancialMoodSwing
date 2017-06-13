@@ -28,7 +28,7 @@ input{
     margin-top: 10px !important;
 }
 
-#sectionartists, #sectionalbums, #sectiontracks{
+.sectionartists, .sectionalbums, .sectiontracks{
     position: relative;float: left;padding-left: 18px;
 }
 
@@ -3598,7 +3598,7 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
-#sectionartists, #sectionalbums, #sectiontracks{
+.sectionartists, .sectionalbums, .sectiontracks{
     padding-left: 0px;
 }
 .covering{
