@@ -187,7 +187,7 @@ MusicRules.prototype.getrules = function(callback) {
 	});
 	query.on("end", function(result) {
 		results = result.rows;
-		console.log("get rules details " + results[0].length);
+		console.log("get rules details " + JSON.stringify(results));
 		callback(null, results);
 	});
 };
