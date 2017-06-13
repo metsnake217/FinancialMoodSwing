@@ -5,7 +5,7 @@ var dates = require('../config/staticvariables');
 var LabYokeUsers = labyokeFinderClass.LabYokeUsers;
 
 var moment = require('moment-timezone');*/
-
+var MusicRules = labyokeFinderClass.MusicRules;
 var express = require('express');
 var util = require('util');
 var router = express.Router();
