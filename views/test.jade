@@ -27,11 +27,7 @@ block content
                     div(id="playlistedit")
                         script(id="playlistedit-template" type="text/x-handlebars-template")
                             <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
-                            <option value="select playlist">Select Playlist</option>
-                            {{#each items}}
-                            <option value="{{id}}">{{name}}</option>
-                            {{/each}}
-                            </select>
+                            <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     input(type="submit" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
@@ -86,10 +82,10 @@ block content
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
         div(id="expandrules")
             - var rules = results
-            - var acup = parseInt(results[0].acousticness)*100
-            - var acdown = parseInt(results[1].acousticness)*100
-            - var acwayup = parseInt(results[2].acousticness)*100
-            - var acwaydown = parseInt(results[3].acousticness)*100
+            - var acup = parseInt(rules[0].acousticness)*100
+            - var acdown = parseInt(rules[1].acousticness)*100
+            - var acwayup = parseInt(rules[2].acousticness)*100
+            - var acwaydown = parseInt(rules[3].acousticness)*100
             section
                 p!= "Set up the business rules for the stock market."
                 form(id="playlistrules-form" action="/updaterule" method="post")
