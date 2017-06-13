@@ -29,7 +29,7 @@ input{
 }
 
 .bouttoncontainer{
-    position: relative;float: left;top: -35px;left: 37.5%;
+    position: relative;float: left;/*top: -35px;*/left: 37.5%;
 }
 
 #playSelect{
