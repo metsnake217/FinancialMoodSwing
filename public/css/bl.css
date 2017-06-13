@@ -25,7 +25,7 @@ body {
 }
 
 .addmusicplaylistsort{
-    color: #8a6d3b;float: right;top: -88px;right: 51%;position: relative;font-size: 20pt;
+    color: #8a6d3b;float: right;top: -88px;right: 51%;position: relative;font-size: 20pt !important;
 }
 
 select{
