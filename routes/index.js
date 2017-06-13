@@ -203,7 +203,10 @@ router.get('/refresh_token', function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
     if(req.session.access != undefined){
+      var musicRules = new MusicRules();
+      musicRules.getrules(function(error, results) { 
     res.render('test', {
+      rules: results,
       /*ordersnum: req.session.orders,
       sharesnum: req.session.shares,*/
       title : 'Test spotify',
@@ -214,6 +217,8 @@ router.get('/refresh_token', function(req, res) {
       menu : 'test',
       title: 'Test'
     });
+  });
+
   } else{
     res.redirect('/login');
   }

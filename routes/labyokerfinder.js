@@ -14,6 +14,9 @@ client.connect();
 var crypt = require('bcrypt-nodejs');
 var accounting = require('./accounting');
 
+MusicRules = function() {
+};
+
 LabYokeFinder = function(today) {
 	this.now = today
 };
@@ -174,6 +177,21 @@ LabYokeUsers = function(id,name,surname,email,checked) {
 	this.email = email;
 	this.checked = checked;
 };
+
+
+MusicRules.prototype.getrules = function(callback) {
+	var results;
+	var query = client.query("SELECT * FROM rules");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("get rules details " + results);
+		callback(null, results);
+	});
+};
+
 
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
@@ -2750,6 +2768,11 @@ var analyze = function(matchresults, participantsResults) {
 		});
 	}
 }
+
+exports.MusicRules = MusicRules;
+
+
+
 
 exports.Labyoker = Labyoker;
 exports.LabyokerUserDetails = LabyokerUserDetails;

@@ -85,13 +85,18 @@ block content
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
         div(id="expandrules")
+            - var rules = results
+            - var acup = parseInt(results[0].acousticness)*100
+            - var acdown = parseInt(results[1].acousticness)*100
+            - var acwayup = parseInt(results[2].acousticness)*100
+            - var acwaydown = parseInt(results[3].acousticness)*100
             section
                 p!= "Set up the business rules for the stock market."
-                form(id="playlistrules-form")
+                form(id="playlistrules-form" action="/updaterule" method="post")
                     div(id="rulesup" style="")
                         h2(style="color: #00bc00 !important;")!="Up"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticup" name="acousticup")
+                            input(class="range-slider__range" type="range" value="#{acup}" min="0" max="100" id="acousticup" name="acousticup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
                           input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="danceup" name="danceup")
@@ -131,7 +136,7 @@ block content
                     div(id="ruleswayup" style="")
                         h2(style="color: #00bc00 !important;")!="Way Up"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticwayup" name="acousticwayup")
+                            input(class="range-slider__range" type="range" value="#{acwayup}" min="0" max="100" id="acousticwayup" name="acousticwayup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
                           input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
@@ -171,7 +176,7 @@ block content
                     div(id="rulesdown" style="")
                         h2(style="color: #00bc00 !important;")!="Down"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticdown" name="acousticdown")
+                            input(class="range-slider__range" type="range" value="#{acdown}" min="0" max="100" id="acousticdown" name="acousticdown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
                           input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancedown" name="dancedown")
@@ -211,7 +216,7 @@ block content
                     div(id="ruleswaydown" style="")
                         h2(style="color: #00bc00 !important;")!="Way Down"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticwaydown" name="acousticwaydown")
+                            input(class="range-slider__range" type="range" value="#{acwaydown}" min="0" max="100" id="acousticwaydown" name="acousticwaydown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
                           input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
