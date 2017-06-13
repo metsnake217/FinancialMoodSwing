@@ -86,6 +86,34 @@ block content
             - var acdown = results[1].acousticness*100
             - var acwayup = results[2].acousticness*100
             - var acwaydown = results[3].acousticness*100
+            - var danceup = results[0].danceability*100
+            - var dancedown = results[1].danceability*100
+            - var dancewayup = results[2].danceability*100
+            - var dancewaydown = results[3].danceability*100
+            - var enup = results[0].energy*100
+            - var endown = results[1].energy*100
+            - var enwayup = results[2].energy*100
+            - var enwaydown = results[3].energy*100
+            - var keyup = results[0].key
+            - var keydown = results[1].key
+            - var keywayup = results[2].key
+            - var keywaydown = results[3].key
+            - var liveup = results[0].liveness*100
+            - var livedown = results[1].liveness*100
+            - var livewayup = results[2].liveness*100
+            - var livewaydown = results[3].liveness*100
+            - var modeup = results[0].mode
+            - var modedown = results[1].mode
+            - var modewayup = results[2].mode
+            - var modewaydown = results[3].mode
+            - var speechup = results[0].speechiness*100
+            - var speechdown = results[1].speechiness*100
+            - var speechwayup = results[2].speechiness*100
+            - var speechwaydown = results[3].speechiness*100
+            - var valup = results[0].valence*100
+            - var valdown = results[1].valence*100
+            - var valwayup = results[2].valence*100
+            - var valwaydown = results[3].valence*100
             section
                 p!= "Set up the business rules for the stock market."
                 form(id="playlistrules-form" action="/updaterule" method="post")
@@ -95,10 +123,10 @@ block content
                             input(class="range-slider__range" type="range" value="#{acup}" min="0" max="100" id="acousticup" name="acousticup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="danceup" name="danceup")
+                          input(class="range-slider__range" type="range" value="#{dancecup}" min="0" max="100" step="10" id="danceup" name="danceup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energyup" name="energyup")
+                          input(class="range-slider__range" type="range" value="#{encup}" min="0" max="100" id="energyup" name="energyup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keyup" type="text" id="keyup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -115,7 +143,7 @@ block content
                                 option(value="10")!="10"
                                 option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="liveup" name="liveup")
+                          input(class="range-slider__range" type="range" value="#{livecup}" min="0" max="100" id="liveup" name="liveup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modeup" type="text" id="modeup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
@@ -123,10 +151,10 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechup" name="speechup")
+                          input(class="range-slider__range" type="range" value="#{speechcup}" min="0" max="100" id="speechup" name="speechup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valenceup" name="valenceup")
+                          input(class="range-slider__range" type="range" value="#{valcup}" min="0" max="100" id="valenceup" name="valenceup")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswayup" style="")
@@ -135,10 +163,10 @@ block content
                             input(class="range-slider__range" type="range" value="#{acwayup}" min="0" max="100" id="acousticwayup" name="acousticwayup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
+                          input(class="range-slider__range" type="range" value="#{dancewayup}" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energywayup" name="energywayup")
+                          input(class="range-slider__range" type="range" value="#{enwayup}" min="0" max="100" id="energywayup" name="energywayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywayup" type="text" id="keywayup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -155,7 +183,7 @@ block content
                                 option(value="10")!="10"
                                 option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livewayup" name="livewayup")
+                          input(class="range-slider__range" type="range" value="#{livewayup}" min="0" max="100" id="livewayup" name="livewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modewayup" type="text" id="modewayup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
@@ -163,10 +191,10 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechwayup" name="speechwayup")
+                          input(class="range-slider__range" type="range" value="#{speechwayup}" min="0" max="100" id="speechwayup" name="speechwayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencewayup" name="valencewayup")
+                          input(class="range-slider__range" type="range" value="#{valwayup}" min="0" max="100" id="valencewayup" name="valencewayup")
                           span(class="range-slider__value")!="0"
 
                     div(id="rulesdown" style="")
@@ -175,10 +203,10 @@ block content
                             input(class="range-slider__range" type="range" value="#{acdown}" min="0" max="100" id="acousticdown" name="acousticdown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancedown" name="dancedown")
+                          input(class="range-slider__range" type="range" value="#{dancedown}" min="0" max="100" step="10" id="dancedown" name="dancedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energydown" name="energydown")
+                          input(class="range-slider__range" type="range" value="#{endown}" min="0" max="100" id="energydown" name="energydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keydown" type="text" id="keydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -195,7 +223,7 @@ block content
                                 option(value="10")!="10"
                                 option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livedown" name="livedown")
+                          input(class="range-slider__range" type="range" value="#{livedown}" min="0" max="100" id="livedown" name="livedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modedown" type="text" id="modedown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
@@ -203,10 +231,10 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechdown" name="speechdown")
+                          input(class="range-slider__range" type="range" value="#{speechdown}" min="0" max="100" id="speechdown" name="speechdown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencedown" name="valencedown")
+                          input(class="range-slider__range" type="range" value="#{valdown}" min="0" max="100" id="valencedown" name="valencedown")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswaydown" style="")
@@ -215,10 +243,10 @@ block content
                             input(class="range-slider__range" type="range" value="#{acwaydown}" min="0" max="100" id="acousticwaydown" name="acousticwaydown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
+                          input(class="range-slider__range" type="range" value="#{dancewaydown}" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energywaydown" name="energywaydown")
+                          input(class="range-slider__range" type="range" value="#{enwaydown}" min="0" max="100" id="energywaydown" name="energywaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywaydown" type="text" id="keywaydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -235,7 +263,7 @@ block content
                                 option(value="10")!="10"
                                 option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livewaydown" name="livewaydown")
+                          input(class="range-slider__range" type="range" value="#{livewaydown}" min="0" max="100" id="livewaydown" name="livewaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modewaydown" type="text" id="modewaydown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
@@ -243,10 +271,10 @@ block content
                                 option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
                                 option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechwaydown" name="speechwaydown")
+                          input(class="range-slider__range" type="range" value="#{speechwaydown}" min="0" max="100" id="speechwaydown" name="speechwaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencewaydown" name="valencewaydown")
+                          input(class="range-slider__range" type="range" value="#{valwaydown}" min="0" max="100" id="valencewaydown" name="valencewaydown")
                           span(class="range-slider__value")!="0"
         br(style="clear: both;")
 
