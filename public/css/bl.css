@@ -24,6 +24,10 @@ body {
     color: white;
 }
 
+select{
+    border: 0 !important; border-radius: 5px !important;
+}
+
 input{
     margin-top: 10px !important;
 }
