@@ -28,6 +28,10 @@ input{
     margin-top: 10px !important;
 }
 
+#sectionartists, #sectionalbums, #sectiontracks{
+    position: relative;float: left;padding-left: 18px;
+}
+
 .bouttoncontainer{
     position: relative;float: left;/*top: -35px;*/left: 37.5%;
 }
@@ -3594,6 +3598,9 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+#sectionartists, #sectionalbums, #sectiontracks{
+    padding-left: 0px;
+}
 .covering{
     width: 165px;
 }
