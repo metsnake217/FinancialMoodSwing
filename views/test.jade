@@ -466,10 +466,9 @@ block content
 
                     $( "#playedit" ).change(function() {
                         console.log("playedit selected");
-                        var playlistid = $(this).attr('id');
-                        var playlistname = $(this).val();
-                        console.log( "playlist is called: " + playlistname);
-                        console.log( "playlistid is called: " + playlistid);
+                        //var playlistid = $(this).attr('id');
+                        var playlistid = $(this).val();
+                        console.log( "playlist is called: " + playlistid);
                         var user;
                         $.ajax({
                             url: 'https://api.spotify.com/v1/me',
