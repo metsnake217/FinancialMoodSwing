@@ -598,6 +598,11 @@ block content
             $( "#addtoplaylist" ).show();
         });
 
+        $( ".labelexpandedit" ).click(function() {
+            console.dir($( ".labelexpandedit" ));
+            searchPlaylists();
+        });
+
         $( "#acousticup" ).mouseup(function() {
           console.log( "Handler for .mouseup() called: " + $(this).val());
             $.ajax({
