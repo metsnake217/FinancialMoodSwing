@@ -126,7 +126,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{danceup}" min="0" max="100" step="10" id="danceup" name="danceup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enup}" min="0" max="100" id="energyup" name="energyup")
+                          input(class="range-slider__range" type="range" value="#{enup}" min="0" max="100" id="enup" name="enup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keyup" type="text" id="keyup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -154,7 +154,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{speechup}" min="0" max="100" id="speechup" name="speechup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valup}" min="0" max="100" id="valenceup" name="valenceup")
+                          input(class="range-slider__range" type="range" value="#{valup}" min="0" max="100" id="valup" name="valup")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswayup" style="")
@@ -166,7 +166,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{dancewayup}" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enwayup}" min="0" max="100" id="energywayup" name="energywayup")
+                          input(class="range-slider__range" type="range" value="#{enwayup}" min="0" max="100" id="enwayup" name="enwayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywayup" type="text" id="keywayup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -194,7 +194,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{speechwayup}" min="0" max="100" id="speechwayup" name="speechwayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valwayup}" min="0" max="100" id="valencewayup" name="valencewayup")
+                          input(class="range-slider__range" type="range" value="#{valwayup}" min="0" max="100" id="valwayup" name="valwayup")
                           span(class="range-slider__value")!="0"
 
                     div(id="rulesdown" style="")
@@ -206,7 +206,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{dancedown}" min="0" max="100" step="10" id="dancedown" name="dancedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{endown}" min="0" max="100" id="energydown" name="energydown")
+                          input(class="range-slider__range" type="range" value="#{endown}" min="0" max="100" id="endown" name="endown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keydown" type="text" id="keydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -234,7 +234,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{speechdown}" min="0" max="100" id="speechdown" name="speechdown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valdown}" min="0" max="100" id="valencedown" name="valencedown")
+                          input(class="range-slider__range" type="range" value="#{valdown}" min="0" max="100" id="valdown" name="valdown")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswaydown" style="")
@@ -246,7 +246,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{dancewaydown}" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enwaydown}" min="0" max="100" id="energywaydown" name="energywaydown")
+                          input(class="range-slider__range" type="range" value="#{enwaydown}" min="0" max="100" id="enwaydown" name="enwaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywaydown" type="text" id="keywaydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
@@ -274,7 +274,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{speechwaydown}" min="0" max="100" id="speechwaydown" name="speechwaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valwaydown}" min="0" max="100" id="valencewaydown" name="valencewaydown")
+                          input(class="range-slider__range" type="range" value="#{valwaydown}" min="0" max="100" id="valwaydown" name="valwaydown")
                           span(class="range-slider__value")!="0"
         br(style="clear: both;")
 
@@ -441,6 +441,7 @@ block content
             });
         };
 
+
         var searchPlaylistsEdit = function () {
             console.log("looking for playlists");
             console.log("access token in playlists: " + bearer);
@@ -563,19 +564,512 @@ block content
         });
 
         $( "#acousticup" ).mouseup(function() {
-          alert( "Handler for .mouseup() called: " + $(this).val());
-                      $.ajax({
-                url: 'https://api.spotify.com/v1/me/playlists',
-                headers: {'Authorization': bearer},
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
                 success: function (response) {
-                    playlistresPlaceholder.innerHTML = templateplay(response);
-                    //editPlaceholder.innerHTML = templateedit(response);
-                    console.log("success get playlist.");
+                    console.log("success update acup.");
                 }
             });
         });
 
-        
+        $( "#acousticdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticdown.");
+                }
+            });
+        });
 
+        $( "#acousticwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwaydown.");
+                }
+            });
+        });        
 
+        $( "#acousticwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwayup.");
+                }
+            });
+        });
 
+        $( "#modeup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modeup.");
+                }
+            });
+        });
+
+        $( "#modedown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modedown.");
+                }
+            });
+        });
+
+        $( "#modewaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modewaydown.");
+                }
+            });
+        });        
+
+        $( "#modewayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modewayup.");
+                }
+            });
+        });
+        $( "#keyup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keyup.");
+                }
+            });
+        });
+
+        $( "#keydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keydown.");
+                }
+            });
+        });
+
+        $( "#keywaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keywaydown.");
+                }
+            });
+        });        
+
+        $( "#keywayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keywayup.");
+                }
+            });
+        });
+
+        $( "#danceup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update danceup.");
+                }
+            });
+        });
+
+        $( "#dancedown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancedown.");
+                }
+            });
+        });
+
+        $( "#dancewaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancewaydown.");
+                }
+            });
+        });        
+
+        $( "#dancewayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancewayup.");
+                }
+            });
+        });
+
+        $( "#enup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enup.");
+                }
+            });
+        });
+
+        $( "#endown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update endown.");
+                }
+            });
+        });
+
+        $( "#enwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enwaydown.");
+                }
+            });
+        });        
+
+        $( "#enwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enwayup.");
+                }
+            });
+        });
+
+        $( "#liveup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update liveup.");
+                }
+            });
+        });
+
+        $( "#livedown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livedown.");
+                }
+            });
+        });
+
+        $( "#livewaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livewaydown.");
+                }
+            });
+        });        
+
+        $( "#livewayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livewayup.");
+                }
+            });
+        });
+
+        $( "#speechup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechup.");
+                }
+            });
+        });
+
+        $( "#speechdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechdown.");
+                }
+            });
+        });
+
+        $( "#speechwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechwaydown.");
+                }
+            });
+        });        
+
+        $( "#acousticwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwayup.");
+                }
+            });
+        });
+
+        $( "#valup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valup.");
+                }
+            });
+        });
+
+        $( "#valdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valdown.");
+                }
+            });
+        });
+
+        $( "#valwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valwaydown.");
+                }
+            });
+        });        
+
+        $( "#valwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valwayup.");
+                }
+            });
+        });
