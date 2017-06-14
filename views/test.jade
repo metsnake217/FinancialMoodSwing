@@ -46,10 +46,10 @@ block content
                     div(id="playlistres")
                         script(id="playlistres-template" type="text/x-handlebars-template")
                             <p style="margin-top:50px">Select an existing Playlist below and make a wise decision about the music tracks you would want to associate. Then click on "Add to Playlist" button.</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample" name="moodexample" value="moodexample" checked="checked" class="mood"><label for="moodexample" class="labelcheck1 shadow"></label> Mood is Up</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample2" name="moodexample2" value="moodexample2" checked="checked" class="mood"><label for="moodexample2" class="labelcheck1 shadow"></label> Mood is Way Up</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample3" name="moodexampl3" value="moodexample3" checked="checked" class="mood"><label for="moodexample3" class="labelcheck1 shadow"></label> Mood is Down</p>
-                            <p style="width: 160px;padding-left: 30px;" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample4" name="moodexample4" value="moodexample4" checked="checked" class="mood"><label for="moodexample4" class="labelcheck1 shadow"></label> Mood is Way Down</p><br/>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample" name="moodexample" value="moodexample" checked="checked" class="moodexample"><label for="moodexample" class="labelcheck1 shadow"></label> Mood is Up</p>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample2" name="moodexample2" value="moodexample2" checked="checked" class="moodexample"><label for="moodexample2" class="labelcheck1 shadow"></label> Mood is Way Up</p>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample3" name="moodexampl3" value="moodexample3" checked="checked" class="moodexample"><label for="moodexample3" class="labelcheck1 shadow"></label> Mood is Down</p>
+                            <p style="width: 160px;padding-left: 30px;" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample4" name="moodexample4" value="moodexample4" checked="checked" class="moodexample"><label for="moodexample4" class="labelcheck1 shadow"></label> Mood is Way Down</p><br/>
                             <select name="playSelect" type="text" id="playSelect" class="form-control" style="" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>
                             {{#each items}}
@@ -82,7 +82,7 @@ block content
                             {{/if}}
                     br(style="clear: both;")
                     div
-                        input(type="submit" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
+                        input(type="type" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
@@ -525,6 +525,26 @@ block content
             }
             });
             };
+
+        $( "#addtoplaylist" ).click(function() {
+            var trackid = $(this).attr("id");
+            var parentr = $(this).parent().parent();
+            //var user;
+            console.log("deleting track : " + trackid);
+            console.log("user: " + user);
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acup.");
+                }
+            });
+        });
 
         var createPlaylist = function () {
             var playlistname = $('#queryplay').val();
