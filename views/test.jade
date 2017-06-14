@@ -283,6 +283,7 @@ block content
 
     script.
         var bearer = "Bearer " + "#{access_token}";
+        var user;
         var playList = [];
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
@@ -475,7 +476,7 @@ block content
                         //var playlistid = $(this).attr('id');
                         var playlistid = $(this).val();
                         console.log( "playlist is called: " + playlistid);
-                        var user;
+                        
                         $.ajax({
                             url: 'https://api.spotify.com/v1/me',
                             headers: {'Authorization': bearer},
@@ -494,9 +495,16 @@ block content
 
                                         $( ".trashtrack" ).click(function() {
                                             var trackid = $(this).attr("id");
-                                            var user;
+                                            //var user;
                                             console.log("deleting track : " + trackid);
-                                            console.dir($(this));
+                                            console.log("user: " + user);
+                                            $.ajax({
+                                    method: 'DELETE',
+                                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                    data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
+                                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                    success: function (resp2) {
+                                        console.log("trackid " + trackid + " :  successfully deleted.");
                                         });
                                     }
                                 });
@@ -512,7 +520,7 @@ block content
 
         var createPlaylist = function () {
             var playlistname = $('#queryplay').val();
-            var user;
+            //var user;
             console.log("creating playlist : "+playlistname);
             console.log("found it? " + playList.indexOf(playlistname));
             if(playlistname != undefined && playList.indexOf(playlistname) == -1){
