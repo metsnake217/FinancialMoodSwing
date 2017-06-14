@@ -32,6 +32,10 @@ tbody tr{
     border-width: thin;
 }
 
+.deletedtrack{
+    background-color: #8a6d3b;
+    color: #8a6d3b !important;
+}
 
 td, th {
     padding: 5px !important;

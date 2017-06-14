@@ -505,6 +505,7 @@ block content
                                                 headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                                 success: function (resp2) {
                                                     console.log("trackid " + trackid + " :  successfully deleted.");
+                                                    $(this).parent().parent().addClass("deletedtrack");
                                                 }
                                             });
                                         });
