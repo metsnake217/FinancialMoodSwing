@@ -242,6 +242,7 @@ router.get('/refresh_token', function(req, res) {
       var musicUpdateRules = new MusicUpdateRules(col,rule,val);
       musicUpdateRules.updaterule(function(error, results) { 
         console.log("update " + col + " for " + rule + " is successful.");
+        res.end();
   });
 
   } 
@@ -263,6 +264,7 @@ router.get('/refresh_token', function(req, res) {
       var musicUpdateRules = new MusicUpdateRules(col,rule,val);
       musicUpdateRules.updaterulestr(function(error, results) { 
         console.log("update " + col + " for " + rule + " is successful.");
+        res.end();
   });
 
   } 
@@ -284,6 +286,7 @@ router.get('/refresh_token', function(req, res) {
       var musicUpdateRules = new MusicUpdateRules(col,rule,val);
       musicUpdateRules.updateruleint(function(error, results) { 
         console.log("update " + col + " for " + rule + " is successful.");
+        res.end();
   });
 
   } 
