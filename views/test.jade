@@ -280,6 +280,7 @@ block content
 
     script.
         var bearer = "Bearer " + "#{access_token}";
+        var user_id = "#{user_id}";
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -459,32 +460,29 @@ block content
 
         var createPlaylist = function () {
             var playlistname = $('#queryplay').val();
+            var user;
             console.log("creating playlist : "+playlistname);
             if(playlistname != undefined){
+            console.log("userid in playlists: " + user_id);
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
-                headers: {'Authorization': bearer}
-                }).done(function(response) {
-                    var user = response.id;
-                    console.log("got user id: " + user);
-
-                
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    user = response.id;
+                    console.log("got user id to create playlist: " + user);
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
                 headers: {'Authorization': bearer},
-                data: {name:playlistname}
-                }).done(function() {
-                    console.log("created playlist: " + user);
+                data: {name:playlistname},
+                success: function (resp) {
+                    console.log("successfully created playlist for " + user);
+                }
+                });
 
-
-                })
-            })
-
-
-                
-            
+                }
+            });
 
             
 
