@@ -261,7 +261,7 @@ router.get('/refresh_token', function(req, res) {
       console.log("val: " + val);
 
       var musicUpdateRules = new MusicUpdateRules(col,rule,val);
-      musicUpdateRules.updaterule(function(error, results) { 
+      musicUpdateRules.updaterulestr(function(error, results) { 
         console.log("update " + col + " for " + rule + " is successful.");
   });
 
