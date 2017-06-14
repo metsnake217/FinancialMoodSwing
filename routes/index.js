@@ -211,13 +211,12 @@ router.get('/refresh_token', function(req, res) {
       rules: results,
       /*ordersnum: req.session.orders,
       sharesnum: req.session.shares,*/
-      title : 'Test spotify',
+      title : 'Admin',
       access_token:access_token,
       /*loggedIn : req.session.loggedin,
       labyoker : req.session.user,
       isLoggedInAdmin: req.session.admin,*/
-      menu : 'test',
-      title: 'Test'
+      menu : 'test'
     });
   });
 
