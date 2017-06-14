@@ -15,7 +15,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;" onclick="createPlaylist($("#queryplay").val())")
+                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;" onclick="createPlaylist($('#queryplay').val())")
 
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
