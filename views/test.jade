@@ -533,36 +533,6 @@ block content
             var trackid = $('this').attr("id");
             var user;
             console.log("deleting track : "+trackid);
-
-            /*console.log("found it? " + playList.indexOf(playlistname));
-            if(playlistname != undefined && playList.indexOf(playlistname) == -1){
-
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me',
-                headers: {'Authorization': bearer},
-                success: function (response) {
-                    user = response.id;
-                    console.log("got user id to create playlist: " + user);
-
-            $.ajax({
-                method: 'POST',
-                url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
-                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
-                success: function (resp) {
-                    $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> successfully created!");
-                    console.log("successfully created playlist for " + user);
-                }
-                });
-
-                }
-            });
-
-
-
-            } else if(playList.indexOf(playlistname) >= 0){
-                $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> already exists. Please enter a new Playlist name");
-            }*/
         };
 
         resultsss.addEventListener('click', function (e) {
