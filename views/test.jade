@@ -475,6 +475,7 @@ block content
                         console.log("playedit selected");
                         //var playlistid = $(this).attr('id');
                         var playlistid = $(this).val();
+                        var parentr = $(this).parent().parent();
                         console.log( "playlist is called: " + playlistid);
                         
                         $.ajax({
@@ -505,7 +506,7 @@ block content
                                                 headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                                 success: function (resp2) {
                                                     console.log("trackid " + trackid + " :  successfully deleted.");
-                                                    $(this).parent().parent().addClass("deletedtrack");
+                                                    parentr.addClass("deletedtrack");
                                                 }
                                             });
                                         });
