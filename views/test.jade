@@ -15,7 +15,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;")
+                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;" onclick="createPlaylist($("#queryplay").val())")
 
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
@@ -279,7 +279,8 @@ block content
         br(style="clear: both;")
 
     script.
-        var bearer = "Bearer " + "#{access_token}";
+        var bearer = "Bearer - " + "#{access_token}";
+        var user;
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -437,6 +438,29 @@ block content
                     playlistresPlaceholder.innerHTML = templateplay(response);
                     //editPlaceholder.innerHTML = templateedit(response);
                     console.log("success get playlist.");
+                }
+            });
+        };
+
+        var createPlaylist = function (playlistname) {
+            console.log("creating playlist");
+            console.log("access token in playlists: " + bearer);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    user = response.id;
+                    console.log("got user id to create playlist: " + user);
+
+                   /* $.ajax({
+                        url: 'https://api.spotify.com/v1/users/" +user+ "/playlists',
+                        method: "POST",
+                        headers: {'Authorization': bearer},
+                        data:{name: playlistname},
+                        success: function (response) {
+                            console.log("success created playlist " + playlistname + " for " + user);
+                        }
+                    });*/
                 }
             });
         };
