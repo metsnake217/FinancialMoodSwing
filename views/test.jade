@@ -476,6 +476,7 @@ block content
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
                 headers: {'Authorization': bearer},
                 contentType: 'application/json',
+                dataType: 'json',
                 data: {name:playlistname,  description: "Financial mood Swing test new playlist"},
                 success: function (resp) {
                     console.log("successfully created playlist for " + user);
