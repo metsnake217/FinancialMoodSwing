@@ -219,11 +219,11 @@ MusicUpdateRules.prototype.updaterule = function(callback) {
 
 MusicUpdateRules.prototype.updaterulestr = function(callback) {
 	var results;
-	console.log("updaterule: " + this.col);
-	console.log("updaterule: " + this.rule);
-	console.log("updaterule: " + this.val);
+	console.log("updaterulestr: " + this.col);
+	console.log("updaterulestr: " + this.rule);
+	console.log("updaterulestr: " + this.val);
 	var val = this.val;
-	var sql = "Update rules set " + this.col +" = '" + val + "' where name='"+this.rule+"'";
+	var sql = "Update rules set " + this.col +" = '" + this.val + "' where name='"+this.rule+"'";
 	console.log("sql: " + sql);
 	var query = client.query(sql);
 	query.on("row", function(row, result) {
