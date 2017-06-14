@@ -15,7 +15,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist($('#queryplay').val())")
+                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist()")
 
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
@@ -456,8 +456,10 @@ block content
             });
         };
 
-        var createPlaylist = function (playlistname) {
-            console.log("creating playlist");
+        var createPlaylist = function () {
+            var playlistname = $('#queryplay').val();
+            console.log("creating playlist : "+playlistname);
+            if(playlistname != undefined){
             console.log("access token in playlists: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
@@ -469,6 +471,7 @@ block content
 
                 }
             });
+            }
         };
 
         resultsss.addEventListener('click', function (e) {
