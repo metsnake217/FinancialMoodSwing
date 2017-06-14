@@ -32,7 +32,6 @@ block content
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
-                    input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
         div(id="expandadd")
