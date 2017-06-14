@@ -280,7 +280,6 @@ block content
 
     script.
         var bearer = "Bearer " + "#{access_token}";
-        var user_id = "#{user_id}";
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -467,7 +466,7 @@ block content
                 url: 'https://api.spotify.com/v1/me',
                 headers: {'Authorization': bearer}
                 }).done(function(response) {
-                    user = response.id;
+                    var user = response.id;
                     console.log("got user id: " + user);
 
                 
@@ -478,7 +477,7 @@ block content
                 data: {name:playlistname},
                 success: function (response) {
                     user = response.id;
-                    console.log("got user id to create playlist: " + user);
+                    console.log("created playlist: " + user);
 
 
                 }
