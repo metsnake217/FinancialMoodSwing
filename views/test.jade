@@ -437,10 +437,10 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
-                    playList.push(response);
+                    
                     //editPlaceholder.innerHTML = templateedit(response);
-                    console.log("success get PLAYLIST.");
-                    console.dir(playList);
+                    console.log("success get playlists.");
+                    
                 }
             });
         };
@@ -455,7 +455,9 @@ block content
                 success: function (response) {
                     //playlistresPlaceholder.innerHTML = templateplay(response);
                     editPlaceholder.innerHTML = templateedit(response);
-                    console.log("success get playlist.");
+                    playList.push(response);
+                    console.log("success get PLAYLIST.");
+                    console.dir(playList);
                 }
             });
         };
