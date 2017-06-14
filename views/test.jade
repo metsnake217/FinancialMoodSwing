@@ -463,7 +463,6 @@ block content
             var user;
             console.log("creating playlist : "+playlistname);
             if(playlistname != undefined){
-            console.log("userid in playlists: " + user_id);
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
@@ -473,6 +472,7 @@ block content
                     console.log("got user id to create playlist: " + user);
 
             $.ajax({
+                method: "POST",
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
                 headers: {'Authorization': bearer},
                 data: {name:playlistname},
