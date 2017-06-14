@@ -336,6 +336,7 @@ block content
         var searchAlbums_ = function (query) {
             console.log("looking for albums");
             console.log("access: " + bearer);
+            console.log("user_id: " + user_id);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
                 headers: {'Authorization': bearer},
@@ -463,7 +464,7 @@ block content
             if(playlistname != undefined){
             console.log("userid in playlists: " + user_id);
             $.ajax({
-                url: 'https://api.spotify.com/v1/users/'+user_id+"/playlists",
+                url: 'https://api.spotify.com/v1/users/'+user_id+'/playlists',
                 headers: {'Authorization': bearer},
                 data: {name:playlistname},
                 success: function (response) {
