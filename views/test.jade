@@ -499,24 +499,26 @@ block content
                                             console.log("deleting track : " + trackid);
                                             console.log("user: " + user);
                                             $.ajax({
-                                    method: 'DELETE',
-                                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
-                                    data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
-                                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                                    success: function (resp2) {
-                                        console.log("trackid " + trackid + " :  successfully deleted.");
+                                                method: 'DELETE',
+                                                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                                data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
+                                                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                                success: function (resp2) {
+                                                    console.log("trackid " + trackid + " :  successfully deleted.");
+                                                }
+                                            });
                                         });
-                                    }
-                                });
 
-                            }
-                        });
+                                }
+                            });
+                        }
+
+
                     });
-
-
-                }
+                });
+            }
             });
-        };
+            };
 
         var createPlaylist = function () {
             var playlistname = $('#queryplay').val();
