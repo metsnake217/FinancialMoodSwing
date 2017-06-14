@@ -529,16 +529,16 @@ block content
         $( "#addtoplaylist" ).click(function() {
             var trackid = $(this).attr("id");
             var parentr = $(this).parent().parent();
-            var playlistidselected = $("playSelect").val();
+            var playlistidselected = $("#playSelect").val();
             console.log("playlist selected is: " + playlistidselected);
             var moods = $(".mood");
             var i = 0;
             var checked = false;
             var builddata=[];
+            console.dir(moods);
             
             for(var m in mood){
                 var addmusic = {trackid:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
-                var moods = [];
                 var tracks = [];
                 var inputid;
                 var checked = $($(".mood")[i])[0].checked;
