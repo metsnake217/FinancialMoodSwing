@@ -465,10 +465,12 @@ block content
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
-                headers: {'Authorization': bearer},
-                success: function (response) {
+                headers: {'Authorization': bearer}
+                }).done(function(response) {
                     user = response.id;
                     console.log("got user id: " + user);
+
+                
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
@@ -483,7 +485,7 @@ block content
             });
 
 
-                }
+                
             });
 
             
