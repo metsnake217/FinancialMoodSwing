@@ -15,7 +15,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist($('#queryplay').val())")
+                    input(type="submit" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: #8a6d3b !important;")
 
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
@@ -27,7 +27,11 @@ block content
                     div(id="playlistedit")
                         script(id="playlistedit-template" type="text/x-handlebars-template")
                             <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
-                            <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
+                            <option value="select playlist">Select Playlist</option>
+                            {{#each items}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                            </select>
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     input(type="submit" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
@@ -81,206 +85,172 @@ block content
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
         div(id="expandrules")
-            - var results = rules
-            - var acup = results[0].acousticness*100
-            - var acdown = results[2].acousticness*100
-            - var acwayup = results[1].acousticness*100
-            - var acwaydown = results[3].acousticness*100
-            - var danceup = results[0].danceability*100
-            - var dancedown = results[2].danceability*100
-            - var dancewayup = results[1].danceability*100
-            - var dancewaydown = results[3].danceability*100
-            - var enup = results[0].energy*100
-            - var endown = results[2].energy*100
-            - var enwayup = results[1].energy*100
-            - var enwaydown = results[3].energy*100
-            - var keyup = results[0].key
-            - var keydown = results[2].key
-            - var keywayup = results[1].key
-            - var keywaydown = results[3].key
-            - var liveup = results[0].liveness*100
-            - var livedown = results[2].liveness*100
-            - var livewayup = results[1].liveness*100
-            - var livewaydown = results[3].liveness*100
-            - var modeup = results[0].mode
-            - var modedown = results[2].mode
-            - var modewayup = results[1].mode
-            - var modewaydown = results[3].mode
-            - var speechup = results[0].speechiness*100
-            - var speechdown = results[2].speechiness*100
-            - var speechwayup = results[1].speechiness*100
-            - var speechwaydown = results[3].speechiness*100
-            - var valup = results[0].valence*100
-            - var valdown = results[2].valence*100
-            - var valwayup = results[1].valence*100
-            - var valwaydown = results[3].valence*100
             section
                 p!= "Set up the business rules for the stock market."
                 form(id="playlistrules-form" action="/updaterule" method="post")
                     div(id="rulesup" style="")
                         h2(style="color: #00bc00 !important;")!="Up"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="#{acup}" min="0" max="100" id="acousticup" name="acousticup")
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticup" name="acousticup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="#{danceup}" min="0" max="100" step="10" id="danceup" name="danceup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="danceup" name="danceup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enup}" min="0" max="100" id="enup" name="enup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energyup" name="energyup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keyup" type="text" id="keyup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
-                                option(value="0" selected=(keyup==0 ? "selected" : undefined))!="0"
-                                option(value="1" selected=(keyup==1 ? "selected" : undefined))!="1"
-                                option(value="2" selected=(keyup==2 ? "selected" : undefined))!="2"
-                                option(value="3" selected=(keyup==3 ? "selected" : undefined))!="3"
-                                option(value="4" selected=(keyup==4 ? "selected" : undefined))!="4"
-                                option(value="5" selected=(keyup==5 ? "selected" : undefined))!="5"
-                                option(value="6" selected=(keyup==6 ? "selected" : undefined))!="6"
-                                option(value="7" selected=(keyup==7 ? "selected" : undefined))!="7"
-                                option(value="8" selected=(keyup==8 ? "selected" : undefined))!="8"
-                                option(value="9" selected=(keyup==9 ? "selected" : undefined))!="9"
-                                option(value="10" selected=(keyup==10 ? "selected" : undefined))!="10"
-                                option(value="11" selected=(keyup==11 ? "selected" : undefined))!="11"
+                                option(value="0")!="0"
+                                option(value="1")!="1"
+                                option(value="2")!="2"
+                                option(value="3")!="3"
+                                option(value="4")!="4"
+                                option(value="5")!="5"
+                                option(value="6")!="6"
+                                option(value="7")!="7"
+                                option(value="8")!="8"
+                                option(value="9")!="9"
+                                option(value="10")!="10"
+                                option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="#{liveup}" min="0" max="100" id="liveup" name="liveup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="liveup" name="liveup")
                           span(class="range-slider__value")!="0"
-                        div(class="range-slider")!="Mode" 
+                        div(class="range-slider")!="Mode"
                             select(name="modeup" type="text" id="modeup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
-                                option(value="select playlist" selected=(modeup==="none" ? "selected" : undefined))!="None"
-                                option(value="minor" selected=(modeup=="minor" ? "selected" : undefined))!="Minor"
-                                option(value="major" selected=(modeup=="major" ? "selected" : undefined))!="Major"
+                                option(value="select playlist")!="None"
+                                option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
+                                option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="#{speechup}" min="0" max="100" id="speechup" name="speechup")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechup" name="speechup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valup}" min="0" max="100" id="valup" name="valup")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valenceup" name="valenceup")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswayup" style="")
                         h2(style="color: #00bc00 !important;")!="Way Up"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="#{acwayup}" min="0" max="100" id="acousticwayup" name="acousticwayup")
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticwayup" name="acousticwayup")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="#{dancewayup}" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewayup" name="dancewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enwayup}" min="0" max="100" id="enwayup" name="enwayup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energywayup" name="energywayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywayup" type="text" id="keywayup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
-                                option(value="0" selected=(keywayup==0 ? "selected" : undefined))!="0"
-                                option(value="1" selected=(keywayup==1 ? "selected" : undefined))!="1"
-                                option(value="2" selected=(keywayup==2 ? "selected" : undefined))!="2"
-                                option(value="3" selected=(keywayup==3 ? "selected" : undefined))!="3"
-                                option(value="4" selected=(keywayup==4 ? "selected" : undefined))!="4"
-                                option(value="5" selected=(keywayup==5 ? "selected" : undefined))!="5"
-                                option(value="6" selected=(keywayup==6 ? "selected" : undefined))!="6"
-                                option(value="7" selected=(keywayup==7 ? "selected" : undefined))!="7"
-                                option(value="8" selected=(keywayup==8 ? "selected" : undefined))!="8"
-                                option(value="9" selected=(keywayup==9 ? "selected" : undefined))!="9"
-                                option(value="10" selected=(keywayup==10 ? "selected" : undefined))!="10"
-                                option(value="11" selected=(keywayup==11 ? "selected" : undefined))!="11"
+                                option(value="0")!="0"
+                                option(value="1")!="1"
+                                option(value="2")!="2"
+                                option(value="3")!="3"
+                                option(value="4")!="4"
+                                option(value="5")!="5"
+                                option(value="6")!="6"
+                                option(value="7")!="7"
+                                option(value="8")!="8"
+                                option(value="9")!="9"
+                                option(value="10")!="10"
+                                option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="#{livewayup}" min="0" max="100" id="livewayup" name="livewayup")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livewayup" name="livewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modewayup" type="text" id="modewayup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
-                                option(value="select playlist" selected=(modewayup=="none" ? "selected" : undefined))!="None"
-                                option(value="minor"  selected=(modewayup=="minor" ? "selected" : undefined))!="Minor"
-                                option(value="major" selected=(modewayup=="major" ? "selected" : undefined))!="Major"
+                                option(value="select playlist")!="None"
+                                option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
+                                option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="#{speechwayup}" min="0" max="100" id="speechwayup" name="speechwayup")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechwayup" name="speechwayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valwayup}" min="0" max="100" id="valwayup" name="valwayup")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencewayup" name="valencewayup")
                           span(class="range-slider__value")!="0"
 
                     div(id="rulesdown" style="")
                         h2(style="color: #00bc00 !important;")!="Down"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="#{acdown}" min="0" max="100" id="acousticdown" name="acousticdown")
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticdown" name="acousticdown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="#{dancedown}" min="0" max="100" step="10" id="dancedown" name="dancedown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancedown" name="dancedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{endown}" min="0" max="100" id="endown" name="endown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energydown" name="energydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keydown" type="text" id="keydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
-                                option(value="0" selected=(keydown==0 ? "selected" : undefined))!="0"
-                                option(value="1" selected=(keydown==1 ? "selected" : undefined))!="1"
-                                option(value="2" selected=(keydown==2 ? "selected" : undefined))!="2"
-                                option(value="3" selected=(keydown==3 ? "selected" : undefined))!="3"
-                                option(value="4" selected=(keydown==4 ? "selected" : undefined))!="4"
-                                option(value="5" selected=(keydown==5 ? "selected" : undefined))!="5"
-                                option(value="6" selected=(keydown==6 ? "selected" : undefined))!="6"
-                                option(value="7" selected=(keydown==7 ? "selected" : undefined))!="7"
-                                option(value="8" selected=(keydown==8 ? "selected" : undefined))!="8"
-                                option(value="9" selected=(keydown==9 ? "selected" : undefined))!="9"
-                                option(value="10" selected=(keydown==10 ? "selected" : undefined))!="10"
-                                option(value="11" selected=(keydown==11 ? "selected" : undefined))!="11"
+                                option(value="0")!="0"
+                                option(value="1")!="1"
+                                option(value="2")!="2"
+                                option(value="3")!="3"
+                                option(value="4")!="4"
+                                option(value="5")!="5"
+                                option(value="6")!="6"
+                                option(value="7")!="7"
+                                option(value="8")!="8"
+                                option(value="9")!="9"
+                                option(value="10")!="10"
+                                option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="#{livedown}" min="0" max="100" id="livedown" name="livedown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livedown" name="livedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modedown" type="text" id="modedown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
-                                option(value="select playlist" selected=(modedown=="none" ? "selected" : undefined))!="None"
-                                option(value="minor" selected=(modedown=="minor" ? "selected" : undefined))!="Minor"
-                                option(value="major" selected=(modedown=="major" ? "selected" : undefined))!="Major"
+                                option(value="select playlist")!="None"
+                                option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
+                                option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="#{speechdown}" min="0" max="100" id="speechdown" name="speechdown")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechdown" name="speechdown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valdown}" min="0" max="100" id="valdown" name="valdown")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencedown" name="valencedown")
                           span(class="range-slider__value")!="0"
 
                     div(id="ruleswaydown" style="")
                         h2(style="color: #00bc00 !important;")!="Way Down"
                         div(class="range-slider")!="Acousticness"
-                            input(class="range-slider__range" type="range" value="#{acwaydown}" min="0" max="100" id="acousticwaydown" name="acousticwaydown")
+                            input(class="range-slider__range" type="range" value="100" min="0" max="100" id="acousticwaydown" name="acousticwaydown")
                             span(class="range-slider__value")!= "0"
                         div(class="range-slider")!="Danceability"
-                          input(class="range-slider__range" type="range" value="#{dancewaydown}" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" step="10" id="dancewaydown" name="dancedwayown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Energy"
-                          input(class="range-slider__range" type="range" value="#{enwaydown}" min="0" max="100" id="enwaydown" name="enwaydown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="energywaydown" name="energywaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
                             select(name="keywaydown" type="text" id="keywaydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
-                                option(value="0" selected=(keywaydown==0 ? "selected" : undefined))!="0"
-                                option(value="1" selected=(keywaydown==1 ? "selected" : undefined))!="1"
-                                option(value="2" selected=(keywaydown==2 ? "selected" : undefined))!="2"
-                                option(value="3" selected=(keywaydown==3 ? "selected" : undefined))!="3"
-                                option(value="4" selected=(keywaydown==4 ? "selected" : undefined))!="4"
-                                option(value="5" selected=(keywaydown==5 ? "selected" : undefined))!="5"
-                                option(value="6" selected=(keywaydown==6 ? "selected" : undefined))!="6"
-                                option(value="7" selected=(keywaydown==7 ? "selected" : undefined))!="7"
-                                option(value="8" selected=(keywaydown==8 ? "selected" : undefined))!="8"
-                                option(value="9" selected=(keywaydown==9 ? "selected" : undefined))!="9"
-                                option(value="10" selected=(keywaydown==10 ? "selected" : undefined))!="10"
-                                option(value="11" selected=(keywaydown==11 ? "selected" : undefined))!="11"
+                                option(value="0")!="0"
+                                option(value="1")!="1"
+                                option(value="2")!="2"
+                                option(value="3")!="3"
+                                option(value="4")!="4"
+                                option(value="5")!="5"
+                                option(value="6")!="6"
+                                option(value="7")!="7"
+                                option(value="8")!="8"
+                                option(value="9")!="9"
+                                option(value="10")!="10"
+                                option(value="11")!="11"
                         div(class="range-slider")!="Liveness"
-                          input(class="range-slider__range" type="range" value="#{livewaydown}" min="0" max="100" id="livewaydown" name="livewaydown")
+                          input(class="range-slider__range" type="range" value="50" min="0" max="100" id="livewaydown" name="livewaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
                             select(name="modewaydown" type="text" id="modewaydown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
-                                option(value="select playlist" selected=(modewaydown=="none" ? "selected" : undefined))!="None"
-                                option(value="minor" selected=(modewaydown=="minor" ? "selected" : undefined))!="Minor"
-                                option(value="major" selected=(modewaydown=="major" ? "selected" : undefined))!="Major"
+                                option(value="select playlist")!="None"
+                                option(value="2oCyYrRD8DY0j1ZAqYumCb")!="Minor"
+                                option(value="4LWi7L69VzdLavE6TgQcm9")!="Major"
                         div(class="range-slider")!="Speechiness"
-                          input(class="range-slider__range" type="range" value="#{speechwaydown}" min="0" max="100" id="speechwaydown" name="speechwaydown")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="speechwaydown" name="speechwaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Valence"
-                          input(class="range-slider__range" type="range" value="#{valwaydown}" min="0" max="100" id="valwaydown" name="valwaydown")
+                          input(class="range-slider__range" type="range" value="40" min="0" max="100" id="valencewaydown" name="valencewaydown")
                           span(class="range-slider__value")!="0"
         br(style="clear: both;")
 
     script.
-        var bearer = "Bearer - " + "#{access_token}";
-        var user;
+        var bearer = "Bearer " + "#{access_token}";
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -442,32 +412,9 @@ block content
             });
         };
 
-        var createPlaylist = function (playlistname) {
-            console.log("creating playlist");
-            console.log("access token in playlists: " + bearer);
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me',
-                headers: {'Authorization': bearer},
-                success: function (response) {
-                    user = response.id;
-                    console.log("got user id to create playlist: " + user);
-
-                   /* $.ajax({
-                        url: 'https://api.spotify.com/v1/users/" +user+ "/playlists',
-                        method: "POST",
-                        headers: {'Authorization': bearer},
-                        data:{name: playlistname},
-                        success: function (response) {
-                            console.log("success created playlist " + playlistname + " for " + user);
-                        }
-                    });*/
-                }
-            });
-        };
-
         var searchPlaylistsEdit = function () {
-            console.log("looking for playlists edit");
-            console.log("access token in playlists edit: " + bearer);
+            console.log("looking for playlists");
+            console.log("access token in playlists: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/playlists',
                 headers: {'Authorization': bearer},
@@ -586,513 +533,7 @@ block content
             $( "#addtoplaylist" ).show();
         });
 
-        $( "#acousticup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "acousticness"
-                },
-                success: function (response) {
-                    console.log("success update acup.");
-                }
-            });
-        });
+        
 
-        $( "#acousticdown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "acousticness"
-                },
-                success: function (response) {
-                    console.log("success update acousticdown.");
-                }
-            });
-        });
 
-        $( "#acousticwaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "acousticness"
-                },
-                success: function (response) {
-                    console.log("success update acousticwaydown.");
-                }
-            });
-        });        
 
-        $( "#acousticwayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "acousticness"
-                },
-                success: function (response) {
-                    console.log("success update acousticwayup.");
-                }
-            });
-        });
-
-        $( "#modeup" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "mode"
-                },
-                success: function (response) {
-                    console.log("success update modeup.");
-                }
-            });
-        });
-
-        $( "#modedown" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "mode"
-                },
-                success: function (response) {
-                    console.log("success update modedown.");
-                }
-            });
-        });
-
-        $( "#modewaydown" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "mode"
-                },
-                success: function (response) {
-                    console.log("success update modewaydown.");
-                }
-            });
-        });        
-
-        $( "#modewayup" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "mode"
-                },
-                success: function (response) {
-                    console.log("success update modewayup.");
-                }
-            });
-        });
-        $( "#keyup" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "key"
-                },
-                success: function (response) {
-                    console.log("success update keyup.");
-                }
-            });
-        });
-
-        $( "#keydown" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "key"
-                },
-                success: function (response) {
-                    console.log("success update keydown.");
-                }
-            });
-        });
-
-        $( "#keywaydown" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "key"
-                },
-                success: function (response) {
-                    console.log("success update keywaydown.");
-                }
-            });
-        });        
-
-        $( "#keywayup" ).change(function() {
-          console.log( "Handler for .change() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "key"
-                },
-                success: function (response) {
-                    console.log("success update keywayup.");
-                }
-            });
-        });
-
-        $( "#danceup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "danceability"
-                },
-                success: function (response) {
-                    console.log("success update danceup.");
-                }
-            });
-        });
-
-        $( "#dancedown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "danceability"
-                },
-                success: function (response) {
-                    console.log("success update dancedown.");
-                }
-            });
-        });
-
-        $( "#dancewaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "danceability"
-                },
-                success: function (response) {
-                    console.log("success update dancewaydown.");
-                }
-            });
-        });        
-
-        $( "#dancewayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "danceability"
-                },
-                success: function (response) {
-                    console.log("success update dancewayup.");
-                }
-            });
-        });
-
-        $( "#enup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "energy"
-                },
-                success: function (response) {
-                    console.log("success update enup.");
-                }
-            });
-        });
-
-        $( "#endown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "energy"
-                },
-                success: function (response) {
-                    console.log("success update endown.");
-                }
-            });
-        });
-
-        $( "#enwaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "energy"
-                },
-                success: function (response) {
-                    console.log("success update enwaydown.");
-                }
-            });
-        });        
-
-        $( "#enwayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "energy"
-                },
-                success: function (response) {
-                    console.log("success update enwayup.");
-                }
-            });
-        });
-
-        $( "#liveup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "liveness"
-                },
-                success: function (response) {
-                    console.log("success update liveup.");
-                }
-            });
-        });
-
-        $( "#livedown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "liveness"
-                },
-                success: function (response) {
-                    console.log("success update livedown.");
-                }
-            });
-        });
-
-        $( "#livewaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "liveness"
-                },
-                success: function (response) {
-                    console.log("success update livewaydown.");
-                }
-            });
-        });        
-
-        $( "#livewayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "liveness"
-                },
-                success: function (response) {
-                    console.log("success update livewayup.");
-                }
-            });
-        });
-
-        $( "#speechup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "speechiness"
-                },
-                success: function (response) {
-                    console.log("success update speechup.");
-                }
-            });
-        });
-
-        $( "#speechdown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "speechiness"
-                },
-                success: function (response) {
-                    console.log("success update speechdown.");
-                }
-            });
-        });
-
-        $( "#speechwaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "speechiness"
-                },
-                success: function (response) {
-                    console.log("success update speechwaydown.");
-                }
-            });
-        });        
-
-        $( "#acousticwayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "speechiness"
-                },
-                success: function (response) {
-                    console.log("success update acousticwayup.");
-                }
-            });
-        });
-
-        $( "#valup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "up",
-                    val: $(this).val(),
-                    col: "valence"
-                },
-                success: function (response) {
-                    console.log("success update valup.");
-                }
-            });
-        });
-
-        $( "#valdown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "down",
-                    val: $(this).val(),
-                    col: "valence"
-                },
-                success: function (response) {
-                    console.log("success update valdown.");
-                }
-            });
-        });
-
-        $( "#valwaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "waydown",
-                    val: $(this).val(),
-                    col: "valence"
-                },
-                success: function (response) {
-                    console.log("success update valwaydown.");
-                }
-            });
-        });        
-
-        $( "#valwayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
-            $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/updaterule',
-                data: {
-                    rule: "wayup",
-                    val: $(this).val(),
-                    col: "valence"
-                },
-                success: function (response) {
-                    console.log("success update valwayup.");
-                }
-            });
-        });
