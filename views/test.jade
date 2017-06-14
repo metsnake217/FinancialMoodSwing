@@ -460,10 +460,11 @@ block content
             var playlistname = $('#queryplay').val();
             console.log("creating playlist : "+playlistname);
             if(playlistname != undefined){
-            console.log("access token in playlists: " + bearer);
+            console.log("access token in playlists: " + #{user_id});
             $.ajax({
-                url: 'https://api.spotify.com/v1/me',
+                url: 'https://api.spotify.com/v1/users/'+#{user_id}+"/playlists",
                 headers: {'Authorization': bearer},
+                data: {name:playlistname},
                 success: function (response) {
                     user = response.id;
                     console.log("got user id to create playlist: " + user);

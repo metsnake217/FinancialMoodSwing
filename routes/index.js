@@ -215,6 +215,7 @@ router.get('/refresh_token', function(req, res) {
       sharesnum: req.session.shares,*/
       title : 'Admin',
       access_token:access_token,
+      user_id:req.session.userid,
       /*loggedIn : req.session.loggedin,
       labyoker : req.session.user,
       isLoggedInAdmin: req.session.admin,*/
