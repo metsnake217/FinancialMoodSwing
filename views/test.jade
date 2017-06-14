@@ -475,7 +475,7 @@ block content
                         console.log("playedit selected");
                         //var playlistid = $(this).attr('id');
                         var playlistid = $(this).val();
-                        var parentr = $(this).parent().parent();
+
                         console.log( "playlist is called: " + playlistid);
                         
                         $.ajax({
@@ -496,6 +496,7 @@ block content
 
                                         $( ".trashtrack" ).click(function() {
                                             var trackid = $(this).attr("id");
+                                            var parentr = $(this).parent().parent();
                                             //var user;
                                             console.log("deleting track : " + trackid);
                                             console.log("user: " + user);
