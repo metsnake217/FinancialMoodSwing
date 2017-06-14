@@ -19,7 +19,7 @@ MusicRules = function() {
 
 MusicUpdateRules = function(col,rule,val) {
 	this.rule = rule;
-	this.val = value;
+	this.val = val;
 	this.col = col;
 };
 
