@@ -503,6 +503,33 @@ block content
             }
         };
 
+        $( "#playedit" ).change(function() {
+        var playlistid = $(this).attr('id');
+        var playlistname = $(this).val();
+          console.log( "playlist is called: " + playlistname);
+          console.log( "playlistid is called: " + playlistid);
+          var user;
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    user = response.id;
+                    console.log("got user id to create playlist: " + user);
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                success: function (resp) {
+                    //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
+                    console.log("successfully retrieved playlist tracks for " + user);
+                    console.dir(resp);
+                }
+                });
+
+                }
+            });
+        });
+
         resultsss.addEventListener('click', function (e) {
             var target = e.target;
             if (target !== null && target.classList.contains('cover')) {
