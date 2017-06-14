@@ -491,6 +491,13 @@ block content
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
                                         console.dir(resp.items);
+
+                                        $( ".trashtrack" ).click(function() {
+                                            var trackid = $(this).attr("id");
+                                            var user;
+                                            console.log("deleting track : " + trackid);
+                                            console.dir($(this));
+                                        });
                                     }
                                 });
 
@@ -498,12 +505,7 @@ block content
                         });
                     });
 
-                    $( ".trashtrack" ).click(function() {
-                        var trackid = $(this).attr("id");
-                        var user;
-                        console.log("deleting track : "+trackid);
-                        console.dir($(this));
-                    });
+
                 }
             });
         };
