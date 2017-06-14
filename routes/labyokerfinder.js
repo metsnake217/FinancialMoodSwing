@@ -203,7 +203,10 @@ MusicUpdateRules.prototype.updaterule = function(callback) {
 	console.log("updaterule: " + this.col);
 	console.log("updaterule: " + this.rule);
 	console.log("updaterule: " + this.val);
-	var query = client.query("Update rules set " + col +" = " + parseInt(this.val)/100 + " where name='"+this.rule+"'");
+	var val = this.val;
+	var sql = "Update rules set " + col +" = " + parseInt(val)/100 + " where name='"+this.rule+"'";
+	console.log("sql: " + sql);
+	var query = client.query(sql);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
