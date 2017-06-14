@@ -626,8 +626,8 @@ block content
             });
         });
 
-        $( "#modeup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#modeup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
@@ -642,8 +642,8 @@ block content
             });
         });
 
-        $( "#modedown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#modedown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
@@ -658,8 +658,8 @@ block content
             });
         });
 
-        $( "#modewaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#modewaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
@@ -674,8 +674,8 @@ block content
             });
         });        
 
-        $( "#modewayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#modewayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
@@ -689,8 +689,8 @@ block content
                 }
             });
         });
-        $( "#keyup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#keyup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updateruleint',
@@ -705,8 +705,8 @@ block content
             });
         });
 
-        $( "#keydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#keydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updateruleint',
@@ -721,8 +721,8 @@ block content
             });
         });
 
-        $( "#keywaydown" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#keywaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updateruleint',
@@ -737,8 +737,8 @@ block content
             });
         });        
 
-        $( "#keywayup" ).mouseup(function() {
-          console.log( "Handler for .mouseup() called: " + $(this).val());
+        $( "#keywayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updateruleint',
