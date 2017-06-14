@@ -449,6 +449,7 @@ block content
         var searchPlaylistsEdit = function () {
             console.log("looking for playlists");
             console.log("access token in playlists: " + bearer);
+            playList=[];
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/playlists',
                 headers: {'Authorization': bearer},
