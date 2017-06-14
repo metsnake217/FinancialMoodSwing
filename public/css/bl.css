@@ -30,8 +30,11 @@ tbody tr{
     border-left: none;
     border-right: none;
     border-width: thin;
-    margin-bottom: 5px;
-    margin-top: 5px;
+}
+
+
+td, th {
+    padding: 5px !important;
 }
 .fa-trash-o{
     cursor: pointer;
