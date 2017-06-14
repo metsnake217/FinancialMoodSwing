@@ -117,7 +117,9 @@ router.get('/callback', function(req, res) {
 
         var access_token = body.access_token,
             refresh_token = body.refresh_token;
-        var user_id;
+        var user_id = body.id;
+        req.session.userid = body.id;
+        console.log("userid is: " + user_id);
 
         req.session.access = access_token;
         console.log("set access: " + req.session.access);
@@ -130,9 +132,9 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
-          req.session.userid = body.id;
-          user_id = body.id;
-          console.log("userid is: " + user_id);
+          //req.session.userid = body.id;
+          //user_id = body.id;
+          //
         });
 
         // we can also pass the token to the browser to make requests from there
