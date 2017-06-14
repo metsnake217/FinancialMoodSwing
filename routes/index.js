@@ -229,7 +229,7 @@ router.get('/refresh_token', function(req, res) {
 
   router.post('/updaterule', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
-        console.log("updaterule set access test: " + access_token);
+        console.log("updaterule set access test: " + JSON.stringify(req));
     if(req.session.access != undefined){
       var col = req.data.col;
       var rule = req.data.rule;

@@ -563,7 +563,7 @@ block content
         });
 
         $( "#acousticup" ).mouseup(function() {
-          alert( "Handler for .mouseup() called: " + $(this).val());
+          console.log( "Handler for .mouseup() called: " + $(this).val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/updaterule',
