@@ -462,14 +462,13 @@ block content
             var playlistname = $('#queryplay').val();
             console.log("creating playlist : "+playlistname);
             if(playlistname != undefined){
-            console.log("userid in playlists: " + user_id);
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     user = response.id;
-                    console.log("got user id to create playlist: " + user);
+                    console.log("got user id: " + user);
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
