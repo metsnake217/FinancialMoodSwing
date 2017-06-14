@@ -31,7 +31,7 @@ block content
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
-                            <table><thead><th>Track</th><th>Acttion</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}">{{track.name}}</a></td><td><span>delete</span></td></tr>{{/each}}</table>
+                            <table><thead><th>Track</th><th>Acttion</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" id="{{track.id}}">{{track.name}}</a></td><td><span class="fa fa-trash-o" onclick="deleteTrackList()"></span></td></tr>{{/each}}</table>
                     input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
@@ -529,13 +529,40 @@ block content
                 }
             });
 
-            
+        var deleteTrackList = function () {
+            var trackid = $('this').attr("id");
+            var user;
+            console.log("deleting track : "+trackid);
+
+            /*console.log("found it? " + playList.indexOf(playlistname));
+            if(playlistname != undefined && playList.indexOf(playlistname) == -1){
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    user = response.id;
+                    console.log("got user id to create playlist: " + user);
+
+            $.ajax({
+                method: 'POST',
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
+                success: function (resp) {
+                    $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> successfully created!");
+                    console.log("successfully created playlist for " + user);
+                }
+                });
+
+                }
+            });
 
 
 
             } else if(playList.indexOf(playlistname) >= 0){
                 $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> already exists. Please enter a new Playlist name");
-            }
+            }*/
         };
 
         resultsss.addEventListener('click', function (e) {
