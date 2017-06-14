@@ -17,6 +17,12 @@ var accounting = require('./accounting');
 MusicRules = function() {
 };
 
+MusicUpdateRules = function(col,rule,val) {
+	this.rule = rule;
+	this.val = value;
+	this.col = col;
+};
+
 LabYokeFinder = function(today) {
 	this.now = today
 };
@@ -192,6 +198,21 @@ MusicRules.prototype.getrules = function(callback) {
 	});
 };
 
+MusicUpdateRules.prototype.updaterule = function(callback) {
+	var results;
+	console.log("updaterule: " + this.col);
+	console.log("updaterule: " + this.rule);
+	console.log("updaterule: " + this.val);
+	var query = client.query("Update rules set " + col +" = " + parseInt(this.val)/100 + " where name='"+this.rule+"'");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("update rule details " + JSON.stringify(results));
+		callback(null, results);
+	});
+};
 
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
@@ -2770,7 +2791,7 @@ var analyze = function(matchresults, participantsResults) {
 }
 
 exports.MusicRules = MusicRules;
-
+exports.MusicUpdateRules = MusicUpdateRules;
 
 
 

@@ -562,6 +562,24 @@ block content
             $( "#addtoplaylist" ).show();
         });
 
+        $( "#acousticup" ).mouseup(function() {
+          alert( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    value: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    //playlistresPlaceholder.innerHTML = templateplay(response);
+                    //editPlaceholder.innerHTML = templateedit(response);
+                    console.log("success update acup.");
+                }
+            });
+        });
+
         
 
 

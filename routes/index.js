@@ -7,6 +7,7 @@ var LabYokeUsers = labyokeFinderClass.LabYokeUsers;
 var moment = require('moment-timezone');*/
 var musicFinderClass = require('./labyokerfinder');
 var MusicRules = musicFinderClass.MusicRules;
+var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
 var express = require('express');
 var util = require('util');
 var router = express.Router();
@@ -200,7 +201,7 @@ router.get('/refresh_token', function(req, res) {
     res.redirect('/login');
   });
 
-    router.get('/test', function(req, res) {
+  router.get('/test', function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
     if(req.session.access != undefined){
@@ -226,6 +227,26 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
+  router.post('/updaterule', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+        console.log("updaterule set access test: " + access_token);
+    if(req.session.access != undefined){
+      var col = req.data.col;
+      var rule = req.data.rule;
+      var val = req.data.val;
+      console.log("col: " + col);
+      console.log("rule: " + rule);
+      console.log("val: " + val);
+
+      var musicUpdateRules = new MusicUpdateRules(col,rule,val);
+      musicUpdateRules.updaterule(function(error, results) { 
+        console.log("update " + col + " for " + rule + " is successful.");
+  });
+
+  } 
+
+  });
+
   router.get('/', function(req, res) {
     //req.logout();
     //req.session.user = null;
@@ -234,7 +255,7 @@ router.get('/refresh_token', function(req, res) {
   });
 
   function isLoggedIn(req, res, next) {
-    if (req.session.user)
+    if (req.session.access)
       return next();
     console.log('requested url: '+req.originalUrl);
     req.session.to = req.originalUrl;
