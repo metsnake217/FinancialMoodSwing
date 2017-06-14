@@ -29,6 +29,9 @@ block content
                             <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
+                    div(id="playlisteditlist")
+                        script(id="playlisteditlist-template" type="text/x-handlebars-template")
+                            {{#each items}}<a href="{{track.href}}">{{track.name}}</a><br/>{{/each}}
                     input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
@@ -291,9 +294,12 @@ block content
             templateSourceplay = document.getElementById('playlistres-template').innerHTML,
             templateplay = Handlebars.compile(templateSourceplay),
             playlistresPlaceholder = document.getElementById('playlistres'),
-            templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML;
+            templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML,
             templateedit = Handlebars.compile(templateSourceplayedit),
-            editPlaceholder = document.getElementById('playlistedit');
+            editPlaceholder = document.getElementById('playlistedit'),
+            templateSourceplaylist = document.getElementById('playlisteditList-template').innerHTML
+            templatelist = Handlebars.compile(templateSourceplaylist),
+            tracklistPlaceholder = ocument.getElementById('playlisteditlist');
 
         var fetchTracks = function (albumId, callback) {
             $.ajax({
@@ -481,9 +487,10 @@ block content
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
                                     headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                     success: function (resp) {
+                                        tracklistPlaceholder.innerHTML = templatelist(resp);
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
-                                        console.dir(resp);
+                                        console.dir(resp.items);
                                     }
                                 });
 
