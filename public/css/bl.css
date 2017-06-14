@@ -130,6 +130,12 @@ input{
 .range-slider__range:active::-webkit-slider-thumb {
   background: #2975b4;
 }
+.range-slider__range:focus::-webkit-slider-thumb {
+  background: #2975b4;
+}
+.range-slider__range:visited::-webkit-slider-thumb {
+  background: #2975b4;
+}
 .range-slider__range::-moz-range-thumb {
   width: 20px;
   height: 20px;
