@@ -474,10 +474,8 @@ block content
             $.ajax({
                 method: 'POST',
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
-                headers: {'Authorization': bearer},
-                contentType: 'application/json',
-                dataType: 'json',
-                data: {name:playlistname,  description: 'Financial mood Swing test new playlist'},
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
                 success: function (resp) {
                     console.log("successfully created playlist for " + user);
                 }
