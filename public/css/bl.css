@@ -24,6 +24,15 @@ body {
     color: white;
 }
 
+.playlistedit tr{
+    border: #2975b4;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-width: thin;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 .fa-trash-o{
     cursor: pointer;
 }
