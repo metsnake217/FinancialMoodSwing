@@ -31,7 +31,7 @@ block content
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
-                            <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o" onclick="deleteTrackList()"></span></td></tr>{{/each}}</table>
+                            <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
                     input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
@@ -497,6 +497,13 @@ block content
                             }
                         });
                     });
+
+                    $( ".trashtrack" ).click(function() {
+                        var trackid = $(this).attr("id");
+                        var user;
+                        console.log("deleting track : "+trackid);
+                        console.dir($(this));
+                    });
                 }
             });
         };
@@ -536,13 +543,6 @@ block content
             } else if(playList.indexOf(playlistname) >= 0){
                 $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> already exists. Please enter a new Playlist name");
             }
-        };
-
-        var deleteTrackList = function () {
-            var trackid = $(this).attr("id");
-            var user;
-            console.log("deleting track : "+trackid);
-            console.dir($(this));
         };
 
         resultsss.addEventListener('click', function (e) {
