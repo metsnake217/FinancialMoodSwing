@@ -547,11 +547,11 @@ padding-top: 3px;
     left: -8px;
     top: 2px;
     z-index: 1;
-    background: #8a6d3b;
+    background: #8bc34a;
 }
 .checkboxThree4 input[type=checkbox]:checked + label {
     /*left: 30px;*/
-    background: #8bc34a;
+    background: #8a6d3b;
 }
 .checkboxThree3 {
     width: 25px;
@@ -601,11 +601,11 @@ padding-top: 3px;
     left: -8px;
     top: 2px;
     z-index: 1;
-    background: #8a6d3b;
+    background: #4CAF50;
 }
 .checkboxThree3 input[type=checkbox]:checked + label {
     /*left: 30px;*/
-    background: #4CAF50;
+    background: #8a6d3b;
 }
 .checkboxThree2 {
     width: 25px;
@@ -655,11 +655,11 @@ padding-top: 3px;
     left: -8px;
     top: 2px;
     z-index: 1;
-    background: #8a6d3b;
+    background: #9c27b0;
 }
 .checkboxThree2 input[type=checkbox]:checked + label {
     /*left: 30px;*/
-    background: #9c27b0;
+    background: #8a6d3b;
 }
 
 .checkboxThree1 {
@@ -710,11 +710,11 @@ padding-top: 3px;
     left: -8px;
     top: 2px;
     z-index: 1;
-    background: #8a6d3b;
+    background: #460077;
 }
 .checkboxThree1 input[type=checkbox]:checked + label {
     /*left: 30px;*/
-    background: #460077;
+    background: #8a6d3b;
 }
 
 
