@@ -470,8 +470,8 @@ block content
             var playlistname = $('#queryplay').val();
             var user;
             console.log("creating playlist : "+playlistname);
-            console.log("found it? " + playList.indexof(playlistname));
-            if(playlistname != undefined && playList.indexof(playlistname) == -1){
+            console.log("found it? " + playList.indexOf(playlistname));
+            if(playlistname != undefined && playList.indexOf(playlistname) == -1){
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
