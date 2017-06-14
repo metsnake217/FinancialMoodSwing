@@ -28,8 +28,8 @@ block content
                         script(id="playlistedit-template" type="text/x-handlebars-template")
                             <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
-                            <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span><script>$( "#playedit" ).change(function() {console.log("playedit selected");var playlistid = $(this).attr('id');var playlistname = $(this).val();console.log( "playlist is called: " + playlistname);console.log( "playlistid is called: " + playlistid);var user;$.ajax({url: 'https://api.spotify.com/v1/me',headers: {'Authorization': bearer},success: function (response) {user = response.id;console.log("got user id to create playlist: " + user);$.ajax({url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',headers: {'Authorization': bearer,'Content-Type': 'application/json'},success: function (resp) {/*$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");*/console.log("successfully retrieved playlist tracks for " + user);console.dir(resp);}});}});});</script>
-                    input(type="submit" id="editplaylist" class="btn btn-primary boutton" value="Edit")
+                            <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
+                    input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
         div(id="expandadd")
@@ -445,37 +445,9 @@ block content
             });
         };
 
-        /*$( "#playedit" ).change(function() {
-        console.log("playedit selected");
-        var playlistid = $(this).attr('id');
-        var playlistname = $(this).val();
-          console.log( "playlist is called: " + playlistname);
-          console.log( "playlistid is called: " + playlistid);
-          var user;
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me',
-                headers: {'Authorization': bearer},
-                success: function (response) {
-                    user = response.id;
-                    console.log("got user id to create playlist: " + user);
-
-            $.ajax({
-                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
-                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                success: function (resp) {
-                    console.log("successfully retrieved playlist tracks for " + user);
-                    console.dir(resp);
-                }
-                });
-
-                }
-            });
-        });
-        */
 
         var searchPlaylistsEdit = function () {
             console.log("looking for playlists");
-            playList = [];
             console.log("access token in playlists: " + bearer);
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/playlists',
@@ -490,6 +462,34 @@ block content
                     }
                     console.log("success get PLAYLIST.");
                     console.dir(playList);
+
+                    $( "#playedit" ).change(function() {
+                        console.log("playedit selected");
+                        var playlistid = $(this).attr('id');
+                        var playlistname = $(this).val();
+                        console.log( "playlist is called: " + playlistname);
+                        console.log( "playlistid is called: " + playlistid);
+                        var user;
+                        $.ajax({
+                            url: 'https://api.spotify.com/v1/me',
+                            headers: {'Authorization': bearer},
+                            success: function (response) {
+                                user = response.id;
+                                console.log("got user id to create playlist: " + user);
+
+                                $.ajax({
+                                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                    success: function (resp) {
+                                        //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
+                                        console.log("successfully retrieved playlist tracks for " + user);
+                                        console.dir(resp);
+                                    }
+                                });
+
+                            }
+                        });
+                    });
                 }
             });
         };
@@ -530,8 +530,6 @@ block content
                 $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> already exists. Please enter a new Playlist name");
             }
         };
-
-
 
         resultsss.addEventListener('click', function (e) {
             var target = e.target;
