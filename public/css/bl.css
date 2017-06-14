@@ -1042,11 +1042,11 @@ display: none;
     left: -8px;
     top: 2px;
     z-index: 1;
-    background: #8a6d3b;
+    background: #2975b4;
 }
 .checkboxThree1 input[type=checkbox]:checked + label {
     /*left: 30px;*/
-    background: #2975b4;
+    background: #8a6d3b;
 }
 
 .checkboxThree {
