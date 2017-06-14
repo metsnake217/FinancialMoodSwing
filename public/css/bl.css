@@ -24,7 +24,7 @@ body {
     color: white;
 }
 
-tr{
+tbody tr{
     border: #2975b4;
     border-style: solid;
     border-left: none;
