@@ -269,6 +269,27 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
+    router.post('/updateruleint', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+      console.log("updaterule set access test0: " + req);
+        console.log("updaterule set access test: " + req.col);
+    if(req.session.access != undefined){
+      var col = req.body.col;
+      var rule = req.body.rule;
+      var val = req.body.val;
+      console.log("col: " + col);
+      console.log("rule: " + rule);
+      console.log("val: " + val);
+
+      var musicUpdateRules = new MusicUpdateRules(col,rule,val);
+      musicUpdateRules.updateruleint(function(error, results) { 
+        console.log("update " + col + " for " + rule + " is successful.");
+  });
+
+  } 
+
+  });
+
   router.get('/', function(req, res) {
     //req.logout();
     //req.session.user = null;

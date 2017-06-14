@@ -236,6 +236,25 @@ MusicUpdateRules.prototype.updaterulestr = function(callback) {
 	});
 };
 
+MusicUpdateRules.prototype.updateruleint = function(callback) {
+	var results;
+	console.log("updaterule: " + this.col);
+	console.log("updaterule: " + this.rule);
+	console.log("updaterule: " + this.val);
+	var val = this.val;
+	var sql = "Update rules set " + this.col +" = " + val + " where name='"+this.rule+"'";
+	console.log("sql: " + sql);
+	var query = client.query(sql);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("update rule str details " + JSON.stringify(results));
+		callback(null, results);
+	});
+};
+
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
 	var jsonnum = results;
