@@ -538,6 +538,12 @@ block content
             }
         };
 
+        var deleteTrackList = function () {
+            var trackid = $('this').attr("id");
+            var user;
+            console.log("deleting track : "+trackid);
+        };
+        
         resultsss.addEventListener('click', function (e) {
             var target = e.target;
             if (target !== null && target.classList.contains('cover')) {
