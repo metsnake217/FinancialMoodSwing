@@ -250,8 +250,8 @@ router.get('/refresh_token', function(req, res) {
 
     router.post('/updaterulestr', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
-      console.log("updaterule set access test0: " + req);
-        console.log("updaterule set access test: " + req.col);
+      console.log("updaterulestr set access test0: " + req);
+        console.log("updaterulestr set access test: " + req.col);
     if(req.session.access != undefined){
       var col = req.body.col;
       var rule = req.body.rule;
@@ -271,8 +271,8 @@ router.get('/refresh_token', function(req, res) {
 
     router.post('/updateruleint', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
-      console.log("updaterule set access test0: " + req);
-        console.log("updaterule set access test: " + req.col);
+      console.log("updateruleint set access test0: " + req);
+        console.log("updateruleint set access test: " + req.col);
     if(req.session.access != undefined){
       var col = req.body.col;
       var rule = req.body.rule;
