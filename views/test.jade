@@ -455,7 +455,7 @@ block content
                 success: function (response) {
                     //playlistresPlaceholder.innerHTML = templateplay(response);
                     editPlaceholder.innerHTML = templateedit(response);
-                    playList.push(response.items.name);
+                    playList.push(response.items);
                     console.log("success get PLAYLIST.");
                     console.dir(playList);
                 }
