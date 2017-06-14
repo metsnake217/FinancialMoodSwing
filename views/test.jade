@@ -280,7 +280,7 @@ block content
 
     script.
         var bearer = "Bearer " + "#{access_token}";
-        var user_id = "#{user_id}";
+        var playList = [];
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
@@ -437,8 +437,10 @@ block content
                 headers: {'Authorization': bearer},
                 success: function (response) {
                     playlistresPlaceholder.innerHTML = templateplay(response);
+                    playList.push(response);
                     //editPlaceholder.innerHTML = templateedit(response);
-                    console.log("success get playlist.");
+                    console.log("success get PLAYLIST.");
+                    console.dir(playList);
                 }
             });
         };
@@ -600,7 +602,7 @@ block content
 
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
-            searchPlaylists();
+            searchPlaylistsEdit();
         });
 
         $( "#acousticup" ).mouseup(function() {
