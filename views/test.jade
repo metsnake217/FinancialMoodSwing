@@ -474,13 +474,11 @@ block content
             $.ajax({
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
                 headers: {'Authorization': bearer},
-                data: {name:playlistname},
-                success: function (response) {
-                    user = response.id;
+                data: {name:playlistname}.done(function() {
                     console.log("created playlist: " + user);
 
 
-                }
+                });
             });
 
 
