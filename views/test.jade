@@ -299,7 +299,7 @@ block content
             editPlaceholder = document.getElementById('playlistedit'),
             templateSourceplaylist = document.getElementById('playlisteditlist-template').innerHTML
             templatelist = Handlebars.compile(templateSourceplaylist),
-            tracklistPlaceholder = ocument.getElementById('playlisteditlist');
+            tracklistPlaceholder = document.getElementById('playlisteditlist');
 
         var fetchTracks = function (albumId, callback) {
             $.ajax({
