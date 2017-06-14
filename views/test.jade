@@ -46,10 +46,10 @@ block content
                     div(id="playlistres")
                         script(id="playlistres-template" type="text/x-handlebars-template")
                             <p style="margin-top:50px">Select an existing Playlist below and make a wise decision about the music tracks you would want to associate. Then click on "Add to Playlist" button.</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample" name="moodexample" value="moodexample" checked="checked" class="moodexample"><label for="moodexample" class="labelcheck1 shadow"></label> Mood is Up</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample2" name="moodexample2" value="moodexample2" checked="checked" class="moodexample"><label for="moodexample2" class="labelcheck1 shadow"></label> Mood is Way Up</p>
-                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample3" name="moodexampl3" value="moodexample3" checked="checked" class="moodexample"><label for="moodexample3" class="labelcheck1 shadow"></label> Mood is Down</p>
-                            <p style="width: 160px;padding-left: 30px;" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample4" name="moodexample4" value="moodexample4" checked="checked" class="moodexample"><label for="moodexample4" class="labelcheck1 shadow"></label> Mood is Way Down</p><br/>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample" name="moodexample" value="moodexample"  class="moodexample"><label for="moodexample" class="labelcheck1 shadow"></label> Mood is Up</p>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample2" name="moodexample2" value="moodexample2"  class="moodexample"><label for="moodexample2" class="labelcheck1 shadow"></label> Mood is Way Up</p>
+                            <p style="width: 150px;padding-left: 30px;" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample3" name="moodexampl3" value="moodexample3"  class="moodexample"><label for="moodexample3" class="labelcheck1 shadow"></label> Mood is Down</p>
+                            <p style="width: 160px;padding-left: 30px;" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample4" name="moodexample4" value="moodexample4"  class="moodexample"><label for="moodexample4" class="labelcheck1 shadow"></label> Mood is Way Down</p><br/>
                             <select name="playSelect" type="text" id="playSelect" class="form-control" style="" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>
                             {{#each items}}
@@ -62,21 +62,21 @@ block content
                             {{#if albums.items}}
                             <div class="sectionalbums", style="style=""><h2 style="color: #00bc00 !important;">Pick Albums</h2>
                             {{#each albums.items}}
-                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span></div><div style="display:block;text-align:ccenter;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span></div><div style="display:block;text-align:ccenter;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
                             {{#if artists.items}}
                             <div class="sectionartists" style=""><h2 style="color: #00bc00 !important;">Pick Artists</h2>
                             {{#each artists.items}}
-                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><!--<input type="checkbox" name="add" value="{{id}}" class="add" />--></div><div style="display:block;text-align:center;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><!--<input type="checkbox" name="add" value="{{id}}" class="add" />--></div><div style="display:block;text-align:center;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
                             {{#if tracks.items}}
                             <div class="sectiontracks" style=""><h2 style="color: #00bc00 !important;">Pick Tracks</h2>
                             {{#each tracks.items}}
-                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:ccenter;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" checked="checked" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" checked="checked" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" checked="checked" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" checked="checked" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:ccenter;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
@@ -529,9 +529,70 @@ block content
         $( "#addtoplaylist" ).click(function() {
             var trackid = $(this).attr("id");
             var parentr = $(this).parent().parent();
-            //var user;
-            console.log("deleting track : " + trackid);
-            console.log("user: " + user);
+            var playlistidselected = $("playSelect").val();
+            console.log("playlist selected is: " + playlistidselected);
+            var moods = $(".mood");
+            var i = 0;
+            var checked = false;
+            var builddata=[];
+            
+            for(var m in mood){
+                var addmusic = {trackid:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
+                var moods = [];
+                var tracks = [];
+                var inputid;
+                var checked = $($(".mood")[i])[0].checked;
+                if(checked){
+                    inputid = $($(".mood")[i])[0].id;
+                    console.log("inputid: " + inputid);
+                    var split = inputid.split("-");
+                    var mood = split[0];
+                    var trackid = split[1];
+                    var findtrack = tracks.indexOf(trackid);
+                    console.log("trackid: " + trackid);
+                    console.log("findtrack: " + findtrack);
+                    if(findtrack < 0){
+                        tracks.push(trackid);
+                        addmusic.trackid= trackid;
+                        if(mood == "moodup"){
+                            addmusic.moomode_updup = 1;
+                        }
+                        if(mood == "moodwayup"){
+                            addmusic.mode_wayup = 1;
+                        }
+                        if(mood == "mooddown"){
+                            addmusic.mode_down = 1;
+                        }
+                        if(mood == "moodwaydown"){
+                            addmusic.mode_waydown = 1;
+                        }
+                        console.log("addmusic: " + JSON.stringify(addmusic));
+                        builddata.push(addmusic);
+                        console.log("builddata: " + JSON.stringify(builddata));                  
+                    } else {
+                        var findmusic = builddata[findtrack];
+                        if(mood == "moodup"){
+                            findmusic.moomode_updup = 1;
+                        }
+                        if(mood == "moodwayup"){
+                            findmusic.mode_wayup = 1;
+                        }
+                        if(mood == "mooddown"){
+                            findmusic.mode_down = 1;
+                        }
+                        if(mood == "moodwaydown"){
+                            findmusic.mode_waydown = 1;
+                        }
+                        console.log("findmusic: " + JSON.stringify(findmusic));
+                        console.log("builddata0: " + JSON.stringify(builddata));                    
+                    }
+                    
+                }
+                i++;
+            }
+            console.log("final builddata: " + JSON.stringify(builddata));  
+
+            /*console.log("user: " + user);
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
@@ -543,7 +604,7 @@ block content
                 success: function (response) {
                     console.log("success update acup.");
                 }
-            });
+            });*/
         });
 
         var createPlaylist = function () {
