@@ -31,7 +31,7 @@ block content
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
-                            {{#each items}}<a href="{{track.href}}">{{track.name}}</a><br/>{{/each}}
+                            <table><thead><th>Track</th><th>Acttion</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}">{{track.name}}</a></td><td><span>delete</span></td></tr>{{/each}}</table>
                     input(type="type" id="editplaylist" class="btn btn-primary boutton" value="Edit")
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
