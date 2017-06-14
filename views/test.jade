@@ -280,6 +280,7 @@ block content
 
     script.
         var bearer = "Bearer " + "#{access_token}";
+        var user_id = "#{user_id}";
         // find template and compile it
         var templateSource = document.getElementById('results-template').innerHTML,
             template = Handlebars.compile(templateSource),
