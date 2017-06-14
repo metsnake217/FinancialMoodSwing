@@ -224,7 +224,7 @@ padding-top: 3px;
     margin-left: 5px;
 }
 section {
-  padding: 25px 5px;
+  padding: 25px 15px;
 }
 #toggle:checked ~ #expand {
   height: 250px;
