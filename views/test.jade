@@ -537,6 +537,7 @@ block content
             var i = 0;
             var checked = false;
             var builddata=[];
+            var urislist = [];
             console.dir(moods);
             
             for(var m in moods){
@@ -559,6 +560,7 @@ block content
                     if(findtrack < 0){
                         tracks.push(trackid);
                         addmusic.trackid= trackid;
+                        urislist.push("spotify:track:"+trackid);
                         if(mood == "moodup"){
                             addmusic.mode_up = 1;
                         }
@@ -606,9 +608,9 @@ block content
                 method: 'POST',
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play,
                 headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
+                data: JSON.stringify({uris: urislist}),
                 success: function (resp) {
-                    $("#addmessage").html("<b>" + playlistname + "</b> successfully updated!");
+                    $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
                     console.log("successfully updated playlist for " + user);
                     $.ajax({
                         method: "POST",
