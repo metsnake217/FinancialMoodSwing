@@ -283,7 +283,7 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
     }
 	var sql = "insert into playlist values " + vals;
 	console.log("sql addtoplaylist: " + sql);
-	/*var query = client.query(sql);
+	var query = client.query(sql);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
@@ -291,7 +291,7 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 		results = result.rows;
 		console.log("addtoplaylist details " + JSON.stringify(results));
 		callback(null, results);
-	});*/
+	});
 };
 
 
