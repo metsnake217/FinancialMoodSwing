@@ -314,11 +314,13 @@ var vals = "", ids="";
     	} else {
     		if(item.mode_up == 1){
     		updatevars_modeup += " id='" + item.trackid + "' and ";
-    		} else if(item.mode_down == 1){
+    		}
+    		if(item.mode_down == 1){
     		updatevars_modedown += " id='" + item.trackid + "' and ";
-    		} else if(item.mode_wayup == 1){
+    		} 
+    		if(item.mode_wayup == 1){
     		updatevars_modewayup += " id='" + item.trackid + "' and ";
-    		} else if(item.mode_waydown == 1){
+    		} if(item.mode_waydown == 1){
     		updatevars_modewaydown += " id='" + item.trackid + "' and ";
     		}
     	}
@@ -332,7 +334,7 @@ var vals = "", ids="";
     console.log("updatevars_modedown addtoplaylist: " + updatevars_modedown);
     console.log("updatevars_modewayup addtoplaylist: " + updatevars_modewayup);
     console.log("updatevars_modewaydown addtoplaylist: " + updatevars_modewaydown);
-    
+
 		if(vals.length > 0){
    
 	var sql = "insert into playlist values " + vals;
