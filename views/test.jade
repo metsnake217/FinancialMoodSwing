@@ -608,7 +608,7 @@ block content
                 method: 'POST',
                 url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
                 headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                data: {uris: urislist},
+                data: JSON.stringify({uris: urislist}),
                 success: function (resp) {
                     $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
                     console.log("successfully updated playlist for " + user);
