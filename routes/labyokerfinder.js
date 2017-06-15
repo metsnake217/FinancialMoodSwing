@@ -341,6 +341,12 @@ var vals = "", ids="";
 		console.log("addtoplaylist details " + JSON.stringify(results));
 		//callback(null, results);
 
+
+
+	});
+
+		}
+
 		if(updatevars_modeup.length>1){
 			var sql3 = "update playlist set mode_up=1 where  " + updatevars_modeup;
 			console.log("sql3 addtoplaylist: " + sql3);
@@ -353,28 +359,8 @@ var vals = "", ids="";
 				console.log("updatevars_modeup details " + JSON.stringify(results3));
 				//callback(null, results3);
 
-				if(updatevars_modewayup.length>1){
-					var sql4 = "update playlist set mode_wayup=1 where " + updatevars_modewayup;
-					console.log("sql4 addtoplaylist: " + sql4);
-					var query4 = client.query(sql4);
-					query4.on("row", function(row, result4) {
-						result4.addRow(row);
-					});
-					query4.on("end", function(result4) {
-						results4 = result4.rows;
-						console.log("updatevars_modewayup details " + JSON.stringify(results4));
-						//callback(null, results4);
-				if(updatevars_modedown.length>1){
-					var sql5 = "update playlist set mode_down=1 where " + updatevars_modedown;
-					console.log("sql5 addtoplaylist: " + sql5);
-					var query5 = client.query(sql5);
-					query5.on("row", function(row, result5) {
-						result5.addRow(row);
-					});
-					query5.on("end", function(result5) {
-						results5 = result5.rows;
-						console.log("updatevars_modedown details " + JSON.stringify(results5));
-						//callback(null, results5);
+			});
+		} 
 
 				if(updatevars_modewaydown.length>1){
 					var sql6 = "update playlist set mode_waydown=1 where " + updatevars_modewaydown;
@@ -395,23 +381,38 @@ var vals = "", ids="";
 						
 					});
 				}
+				if(updatevars_modewayup.length>1){
+					var sql4 = "update playlist set mode_wayup=1 where " + updatevars_modewayup;
+					console.log("sql4 addtoplaylist: " + sql4);
+					var query4 = client.query(sql4);
+					query4.on("row", function(row, result4) {
+						result4.addRow(row);
+					});
+					query4.on("end", function(result4) {
+						results4 = result4.rows;
+						console.log("updatevars_modewayup details " + JSON.stringify(results4));
+						//callback(null, results4);
+						
+					});
+				}
+
+				if(updatevars_modedown.length>1){
+					var sql5 = "update playlist set mode_down=1 where " + updatevars_modedown;
+					console.log("sql5 addtoplaylist: " + sql5);
+					var query5 = client.query(sql5);
+					query5.on("row", function(row, result5) {
+						result5.addRow(row);
+					});
+					query5.on("end", function(result5) {
+						results5 = result5.rows;
+						console.log("updatevars_modedown details " + JSON.stringify(results5));
+						//callback(null, results5);
+
+
 
 						
 					});
 				}
-						
-					});
-				}
-
-			});
-		}
-
-	});
-
-		} 
-
-
-
 
 
 
