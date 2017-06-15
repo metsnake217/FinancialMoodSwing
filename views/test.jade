@@ -538,7 +538,6 @@ block content
             console.dir(moods);
             
             for(var m in moods){
-                console.log("m is: " + m);
                 var addmusic = {trackid:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
                 var tracks = [];
                 var inputid;
@@ -559,7 +558,7 @@ block content
                         tracks.push(trackid);
                         addmusic.trackid= trackid;
                         if(mood == "moodup"){
-                            addmusic.moomode_updup = 1;
+                            addmusic.mode_up = 1;
                         }
                         if(mood == "moodwayup"){
                             addmusic.mode_wayup = 1;
@@ -576,7 +575,7 @@ block content
                     } else {
                         var findmusic = builddata[findtrack];
                         if(mood == "moodup"){
-                            findmusic.moomode_updup = 1;
+                            findmusic.mode_up = 1;
                         }
                         if(mood == "moodwayup"){
                             findmusic.mode_wayup = 1;
@@ -596,19 +595,20 @@ block content
             }
             console.log("final builddata: " + JSON.stringify(builddata));  
 
-            /*console.log("user: " + user);
+            console.log("user: " + user);
+            console.log("playlistid: " + $("#playSelect").val());
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
                 data: {
-                    rule: "up",
+                    databuild: JSON.stringify(builddata),
                     val: $(this).val(),
                     col: "acousticness"
                 },
                 success: function (response) {
                     console.log("success update acup.");
                 }
-            });*/
+            });
         });
 
         var createPlaylist = function () {
