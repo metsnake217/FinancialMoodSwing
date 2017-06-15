@@ -328,6 +328,11 @@ var vals = "", ids="";
     updatevars_modewayup = updatevars_modewayup.replace(/and\s*$/, "");
     updatevars_modewaydown = updatevars_modewaydown.replace(/and\s*$/, "");
 
+    console.log("updatevars_modeup addtoplaylist: " + updatevars_modeup);
+    console.log("updatevars_modedown addtoplaylist: " + updatevars_modedown);
+    console.log("updatevars_modewayup addtoplaylist: " + updatevars_modewayup);
+    console.log("updatevars_modewaydown addtoplaylist: " + updatevars_modewaydown);
+    
 		if(vals.length > 0){
    
 	var sql = "insert into playlist values " + vals;
@@ -356,7 +361,7 @@ var vals = "", ids="";
 			});
 			query3.on("end", function(result3) {
 				results3 = result3.rows;
-				console.log("updatevars_modeup details " + JSON.stringify(results3));
+				console.log("updatevars_modeup end " + JSON.stringify(results3));
 				//callback(null, results3);
 
 			});
