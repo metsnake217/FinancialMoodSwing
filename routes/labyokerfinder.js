@@ -270,7 +270,8 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	var databuild = JSON.parse(this.databuild);
 
     var vals = "";
-    for(var item in databuild){
+    for(var i in databuild){
+    	item = databuild[i];
     	console.log("item is : " + JSON.stringify(item));
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
