@@ -274,11 +274,12 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
     	console.log("trackid: " + item.trackid);
+    	console.log("tracktitle: " + item.tracktitle);
     	console.log("mode_up: " + item.mode_up);
     	console.log("mode_wayup: " + item.mode_wayup);
     	console.log("mode_down: " + item.mode_down);
     	console.log("mode_waydown: " + item.mode_waydown);
-    	vals += "('" +item.trackid+ "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
+    	vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
 
     }
 	var sql = "insert into playlist values " + vals;
