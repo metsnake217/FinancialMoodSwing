@@ -542,7 +542,7 @@ block content
             var test = [];
             
             for(var m in moods){
-                var addmusic = {trackid:"",tracktitle:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
+                var addmusic = {trackid:"", tracktitle:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
                 var tracks = [];
                 var inputid;
                 var checked;
@@ -552,7 +552,7 @@ block content
 
                 if(checked){
                     inputid = $($(".mood")[i])[0].id;
-                    var tracktitle = $($(".mood")[i])[0].tracktitle;
+                    var tracktitle = $($(".mood")[i])[0].attr("tracktitle");
                     console.log("inputid: " + inputid);
                     console.log("tracktitle: " + tracktitle);
 
