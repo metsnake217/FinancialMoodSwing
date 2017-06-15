@@ -271,6 +271,9 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 
     var vals = "";
     for(var item in databuild){
+    	console.log("item is : " + JSON.stringify(item));
+    	console.log("item0 is : " + JSON.stringify(item[0]));
+    	console.log("item1 is : " + item[0];
     	console.log("trackid: " + item.trackid);
     	console.log("mode_up: " + item.mode_up);
     	console.log("mode_wayup: " + item.mode_wayup);
