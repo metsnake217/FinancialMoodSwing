@@ -81,6 +81,7 @@ block content
                             </div>
                             {{/if}}
                     br(style="clear: both;")
+                    p(id="addmessage")
                     div
                         input(type="type" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
@@ -596,19 +597,24 @@ block content
             console.log("final builddata: " + JSON.stringify(builddata));  
 
             console.log("user: " + user);
-            console.log("playlistid: " + $("#playSelect").val());
+            var play = $("#playSelect").val();
+            console.log("playlistid: " + play);
+            if(play){
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
                 data: {
                     databuild: JSON.stringify(builddata),
-                    val: $(this).val(),
-                    col: "acousticness"
+                    playlistid: play,
+                    userid: user
                 },
                 success: function (response) {
-                    console.log("success update acup.");
+                    console.log("success add music to playlist.");
                 }
             });
+            } else {
+                $("#addmessage").html("Please select a playlist above. Then try again.");
+            }
         });
 
         var createPlaylist = function () {

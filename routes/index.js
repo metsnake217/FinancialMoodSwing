@@ -8,6 +8,7 @@ var moment = require('moment-timezone');*/
 var musicFinderClass = require('./labyokerfinder');
 var MusicRules = musicFinderClass.MusicRules;
 var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
+var MusicAddTracks = musicFinderClass.MusicAddTracks;
 var express = require('express');
 var util = require('util');
 var router = express.Router();
@@ -231,6 +232,28 @@ router.get('/refresh_token', function(req, res) {
   } else{
     res.redirect('/login');
   }
+
+  });
+
+    router.post('/addtoplaylist', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+      console.log("addtoplaylist set access test0: " + req);
+        console.log("addtoplaylist set access test: " + req.col);
+    if(req.session.access != undefined){
+      var databuild = req.body.databuild;
+      var playlistid = req.body.playlistid;
+      var userid = req.body.userid;
+      console.log("databuild: " + JSON.stringify(databuild));
+      console.log("playlistid: " + playlistid);
+      console.log("userid: " + userid);
+
+      var musicAddtracks = new MusicAddTracks(databuild,playlistid,userid);
+      musicAddtracks.addtoplaylist(function(error, results) { 
+        console.log("added tracks for " + playlistid + " is successful.");
+        res.end();
+  });
+
+  } 
 
   });
 

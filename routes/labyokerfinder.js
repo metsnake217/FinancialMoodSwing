@@ -23,6 +23,12 @@ MusicUpdateRules = function(col,rule,val) {
 	this.col = col;
 };
 
+MusicAddTracks = function(databuild,playlistid,userid) {
+	this.databuild = databuild;
+	this.playlistid = playlistid;
+	this.userid = userid;
+};
+
 LabYokeFinder = function(today) {
 	this.now = today
 };
@@ -254,6 +260,39 @@ MusicUpdateRules.prototype.updateruleint = function(callback) {
 		callback(null, results);
 	});
 };
+
+
+MusicAddTracks.prototype.addtoplaylist = function(callback) {
+	var results;
+	console.log("addtoplaylist : " + this.databuild);
+	console.log("addtoplaylist : " + this.playlistid);
+	console.log("addtoplaylist : " + this.userid);
+
+    var vals = "";
+    for(var item in databuild){
+    	console.log("trackid: " + item.trackid);
+    	console.log("mode_up: " + item.mode_up);
+    	console.log("mode_wayup: " + item.mode_wayup);
+    	console.log("mode_down: " + item.mode_down);
+    	console.log("mode_waydown: " + item.mode_waydown);
+    	vals += "('" +item.trackid+ "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
+
+    }
+	var sql = "insert into playlist values " + vals;
+	console.log("sql addtoplaylist: " + sql);
+	/*var query = client.query(sql);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("addtoplaylist details " + JSON.stringify(results));
+		callback(null, results);
+	});*/
+};
+
+
+
 
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
@@ -2833,7 +2872,7 @@ var analyze = function(matchresults, participantsResults) {
 
 exports.MusicRules = MusicRules;
 exports.MusicUpdateRules = MusicUpdateRules;
-
+exports.MusicAddTracks = MusicAddTracks;
 
 
 exports.Labyoker = Labyoker;
