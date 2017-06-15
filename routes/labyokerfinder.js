@@ -292,10 +292,14 @@ var vals = "", ids="";
 	});
 	query2.on("end", function(result2) {
 		results2 = result2.rows;
-		console.log("addtoplaylist details " + JSON.stringify(results2.id));
+		console.log("addtoplaylist details " + JSON.stringify(results2));
 		console.log("length: " + results2.length);
-		console.log("results2.id: " + JSON.stringify(results2.id));
-		var resultsids = results2.id;
+		
+		var resultsids = [];
+		for(var i in results2){
+			resultsids.push(results2[i].id);
+		}
+		console.log("resultsids.id: " + JSON.stringify(resultsids));
 	var updatevars_modeup = "";
 	var updatevars_modewayup = "";
 	var updatevars_modedown = "";
