@@ -286,7 +286,7 @@ var vals = "", ids="";
     ids = ids.replace(/,\s*$/, "");
     console.log("ids: " + ids);
 
-	var query2 = client.query("select id from playlist where id in (" + this.playlistid + ")");
+	var query2 = client.query("select id from playlist where id in (" + ids + ")");
 	query2.on("row", function(row, result2) {
 		result2.addRow(row);
 	});
