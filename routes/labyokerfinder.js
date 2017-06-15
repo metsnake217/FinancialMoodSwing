@@ -267,6 +267,7 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	console.log("addtoplaylist : " + this.databuild);
 	console.log("addtoplaylist : " + this.playlistid);
 	console.log("addtoplaylist : " + this.userid);
+	var databuild = this.databuild;
 
     var vals = "";
     for(var item in databuild){
