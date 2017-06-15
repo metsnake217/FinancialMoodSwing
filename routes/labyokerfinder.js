@@ -346,7 +346,7 @@ var vals = "", ids="";
 	query.on("end", function(result) {
 		results = result.rows;
 		console.log("addtoplaylist details " + JSON.stringify(results));
-		//callback(null, results);
+		callback(null, results);
 
 
 
@@ -364,7 +364,7 @@ var vals = "", ids="";
 			query3.on("end", function(result3) {
 				results3 = result3.rows;
 				console.log("updatevars_modeup end " + JSON.stringify(results3));
-				//callback(null, results3);
+				callback(null, results3);
 
 			});
 		} 
@@ -378,7 +378,7 @@ var vals = "", ids="";
 					});
 					query6.on("end", function(result6) {
 						results6 = result6.rows;
-						console.log("updatevars_modedown details " + JSON.stringify(results6));
+						console.log("updatevars_modewaydown details " + JSON.stringify(results6));
 						//callback(null, results2);
 						//callback(null, results3);
 						//callback(null, results4);
@@ -398,7 +398,7 @@ var vals = "", ids="";
 					query4.on("end", function(result4) {
 						results4 = result4.rows;
 						console.log("updatevars_modewayup details " + JSON.stringify(results4));
-						//callback(null, results4);
+						callback(null, results4);
 						
 					});
 				}
@@ -413,7 +413,7 @@ var vals = "", ids="";
 					query5.on("end", function(result5) {
 						results5 = result5.rows;
 						console.log("updatevars_modedown details " + JSON.stringify(results5));
-						//callback(null, results5);
+						callback(null, results5);
 
 
 
