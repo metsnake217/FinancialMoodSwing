@@ -475,6 +475,16 @@ block content
                     console.log("success get PLAYLIST.");
                     console.dir(playList);
 
+                    $.ajax({
+                            url: 'https://api.spotify.com/v1/me',
+                            headers: {'Authorization': bearer},
+                            success: function (response) {
+                                user = response.id;
+                                console.log("got user id to create playlist: " + user);
+
+                            }
+                        });
+
                     $( "#playedit" ).change(function() {
                         console.log("playedit selected");
                         //var playlistid = $(this).attr('id');
@@ -482,12 +492,7 @@ block content
 
                         console.log( "playlist is called: " + playlistid);
                         
-                        $.ajax({
-                            url: 'https://api.spotify.com/v1/me',
-                            headers: {'Authorization': bearer},
-                            success: function (response) {
-                                user = response.id;
-                                console.log("got user id to create playlist: " + user);
+                        
 
                                 $.ajax({
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
@@ -518,10 +523,6 @@ block content
 
                                 }
                             });
-                        }
-
-
-                    });
                 });
             }
             });
@@ -600,18 +601,32 @@ block content
             var play = $("#playSelect").val();
             console.log("playlistid: " + play);
             if(play != "select playlist"){
+
             $.ajax({
-                method: "POST",
-                url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
-                data: {
-                    databuild: JSON.stringify(builddata),
-                    playlistid: play,
-                    userid: user
-                },
-                success: function (response) {
-                    console.log("success add music to playlist.");
+                method: 'POST',
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play,
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
+                success: function (resp) {
+                    $("#addmessage").html("<b>" + playlistname + "</b> successfully updated!");
+                    console.log("successfully updated playlist for " + user);
+                    $.ajax({
+                        method: "POST",
+                        url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
+                        data: {
+                            databuild: JSON.stringify(builddata),
+                            playlistid: play
+                        },
+                        success: function (response) {
+                            console.log("success add music to playlist.");
+                        }
+                    });
                 }
-            });
+                });
+
+
+
+
             } else {
                 $("#addmessage").html("Please select a playlist above. Then try again.");
             }

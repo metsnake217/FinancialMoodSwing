@@ -237,17 +237,13 @@ router.get('/refresh_token', function(req, res) {
 
     router.post('/addtoplaylist', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
-      console.log("addtoplaylist set access test0: " + req);
-        console.log("addtoplaylist set access test: " + req.col);
     if(req.session.access != undefined){
       var databuild = req.body.databuild;
       var playlistid = req.body.playlistid;
-      var userid = req.body.userid;
       console.log("databuild: " + JSON.stringify(databuild));
       console.log("playlistid: " + playlistid);
-      console.log("userid: " + userid);
 
-      var musicAddtracks = new MusicAddTracks(databuild,playlistid,userid);
+      var musicAddtracks = new MusicAddTracks(databuild,playlistid);
       musicAddtracks.addtoplaylist(function(error, results) { 
         console.log("added tracks for " + playlistid + " is successful.");
         res.end();

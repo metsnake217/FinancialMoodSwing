@@ -23,10 +23,9 @@ MusicUpdateRules = function(col,rule,val) {
 	this.col = col;
 };
 
-MusicAddTracks = function(databuild,playlistid,userid) {
+MusicAddTracks = function(databuild,playlistid) {
 	this.databuild = databuild;
 	this.playlistid = playlistid;
-	this.userid = userid;
 };
 
 LabYokeFinder = function(today) {
@@ -266,7 +265,6 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	var results;
 	console.log("addtoplaylist : " + this.databuild);
 	console.log("addtoplaylist : " + this.playlistid);
-	console.log("addtoplaylist : " + this.userid);
 	var databuild = JSON.parse(this.databuild);
 
     var vals = "";
