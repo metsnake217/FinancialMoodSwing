@@ -599,7 +599,7 @@ block content
             console.log("user: " + user);
             var play = $("#playSelect").val();
             console.log("playlistid: " + play);
-            if(play != "Select Playlist"){
+            if(play != "select playlist"){
             $.ajax({
                 method: "POST",
                 url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
