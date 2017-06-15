@@ -294,6 +294,8 @@ var vals = "", ids="";
 		results2 = result2.rows;
 		console.log("addtoplaylist details " + JSON.stringify(results2.id));
 		console.log("length: " + results2.length);
+		console.log("results2.id: " + JSON.stringify(results2.id));
+		var resultsids = results2.id;
 	var updatevars_modeup = "";
 	var updatevars_modewayup = "";
 	var updatevars_modedown = "";
@@ -301,8 +303,9 @@ var vals = "", ids="";
 	for(var i in databuild){
     	item = databuild[i];
     	var t = item.trackid;
-
-    	if(results2.indexOf(t) < 0){
+    	console.log("t: " + t);
+    	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
+    	if(resultsids.indexOf(t) < 0){
     	vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
     	} else {
     		if(item.mode_up == 1){
