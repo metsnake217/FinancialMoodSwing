@@ -539,6 +539,7 @@ block content
             var builddata=[];
             var urislist = "";
             console.dir(moods);
+            var test = [];
             
             for(var m in moods){
                 var addmusic = {trackid:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
@@ -548,17 +549,20 @@ block content
                 if($($(".mood")[i]).length > 0){
                 checked = $($(".mood")[i])[0].checked;
                 }
+
                 if(checked){
                     inputid = $($(".mood")[i])[0].id;
                     console.log("inputid: " + inputid);
+
                     var split = inputid.split("-");
                     var mood = split[0];
                     var trackid = split[1];
-                    var findtrack = tracks.indexOf(trackid);
+                    var findtrack = test.indexOf(trackid);
                     console.log("trackid: " + trackid);
                     console.log("findtrack: " + findtrack);
                     if(findtrack < 0){
                         tracks.push(trackid);
+                        test.push(trackid);
                         addmusic.trackid= trackid;
                         urislist += "spotify:track:" + trackid + ",";
                         if(mood == "moodup"){
@@ -622,7 +626,7 @@ block content
                         },
                         success: function (response) {
                             console.log("success add music to playlist.");
-                            
+
                         }
                     });
                 }, error: function (resp0) {
