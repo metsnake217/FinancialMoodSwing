@@ -542,9 +542,9 @@ block content
                 var addmusic = {trackid:"",mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
                 var tracks = [];
                 var inputid;
-                var checked = false;
-                if($($(".mood")[i])){
-                    checked = $($(".mood")[i]).checked;
+                var checked;
+                if($($(".mood")[i]).length > 0){
+                checked = $($(".mood")[i])[0].checked;
                 }
                 if(checked){
                     inputid = $($(".mood")[i])[0].id;
