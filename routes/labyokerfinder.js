@@ -262,12 +262,29 @@ MusicUpdateRules.prototype.updateruleint = function(callback) {
 
 
 MusicAddTracks.prototype.addtoplaylist = function(callback) {
-	var results;
+	var results, results2;
 	console.log("addtoplaylist : " + this.databuild);
 	console.log("addtoplaylist : " + this.playlistid);
 	var databuild = JSON.parse(this.databuild);
 
-    var vals = "";
+	var query2 = client.query("select id from playlist where id='" + this.playlistid + "'");
+	query2.on("row", function(row, result2) {
+		result2.addRow(row);
+	});
+	query2.on("end", function(result2) {
+		results2 = result2.rows;
+		console.log("addtoplaylist details " + JSON.stringify(results2));
+		console.log("length: " + results2.length);
+
+
+
+
+
+
+
+	});
+
+   /* var vals = "";
     for(var i in databuild){
     	item = databuild[i];
     	console.log("item is : " + JSON.stringify(item));
@@ -292,7 +309,7 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 		results = result.rows;
 		console.log("addtoplaylist details " + JSON.stringify(results));
 		callback(null, results);
-	});
+	});*/
 };
 
 
