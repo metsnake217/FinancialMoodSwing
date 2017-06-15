@@ -292,7 +292,7 @@ var vals = "", ids="";
 	});
 	query2.on("end", function(result2) {
 		results2 = result2.rows;
-		console.log("addtoplaylist details " + JSON.stringify(results2));
+		console.log("addtoplaylist details " + JSON.stringify(results2.id));
 		console.log("length: " + results2.length);
 	var updatevars_modeup = "";
 	var updatevars_modewayup = "";
@@ -301,6 +301,7 @@ var vals = "", ids="";
 	for(var i in databuild){
     	item = databuild[i];
     	var t = item.trackid;
+
     	if(results2.indexOf(t) < 0){
     	vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
     	} else {
