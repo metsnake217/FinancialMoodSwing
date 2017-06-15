@@ -606,7 +606,7 @@ block content
 
             $.ajax({
                 method: 'POST',
-                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play,
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
                 headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                 data: {uris: urislist},
                 success: function (resp) {
