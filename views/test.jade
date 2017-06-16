@@ -614,9 +614,56 @@ block content
             var urislist = "";
             console.dir(moods);
             var test = [];
+
+            var acousticupnow = $('#acousticup').val()/100;
+            var acousticdownnow = $('#acousticdown').val()/100;
+            var acousticwayupnow = $('#acousticwayup').val()/100;
+            var acousticwaydownnow = $('#acousticwaydown').val()/100;
+
+            var danceupnow = $('#danceup').val()/100;
+            var dancedownnow = $('#dancedown').val()/100;
+            var dancewayupnow = $('#dancewayup').val()/100;
+            var dancewaydownnow = $('#dancewaydown').val()/100;
+
+            var enupnow = $('#enup').val()/100;
+            var endownnow = $('#endown').val()/100;
+            var enwayupnow = $('#enwayup').val()/100;
+            var enwaydownnow = $('#enwaydown').val()/100;
+
+            var keyupnow = $('#keyup').val()/100;
+            var keydownnow = $('#keydown').val()/100;
+            var keywayupnow = $('#keywayup').val()/100;
+            var keywaydownnow = $('#keywaydown').val()/100;
+
+            var liveupnow = $('#liveup').val()/100;
+            var livedownnow = $('#livedown').val()/100;
+            var livewayupnow = $('#livewayup').val()/100;
+            var livewaydownnow = $('#livewaydown').val()/100;
+
+            var modeupnow = $('#modeup').val()/100;
+            var modedownnow = $('#modedown').val()/100;
+            var modewayupnow = $('#modewayup').val()/100;
+            var modewaydownnow = $('#modewaydown').val()/100;
+
+            var speechupnow = $('#speechup').val()/100;
+            var speechdownnow = $('#speechdown').val()/100;
+            var speechwayupnow = $('#speechwayup').val()/100;
+            var acousticwaydownnow = $('#speechwaydown').val()/100;
+
+            var valupnow = $('#valup').val()/100;
+            var valdownnow = $('#valdown').val()/100;
+            var valwayupnow = $('#valwayup').val()/100;
+            var valwaydownnow = $('#valwaydown').val()/100;
+
+            console.log("valupnow :" + valupnow);
+            console.log("valdownnow :" + valdownnow);
+            console.log("valwayupnow :" + valwayupnow);
+            console.log("valwaydownnow :" + valwaydownnow);
+
+
             
             for(var m in moods){
-                var addmusic = {trackid:"", tracktitle:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
+                var addmusic = {trackid:"", tracktitle:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0, prog_up:0, prog_down:0, prog_waydown:0, prog_wayup:0}
                 var tracks = [];
                 var inputid;
                 var checked;
