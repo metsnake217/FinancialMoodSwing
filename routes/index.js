@@ -3,8 +3,8 @@
 var dates = require('../config/staticvariables');
 
 var LabYokeUsers = labyokeFinderClass.LabYokeUsers;
-
-var moment = require('moment-timezone');*/
+*/
+var moment = require('moment-timezone');
 var musicFinderClass = require('./labyokerfinder');
 var MusicRules = musicFinderClass.MusicRules;
 var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
@@ -282,10 +282,14 @@ var SYMBOLS = [
   'GOOGL',
   'YHOO'
 ];
+var datenow = moment(new Date).tz("America/New_York").format(
+        'YYYY-MM-DD');
+var dateyest = moment().add(-1, 'days');
+
 yahooFinance.historical({
   symbols: SYMBOLS,
-  from: '2017-01-01',
-  to: '2017-03-03',
+  from: dateyest,
+  to: datenow,
   period: 'd'
 }).then(function (result) {
   _.each(result, function (quotes, symbol) {
