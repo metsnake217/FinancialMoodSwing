@@ -324,7 +324,7 @@ if(differential <= 100){
 	});
 	query.on("end", function(result) {
 		results = result.rows;
-		var rand = Math.floor((Math.random() * results.length-1) + 1);
+		var b = Math.floor((Math.random() * results.length-1) + 1);
 		ret.index = quotename;
 		ret.url = results[b].trackid;
 		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
