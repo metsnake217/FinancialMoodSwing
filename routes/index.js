@@ -278,7 +278,7 @@ router.get('/refresh_token', function(req, res) {
         console.log("set access test: " + access_token);
 var SYMBOLS = [
   'XAX',
-  'PX1GR.PA',
+  '^FCHI',
   '^IXIC',
   '^NDX'
 ];
