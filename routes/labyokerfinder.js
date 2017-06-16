@@ -325,9 +325,11 @@ if(differential <= 20){
 	query.on("end", function(result) {
 		results = result.rows;
 		var b = Math.floor((Math.random() * results.length-1) + 1);
+		console.log("b is : "+ b);
 		ret.index = quotename;
-		ret.url = results[b].trackid;
 		console.log("quotename: "+ quotename);
+		ret.url = results[b].trackid;
+		
 		console.log("trackid: "+ results[b].trackid);
 		console.log("ret is: " + JSON.stringify(ret));
 		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
