@@ -9,6 +9,7 @@ var musicFinderClass = require('./labyokerfinder');
 var MusicRules = musicFinderClass.MusicRules;
 var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
 var MusicAddTracks = musicFinderClass.MusicAddTracks;
+var MusicDeleteTracks = musicFinderClass.MusicDeleteTracks;
 var express = require('express');
 var util = require('util');
 var router = express.Router();
@@ -240,10 +241,11 @@ router.get('/refresh_token', function(req, res) {
     if(req.session.access != undefined){
       var databuild = req.body.databuild;
       var playlistid = req.body.playlistid;
+      var playlistname = req.body.playlistname;
       console.log("databuild: " + JSON.stringify(databuild));
       console.log("playlistid: " + playlistid);
 
-      var musicAddtracks = new MusicAddTracks(databuild,playlistid);
+      var musicAddtracks = new MusicAddTracks(databuild,playlistid,playlistname);
       musicAddtracks.addtoplaylist(function(error, results) { 
         console.log("added tracks for " + playlistid + " is successful.");
         res.end();
@@ -252,6 +254,25 @@ router.get('/refresh_token', function(req, res) {
   } 
 
   });
+
+    router.post('/deletetrack', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+    if(req.session.access != undefined){
+      var playlistname = req.body.playlistname;
+      var trackid = req.body.trackid;
+      console.log("playlistname: " + playlistname);
+      console.log("trackid: " + trackid);
+
+      var musicDeletetracks = new MusicDeleteTracks(playlistname,trackid);
+      musicDeletetracks.deletetrack(function(error, results) { 
+        console.log("deleted track " + trackid + " for " + playlistname + " is successful.");
+        res.end();
+  });
+
+  } 
+
+  });
+
 
   router.post('/updaterule', isLoggedIn, function(req, res) {
       var access_token = req.session.access;

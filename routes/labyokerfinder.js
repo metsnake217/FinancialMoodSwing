@@ -23,9 +23,15 @@ MusicUpdateRules = function(col,rule,val) {
 	this.col = col;
 };
 
-MusicAddTracks = function(databuild,playlistid) {
+MusicAddTracks = function(databuild,playlistid,playlistname) {
 	this.databuild = databuild;
 	this.playlistid = playlistid;
+	this.playlistname = playlistname;
+};
+
+MusicDeleteTracks = function(playlistname,trackid) {
+	this.playlistname = playlistname;
+	this.trackid = trackid;
 };
 
 LabYokeFinder = function(today) {
@@ -203,6 +209,19 @@ MusicRules.prototype.getrules = function(callback) {
 	});
 };
 
+MusicDeleteTracks.prototype.deletetrack = function(callback) {
+	var results;
+	var query = client.query("delete from playlistrack where playlistname='" + playlistname + "' and trackid='" + trackid + "'");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("deleted track from playlist");
+		callback(null, results);
+	});
+};
+
 MusicUpdateRules.prototype.updaterule = function(callback) {
 	var results;
 	console.log("updaterule: " + this.col);
@@ -263,9 +282,11 @@ MusicUpdateRules.prototype.updateruleint = function(callback) {
 
 MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	var results, results2;
-	console.log("addtoplaylist : " + this.databuild);
-	console.log("addtoplaylist : " + this.playlistid);
+	console.log("addtoplaylist databuild: " + this.databuild);
+	console.log("addtoplaylist playlistid: " + this.playlistid);
+	console.log("addtoplaylist playlistname: " + this.playlistname);
 	var databuild = JSON.parse(this.databuild);
+	var playlistname = this.playlistname;
 
 var vals = "", ids="";
     for(var i in databuild){
@@ -286,7 +307,7 @@ var vals = "", ids="";
     ids = ids.replace(/,\s*$/, "");
     console.log("ids: " + ids);
 
-	var query2 = client.query("select id from playlist where id in (" + ids + ")");
+	var query2 = client.query("select id from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
 	query2.on("row", function(row, result2) {
 		result2.addRow(row);
 	});
@@ -310,7 +331,7 @@ var vals = "", ids="";
     	console.log("t: " + t);
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
-    	vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
+    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
     	} else {
     		if(item.mode_up == 1){
     		updatevars_modeup += " id='" + item.trackid + "' and ";
@@ -337,7 +358,7 @@ var vals = "", ids="";
 
 		if(vals.length > 0){
    
-	var sql = "insert into playlist values " + vals;
+	var sql = "insert into playlistrack values " + vals;
 	console.log("sql addtoplaylist: " + sql);
 	var query = client.query(sql);
 	query.on("row", function(row, result) {
@@ -355,7 +376,7 @@ var vals = "", ids="";
 		}
 
 		if(updatevars_modeup.length>1){
-			var sql3 = "update playlist set mode_up=1 where  " + updatevars_modeup;
+			var sql3 = "update playlistrack set mode_up=1 where  " + updatevars_modeup + " and playlistname='" + playlistname + "'";
 			console.log("sql3 addtoplaylist: " + sql3);
 			var query3 = client.query(sql3);
 			query3.on("row", function(row, result3) {
@@ -370,7 +391,7 @@ var vals = "", ids="";
 		} 
 
 				if(updatevars_modewaydown.length>1){
-					var sql6 = "update playlist set mode_waydown=1 where " + updatevars_modewaydown;
+					var sql6 = "update playlistrack set mode_waydown=1 where " + updatevars_modewaydown + " and playlistname='" + playlistname + "'";
 					console.log("sql6 addtoplaylist: " + sql6);
 					var query6 = client.query(sql6);
 					query6.on("row", function(row, result6) {
@@ -389,7 +410,7 @@ var vals = "", ids="";
 					});
 				}
 				if(updatevars_modewayup.length>1){
-					var sql4 = "update playlist set mode_wayup=1 where " + updatevars_modewayup;
+					var sql4 = "update playlistrack set mode_wayup=1 where " + updatevars_modewayup + " and playlistname='" + playlistname + "'";
 					console.log("sql4 addtoplaylist: " + sql4);
 					var query4 = client.query(sql4);
 					query4.on("row", function(row, result4) {
@@ -404,7 +425,7 @@ var vals = "", ids="";
 				}
 
 				if(updatevars_modedown.length>1){
-					var sql5 = "update playlist set mode_down=1 where " + updatevars_modedown;
+					var sql5 = "update playlistrack set mode_down=1 where " + updatevars_modedown + " and playlistname='" + playlistname + "'";
 					console.log("sql5 addtoplaylist: " + sql5);
 					var query5 = client.query(sql5);
 					query5.on("row", function(row, result5) {
@@ -3036,6 +3057,7 @@ var analyze = function(matchresults, participantsResults) {
 exports.MusicRules = MusicRules;
 exports.MusicUpdateRules = MusicUpdateRules;
 exports.MusicAddTracks = MusicAddTracks;
+exports.MusicDeleteTracks = MusicDeleteTracks;
 
 
 exports.Labyoker = Labyoker;

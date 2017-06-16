@@ -517,6 +517,19 @@ block content
                                                 success: function (resp2) {
                                                     console.log("trackid " + trackid + " :  successfully deleted.");
                                                     parentr.addClass("deletedtrack");
+
+                                                $.ajax({
+                                                    method: "POST",
+                                                    url: 'https://financialmoodswing.herokuapp.com/deletetrack',
+                                                    data: {
+                                                        playlistname: playlistname,
+                                                        trackid: trackid
+                                                    },
+                                                    success: function (response) {
+                                                        console.log("success deletion of track.");
+                                                    }
+                                                });
+
                                                 }
                                             });
                                         });
@@ -532,7 +545,7 @@ block content
             var trackid = $(this).attr("id");
             var parentr = $(this).parent().parent();
             var playlistidselected = $("#playSelect").val();
-            console.log("playlist selected is: " + playlistidselected);
+            console.log("playlistid selected is: " + playlistidselected);
             var moods = $(".mood");
             var i = 0;
             var checked = false;
@@ -611,6 +624,8 @@ block content
             console.log("user: " + user);
             var play = $("#playSelect").val();
             console.log("playlistid: " + play);
+            var playlistnameselected = $("#playSelect option[value=play]").text();
+            console.log("playlistname selected is: " + playlistnameselected);
             urislist = urislist.replace(/,\s*$/, "");
             console.log("urislist: " + urislist);
             if(play != "select playlist"){
@@ -627,7 +642,8 @@ block content
                         url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
                         data: {
                             databuild: JSON.stringify(builddata),
-                            playlistid: play
+                            playlistid: play,
+                            playlistname: playlistnameselected
                         },
                         success: function (response) {
                             console.log("success add music to playlist.");
