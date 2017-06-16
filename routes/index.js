@@ -155,6 +155,7 @@ router.get('/callback', function(req, res) {
             refresh_token: refresh_token,
             user_id: user_id
           }));
+        }
       } else {
         res.redirect('/#' +
           querystring.stringify({
