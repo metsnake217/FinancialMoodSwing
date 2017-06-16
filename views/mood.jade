@@ -52,11 +52,12 @@ block content
                         var playstr = "'" + playlistid + "'";
                         console.log("playstr: " + playstr);
                         var listname = $("#playedit option[value=" + playstr + "]").text();
+                        console.log("listname: " + listname);
 
                         $.ajax({
                             method: "GET",
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
-                            data:{playlistname: listname},
+                            data:JSON.stringify({playlistname: listname}),
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 console.log("success got stocks: " + response);
