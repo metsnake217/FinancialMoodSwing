@@ -332,8 +332,8 @@ ret.mood = mode;
 		console.log("quotename: "+ quotename);
 		console.log("results is: "+ JSON.stringify(results));
 		if(results.length > 0){
-			ret.url = results[b].trackid;	
-			console.log("trackid: "+ results[b].trackid);
+			ret.url = results[b].trackurl;	
+			console.log("trackid: "+ results[b].trackurl);
 		} else {
 			ret.url = "6xmPL0CddWADJTJkJZkrl2";
 		}
@@ -396,7 +396,7 @@ var vals = "", ids="";
     	console.log("t: " + t);
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
-    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + "),"
+    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
     	} else {
     		if(item.mode_up == 1){
     		updatevars_modeup += " id='" + item.trackid + "' and ";
