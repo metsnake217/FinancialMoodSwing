@@ -36,6 +36,8 @@ block content
             templatestock = Handlebars.compile(templateSourceStock),
             stockPlaceholder = document.getElementById('stock');
 
+        var audioObject;
+
         var searchPlaylists = function () {
             console.log("looking for playlists");
             console.log("access token in playlists: " + bearer);
@@ -47,7 +49,8 @@ block content
                     console.log("success get playlists.");
                     $( "#playeditmood" ).change(function() {
                         $("#stock").show();
-
+                        audioObject.pause();
+                        
                         var playlistid = $(this).val();
                         var playstr = "'" + playlistid + "'";
                         console.log("playstr: " + playstr);
@@ -64,6 +67,8 @@ block content
                                 var preview = response.url;
                                 audioObject = new Audio(preview);
                                 audioObject.play();
+
+
                             }
                         });
                     });
