@@ -284,8 +284,10 @@ var SYMBOLS = [
 ];
 var datenow = moment(new Date).tz("America/New_York").format(
         'YYYY-MM-DD');
-var dateyest = moment().add(-1, 'days').format(
+var dateyest = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
+
+var quotesfinal = [];
 
 yahooFinance.historical({
   symbols: SYMBOLS,
@@ -300,6 +302,7 @@ yahooFinance.historical({
       quotes.length
     ).cyan);
     if (quotes[0]) {
+      quotesfinal.push(quotes[0]);
       console.log(
         '%s\n...\n%s',
         JSON.stringify(quotes[0], null, 2),
@@ -309,9 +312,12 @@ yahooFinance.historical({
       console.log('N/A');
     }
   });
-});
+}).finally(function() {
+    // Always execute this on both error and success
+    res.send({quotes:quotesfinal});
+});;
 
-res.send();
+
 
   });
 
