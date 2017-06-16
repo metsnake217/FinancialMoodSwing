@@ -284,7 +284,8 @@ var SYMBOLS = [
 ];
 var datenow = moment(new Date).tz("America/New_York").format(
         'YYYY-MM-DD');
-var dateyest = moment().add(-1, 'days');
+var dateyest = moment().add(-1, 'days').format(
+        'YYYY-MM-DD');
 
 yahooFinance.historical({
   symbols: SYMBOLS,
