@@ -865,7 +865,7 @@ block content
                         console.dir(target)
                         console.log("playing: " + preview);
                         //data.tracks.items[0].preview_url;
-                        if(preview != null){
+                        if(preview){
                         audioObject = new Audio(preview);
                         audioObject.play();
                         target.classList.add(playingCssClass);
