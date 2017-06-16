@@ -236,6 +236,32 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
+    router.get('/mood', function(req, res) {
+      var access_token = req.session.access;
+        console.log("set access test: " + access_token);
+    if(req.session.access != undefined){
+      var musicRules = new MusicRules();
+      musicRules.getrules(function(error, results) { 
+    res.render('mood', {
+      rules: results,
+      /*ordersnum: req.session.orders,
+      sharesnum: req.session.shares,*/
+      title : 'Mood',
+      access_token:access_token,
+      user_id:req.session.userid,
+      /*loggedIn : req.session.loggedin,
+      labyoker : req.session.user,
+      isLoggedInAdmin: req.session.admin,*/
+      menu : 'mood'
+    });
+  });
+
+  } else{
+    res.redirect('/login');
+  }
+
+  });
+
     router.post('/addtoplaylist', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
     if(req.session.access != undefined){

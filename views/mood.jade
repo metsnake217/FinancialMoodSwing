@@ -1,0 +1,1067 @@
+    
+extends layout
+
+block content
+
+    div(class="container", style="")
+        img(src="/images/unknown.png" width="5%", class="logofin1")
+        a(href="/login")
+            img(src="/images/test1.png" class="logofin")
+ 
+            h1!= "Select a Playlist"
+            p!= "Select a playlist to load its contents."
+            form(id="playlistedit-form")
+                div(id="playlistedit")
+                    script(id="playlistedit-template" type="text/x-handlebars-template")
+                        <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                        <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
+                        <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
+
+        br(style="clear: both;")
+
+    script.
+        var bearer = "Bearer " + "#{access_token}";
+        var user;
+        var playList = [];
+        // find template and compile it
+        var templateSource = document.getElementById('results-template').innerHTML,
+            template = Handlebars.compile(templateSource),
+            resultsPlaceholder = document.getElementById('resultsss'),
+            playingCssClass = 'playing',
+            noplayingClass = "cannotplay",
+            audioObject = null,
+            templateSourceplay = document.getElementById('playlistres-template').innerHTML,
+            templateplay = Handlebars.compile(templateSourceplay),
+            playlistresPlaceholder = document.getElementById('playlistres'),
+            templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML,
+            templateedit = Handlebars.compile(templateSourceplayedit),
+            editPlaceholder = document.getElementById('playlistedit'),
+            templateSourceplaylist = document.getElementById('playlisteditlist-template').innerHTML
+            templatelist = Handlebars.compile(templateSourceplaylist),
+            tracklistPlaceholder = document.getElementById('playlisteditlist');
+
+        var fetchTracks = function (albumId, callback) {
+            $.ajax({
+                url: 'https://api.spotify.com/v1/albums/' + albumId,
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    callback(response);
+                }
+            });
+        };
+
+        var fetchAudioFeature = function (trackId) {
+            $.ajax({
+                url: 'https://api.spotify.com/v1/audio-features/' + trackId,
+                headers: {'Authorization': bearer},
+                success: function (features) {
+                    console.log("success audio: " + features);
+                    //audPlaceholder.innerHTML = templateaud(features);
+            var feat = "";
+            feat +="Danceability: " + features.danceability + "/r";
+            feat +="Energy: " + features.energy + "/r";
+            feat +="Loudness: " + features.loudness + "/r";
+            feat +="Mode: " + features.mode + "/r";
+            feat +="Speechiness: " + features.speechiness + "/r";
+            feat +="Acousticness: " + features.acousticness + "/r";
+            feat +="Instrumentalness: " + features.instrumentalness + "/r";
+            feat +="Liveness: " + features.liveness + "/r";
+            feat +="Valence: " + features.valence + "/r";
+            feat +="Tempo: " + features.tempo + "/r";
+            console.log("features: " + feat);
+            //var findtrack = '#'+trackId;
+            //$("#results").find(findtrack).append(feat);
+            //console.debug($("#results"));
+            //console.debug($("#results").find(findtrack));
+
+                }
+            });
+        };
+
+        var searchAlbums_ = function (query) {
+            console.log("looking for albums");
+            console.log("access: " + bearer);
+            console.log("user_id: " + user_id);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/search',
+                headers: {'Authorization': bearer},
+                data: {
+                    q: query,
+                    type: 'album,track,artist'
+                },
+                success: function (response) {
+                    resultsPlaceholder.innerHTML = template(response);
+                    console.log("success albums: " + resultsPlaceholder.innerHTML);
+                    console.dir(response);
+                }
+            });
+        };
+
+        var searchAlbums = function (query) {
+            console.log("looking for albums");
+            console.log("access: " + bearer);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/search',
+                headers: {'Authorization': bearer},
+                data: {
+                    q: query,
+                    type: 'album,track,artist'
+                },
+                success: function (response) {
+                    resultsPlaceholder.innerHTML = template(response);
+                    console.log("success albums: " + resultsPlaceholder.innerHTML);
+                    console.dir(response);
+
+                    var trackids = "";
+                    var i=0;
+                    /*$( "div[data-track-id]" ).each(function(){
+                        if(i>0){
+                        trackids += ",";
+                        }
+                        trackids += $(this).attr( 'data-track-id' );
+                        
+                        i++;
+                    });*/
+                        //var testdata = $(this).data('test');
+                        for(var track in response.tracks.items){
+                        if(i>0){
+                        trackids += ",";
+                        }
+                        trackids += response.tracks.items[i].id;
+                        i++;
+                        }
+                        console.dir(response.tracks.items);
+                        console.log("looking for trackids: " + trackids);
+                        
+
+                                $.ajax({
+                                    url: 'https://api.spotify.com/v1/audio-features?ids=' + trackids,
+                                    headers: {'Authorization': bearer},
+                                    success: function (features) {
+                                        console.log("success audio: " + features);
+                                        console.dir(features);
+                                        //audPlaceholder.innerHTML = templateaud(features);
+                                        var j = 0;
+                                for(var featur in features.audio_features){
+                                var feat = "";
+                                var feature = features.audio_features[j];
+                                feat +="<b>Danceability</b>: " + feature.danceability + "<br>";
+                                feat +="<b>Energy</b>: " + feature.energy + "<br>";
+                                feat +="<b>Loudness</b>: " + feature.loudness + "<br>";
+                                feat +="<b>Mode</b>: " + feature.mode + "<br>";
+                                feat +="<b>Speechiness</b>: " + feature.speechiness + "<br>";
+                                feat +="<b>Acousticness</b>: " + feature.acousticness + "<br>";
+                                feat +="<b>Instrumentalness</b>: " + feature.instrumentalness + "<br>";
+                                feat +="<b>Liveness</b>: " + feature.liveness + "<br>";
+                                feat +="<b>Valence</b>: " + feature.valence + "<br>";
+                                feat +="<b>Tempo</b>: " + feature.tempo;
+                                console.log("feature: " + feat);
+                                var findtrack = '#' + feature.id;
+                                //$("#title-"+feature.id).attr("data-tooltip",feat);
+                                $("#title-"+feature.id).html(feat);
+                                console.dir($("#title-"+feature.id));
+                                //console.debug($("#results").find(findtrack));
+                                j++;
+                                }
+
+                                    }
+                                });
+
+                        //$(this).val(testdata);
+
+                        console.log( "ready!" );
+                }
+            });
+        };
+
+        var searchPlaylists = function () {
+            console.log("looking for playlists");
+            console.log("access token in playlists: " + bearer);
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/playlists',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    playlistresPlaceholder.innerHTML = templateplay(response);
+                    
+                    //editPlaceholder.innerHTML = templateedit(response);
+                    console.log("success get playlists.");
+                    
+                }
+            });
+        };
+
+
+        var searchPlaylistsEdit = function () {
+            console.log("looking for playlists");
+            console.log("access token in playlists: " + bearer);
+            playList=[];
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/playlists',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    //playlistresPlaceholder.innerHTML = templateplay(response);
+                    editPlaceholder.innerHTML = templateedit(response);
+                    var i=0;
+                    for(var l in response.items){
+                    playList.push(response.items[i].name);
+                    i++;
+                    }
+                    console.log("success get PLAYLIST.");
+                    console.dir(playList);
+
+                    $.ajax({
+                            url: 'https://api.spotify.com/v1/me',
+                            headers: {'Authorization': bearer},
+                            success: function (response) {
+                                user = response.id;
+                                console.log("got user id to create playlist: " + user);
+
+                            }
+                        });
+
+                    $( "#playedit" ).change(function() {
+                        console.log("playedit selected");
+                        //var playlistid = $(this).attr('id');
+                        var playlistid = $(this).val();
+
+                        console.log( "playlist is called: " + playlistid);
+                        
+                        
+
+                                $.ajax({
+                                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                    success: function (resp) {
+                                        tracklistPlaceholder.innerHTML = templatelist(resp);
+                                        //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
+                                        console.log("successfully retrieved playlist tracks for " + user);
+                                        console.dir(resp.items);
+
+                                        $( ".trashtrack" ).click(function() {
+                                            var play = $("#playedit").val();
+                                            console.log("playlistid: " + play);
+                                            var playstr = "'" + play + "'";
+                                            console.log("playstr: " + playstr);
+                                            var playlistname = $("#playedit option[value=" + playstr + "]").text();
+                                            var trackid = $(this).attr("id");
+                                            var parentr = $(this).parent().parent();
+                                            //var user;
+                                            console.log("deleting track : " + trackid);
+                                            console.log("user: " + user);
+                                            $.ajax({
+                                                method: 'DELETE',
+                                                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                                data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
+                                                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                                success: function (resp2) {
+                                                    console.log("trackid " + trackid + " :  successfully deleted.");
+                                                    parentr.addClass("deletedtrack");
+
+                                                $.ajax({
+                                                    method: "POST",
+                                                    url: 'https://financialmoodswing.herokuapp.com/deletetrack',
+                                                    data: {
+                                                        playlistname: playlistname,
+                                                        trackid: trackid
+                                                    },
+                                                    success: function (response) {
+                                                        console.log("success deletion of track.");
+                                                    }
+                                                });
+
+                                                }
+                                            });
+                                        });
+
+                                }
+                            });
+                });
+            }
+            });
+            };
+
+        $( "#addtoplaylist" ).click(function() {
+            var trackid = $(this).attr("id");
+            var parentr = $(this).parent().parent();
+            var playlistidselected = $("#playSelect").val();
+            console.log("playlistid selected is: " + playlistidselected);
+            var moods = $(".mood");
+            var i = 0;
+            var checked = false;
+            var builddata=[];
+            var urislist = "";
+            console.dir(moods);
+            var test = [];
+            
+            for(var m in moods){
+                var addmusic = {trackid:"", tracktitle:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0}
+                var tracks = [];
+                var inputid;
+                var checked;
+                if($($(".mood")[i]).length > 0){
+                checked = $($(".mood")[i])[0].checked;
+                }
+
+                if(checked && $($(".mood")[i]).length > 0){
+                    console.dir($($(".mood")[i]));
+                    inputid = $($(".mood")[i])[0].id;
+                    var tracktitle = $($(".mood")[i]).attr("tracktitle");
+                    console.log("inputid: " + inputid);
+                    console.log("tracktitle: " + tracktitle);
+
+                    var split = inputid.split("-");
+                    var mood = split[0];
+                    var trackid = split[1];
+                    var findtrack = test.indexOf(trackid);
+                    console.log("trackid: " + trackid);
+                    console.log("findtrack: " + findtrack);
+                    if(findtrack < 0){
+                        tracks.push(trackid);
+                        test.push(trackid);
+                        //test.push(tracktitle);
+                        addmusic.trackid= trackid;
+                        addmusic.tracktitle= tracktitle;
+                        urislist += "spotify:track:" + trackid + ",";
+                        if(mood == "moodup"){
+                            addmusic.mode_up = 1;
+                        }
+                        if(mood == "moodwayup"){
+                            addmusic.mode_wayup = 1;
+                        }
+                        if(mood == "mooddown"){
+                            addmusic.mode_down = 1;
+                        }
+                        if(mood == "moodwaydown"){
+                            addmusic.mode_waydown = 1;
+                        }
+                        console.log("addmusic: " + JSON.stringify(addmusic));
+                        builddata.push(addmusic);
+                        console.log("builddata: " + JSON.stringify(builddata));                  
+                    } else {
+                        var findmusic = builddata[findtrack];
+                        console.log("findmusic: "+JSON.stringify(findmusic));
+                        if(mood == "moodup"){
+                            findmusic.mode_up = 1;
+                        }
+                        if(mood == "moodwayup"){
+                            findmusic.mode_wayup = 1;
+                        }
+                        if(mood == "mooddown"){
+                            findmusic.mode_down = 1;
+                        }
+                        if(mood == "moodwaydown"){
+                            findmusic.mode_waydown = 1;
+                        }
+                        console.log("findmusic: " + JSON.stringify(findmusic));
+                        console.log("builddata0: " + JSON.stringify(builddata));                    
+                    }
+                    
+                }
+                i++;
+            }
+            console.log("final builddata: " + JSON.stringify(builddata));  
+
+            console.log("user: " + user);
+            var play = $("#playSelect").val();
+            console.log("playlistid: " + play);
+            var playstr = "'" + play + "'";
+            console.log("playstr: " + playstr);
+            var playlistnameselected = $("#playSelect option[value=" + playstr + "]").text();
+            console.log("playlistname selected is: " + playlistnameselected);
+            urislist = urislist.replace(/,\s*$/, "");
+            console.log("urislist: " + urislist);
+            if(play != "select playlist"){
+
+            $.ajax({
+                method: 'POST',
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                success: function (resp) {
+                    $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
+                    console.log("successfully updated playlist for " + user);
+                    $.ajax({
+                        method: "POST",
+                        url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
+                        data: {
+                            databuild: JSON.stringify(builddata),
+                            playlistid: play,
+                            playlistname: playlistnameselected
+                        },
+                        success: function (response) {
+                            console.log("success add music to playlist.");
+
+                        }
+                    });
+                }, error: function (resp0) {
+                    console.dir(resp0);
+                }
+                });
+
+
+
+
+            } else {
+                $("#addmessage").html("Please select a playlist above. Then try again.");
+            }
+        });
+
+        var createPlaylist = function () {
+            var playlistname = $('#queryplay').val();
+            //var user;
+            console.log("creating playlist : "+playlistname);
+            console.log("found it? " + playList.indexOf(playlistname));
+            if(playlistname != undefined && playList.indexOf(playlistname) == -1){
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {'Authorization': bearer},
+                success: function (response) {
+                    user = response.id;
+                    console.log("got user id to create playlist: " + user);
+
+            $.ajax({
+                method: 'POST',
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists',
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                data: JSON.stringify({name:playlistname,  description: 'Financial mood Swing test new playlist'}),
+                success: function (resp) {
+                    $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> successfully created!");
+                    console.log("successfully created playlist for " + user);
+                }
+                });
+
+                }
+            });
+
+            
+
+
+
+            } else if(playList.indexOf(playlistname) >= 0){
+                $(".messageCreatePlaylist").html("<b>" + playlistname + "</b> already exists. Please enter a new Playlist name");
+            }
+        };
+
+        resultsss.addEventListener('click', function (e) {
+            var target = e.target;
+            if (target !== null && target.classList.contains('cover')) {
+                if (target.classList.contains(playingCssClass)) {
+                    audioObject.pause();
+                } else {
+                    if (audioObject) {
+                        audioObject.pause();
+                    }
+                    fetchTracks(target.getAttribute('data-album-id'), function (data) {
+                        var preview = data.tracks.items[0].preview_url;
+                        if(preview != null){
+                        audioObject = new Audio(preview);
+                        audioObject.play();
+                        target.classList.add(playingCssClass);
+                        audioObject.addEventListener('ended', function () {
+                            target.classList.remove(playingCssClass);
+                        });
+                        audioObject.addEventListener('pause', function () {
+                            target.classList.remove(playingCssClass);
+                        });
+                        } else {
+                            target.classList.add(noplayingClass);
+                        }
+                    });
+                }
+            }
+        });
+
+        Handlebars.registerHelper('trimString', function(passedString) {
+        console.log("before trimstring");
+            var len = passedString.length;
+            var add = "";
+            if(len > 24){
+                add = "...";
+            }
+            var theString = passedString.substring(0,25) + add;
+            
+            console.log("theString is: " + theString);
+            return new Handlebars.SafeString(theString)
+        });
+
+        Handlebars.registerHelper('test', function(trackid) {
+            console.log("before fetch audio features");
+            var i = fetchAudioFeature(trackid);
+            console.log("I is: " + i);
+            return new Handlebars.SafeString(i);
+        });
+
+        Handlebars.registerHelper('displayTitle', function(features) {
+            var feat = "";
+            feat +="Danceability: " + features.danceability + "/r";
+            feat +="Energy: " + features.energy + "/r";
+            feat +="Loudness: " + features.loudness + "/r";
+            feat +="Mode: " + features.mode + "/r";
+            feat +="Speechiness: " + features.speechiness + "/r";
+            feat +="Acousticness: " + features.acousticness + "/r";
+            feat +="Instrumentalness: " + features.instrumentalness + "/r";
+            feat +="Liveness: " + features.liveness + "/r";
+            feat +="Valence: " + features.valence + "/r";
+            feat +="Tempo: " + features.tempo + "/r";
+            console.log("features: " + feat);
+            return new Handlebars.SafeString(feat)
+        });
+
+        document.getElementById('search-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            //document.getElementById('addtoplaylist').style.display = "block";
+            searchAlbums(document.getElementById('query').value);
+            searchPlaylists();
+        }, false);
+
+        searchPlaylistsEdit();
+
+        var rangeSlider = function(){
+        var slider = $('.range-slider'),
+              range = $('.range-slider__range'),
+              value = $('.range-slider__value');
+            
+          slider.each(function(){
+
+            value.each(function(){
+              var value = $(this).prev().attr('value');
+              $(this).html(value/100);
+            });
+
+            range.on('input', function(){
+                var val = this.value;
+              $(this).next(value).html(val/100);
+              $(this).css("background-color","rgba(41, 117, 180, 0.57)");
+            });
+          });
+        };
+
+        rangeSlider();
+
+        /*if($('.sectiontracks').is(':visible')) {
+          var h = $( ".sectionalbums" ).height() + $( ".sectionartists" ).height() + $( ".sectiontracks" ).height();
+          console.log("add music height: " + h);
+          $(".expandadd").height(h);
+        };*/
+
+
+        $( "#searchmusic" ).click(function() {
+            console.dir($( "#addtoplaylist" ));
+            $( "#addtoplaylist" ).show();
+        });
+
+        $( ".labelexpandedit" ).click(function() {
+            console.dir($( ".labelexpandedit" ));
+            searchPlaylistsEdit();
+        });
+
+        $( "#acousticup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acup.");
+                }
+            });
+        });
+
+        $( "#acousticdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticdown.");
+                }
+            });
+        });
+
+        $( "#acousticwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwaydown.");
+                }
+            });
+        });        
+
+        $( "#acousticwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "acousticness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwayup.");
+                }
+            });
+        });
+
+        $( "#modeup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modeup.");
+                }
+            });
+        });
+
+        $( "#modedown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modedown.");
+                }
+            });
+        });
+
+        $( "#modewaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modewaydown.");
+                }
+            });
+        });        
+
+        $( "#modewayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterulestr',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "mode"
+                },
+                success: function (response) {
+                    console.log("success update modewayup.");
+                }
+            });
+        });
+        $( "#keyup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keyup.");
+                }
+            });
+        });
+
+        $( "#keydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keydown.");
+                }
+            });
+        });
+
+        $( "#keywaydown" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keywaydown.");
+                }
+            });
+        });        
+
+        $( "#keywayup" ).change(function() {
+          console.log( "Handler for .change() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updateruleint',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "key"
+                },
+                success: function (response) {
+                    console.log("success update keywayup.");
+                }
+            });
+        });
+
+        $( "#danceup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update danceup.");
+                }
+            });
+        });
+
+        $( "#dancedown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancedown.");
+                }
+            });
+        });
+
+        $( "#dancewaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancewaydown.");
+                }
+            });
+        });        
+
+        $( "#dancewayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "danceability"
+                },
+                success: function (response) {
+                    console.log("success update dancewayup.");
+                }
+            });
+        });
+
+        $( "#enup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enup.");
+                }
+            });
+        });
+
+        $( "#endown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update endown.");
+                }
+            });
+        });
+
+        $( "#enwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enwaydown.");
+                }
+            });
+        });        
+
+        $( "#enwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "energy"
+                },
+                success: function (response) {
+                    console.log("success update enwayup.");
+                }
+            });
+        });
+
+        $( "#liveup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update liveup.");
+                }
+            });
+        });
+
+        $( "#livedown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livedown.");
+                }
+            });
+        });
+
+        $( "#livewaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livewaydown.");
+                }
+            });
+        });        
+
+        $( "#livewayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "liveness"
+                },
+                success: function (response) {
+                    console.log("success update livewayup.");
+                }
+            });
+        });
+
+        $( "#speechup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechup.");
+                }
+            });
+        });
+
+        $( "#speechdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechdown.");
+                }
+            });
+        });
+
+        $( "#speechwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update speechwaydown.");
+                }
+            });
+        });        
+
+        $( "#acousticwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "speechiness"
+                },
+                success: function (response) {
+                    console.log("success update acousticwayup.");
+                }
+            });
+        });
+
+        $( "#valup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "up",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valup.");
+                }
+            });
+        });
+
+        $( "#valdown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "down",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valdown.");
+                }
+            });
+        });
+
+        $( "#valwaydown" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "waydown",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valwaydown.");
+                }
+            });
+        });        
+
+        $( "#valwayup" ).mouseup(function() {
+          console.log( "Handler for .mouseup() called: " + $(this).val());
+            $.ajax({
+                method: "POST",
+                url: 'https://financialmoodswing.herokuapp.com/updaterule',
+                data: {
+                    rule: "wayup",
+                    val: $(this).val(),
+                    col: "valence"
+                },
+                success: function (response) {
+                    console.log("success update valwayup.");
+                }
+            });
+        });
