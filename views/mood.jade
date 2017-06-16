@@ -57,7 +57,7 @@ block content
                         $.ajax({
                             method: "GET",
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
-                            data:JSON.stringify({playlistname: listname}),
+                            data: {playlistname: listname},
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 console.log("success got stocks: " + response);
