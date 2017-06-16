@@ -278,9 +278,9 @@ router.get('/refresh_token', function(req, res) {
         console.log("set access test: " + access_token);
 var SYMBOLS = [
   'XAX',
-  'PX1',
-  'IXIC',
-  'CAC'
+  'PX1GR.PA',
+  '^IXIC',
+  '^NDX'
 ];
 var datenow = moment(new Date).tz("America/New_York").format(
         'YYYY-MM-DD');
