@@ -44,6 +44,14 @@ block content
                     console.log("success get playlists.");
                     $( "#playedit" ).change(function() {
                         $("#stock").show();
+
+                        $.ajax({
+                            method: "GET",
+                            url: 'https://financialmoodswing.herokuapp.com/stockfetch',
+                            success: function (response) {
+                                console.log("success got stocks.");
+                            }
+                        });
                     });
                 }
             });

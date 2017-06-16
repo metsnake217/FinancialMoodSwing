@@ -23,6 +23,8 @@ var multer = require('multer');
 var xlstojson = require("xls-to-json-lc");
 var xlsxtojson = require("xlsx-to-json-lc");
 
+var yahooFinance = require('yahoo-finance');
+
 //var fs = require('fs');
 //html-pdf
 
@@ -265,6 +267,43 @@ router.get('/refresh_token', function(req, res) {
       menu : 'mood'
     });
   });
+
+  });
+
+    router.get('/stockfetch', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+        console.log("set access test: " + access_token);
+var SYMBOLS = [
+  'AAPL',
+  'AMZN',
+  'GOOGL',
+  'YHOO'
+];
+yahooFinance.historical({
+  symbols: SYMBOLS,
+  from: '2017-01-01',
+  to: '2017-01-02',
+  period: 'd'
+}).then(function (result) {
+  _.each(result, function (quotes, symbol) {
+    console.log(util.format(
+      '=== %s (%d) ===',
+      symbol,
+      quotes.length
+    ).cyan);
+    if (quotes[0]) {
+      console.log(
+        '%s\n...\n%s',
+        JSON.stringify(quotes[0], null, 2),
+        JSON.stringify(quotes[quotes.length - 1], null, 2)
+      );
+    } else {
+      console.log('N/A');
+    }
+  });
+});
+
+res.send();
 
   });
 
