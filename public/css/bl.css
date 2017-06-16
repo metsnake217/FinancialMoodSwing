@@ -32,6 +32,10 @@ tbody tr{
     border-width: thin;
 }
 
+#manualprog{
+position: absolute;
+  left: -9999px;
+}
 .deletedtrack{
     background-color: #8a6d3b;
     color: #8a6d3b !important;
@@ -1050,7 +1054,7 @@ display: none;
 }
 
 .checkboxThree {
-    width: 63px;
+    width: 70px;
     height: 25px;
     /*background: #333;
     margin: 20px 60px;*/
@@ -1076,7 +1080,7 @@ display: none;
     content: 'Man';
     position: absolute;
     top: 5px;
-    left: 36px;
+    left: 40px;
     height: 2px;
     color: #008500 !important;
     font-size: 10px;
@@ -1084,7 +1088,7 @@ display: none;
 }
 .checkboxThree label {
     display: block;
-    width: 22px;
+    width: 30px;
     height: 15px;
     border-radius: 50px;
 
