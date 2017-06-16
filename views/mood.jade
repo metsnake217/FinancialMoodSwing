@@ -8,14 +8,14 @@ block content
         a(href="/login")
             img(src="/images/test1.png" class="logofin")
  
-            h1!= "Select a Playlist"
-            p!= "Select a playlist to load its contents."
-            form(id="playlistedit-form")
-                div(id="playlistedit")
-                    script(id="playlistedit-template" type="text/x-handlebars-template")
-                        <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
-                        <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
-                        <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
+        h1!= "Select a Playlist"
+        p!= "Select a playlist to load its contents."
+        form(id="playlistedit-form")
+            div(id="playlistedit")
+                script(id="playlistedit-template" type="text/x-handlebars-template")
+                    <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                    <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
+                    <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
 
         br(style="clear: both;")
 
@@ -24,13 +24,7 @@ block content
         var user;
         var playList = [];
         // find template and compile it
-        var templateSource = document.getElementById('results-template').innerHTML,
-            template = Handlebars.compile(templateSource),
-            resultsPlaceholder = document.getElementById('resultsss'),
-            playingCssClass = 'playing',
-            noplayingClass = "cannotplay",
-            audioObject = null,
-            templateSourceplay = document.getElementById('playlistres-template').innerHTML,
+        var templateSourceplay = document.getElementById('playlistres-template').innerHTML,
             templateplay = Handlebars.compile(templateSourceplay),
             playlistresPlaceholder = document.getElementById('playlistres'),
             templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML,
