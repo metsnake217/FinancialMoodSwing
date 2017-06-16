@@ -277,10 +277,10 @@ router.get('/refresh_token', function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
 var SYMBOLS = [
-  'AAPL',
-  'AMZN',
-  'GOOGL',
-  'YHOO'
+  'XAX',
+  'PX1',
+  'IXIC',
+  'CAC'
 ];
 var datenow = moment(new Date).tz("America/New_York").format(
         'YYYY-MM-DD');
