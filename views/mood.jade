@@ -12,6 +12,9 @@ block content
             p!= "Select a playlist to set the tone."
             form(id="playlistedit-form")
                 div(id="playlistedit")
+                    div(class="checkboxThree" style="position: relative;top: 30px;")
+                        input(type="checkbox" name="manualprog" id="manualprog" value="manual")
+                        label(for="manualprog" class="labelcheck shadow")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
                         <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                         <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>

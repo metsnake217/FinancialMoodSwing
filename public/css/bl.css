@@ -1063,7 +1063,7 @@ display: none;
 }
 
 .checkboxThree:before {
-    content: 'On';
+    content: 'Prog';
     position: absolute;
     top: 5px;
     left: 8px;
@@ -1073,7 +1073,7 @@ display: none;
     font-weight:bold;
 }
 .checkboxThree:after {
-    content: 'Off';
+    content: 'Man';
     position: absolute;
     top: 5px;
     left: 36px;
