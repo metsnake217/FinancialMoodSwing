@@ -276,7 +276,7 @@ router.get('/refresh_token', function(req, res) {
 
 router.get('/stockfetch', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
-      var playlistname = req.param.playlistname;
+      var playlistname = req.params.playlistname;
         console.log("set access test: " + access_token);
         console.log("set playlistname: " + playlistname);
 var SYMBOLS = [
