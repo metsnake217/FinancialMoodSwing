@@ -627,7 +627,7 @@ block content
             console.log("playlistid: " + play);
             var playstr = "'" + play + "'";
             console.log("playstr: " + playstr);
-            var playlistnameselected = $("#playSelect option[value=playstr]").text();
+            var playlistnameselected = $("#playSelect option[value=" + playstr + "]").text();
             console.log("playlistname selected is: " + playlistnameselected);
             urislist = urislist.replace(/,\s*$/, "");
             console.log("urislist: " + urislist);

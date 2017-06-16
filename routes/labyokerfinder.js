@@ -331,7 +331,7 @@ var vals = "", ids="";
     	console.log("t: " + t);
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
-    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
+    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "),"
     	} else {
     		if(item.mode_up == 1){
     		updatevars_modeup += " id='" + item.trackid + "' and ";
@@ -350,6 +350,7 @@ var vals = "", ids="";
     updatevars_modedown = updatevars_modedown.replace(/and\s*$/, "");
     updatevars_modewayup = updatevars_modewayup.replace(/and\s*$/, "");
     updatevars_modewaydown = updatevars_modewaydown.replace(/and\s*$/, "");
+    vals = vals.replace(/,\s*$/, "");
 
     console.log("updatevars_modeup addtoplaylist: " + updatevars_modeup);
     console.log("updatevars_modedown addtoplaylist: " + updatevars_modedown);
