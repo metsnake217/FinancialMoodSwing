@@ -24,6 +24,7 @@ var xlstojson = require("xls-to-json-lc");
 var xlsxtojson = require("xlsx-to-json-lc");
 
 var yahooFinance = require('yahoo-finance');
+var _ = require('lodash');
 
 //var fs = require('fs');
 //html-pdf
