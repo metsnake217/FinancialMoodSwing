@@ -563,7 +563,7 @@ block content
                 checked = $($(".mood")[i])[0].checked;
                 }
 
-                if(checked){
+                if(checked && $($(".mood")[i]).length > 0){
                     console.dir($($(".mood")[i]));
                     inputid = $($(".mood")[i])[0].id;
                     var tracktitle = $($(".mood")[i]).attr("tracktitle");
