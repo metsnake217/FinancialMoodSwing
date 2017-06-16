@@ -76,7 +76,7 @@ block content
                             {{#if tracks.items}}
                             <div class="sectiontracks" style=""><h2 style="color: #00bc00 !important;">Pick Tracks</h2>
                             {{#each tracks.items}}
-                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:ccenter;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input tracktitle="{{name}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:center;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"  data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input tracktitle="{{name}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
@@ -411,6 +411,17 @@ block content
                                 for(var featur in features.audio_features){
                                 var feat = "";
                                 var feature = features.audio_features[j];
+                                var danceability = feature.danceability;
+                                var energy = feature.energy;
+                                var loudness = feature.loudness;
+                                var mode = feature.mode;
+                                var speechiness = feature.speechiness;
+                                var acousticness = feature.acousticness;
+                                var instrumentalness = feature.instrumentalness;
+                                var liveness = feature.liveness;
+                                var valence = feature.valence;
+                                var tempo = feature.tempo;
+
                                 feat +="<b>Danceability</b>: " + feature.danceability + "<br>";
                                 feat +="<b>Energy</b>: " + feature.energy + "<br>";
                                 feat +="<b>Loudness</b>: " + feature.loudness + "<br>";
@@ -425,6 +436,51 @@ block content
                                 var findtrack = '#' + feature.id;
                                 //$("#title-"+feature.id).attr("data-tooltip",feat);
                                 $("#title-"+feature.id).html(feat);
+
+                                $("#moodup-"+feature.id).attr("data-danceability",danceability);
+                                $("#moodup-"+feature.id).attr("data-energy",energy);
+                                $("#moodup-"+feature.id).attr("data-loudness",loudness);
+                                $("#moodup-"+feature.id).attr("data-mode",mode);
+                                $("#moodup-"+feature.id).attr("data-speechiness",speechiness);
+                                $("#moodup-"+feature.id).attr("data-acousticness",acousticness);
+                                $("#moodup-"+feature.id).attr("data-instrumentalness",instrumentalness);
+                                $("#moodup-"+feature.id).attr("data-liveness",liveness);
+                                $("#moodup-"+feature.id).attr("data-valence",valence);
+                                $("#moodup-"+feature.id).attr("data-tempo",tempo);
+
+                                $("#moodwayup-"+feature.id).attr("data-danceability",danceability);
+                                $("#moodwayup-"+feature.id).attr("data-energy",energy);
+                                $("#moodwayup-"+feature.id).attr("data-loudness",loudness);
+                                $("#moodwayup-"+feature.id).attr("data-mode",mode);
+                                $("#moodwayup-"+feature.id).attr("data-speechiness",speechiness);
+                                $("#moodwayup-"+feature.id).attr("data-acousticness",acousticness);
+                                $("#moodwayup-"+feature.id).attr("data-instrumentalness",instrumentalness);
+                                $("#moodwayup-"+feature.id).attr("data-liveness",liveness);
+                                $("#moodwayup-"+feature.id).attr("data-valence",valence);
+                                $("#moodwayup-"+feature.id).attr("data-tempo",tempo);
+
+                                $("#mooddown-"+feature.id).attr("data-danceability",danceability);
+                                $("#mooddown-"+feature.id).attr("data-energy",energy);
+                                $("#mooddown-"+feature.id).attr("data-loudness",loudness);
+                                $("#mooddown-"+feature.id).attr("data-mode",mode);
+                                $("#mooddown-"+feature.id).attr("data-speechiness",speechiness);
+                                $("#mooddown-"+feature.id).attr("data-acousticness",acousticness);
+                                $("#mooddown-"+feature.id).attr("data-instrumentalness",instrumentalness);
+                                $("#mooddown-"+feature.id).attr("data-liveness",liveness);
+                                $("#mooddown-"+feature.id).attr("data-valence",valence);
+                                $("#mooddown-"+feature.id).attr("data-tempo",tempo);
+
+                                $("#moodwaydown-"+feature.id).attr("data-danceability",danceability);
+                                $("#moodwaydown-"+feature.id).attr("data-energy",energy);
+                                $("#moodwaydown-"+feature.id).attr("data-loudness",loudness);
+                                $("#moodwaydown-"+feature.id).attr("data-mode",mode);
+                                $("#moodwaydown-"+feature.id).attr("data-speechiness",speechiness);
+                                $("#moodwaydown-"+feature.id).attr("data-acousticness",acousticness);
+                                $("#moodwaydown-"+feature.id).attr("data-instrumentalness",instrumentalness);
+                                $("#moodwaydown-"+feature.id).attr("data-liveness",liveness);
+                                $("#moodwaydown-"+feature.id).attr("data-valence",valence);
+                                $("#moodwaydown-"+feature.id).attr("data-tempo",tempo);
+
                                 console.dir($("#title-"+feature.id));
                                 //console.debug($("#results").find(findtrack));
                                 j++;
