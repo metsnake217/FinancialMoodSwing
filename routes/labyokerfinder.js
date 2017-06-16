@@ -328,6 +328,7 @@ if(differential <= 20){
 		console.log("b is : "+ b);
 		ret.index = quotename;
 		console.log("quotename: "+ quotename);
+		console.log("results is: "+ JSON.stringify(results));
 		ret.url = results[b].trackid;
 		
 		console.log("trackid: "+ results[b].trackid);
