@@ -49,8 +49,10 @@ block content
                     console.log("success get playlists.");
                     $( "#playeditmood" ).change(function() {
                         $("#stock").show();
+                        if(audioObject){
                         audioObject.pause();
-                        
+                        }
+
                         var playlistid = $(this).val();
                         var playstr = "'" + playlistid + "'";
                         console.log("playstr: " + playstr);
