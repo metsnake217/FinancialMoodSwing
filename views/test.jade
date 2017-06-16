@@ -853,15 +853,17 @@ block content
 
         resultsss.addEventListener('click', function (e) {
             var target = e.target;
-            if (target !== null && target.classList.contains('cover')) {
+            if (target !== null && target.classList.contains('covering')) {
                 if (target.classList.contains(playingCssClass)) {
                     audioObject.pause();
                 } else {
                     if (audioObject) {
                         audioObject.pause();
                     }
-                    fetchTracks(target.getAttribute('data-album-id'), function (data) {
-                        var preview = data.tracks.items[0].preview_url;
+                    //fetchTracks(target.getAttribute('data-track-id'), function (data) {
+                        var preview = "https://api.spotify.com/v1/tracks/" + target.getAttribute('data-track-id');
+                        console.log("playing: " + preview);
+                        //data.tracks.items[0].preview_url;
                         if(preview != null){
                         audioObject = new Audio(preview);
                         audioObject.play();
@@ -875,7 +877,7 @@ block content
                         } else {
                             target.classList.add(noplayingClass);
                         }
-                    });
+                    //});
                 }
             }
         });
