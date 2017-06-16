@@ -211,7 +211,7 @@ MusicRules.prototype.getrules = function(callback) {
 
 MusicDeleteTracks.prototype.deletetrack = function(callback) {
 	var results;
-	var query = client.query("delete from playlistrack where playlistname='" + playlistname + "' and trackid='" + trackid + "'");
+	var query = client.query("delete from playlistrack where playlistname='" + this.playlistname + "' and trackid='" + this.trackid + "'");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
