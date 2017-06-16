@@ -317,6 +317,7 @@ if(differential <= 100){
 
 	var sql = "Select * from playlist where " + mode +" = 1 and playlistname='" + playlistname + "'";
 	console.log("sql: " + sql);
+	
 	var query = client.query(sql);
 	query.on("row", function(row, result) {
 		result.addRow(row);
