@@ -143,7 +143,7 @@ router.get('/callback', function(req, res) {
         });
 
         var or =req.session.to;
-        or = or.replace(/\//g, '');
+        or = or.replace(/\/$/,"");
         // we can also pass the token to the browser to make requests from there
         if(or!= null && or.length > 0){
           res.redirect(or + '/#' +
