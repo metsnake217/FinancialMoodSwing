@@ -504,6 +504,11 @@ block content
                                         console.dir(resp.items);
 
                                         $( ".trashtrack" ).click(function() {
+                                            var play = $("#playedit").val();
+                                            console.log("playlistid: " + play);
+                                            var playstr = "'" + play + "'";
+                                            console.log("playstr: " + playstr);
+                                            var playlistname = $("#playedit option[value=" + playstr + "]").text();
                                             var trackid = $(this).attr("id");
                                             var parentr = $(this).parent().parent();
                                             //var user;
