@@ -210,7 +210,7 @@ router.get('/refresh_token', function(req, res) {
     res.redirect('/login');
   });
 
-  router.get('/test', function(req, res) {
+  router.get('/test', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
     if(req.session.access != undefined){
@@ -236,7 +236,7 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
-    router.get('/mood', function(req, res) {
+    router.get('/mood', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
     if(req.session.access != undefined){
