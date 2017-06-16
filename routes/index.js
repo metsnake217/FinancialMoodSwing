@@ -10,6 +10,7 @@ var MusicRules = musicFinderClass.MusicRules;
 var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
 var MusicAddTracks = musicFinderClass.MusicAddTracks;
 var MusicDeleteTracks = musicFinderClass.MusicDeleteTracks;
+var MusicStock = musicFinderClass.MusicStock;
 var express = require('express');
 var util = require('util');
 var router = express.Router();
@@ -275,7 +276,9 @@ router.get('/refresh_token', function(req, res) {
 
     router.get('/stockfetch', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
+      var playlistname = req.body.playlistname;
         console.log("set access test: " + access_token);
+        console.log("set playlistname: " + playlistname);
 var SYMBOLS = [
   'XAX',
   '^FCHI',
@@ -315,8 +318,15 @@ yahooFinance.historical({
     }
   });
 }).finally(function() {
-    // Always execute this on both error and success
-    res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
+    // get a random index
+  var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
+
+  var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname);
+      musicStock.getmusic(function(error, results) { 
+        console.log("stock " + results[0] + " - music: " + results[1] + " is successful.");
+        res.send({index:results[0],url:results[1]});
+  });
+    //res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
 });;
 
 

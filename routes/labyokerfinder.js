@@ -17,6 +17,12 @@ var accounting = require('./accounting');
 MusicRules = function() {
 };
 
+MusicStock = function(quotes, quotesyes, playlistname) {
+	this.quotes = quotes;
+	this.quotesyes = quotesyes;
+	this.playlistname = playlistname;
+};
+
 MusicUpdateRules = function(col,rule,val) {
 	this.rule = rule;
 	this.val = val;
@@ -279,6 +285,53 @@ MusicUpdateRules.prototype.updateruleint = function(callback) {
 	});
 };
 
+MusicStock.prototype.getmusic = function(callback) {
+var quote = this.quotes;
+var quoteyes = this.quotesyes;
+var quotename = quote.symbol;
+var playlistname = this.playlistname;
+
+var ret = {index:"",url:""};
+
+console.log("quote open: "+ quote.open);
+console.log("quote close: "+ quote.close);
+console.log("quoteyes open: "+ quoteyes.open);
+console.log("quoteyes close: "+ quoteyes.close);
+
+var differential = quote.close - quote.open;
+var differentialyes = quoteyes.close - quoteyes.open;
+console.log("differential: " + differential);
+var mode = "mode_up";
+if(differential >= 0){
+	mode = "mode_up";
+}
+if(differential >= 100){
+	mode = "mode_wayup";
+}
+if(differential < 0){
+	mode = "mode_down";
+}
+if(differential <= 100){
+	mode = "mode_waydown";
+}
+
+	var sql = "Select * from playlist where " + mode +" = 1 where playlistname='" + playlistname + "'";
+	console.log("sql: " + sql);
+	var query = client.query(sql);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		var rand = Math.floor((Math.random() * results.length-1) + 1);
+		ret.index = quotename;
+		ret.url = results[b].trackid;
+		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
+		callback(null, ret);
+	});
+
+
+};
 
 MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	var results, results2;
@@ -3059,7 +3112,7 @@ exports.MusicRules = MusicRules;
 exports.MusicUpdateRules = MusicUpdateRules;
 exports.MusicAddTracks = MusicAddTracks;
 exports.MusicDeleteTracks = MusicDeleteTracks;
-
+exports.MusicStock = MusicStock;
 
 exports.Labyoker = Labyoker;
 exports.LabyokerUserDetails = LabyokerUserDetails;

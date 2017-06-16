@@ -21,8 +21,8 @@ block content
                         <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
-                p!="Stock"
-                img(src="/images/note.png" width="250px", class="stocknote")
+                    script(id="stock-template" type="text/x-handlebars-template")
+                        <span>stock: {{index}}</span><a href="{{url}}"><img(src="/images/note.png" width="250px", class="stocknote"/></a>
         br(style="clear: both;")
 
     script.
@@ -32,6 +32,9 @@ block content
         var templateSourceplayedit = document.getElementById('playlistedit-template').innerHTML,
             templateedit = Handlebars.compile(templateSourceplayedit),
             editPlaceholder = document.getElementById('playlistedit');
+        var templateSourceStock = document.getElementById('stock-template').innerHTML,
+            templatestock = Handlebars.compile(templateSourceStock),
+            stockPlaceholder = document.getElementById('stock');
 
         var searchPlaylists = function () {
             console.log("looking for playlists");
@@ -45,10 +48,17 @@ block content
                     $( "#playedit" ).change(function() {
                         $("#stock").show();
 
+                        var playlistid = $(this).val();
+                        var playstr = "'" + playlistid + "'";
+                        console.log("playstr: " + playstr);
+                        var listname = $("#playedit option[value=" + playstr + "]").text();
+
                         $.ajax({
                             method: "GET",
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
+                            data:{playlistname: listname},
                             success: function (response) {
+                                stockPlaceholder.innerHTML = templatestock(response);
                                 console.log("success got stocks: " + response);
                                 console.dir(response);
                             }
