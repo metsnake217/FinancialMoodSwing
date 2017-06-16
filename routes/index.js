@@ -142,9 +142,11 @@ router.get('/callback', function(req, res) {
           //
         });
 
+        var or =req.session.to;
+        or = or.replace(/\//g, '');
         // we can also pass the token to the browser to make requests from there
-        if(req.session.to != null && req.session.to.length > 0){
-          res.redirect(req.session.to + '/#' +
+        if(or!= null && or.length > 0){
+          res.redirect(or + '/#' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token,
