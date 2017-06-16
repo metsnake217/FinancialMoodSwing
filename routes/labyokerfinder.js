@@ -315,7 +315,7 @@ if(differential <= 100){
 	mode = "mode_waydown";
 }
 
-	var sql = "Select * from playlist where " + mode +" = 1 where playlistname='" + playlistname + "'";
+	var sql = "Select * from playlist where " + mode +" = 1 and playlistname='" + playlistname + "'";
 	console.log("sql: " + sql);
 	var query = client.query(sql);
 	query.on("row", function(row, result) {
