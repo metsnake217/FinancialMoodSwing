@@ -76,7 +76,7 @@ block content
                             {{#if tracks.items}}
                             <div class="sectiontracks" style=""><h2 style="color: #00bc00 !important;">Pick Tracks</h2>
                             {{#each tracks.items}}
-                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:center;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"  data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input tracktitle="{{name}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" ><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/unknown.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:center;margin:0 auto;top: -20px; position: relative;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"  data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input tracktitle="{{name}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
@@ -421,6 +421,7 @@ block content
                                 var liveness = feature.liveness;
                                 var valence = feature.valence;
                                 var tempo = feature.tempo;
+                                var key = feature.key;
 
                                 feat +="<b>Danceability</b>: " + feature.danceability + "<br>";
                                 feat +="<b>Energy</b>: " + feature.energy + "<br>";
@@ -432,6 +433,7 @@ block content
                                 feat +="<b>Liveness</b>: " + feature.liveness + "<br>";
                                 feat +="<b>Valence</b>: " + feature.valence + "<br>";
                                 feat +="<b>Tempo</b>: " + feature.tempo;
+                                feat +="<b>Key</b>: " + feature.key;
                                 console.log("feature: " + feat);
                                 var findtrack = '#' + feature.id;
                                 //$("#title-"+feature.id).attr("data-tooltip",feat);
@@ -447,6 +449,7 @@ block content
                                 $("#moodup-"+feature.id).attr("data-liveness",liveness);
                                 $("#moodup-"+feature.id).attr("data-valence",valence);
                                 $("#moodup-"+feature.id).attr("data-tempo",tempo);
+                                $("#moodup-"+feature.id).attr("data-key",key);
 
                                 $("#moodwayup-"+feature.id).attr("data-danceability",danceability);
                                 $("#moodwayup-"+feature.id).attr("data-energy",energy);
@@ -458,6 +461,7 @@ block content
                                 $("#moodwayup-"+feature.id).attr("data-liveness",liveness);
                                 $("#moodwayup-"+feature.id).attr("data-valence",valence);
                                 $("#moodwayup-"+feature.id).attr("data-tempo",tempo);
+                                $("#moodwayup-"+feature.id).attr("data-key",key);
 
                                 $("#mooddown-"+feature.id).attr("data-danceability",danceability);
                                 $("#mooddown-"+feature.id).attr("data-energy",energy);
@@ -469,6 +473,7 @@ block content
                                 $("#mooddown-"+feature.id).attr("data-liveness",liveness);
                                 $("#mooddown-"+feature.id).attr("data-valence",valence);
                                 $("#mooddown-"+feature.id).attr("data-tempo",tempo);
+                                $("#mooddown-"+feature.id).attr("data-key",key);
 
                                 $("#moodwaydown-"+feature.id).attr("data-danceability",danceability);
                                 $("#moodwaydown-"+feature.id).attr("data-energy",energy);
@@ -480,6 +485,7 @@ block content
                                 $("#moodwaydown-"+feature.id).attr("data-liveness",liveness);
                                 $("#moodwaydown-"+feature.id).attr("data-valence",valence);
                                 $("#moodwaydown-"+feature.id).attr("data-tempo",tempo);
+                                $("#moodwaydown-"+feature.id).attr("data-key",key);
 
                                 console.dir($("#title-"+feature.id));
                                 //console.debug($("#results").find(findtrack));
@@ -660,6 +666,13 @@ block content
             console.log("valwayupnow :" + valwayupnow);
             console.log("valwaydownnow :" + valwaydownnow);
 
+            var prog_upval = 0;
+            var prog_wayupval = 0;
+            var prog_downval = 0;
+            var prog_waydownval = 0;
+
+
+
 
             
             for(var m in moods){
@@ -673,6 +686,18 @@ block content
 
                 if(checked && $($(".mood")[i]).length > 0){
                     console.dir($($(".mood")[i]));
+                    var d = parseInt($($(".mood")[i]).attr("data-danceability"));
+                    var e = parseInt($($(".mood")[i]).attr("data-energy"));
+                    //var l = parseInt($($(".mood")[i]).attr("data-loudness"));
+                    var m = $($(".mood")[i]).attr("data-mode");
+                    var s = parseInt($($(".mood")[i]).attr("data-speechiness"));
+                    var a = parseInt($($(".mood")[i]).attr("data-acousticness"));
+                    var in = parseInt($($(".mood")[i]).attr("data-instrumentalness"));
+                    var li = parseInt($($(".mood")[i]).attr("data-liveness"));
+                    var va = parseInt($($(".mood")[i]).attr("data-valence"));
+                    //var te = parseInt($($(".mood")[i]).attr("data-tempo"));
+                    var ke = $($(".mood")[i]).attr("data-key");
+
                     inputid = $($(".mood")[i])[0].id;
                     var tracktitle = $($(".mood")[i]).attr("tracktitle");
                     console.log("inputid: " + inputid);
@@ -703,6 +728,20 @@ block content
                         if(mood == "moodwaydown"){
                             addmusic.mode_waydown = 1;
                         }
+
+                        if(d>=danceupnow && e>=enupnow && ac>=acousticupnow && ke==keyupnow && li>=liveupnow && m == modeupnow && s>=speechupnow && va>=valupnow){
+                            addmusic.prog_up = 1;
+                        }
+                        if(d>=dancewayupnow && e>=enwayupnow && ac>=acousticwayupnow && ke==keywayupnow && li>=livewayupnow && m == modewayupnow && s>=speechupnow && va>=valupnow){
+                            addmusic.prog_wayup = 1;
+                        }
+                        if(d>=dancedownnow && e>=endownnow && ac>=acousticdownnow && ke==keydownnow && li>=livedownnow && m == modedownnow && s>=speechupnow && va>=valupnow){
+                            addmusic.prog_down = 1;
+                        }
+                        if(d>=dancewaydownnow && e>=enwaydownnow && ac>=acousticwaydownnow && ke==keywaydownnow && li>=livewaydownnow && m == modewaydownnow && s>=speechwaydownnow && va>=valwaydownnow){
+                            addmusic.prog_waydown = 1;
+                        }
+
                         console.log("addmusic: " + JSON.stringify(addmusic));
                         builddata.push(addmusic);
                         console.log("builddata: " + JSON.stringify(builddata));                  
