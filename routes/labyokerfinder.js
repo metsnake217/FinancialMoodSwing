@@ -291,7 +291,7 @@ var quoteyes = this.quotesyes;
 var quotename = quote.symbol;
 var playlistname = this.playlistname;
 
-var ret = {index:"",url:""};
+var ret = {index:"",url:"", mood: ""};
 
 console.log("quote open: "+ quote.open);
 console.log("quote close: "+ quote.close);
@@ -315,6 +315,8 @@ if(differential <= 20){
 	mode = "mode_waydown";
 }
 
+ret.mood = mode;
+
 	var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
 	console.log("sql: " + sql);
 
@@ -329,9 +331,12 @@ if(differential <= 20){
 		ret.index = quotename;
 		console.log("quotename: "+ quotename);
 		console.log("results is: "+ JSON.stringify(results));
-		ret.url = results[b].trackid;
-		
-		console.log("trackid: "+ results[b].trackid);
+		if(results.length > 0){
+			ret.url = results[b].trackid;	
+			console.log("trackid: "+ results[b].trackid);
+		} else {
+			ret.url = "6xmPL0CddWADJTJkJZkrl2";
+		}
 		console.log("ret is: " + JSON.stringify(ret));
 		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
 		callback(null, ret);
