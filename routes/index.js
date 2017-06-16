@@ -323,8 +323,8 @@ yahooFinance.historical({
 
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname);
       musicStock.getmusic(function(error, results) { 
-        console.log("stock " + results[0] + " - music: " + results[1] + " is successful.");
-        res.send({index:results[0],url:results[1]});
+        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
+        res.send(results);
   });
     //res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
 });;
