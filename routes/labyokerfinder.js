@@ -307,7 +307,7 @@ var vals = "", ids="";
     ids = ids.replace(/,\s*$/, "");
     console.log("ids: " + ids);
 
-	var query2 = client.query("select id from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
+	var query2 = client.query("select trackid from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
 	query2.on("row", function(row, result2) {
 		result2.addRow(row);
 	});
@@ -320,7 +320,7 @@ var vals = "", ids="";
 		for(var i in results2){
 			resultsids.push(results2[i].id);
 		}
-		console.log("resultsids.id: " + JSON.stringify(resultsids));
+		console.log("resultsids.trackid: " + JSON.stringify(resultsids));
 	var updatevars_modeup = "";
 	var updatevars_modewayup = "";
 	var updatevars_modedown = "";
