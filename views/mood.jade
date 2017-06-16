@@ -7,15 +7,15 @@ block content
         img(src="/images/unknown.png" width="5%", class="logofin1")
         a(href="/login")
             img(src="/images/test1.png" class="logofin")
- 
-        h1!= "Select a Playlist"
-        p!= "Select a playlist to load its contents."
-        form(id="playlistedit-form")
-            div(id="playlistedit")
-                script(id="playlistedit-template" type="text/x-handlebars-template")
-                    <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
-                    <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
-                    <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
+        div(style="display:block;margin: 0 auto; text-align:center;padding:25px")
+            h1!= "Select a Playlist"
+            p!= "Select a playlist to load its contents."
+            form(id="playlistedit-form")
+                div(id="playlistedit")
+                    script(id="playlistedit-template" type="text/x-handlebars-template")
+                        <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                        <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
+                        <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
 
         br(style="clear: both;")
 
