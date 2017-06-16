@@ -282,7 +282,7 @@ var SYMBOLS = [
 yahooFinance.historical({
   symbols: SYMBOLS,
   from: '2017-01-01',
-  to: '2017-01-02',
+  to: '2017-03-03',
   period: 'd'
 }).then(function (result) {
   _.each(result, function (quotes, symbol) {
