@@ -1057,7 +1057,7 @@ display: none;
     background: rgba(255,255,255,0.9);
     border-radius: 50px;
     position: relative;
-    border-color: rgba(138, 109, 59, 0.64);
+    border-color: #008500 !important;
     border-style: solid;
     border-width: thin;
 }
@@ -1078,7 +1078,7 @@ display: none;
     top: 5px;
     left: 36px;
     height: 2px;
-    color: #8a6d3b;
+    color: #008500 !important;
     font-size: 10px;
     font-weight:bold;
 }
@@ -1094,7 +1094,7 @@ display: none;
     top: 4px;
     z-index: 1;
     left: 0px;
-    background: #8a6d3b;
+    background: #008500 !important;
 }
 
 .reportlabelwidth{
