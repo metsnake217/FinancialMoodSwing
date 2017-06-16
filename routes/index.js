@@ -288,6 +288,7 @@ var dateyest = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
 
 var quotesfinal = [];
+var quotesyesfinal = [];
 
 yahooFinance.historical({
   symbols: SYMBOLS,
@@ -303,6 +304,7 @@ yahooFinance.historical({
     ).cyan);
     if (quotes[0]) {
       quotesfinal.push(quotes[0]);
+      quotesyesfinal.push(quotes[quotes.length - 1]);
       console.log(
         '%s\n...\n%s',
         JSON.stringify(quotes[0], null, 2),
@@ -314,7 +316,7 @@ yahooFinance.historical({
   });
 }).finally(function() {
     // Always execute this on both error and success
-    res.send({quotes:quotesfinal});
+    res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
 });;
 
 
