@@ -239,7 +239,7 @@ router.get('/refresh_token', function(req, res) {
     router.get('/mood', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
-    if(req.session.access != undefined){
+
       var musicRules = new MusicRules();
       musicRules.getrules(function(error, results) { 
     res.render('mood', {
@@ -255,10 +255,6 @@ router.get('/refresh_token', function(req, res) {
       menu : 'mood'
     });
   });
-
-  } else{
-    res.redirect('/login');
-  }
 
   });
 
