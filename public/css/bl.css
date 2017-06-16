@@ -32,6 +32,9 @@ tbody tr{
     border-width: thin;
 }
 
+#playeditmood{
+    border-color:#3d9dcb;margin-bottom:10px;margin-left: 100px;width: 90%;font-size: 14pt; color: #008500; font-weight: 500;
+}
 #manualprog{
 position: absolute;
   left: -9999px;
@@ -3643,6 +3646,9 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+#playeditmood{
+    width: 67%;
+}
 .addmusicplaylistsort{
     right: 1.5%;
 }
