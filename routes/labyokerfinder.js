@@ -305,13 +305,13 @@ var mode = "mode_up";
 if(differential >= 0){
 	mode = "mode_up";
 }
-if(differential >= 100){
+if(differential >= 20){
 	mode = "mode_wayup";
 }
 if(differential < 0){
 	mode = "mode_down";
 }
-if(differential <= 100){
+if(differential <= 20){
 	mode = "mode_waydown";
 }
 
@@ -327,6 +327,9 @@ if(differential <= 100){
 		var b = Math.floor((Math.random() * results.length-1) + 1);
 		ret.index = quotename;
 		ret.url = results[b].trackid;
+		console.log("quotename: "+ quotename);
+		console.log("trackid: "+ results[b].trackid);
+		console.log("ret is: " + JSON.stringify(ret));
 		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
 		callback(null, ret);
 	});
