@@ -22,7 +22,7 @@ block content
                         <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
-                        <span>stock: {{index}}</span><img src="/images/{{mood}}.png" width="128px"/><img src="/images/note.png" trackurl="{{url}}" width="250px" class="stocknote animated tada"/>
+                        <span>stock: {{index}}</span><img src="/images/{{mood}}.png" width="128px"/><img src="/images/note.png" trackurl="{{url}}" width="250px" class="stocknote animated tada infinite"/>
         br(style="clear: both;")
 
     script.
@@ -60,6 +60,7 @@ block content
                         console.log("playstr: " + playstr);
                         var listname = $("#playeditmood option[value=" + playstr + "]").text();
                         console.log("listname: " + listname);
+                        if(listname !="Select Playlist"){
 
                         $.ajax({
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
@@ -75,6 +76,7 @@ block content
 
                             }
                         });
+                        }
                     });
                 }
             });
