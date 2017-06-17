@@ -46,9 +46,9 @@ block content
                 url: 'https://financialmoodswing.herokuapp.com/playlistfetch',
                 //headers: {'Authorization': bearer},
                 success: function (response) {
-                    editPlaceholder.innerHTML = templateedit(response);
+                    editPlaceholder.innerHTML = templateedit(response.res);
                     console.log("success get playlists.");
-                    console.dir(response);
+                    console.dir(response.res);
                     $( "#playeditmood" ).change(function() {
                         $("#stock").show();
                         if(audioObject){
@@ -65,9 +65,8 @@ block content
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
                             data: {playlistname: listname},
                             success: function (response) {
-                                stockPlaceholder.innerHTML = templatestock(response.res);
-                                console.log("success got quotes: " + response.res);
-                                console.dir(response.res);
+                                stockPlaceholder.innerHTML = templatestock(response);
+                                console.log("success got stocks: " + response);
                                 console.dir(response);
                                 var preview = response.url;
                                 audioObject = new Audio(preview);
