@@ -204,7 +204,7 @@ LabYokeUsers = function(id,name,surname,email,checked) {
 
 MusicRules.prototype.playlistfetch = function(callback) {
 	var results;
-	var query = client.query("SELECT distinct playlistname FROM playlistrack order by id asc");
+	var query = client.query("SELECT distinct playlistname FROM playlistrack");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
