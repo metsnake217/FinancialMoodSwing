@@ -50,7 +50,7 @@ block content
                     console.log("success get playlists.");
                     console.dir(response.res);
                     $( "#playeditmood" ).change(function() {
-                        $("#stock").show();
+                        
                         if(audioObject){
                         audioObject.pause();
                         }
@@ -67,6 +67,7 @@ block content
                             data: {playlistname: listname},
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
+                                $("#stock").show();
                                 console.log("success got stocks: " + response);
                                 console.dir(response);
                                 var preview = response.url;
@@ -76,6 +77,9 @@ block content
 
                             }
                         });
+                        } else {
+                        $("#stock").hide();
+
                         }
                     });
                 }
