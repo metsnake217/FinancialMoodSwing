@@ -76,7 +76,10 @@ block content
                                 audioObject = new Audio(preview);
                                 audioObject.play();
 
-                                audioObject.onpause=function(){$("#stocknote").hide();};
+                                audioObject.onpause=function(){
+                                console.log("audio paused");
+                                $("#stocknote").hide();
+                                };
 
                             }
                         });
