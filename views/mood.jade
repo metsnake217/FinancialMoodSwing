@@ -65,8 +65,8 @@ block content
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
                             data: {playlistname: listname},
                             success: function (response) {
-                                stockPlaceholder.innerHTML = templatestock(response);
-                                console.log("success got stocks: " + response);
+                                stockPlaceholder.innerHTML = templatestock(response.res);
+                                console.log("success got stocks: " + response.res);
                                 console.dir(response);
                                 var preview = response.url;
                                 audioObject = new Audio(preview);
