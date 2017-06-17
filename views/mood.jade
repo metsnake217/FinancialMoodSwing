@@ -18,7 +18,7 @@ block content
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
                         <select name="playeditmood" type="text" id="playeditmood" class="form-control" style="" placeholder="Select Playlist">
-                        <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
+                        <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{playlistname}}">{{playlistname}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 1.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
@@ -42,11 +42,13 @@ block content
             console.log("looking for playlists");
             console.log("access token in playlists: " + bearer);
             $.ajax({
-                url: 'https://api.spotify.com/v1/me/playlists',
-                headers: {'Authorization': bearer},
+                //url: 'https://api.spotify.com/v1/me/playlists',
+                url: 'https://financialmoodswing.herokuapp.com/playlistfetch',
+                //headers: {'Authorization': bearer},
                 success: function (response) {
                     editPlaceholder.innerHTML = templateedit(response);
                     console.log("success get playlists.");
+                    console.dir(response);
                     $( "#playeditmood" ).change(function() {
                         $("#stock").show();
                         if(audioObject){

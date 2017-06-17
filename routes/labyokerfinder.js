@@ -202,6 +202,19 @@ LabYokeUsers = function(id,name,surname,email,checked) {
 };
 
 
+MusicRules.prototype.playlistfetch = function(callback) {
+	var results;
+	var query = client.query("SELECT distinct playlistname FROM playlistrack order by id asc");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("get playlistfetch details " + JSON.stringify(results));
+		callback(null, results);
+	});
+};
+
 MusicRules.prototype.getrules = function(callback) {
 	var results;
 	var query = client.query("SELECT * FROM rules order by id asc");
