@@ -71,9 +71,11 @@ block content
                                 console.log("success got stocks: " + response);
                                 console.dir(response);
                                 var preview = response.url;
+                                $("#stocknote").show();
                                 audioObject = new Audio(preview);
                                 audioObject.play();
 
+                                audioObject.onpause=function(){$("#stocknote").hide();};
 
                             }
                         });
@@ -86,5 +88,7 @@ block content
             });
         };
         searchPlaylists();
+
+        function isPlaying(audelem) { return !audelem.paused; }
 
 
