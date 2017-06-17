@@ -68,6 +68,7 @@ block content
                                 stockPlaceholder.innerHTML = templatestock(response.res);
                                 console.log("success got stocks: " + response.res);
                                 console.dir(response.res);
+                                console.dir(response);
                                 var preview = response.url;
                                 audioObject = new Audio(preview);
                                 audioObject.play();
