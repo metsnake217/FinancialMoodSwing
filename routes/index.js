@@ -322,6 +322,9 @@ if(daynow == 6){
 datenow = datenow.tz("America/New_York").format('YYYY-MM-DD');
 dateyest = dateyest.format('YYYY-MM-DD');
 
+console.log("daynow is: " + daynow);
+console.log("dayyest is: " + dayyest);
+
 var quotesfinal = [];
 var quotesyesfinal = [];
 
