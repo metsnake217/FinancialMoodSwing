@@ -333,11 +333,14 @@ if(daynow == 5){
         'YYYY-MM-DD');
   console.log("here31");
 }
+console.log("here40: "+datenow);
 datenow = datenow.format('YYYY-MM-DD');
+console.log("here50: "+ dateyest);
 dateyest = dateyest.format('YYYY-MM-DD');
+console.log("here51");
 
-console.log("daynow is: " + datenow);
-console.log("dayyest is: " + dateyest);
+console.log("datenow is: " + datenow);
+console.log("dateyest is: " + dateyest);
 
 var quotesfinal = [];
 var quotesyesfinal = [];
