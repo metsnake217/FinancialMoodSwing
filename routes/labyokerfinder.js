@@ -330,6 +330,8 @@ if(quotename == "XAX"){
 	quotedesc = "BATS 1000 Index";
 } else if(quotename == "^STOXX50E"){
 	quotedesc = "ESTX50 EUR P";
+} else if(quotename == "^DJI"){
+	quotedesc = "Dow Jones Industrial Average";
 }
 
 var playlistname = this.playlistname;
