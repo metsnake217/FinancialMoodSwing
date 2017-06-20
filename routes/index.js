@@ -306,8 +306,8 @@ var datenow = moment(new Date).tz("America/New_York").format(
 var dateyest = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
 
-var daynow = datenow.day();
-var dayyest = dateyest.day();
+var daynow = datenow.weekday();
+var dayyest = dateyest.weekday();
 console.log("day now is: " + daynow);
 
 if(daynow == 6){
