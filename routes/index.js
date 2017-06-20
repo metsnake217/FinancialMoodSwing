@@ -334,9 +334,9 @@ if(daynow == 5){
   console.log("here31");
 }
 console.log("here40: "+datenow);
-datenow = datenow.format('YYYY-MM-DD');
+//datenow = datenow.format('YYYY-MM-DD');
 console.log("here50: "+ dateyest);
-dateyest = dateyest.format('YYYY-MM-DD');
+//dateyest = dateyest.format('YYYY-MM-DD');
 console.log("here51");
 
 console.log("datenow is: " + datenow);
