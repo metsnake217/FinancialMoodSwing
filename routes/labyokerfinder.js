@@ -312,7 +312,26 @@ if(quotename == "XAX"){
 	quotedesc = "Nasdaq";
 } else if(quotename == "^NDX"){
 	quotedesc = "NASDAQ-100";
+} else if(quotename == "^GSPC"){
+	quotedesc = "S&P 500";
+} else if(quotename == "^OEX"){
+	quotedesc = "S&P 100";
+} else if(quotename == "^RUT"){
+	quotedesc = "Russell 2000";
+} else if(quotename == "^GDAXI"){
+	quotedesc = "Dax";
+} else if(quotename == "^N225"){
+	quotedesc = "Nikkei 225";
+} else if(quotename == "^HSI"){
+	quotedesc = "Hang Seng Index";
+} else if(quotename == "^FTSE"){
+	quotedesc = "FTSE 100";
+} else if(quotename == "^BATSK"){
+	quotedesc = "BATS 1000 Index";
+} else if(quotename == "^STOXX50E"){
+	quotedesc = "ESTX50 EUR P";
 }
+
 var playlistname = this.playlistname;
 
 var ret = {index:"", desc:"", url:"", mood: ""};

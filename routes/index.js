@@ -299,8 +299,21 @@ var SYMBOLS = [
   'XAX',
   '^FCHI',
   '^IXIC',
-  '^NDX'
+  '^NDX',
+  '^DJI',
+  '^GSPC',
+  '^OEX',
+  '^RUT',
+  '^GDAXI',
+  '^N225',
+  '^HSI',
+  '^FTSE',
+  '^BATSK',
+  '^STOXX50E'
 ];
+
+       
+
 var datenow = moment(new Date).tz("America/New_York");
 var dateyest = moment().add(-2, 'days');
 
