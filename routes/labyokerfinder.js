@@ -302,9 +302,20 @@ MusicStock.prototype.getmusic = function(callback) {
 var quote = this.quotes;
 var quoteyes = this.quotesyes;
 var quotename = quote.symbol;
+var quotedesc = "";
+
+if(quotename == "XAX"){
+	quotedesc = "NYSE MKT";
+} else if(quotename == "^FCHI"){
+	quotedesc = "CAC 40";
+} else if(quotename == "^IXIC"){
+	quotedesc = "Nasdaq";
+} else if(quotename == "^NDX"){
+	quotedesc = "NASDAQ-100";
+}
 var playlistname = this.playlistname;
 
-var ret = {index:"",url:"", mood: ""};
+var ret = {index:"", desc:"", url:"", mood: ""};
 
 console.log("quote open: "+ quote.open);
 console.log("quote close: "+ quote.close);
@@ -342,6 +353,7 @@ ret.mood = mode;
 		var b = Math.floor((Math.random() * results.length-1) + 1);
 		console.log("b is : "+ b);
 		ret.index = quotename;
+		ret.desc = quotedesc;
 		console.log("quotename: "+ quotename);
 		console.log("results is: "+ JSON.stringify(results));
 		if(results.length > 0){
