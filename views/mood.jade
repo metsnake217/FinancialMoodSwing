@@ -13,7 +13,7 @@ block content
             p!= "Select a playlist to set the mood."
             form(id="playlistedit-form")
                 div(class="checkboxThree" style="position: relative;top: 30px;")
-                        input(type="checkbox" name="manualprog" id="manualprog" value="manual")
+                        input(type="checkbox" name="manualprog" id="manualprog" value="prog")
                         label(for="manualprog" class="labelcheck shadow")
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
@@ -50,6 +50,12 @@ block content
                     console.log("success get playlists.");
                     console.dir(response.res);
                     $( "#playeditmood" ).change(function() {
+
+                        var prog = 0;
+                        var check = $("#manualprog:checked").val();
+                        if(check != undefined && $("#manualprog:checked").val() == "prog"){
+                            prog = 1;
+                        }
                         
                         if(audioObject){
                         audioObject.pause();
@@ -64,7 +70,7 @@ block content
 
                         $.ajax({
                             url: 'https://financialmoodswing.herokuapp.com/stockfetch',
-                            data: {playlistname: listname},
+                            data: {playlistname: listname, prog: prog},
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 $("#stock").show();

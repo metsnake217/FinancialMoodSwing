@@ -293,8 +293,10 @@ router.get('/playlistfetch', isLoggedIn, function(req, res) {
 router.get('/stockfetch', isLoggedIn, function(req, res) {
       var access_token = req.session.access;
       var playlistname = req.query.playlistname;
+      var prog = req.query.prog;
         console.log("set access test: " + access_token);
         console.log("set playlistname: " + playlistname);
+        console.log("set prog: " + prog);
 var SYMBOLS = [
   'XAX',
   '^FCHI',
@@ -385,7 +387,7 @@ yahooFinance.historical({
     // get a random index
   var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
 
-  var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname);
+  var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
       musicStock.getmusic(function(error, results) { 
         console.log("stock " + results.index + " - music: " + results.url + " is successful.");
         res.send(results);

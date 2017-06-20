@@ -17,10 +17,11 @@ var accounting = require('./accounting');
 MusicRules = function() {
 };
 
-MusicStock = function(quotes, quotesyes, playlistname) {
+MusicStock = function(quotes, quotesyes, playlistname, prog) {
 	this.quotes = quotes;
 	this.quotesyes = quotesyes;
 	this.playlistname = playlistname;
+	this.prog = prog;
 };
 
 MusicUpdateRules = function(col,rule,val) {
@@ -302,6 +303,7 @@ MusicStock.prototype.getmusic = function(callback) {
 var quote = this.quotes;
 var quoteyes = this.quotesyes;
 var quotename = quote.symbol;
+var prog= this.prog;
 var quotedesc = "";
 
 if(quotename == "XAX"){
@@ -361,9 +363,14 @@ if(differential <= 20){
 }
 
 ret.mood = mode;
-
-	var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
-	console.log("sql: " + sql);
+var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
+console.log("prog is " + prog);
+if(prog == 1){
+	mode = mode.replace("mode_","prog_");
+	console.log("mode is " + mode);
+	sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
+} 	
+console.log("sql: " + sql);
 
 	var query = client.query(sql);
 	query.on("row", function(row, result) {
