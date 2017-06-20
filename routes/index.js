@@ -308,12 +308,12 @@ var daynow = datenow.weekday();
 var dayyest = dateyest.weekday();
 console.log("day now is: " + daynow);
 
-if(daynow == 6){
+if(daynow == 5){
   date = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
-} else if(daynow == 0){
+} else if(daynow == 1){
   date = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-4, 'days').format(
