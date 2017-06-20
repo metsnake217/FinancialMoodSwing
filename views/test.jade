@@ -4,10 +4,13 @@ extends layout
 block content
 
     div(class="container", style="")
+        a(href="#top" title="How To Search?" style="right: 41px;left: 94%;top: 50%;background: url('/images/jumptop.png') 0% 0% / 50px 26px no-repeat;width: 50px;height: 26px;display: block;text-indent: -99999px;outline: none;position: fixed; display:none" class="handle jumptop")
+        a(href="#add" title="How To Search?" style="right: 41px;left: 94%;top: 61%;background: url('/images/jumpadd.png') 0% 0% / 50px 26px no-repeat;width: 50px;height: 26px;display: block;text-indent: -99999px;outline: none;position: fixed; display:none" class="handle jumpadd")
         a(href="/mood")
             img(src="/images/unknown.png" width="5%", class="logofin1")
         a(href="/login")
             img(src="/images/test1.png" class="logofin")
+        a(name="top")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
         div(id="expand")
@@ -84,6 +87,7 @@ block content
                     br(style="clear: both;")
                     p(id="addmessage")
                     div
+                        a(name="add")
                         input(type="type" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
@@ -968,6 +972,10 @@ block content
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
             searchPlaylistsEdit();
+        });
+
+        $( ".labelexpandadd" ).click(function() {
+            $(".jumpadd").show();
         });
 
         $( "#acousticup" ).mouseup(function() {
