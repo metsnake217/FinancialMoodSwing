@@ -80,6 +80,12 @@ block content
                                 console.log("audio paused");
                                 $(".stocknote").hide();
                                 };
+                                $( ".stocknote" ).click(function() {
+                                    if(audioObject){
+                                        audioObject.pause();
+                                    }
+                                    $( ".stocknote" ).hide();
+                                });
 
                             }
                         });
