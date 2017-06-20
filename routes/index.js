@@ -152,16 +152,14 @@ router.get('/callback', function(req, res) {
           res.redirect(or + '/#' +
           querystring.stringify({
             access_token: access_token,
-            refresh_token: refresh_token,
-            user_id: user_id
+            refresh_token: refresh_token
           }));
           req.session.to = null;
         } else {
         res.redirect('/#' +
           querystring.stringify({
             access_token: access_token,
-            refresh_token: refresh_token,
-            user_id: user_id
+            refresh_token: refresh_token
           }));
         }
       } else {
