@@ -34,6 +34,7 @@ tbody tr{
 
 .stocknote{
     cursor:pointer;
+    margin-left:40px;
 }
 
 #playeditmood{
