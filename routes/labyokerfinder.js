@@ -436,7 +436,7 @@ var vals = "", ids="";
 		
 		var resultsids = [];
 		for(var i in results2){
-			resultsids.push(results2[i].id);
+			resultsids.push(results2[i].trackid);
 		}
 		console.log("resultsids.trackid: " + JSON.stringify(resultsids));
 	var updatevars_modeup = "";
