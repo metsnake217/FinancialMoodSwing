@@ -3760,6 +3760,9 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+.noshowmobile{
+    display:none;
+}
 .teamaccountbuttonwidth{
     width: 100%;
     margin-bottom: 10px;
