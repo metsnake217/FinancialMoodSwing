@@ -310,14 +310,14 @@ console.log("day now is: " + daynow);
 
 if(daynow == 5){
   console.log("here00");
-  date = moment().add(-2, 'days').format(
+  datenow = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
   console.log("here01");
 } else if(daynow == 1){
   console.log("here10");
-  date = moment().add(-3, 'days').format(
+  datenow = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-4, 'days').format(
         'YYYY-MM-DD');
