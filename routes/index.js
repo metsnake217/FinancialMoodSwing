@@ -325,8 +325,8 @@ if(daynow == 5){
 } else if(dateyest == 0){
   console.log("here20");
   dateyest = datenow.add(-4, 'days').format(
-    console.log("here021");
         'YYYY-MM-DD');
+      console.log("here021");
 } else if(dateyest == 6){
   console.log("here30");
   dateyest = datenow.add(-3, 'days').format(
