@@ -306,6 +306,22 @@ var datenow = moment(new Date).tz("America/New_York").format(
 var dateyest = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
 
+var daynow = datenow.day();
+var dayyest = dateyest.day();
+console.log("day now is: " + daynow);
+
+if(daynow == 6){
+  date = moment().add(-2, 'days').format(
+        'YYYY-MM-DD');
+  dateyest = moment().add(-3, 'days').format(
+        'YYYY-MM-DD');
+} else if(daynow == 0){
+  date = moment().add(-3, 'days').format(
+        'YYYY-MM-DD');
+  dateyest = moment().add(-4, 'days').format(
+        'YYYY-MM-DD');
+}
+
 var quotesfinal = [];
 var quotesyesfinal = [];
 
