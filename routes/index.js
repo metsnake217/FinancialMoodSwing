@@ -309,21 +309,29 @@ var dayyest = dateyest.weekday();
 console.log("day now is: " + daynow);
 
 if(daynow == 5){
+  console.log("here00");
   date = moment().add(-2, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
+  console.log("here01");
 } else if(daynow == 1){
+  console.log("here10");
   date = moment().add(-3, 'days').format(
         'YYYY-MM-DD');
   dateyest = moment().add(-4, 'days').format(
         'YYYY-MM-DD');
+  console.log("here11");
 } else if(dateyest == 0){
-  dateyest = moment().add(-4, 'days').format(
+  console.log("here20");
+  dateyest = datenow.add(-4, 'days').format(
+    console.log("here021");
         'YYYY-MM-DD');
 } else if(dateyest == 6){
-  dateyest = moment().add(-3, 'days').format(
+  console.log("here30");
+  dateyest = datenow.add(-3, 'days').format(
         'YYYY-MM-DD');
+  console.log("here31");
 }
 datenow = datenow.format('YYYY-MM-DD');
 dateyest = dateyest.format('YYYY-MM-DD');
