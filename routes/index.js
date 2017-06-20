@@ -301,7 +301,7 @@ var SYMBOLS = [
   '^IXIC',
   '^NDX'
 ];
-var datenow = moment(new Date);
+var datenow = moment(new Date).tz("America/New_York");
 var dateyest = moment().add(-2, 'days');
 
 var daynow = datenow.weekday();
@@ -318,12 +318,18 @@ if(daynow == 6){
         'YYYY-MM-DD');
   dateyest = moment().add(-4, 'days').format(
         'YYYY-MM-DD');
+} else if(dateyest == 0){
+  dateyest = moment().add(-4, 'days').format(
+        'YYYY-MM-DD');
+} else if(dateyest == 6){
+  dateyest = moment().add(-3, 'days').format(
+        'YYYY-MM-DD');
 }
-datenow = datenow.tz("America/New_York").format('YYYY-MM-DD');
+datenow = datenow.format('YYYY-MM-DD');
 dateyest = dateyest.format('YYYY-MM-DD');
 
-console.log("daynow is: " + daynow);
-console.log("dayyest is: " + dayyest);
+console.log("daynow is: " + datenow);
+console.log("dayyest is: " + dateyest);
 
 var quotesfinal = [];
 var quotesyesfinal = [];
