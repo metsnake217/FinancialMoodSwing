@@ -352,13 +352,13 @@ var mode = "mode_up";
 if(differential >= 0){
 	mode = "mode_up";
 }
-if(differential >= 10){
+if(differential >= 50){
 	mode = "mode_wayup";
 }
 if(differential < 0){
 	mode = "mode_down";
 }
-if(differential <= 10){
+if(differential <= 50){
 	mode = "mode_waydown";
 }
 
