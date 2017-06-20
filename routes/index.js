@@ -321,31 +321,30 @@ var daynow = datenow.weekday();
 var dayyest = dateyest.weekday();
 console.log("day now is: " + daynow);
 
+
+
 if(daynow == 5){
   console.log("here00");
-  datenow = moment().add(-2, 'days').format(
-        'YYYY-MM-DD');
-  dateyest = moment().add(-3, 'days').format(
-        'YYYY-MM-DD');
+  datenow = moment().add(-2, 'days');
+  dateyest = moment().add(-3, 'days');
   console.log("here01");
 } else if(daynow == 1){
   console.log("here10");
-  datenow = moment().add(-3, 'days').format(
-        'YYYY-MM-DD');
-  dateyest = moment().add(-4, 'days').format(
-        'YYYY-MM-DD');
+  datenow = moment().add(-3, 'days');
+  dateyest = moment().add(-4, 'days');
   console.log("here11");
 } else if(dateyest == 0){
   console.log("here20");
-  dateyest = datenow.add(-4, 'days').format(
-        'YYYY-MM-DD');
+  dateyest = datenow.add(-4, 'days');
       console.log("here021");
 } else if(dateyest == 6){
   console.log("here30");
-  dateyest = datenow.add(-3, 'days').format(
-        'YYYY-MM-DD');
+  dateyest = datenow.add(-3, 'days');
   console.log("here31");
 }
+  datenow = datenow.format('YYYY-MM-DD');
+  dateyest = dateyest.format('YYYY-MM-DD');
+
 console.log("here40: "+datenow);
 //datenow = datenow.format('YYYY-MM-DD');
 console.log("here50: "+ dateyest);
