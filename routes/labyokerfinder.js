@@ -452,15 +452,15 @@ var vals = "", ids="";
     	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
     	} else {
     		if(item.mode_up == 1){
-    		updatevars_modeup += " id='" + item.trackid + "' and ";
+    		updatevars_modeup += " trackid='" + item.trackid + "' and ";
     		}
     		if(item.mode_down == 1){
-    		updatevars_modedown += " id='" + item.trackid + "' and ";
+    		updatevars_modedown += " trackid='" + item.trackid + "' and ";
     		} 
     		if(item.mode_wayup == 1){
-    		updatevars_modewayup += " id='" + item.trackid + "' and ";
+    		updatevars_modewayup += " trackid='" + item.trackid + "' and ";
     		} if(item.mode_waydown == 1){
-    		updatevars_modewaydown += " id='" + item.trackid + "' and ";
+    		updatevars_modewaydown += " trackid='" + item.trackid + "' and ";
     		}
     	}
     }
