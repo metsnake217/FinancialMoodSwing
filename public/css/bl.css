@@ -32,6 +32,12 @@ tbody tr{
     border-width: thin;
 }
 
+.jumpadd{
+    right: 41px;left: 90%;top: 61%;background: url('/images/jumpadd.png') 0% 0% / 50px 26px no-repeat;width: 50px;height: 26px;display: block;text-indent: -99999px;outline: none;position: fixed; display:none;
+}
+.jumptop{
+    right: 41px;left: 90%;top: 50%;background: url('/images/jumptop.png') 0% 0% / 50px 26px no-repeat;width: 50px;height: 26px;display: block;text-indent: -99999px;outline: none;position: fixed; display:none;
+}
 .stocknote{
     cursor:pointer;
     margin-left:40px;
@@ -3761,6 +3767,9 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+.jumpadd, .jumptop{
+    left: 81%;
+}
 .noshowmobile{
     display:none;
 }
