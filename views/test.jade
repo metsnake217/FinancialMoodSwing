@@ -4,15 +4,14 @@ extends layout
 block content
 
     div(class="container", style="")
-        div(style="display:block;margin: 0 auto; text-align:center;padding:40px;    padding-top: 20px;")
-            h1!= "Mood Admin"
-            p!= ""
         a(href="#top" title="Jump to top" style="" class="handle jumptop")
         a(href="#add" title="Jumo to Add music" style="" class="handle jumpadd")
         a(href="/mood")
             img(src="/images/unknown.png" width="5%", class="logofin1")
         a(href="/login")
             img(src="/images/test1.png" class="logofin")
+        div(style="display:block;margin: 0 auto; text-align:center;padding-top: 5px;")
+            h1!= "Mood Admin"
         a(name="top")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
