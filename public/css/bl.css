@@ -406,10 +406,10 @@ padding-top: 3px;
 }
 
 .labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
-    padding-top: 20px !important;
+    /*padding-top: 20px !important;*/
     background-color: #008500 !important; /*#8a6d3b !important;*/
     color: white !important;
-        border-radius: 50px;
+    border-radius: 50px;
 }
 /*End Row Main Columns*/
 
