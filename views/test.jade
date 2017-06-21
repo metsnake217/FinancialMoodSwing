@@ -967,6 +967,7 @@ block content
         $( "#searchmusic" ).click(function() {
             console.dir($( "#addtoplaylist" ));
             $( "#addtoplaylist" ).show();
+            $(".jumpadd").show();
         });
 
         $( ".labelexpandedit" ).click(function() {
@@ -975,7 +976,7 @@ block content
         });
 
         $( ".labelexpandadd" ).click(function() {
-            $(".jumpadd").show();
+            $(".jumpadd").toggle();
         });
 
         $( "#acousticup" ).mouseup(function() {
