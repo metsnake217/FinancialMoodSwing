@@ -967,7 +967,10 @@ block content
         $( "#searchmusic" ).click(function() {
             console.dir($( "#addtoplaylist" ));
             $( "#addtoplaylist" ).show();
-            $(".jumpadd").show();
+         //   $( ".labelexpandadd" ).click(function() {
+            $(".jumpadd").toggle();
+            $(".jumptop").toggle();
+        //});
         });
 
         $( ".labelexpandedit" ).click(function() {
@@ -975,9 +978,9 @@ block content
             searchPlaylistsEdit();
         });
 
-        $( ".labelexpandadd" ).click(function() {
-            $(".jumpadd").toggle();
-        });
+        $( ".labelexpandrules" ).click(function() {
+            $(".jumptop").toggle();
+        });       
 
         $( "#acousticup" ).mouseup(function() {
           console.log( "Handler for .mouseup() called: " + $(this).val());
