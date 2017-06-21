@@ -406,11 +406,14 @@ yahooFinance.historical({
       console.log("databuild: " + JSON.stringify(databuild));
       console.log("playlistid: " + playlistid);
 
-      var musicAddtracks = new MusicAddTracks(databuild,playlistid,playlistname);
+      var musicRules = new MusicRules();
+      musicRules.getrules(function(error, rules) {
+      var musicAddtracks = new MusicAddTracks(databuild,playlistid,playlistname,rules);
       musicAddtracks.addtoplaylist(function(error, results) { 
         console.log("added tracks for " + playlistid + " is successful.");
         res.end();
-  });
+      });
+      });
 
   } 
 

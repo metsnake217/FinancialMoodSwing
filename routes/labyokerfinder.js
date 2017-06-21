@@ -30,10 +30,11 @@ MusicUpdateRules = function(col,rule,val) {
 	this.col = col;
 };
 
-MusicAddTracks = function(databuild,playlistid,playlistname) {
+MusicAddTracks = function(databuild,playlistid,playlistname, rules) {
 	this.databuild = databuild;
 	this.playlistid = playlistid;
 	this.playlistname = playlistname;
+	this.rules = rules;
 };
 
 MusicDeleteTracks = function(playlistname,trackid) {
@@ -403,12 +404,15 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	console.log("addtoplaylist databuild: " + this.databuild);
 	console.log("addtoplaylist playlistid: " + this.playlistid);
 	console.log("addtoplaylist playlistname: " + this.playlistname);
+	console.log("addtoplaylist rules: " + this.rules);
 	var databuild = JSON.parse(this.databuild);
 	var playlistname = this.playlistname;
+	var rules = this.rules;
 
 var vals = "", ids="";
     for(var i in databuild){
     	item = databuild[i];
+    	console.log("rules is : " + JSON.stringify(rules));
     	console.log("item is : " + JSON.stringify(item));
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
