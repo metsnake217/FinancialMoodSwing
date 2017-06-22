@@ -214,7 +214,7 @@ input::-moz-focus-outer {
 }
 .labelexpand {
   display: block;
-  padding: 0.5em;
+  padding: 0.3em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
@@ -265,7 +265,7 @@ section {
 }
 .labelexpandedit {
   display: block;
-  padding: 0.5em;
+  padding: 0.3em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
@@ -314,7 +314,7 @@ padding-top: 3px;
 }
 .labelexpandadd {
   display: block;
-  padding: 0.5em;
+  padding: 0.3em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
@@ -363,7 +363,7 @@ padding-top: 3px;
 }
 .labelexpandrules {
   display: block;
-  padding: 0.5em;
+  padding: 0.3em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
