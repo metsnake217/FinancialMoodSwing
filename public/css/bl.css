@@ -32,6 +32,10 @@ tbody tr{
     border-width: thin;
 }
 
+#queryplay{
+    width: 90%;
+}
+
 #playedit{
     width:90%;
 }
