@@ -396,6 +396,7 @@ padding-top: 3px;
 padding-left: 11px;
 padding-top: 3px;
   color: white;
+      margin-top: 2px;
   background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
 }
 #expandrules {
