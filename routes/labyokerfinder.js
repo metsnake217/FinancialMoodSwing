@@ -350,16 +350,16 @@ var differential = quote.close - quote.open;
 var differentialyes = quoteyes.close - quoteyes.open;
 console.log("differential: " + differential);
 var mode = "mode_up";
-if(differential >= 0){
+if(differential > 0){
 	mode = "mode_up";
 }
-if(differential >= 50){
+if(differential >= 10){
 	mode = "mode_wayup";
 }
-if(differential < 0){
+if(differential < 0 ){
 	mode = "mode_down";
 }
-if(differential <= 50){
+if(differential <= -10){
 	mode = "mode_waydown";
 }
 
@@ -469,7 +469,7 @@ var vals = "", ids="";
     		if(item.mode_down!= null && item.prog_down!= null && item.mode_down > 0 && item.prog_down == 0){
     			item.prog_down = item.mode_down;
     		}
-    		if(item.mode_waydown!= null && item.mode_waydown!= null && item.mode_waydown > 0 && item.prog_waydown == 0){
+    		if(item.mode_waydown!= null && item.mode_waydown	!= null && item.mode_waydown > 0 && item.prog_waydown == 0){
     			item.prog_waydown = item.mode_waydown;
     		}
     	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
