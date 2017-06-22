@@ -385,7 +385,7 @@ console.log("sql: " + sql);
 		ret.desc = quotedesc;
 		console.log("quotename: "+ quotename);
 		console.log("results is: "+ JSON.stringify(results));
-		if(results.length > 0){
+		if(results.length > 0 && results[b].trackurl != ""){
 			ret.url = results[b].trackurl;	
 			console.log("trackid: "+ results[b].trackurl);
 		} else {
