@@ -32,6 +32,10 @@ tbody tr{
     border-width: thin;
 }
 
+#playedit{
+    width:90%;
+}
+
 .jumpadd{
    z-index: 4; right: 41px;left: 90%;top: 89%;background: url('/images/jumpadd.png') 0% 0% / 50px 26px no-repeat;width: 50px;height: 26px;display: block;text-indent: -99999px;outline: none;position: fixed; display:none;
 }
@@ -3672,7 +3676,7 @@ span.num.greatherthanninetynine {
     width: 67%;
 }
 .addmusicplaylistsort{
-    right: 1.5%;
+    right: 11.5%;
 }
 .sectionartists, .sectionalbums, .sectiontracks{
     padding-left: 0px;
@@ -3778,7 +3782,7 @@ left:77.5%;
  @media (max-width: 440px) {
 
 .jumpadd, .jumptop{
-    left: 81%;
+    left: 85%;
 }
 .noshowmobile{
     display:none;
