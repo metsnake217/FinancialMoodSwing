@@ -21,7 +21,7 @@ block content
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
-                    input(type="type" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist()")
+                    input(type="text" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist()")
                 div(class="messageCreatePlaylist" style="margin-top: 25px;")
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
         label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
@@ -46,7 +46,7 @@ block content
                 p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
                 form(id="search-form")
                     input(style="width:90%;padding: 10px;height: 60px;font-size: 20pt;color: #8a6d3b !important;" type="text" id="query" value="" class="form-control" placeholder="Type track keywords")
-                    input(type="type" id="searchmusic" class="btn btn-primary searchmusic boutton" value="Search")
+                    input(type="text" id="searchmusic" class="btn btn-primary searchmusic boutton" value="Search")
                 
                 form(id="playlistfill-form")
                     div(id="playlistres")
@@ -90,7 +90,7 @@ block content
                     p(id="addmessage")
                     div
                         a(name="add")
-                        input(type="type" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
+                        input(type="text" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
         label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
