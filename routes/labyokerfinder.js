@@ -30,11 +30,10 @@ MusicUpdateRules = function(col,rule,val) {
 	this.col = col;
 };
 
-MusicAddTracks = function(databuild,playlistid,playlistname, rules) {
+MusicAddTracks = function(databuild,playlistid,playlistname) {
 	this.databuild = databuild;
 	this.playlistid = playlistid;
 	this.playlistname = playlistname;
-	this.rules = rules;
 };
 
 MusicDeleteTracks = function(playlistname,trackid) {
@@ -363,6 +362,7 @@ if(differential <= -10){
 	mode = "mode_waydown";
 }
 console.log("mode is " + mode);
+
 ret.mood = mode;
 var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
 console.log("prog is " + prog);
@@ -404,20 +404,12 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 	console.log("addtoplaylist databuild: " + this.databuild);
 	console.log("addtoplaylist playlistid: " + this.playlistid);
 	console.log("addtoplaylist playlistname: " + this.playlistname);
-	console.log("addtoplaylist rules: " + this.rules);
 	var databuild = JSON.parse(this.databuild);
 	var playlistname = this.playlistname;
-	var rules = this.rules;
-	if(rules != null && rules.length > 0){
-		rules = rules[0];
-	}
-
-
 
 var vals = "", ids="";
     for(var i in databuild){
     	item = databuild[i];
-    	console.log("rules is : " + JSON.stringify(rules));
     	console.log("item is : " + JSON.stringify(item));
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
@@ -458,20 +450,6 @@ var vals = "", ids="";
     	console.log("t: " + t);
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
-
-    		if(item.mode_up!= null && item.prog_up!= null && item.mode_up > 0 && item.prog_up == 0){
-    			//var rulesdanceability = rules.danceability;
-    			item.prog_up = item.mode_up;
-    		}
-    		if(item.mode_wayup!= null && item.prog_wayup!= null && item.mode_wayup > 0 && item.prog_wayup == 0){
-    			item.prog_wayup = item.mode_wayup;
-    		}
-    		if(item.mode_down!= null && item.prog_down!= null && item.mode_down > 0 && item.prog_down == 0){
-    			item.prog_down = item.mode_down;
-    		}
-    		if(item.mode_waydown!= null && item.mode_waydown	!= null && item.mode_waydown > 0 && item.prog_waydown == 0){
-    			item.prog_waydown = item.mode_waydown;
-    		}
     	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
     	} else {
     		if(item.mode_up == 1){
