@@ -244,8 +244,9 @@ input::-moz-focus-outer {
   margin-right: 3px;
 padding-left: 11px;
 padding-top: 3px;
-  color: white;
-  background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
+  color: #2975b4;
+      margin-top: 2px;
+  background: radial-gradient(ellipse at center, white 50%, transparent 50%);
 }
 #expand {
   height: 0px;
@@ -295,8 +296,9 @@ section {
   margin-right: 3px;
 padding-left: 11px;
 padding-top: 3px;
-  color: white;
-  background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
+  color: #2975b4;
+      margin-top: 2px;
+  background: radial-gradient(ellipse at center, white 50%, transparent 50%);
 }
 #expandedit {
   height: 0px;
@@ -345,8 +347,9 @@ padding-top: 3px;
   margin-right: 3px;
 padding-left: 11px;
 padding-top: 3px;
-  color: white;
-  background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
+  color: #2975b4;
+      margin-top: 2px;
+  background: radial-gradient(ellipse at center, white 50%, transparent 50%);
 }
 #expandadd {
     height: 0px;
@@ -395,9 +398,9 @@ padding-top: 3px;
   margin-right: 3px;
 padding-left: 11px;
 padding-top: 3px;
-  color: white;
+  color: #2975b4;
       margin-top: 2px;
-  background: radial-gradient(ellipse at center, #2975b4 50%, transparent 50%);
+  background: radial-gradient(ellipse at center, white 50%, transparent 50%);
 }
 #expandrules {
     height: 0px;
