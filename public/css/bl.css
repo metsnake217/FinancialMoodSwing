@@ -219,6 +219,7 @@ input::-moz-focus-outer {
   color: #666;
   font-size: 20pt; font-weight: bold;
   margin-top: 25px;
+  width:40%;
 }
 .labelexpand:hover {
   color: #000;
@@ -269,6 +270,7 @@ section {
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
+  width:60%;
 }
 .labelexpandedit:hover {
   color: #000;
@@ -318,6 +320,7 @@ padding-top: 3px;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
+  width:80%;
 }
 .labelexpandadd:hover {
   color: #000;
@@ -367,6 +370,7 @@ padding-top: 3px;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
   font-size: 20pt; font-weight: bold;
+  width:100%;
 }
 .labelexpandrules:hover {
   color: #000;
@@ -3607,6 +3611,11 @@ span.num.greatherthanninetynine {
 }
 
  @media (max-width: 700px) {
+.labelexpandrules, .labelexpand, .labelexpandadd, .labelexpandedit{
+    width: 100%;
+}
+
+
 .threepoints{
     left:88%;
 }
@@ -3767,6 +3776,7 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+
 .jumpadd, .jumptop{
     left: 81%;
 }
