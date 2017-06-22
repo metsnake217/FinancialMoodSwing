@@ -3689,10 +3689,13 @@ span.num.greatherthanninetynine {
     padding-left: 0px;
 }
 .covering{
-    width: 160px;
+    width: 150px;
 }
 .tooltip2 .tooltiptext{
     left:55%;
+    width: 155px;
+    top:0px;
+    height: 80%;
 }
 .bouttoncontainer{
     left: 0%;
@@ -3789,7 +3792,7 @@ left:77.5%;
  @media (max-width: 440px) {
 
 .jumpadd, .jumptop{
-    left: 85%;
+    left: 80%;
 }
 .noshowmobile{
     display:none;
