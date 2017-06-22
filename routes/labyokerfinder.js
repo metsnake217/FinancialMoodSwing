@@ -350,7 +350,7 @@ var differential = quote.close - quote.open;
 var differentialyes = quoteyes.close - quoteyes.open;
 console.log("differential: " + differential);
 var mode = "mode_up";
-if(differential > 0){
+if(differential >= 0){
 	mode = "mode_up";
 }
 if(differential >= 10){
@@ -362,7 +362,7 @@ if(differential < 0 ){
 if(differential <= -10){
 	mode = "mode_waydown";
 }
-
+console.log("mode is " + mode);
 ret.mood = mode;
 var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
 console.log("prog is " + prog);
