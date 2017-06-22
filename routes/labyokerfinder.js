@@ -410,6 +410,7 @@ MusicAddTracks.prototype.addtoplaylist = function(callback) {
 var vals = "", ids="";
     for(var i in databuild){
     	item = databuild[i];
+    	item.tracktitle = item.tracktitle.replace("\'","");
     	console.log("item is : " + JSON.stringify(item));
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
