@@ -389,7 +389,7 @@ console.log("sql: " + sql);
 			ret.url = results[b].trackurl;	
 			console.log("trackid: "+ results[b].trackurl);
 		} else {
-			ret.url = "https://p.scdn.co/mp3-preview/4839b070015ab7d6de9fec1756e1f3096d908fba";
+			ret.url = "https://p.scdn.co/mp3-preview/6e37d5d777e46133b925e94732a7511c65ca8367?cid=7c7e3e774ee3460292e5fe3695819cb0";
 		}
 		console.log("ret is: " + JSON.stringify(ret));
 		console.log("randomly select a song based on the mood " + JSON.stringify(results[b]));
