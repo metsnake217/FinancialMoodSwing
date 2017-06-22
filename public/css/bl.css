@@ -52,7 +52,7 @@ tbody tr{
 }
 
 #playeditmood{
-    border-color:#3d9dcb;margin-bottom:10px;margin-left: 100px;width: 91%;font-size: 14pt; color: #008500; font-weight: 500;
+    border-color:#3d9dcb;margin-bottom:10px;margin-left: 100px;width: 89%;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #manualprog{
 position: absolute;
@@ -111,7 +111,7 @@ input{
 
 .logofin{
     text-align: center; margin: 0 auto; display: block;
-    width: 40%;
+    width: 39%;
 }
 #rulesup, #rulesdown, #ruleswayup, #ruleswaydown{
     position: relative; float: left;margin-top:30px;
