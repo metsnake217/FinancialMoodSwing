@@ -459,12 +459,19 @@ var vals = "", ids="";
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
 
-    		if(item.mode_up!= null && item.mode_up > 0){
-    			var rulesdanceability = rules.danceability;
-    			
+    		if(item.mode_up!= null && item.prog_up!= null && item.mode_up > 0 && item.prog_up == 0){
+    			//var rulesdanceability = rules.danceability;
+    			item.prog_up = item.mode_up;
     		}
-
-
+    		if(item.mode_wayup!= null && item.prog_wayup!= null && item.mode_wayup > 0 && item.prog_wayup == 0){
+    			item.prog_wayup = item.mode_wayup;
+    		}
+    		if(item.mode_down!= null && item.prog_down!= null && item.mode_down > 0 && item.prog_down == 0){
+    			item.prog_down = item.mode_down;
+    		}
+    		if(item.mode_waydown!= null && item.mode_waydown!= null && item.mode_waydown > 0 && item.prog_waydown == 0){
+    			item.prog_waydown = item.mode_waydown;
+    		}
     	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
     	} else {
     		if(item.mode_up == 1){
