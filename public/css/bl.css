@@ -3619,6 +3619,9 @@ span.num.greatherthanninetynine {
 }
 
  @media (max-width: 700px) {
+.logonfin1{
+    width:75px;
+}
 .labelexpandrules, .labelexpand, .labelexpandadd, .labelexpandedit{
     width: 100%;
 }
