@@ -3795,10 +3795,10 @@ left:77.5%;
 
  @media (max-width: 440px) {
 .moodbuttons{
-    margin-left: 19px;
+    padding-left: 10px !important;
 }
 .covering{
-    width:46%;
+    width:42%;
     margin:12px;
 }
 .fa-cog{
