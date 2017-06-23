@@ -81,6 +81,7 @@ block content
                                 $(window).scrollTop($('#stock').offset().top).scrollLeft($('#stock').offset().left);
                                 audioObject = new Audio(preview);
                                 audioObject.play();
+                                console.dir(audioObject);
 
                                 audioObject.onpause=function(){
                                 console.log("audio paused");
