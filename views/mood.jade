@@ -97,6 +97,20 @@ block content
                                     $( ".stocknote" ).hide();
 
                                 });
+                                $( ".stocknote" ).click(function() {
+                                    if(audioObject.paused){
+                                        audioObject.play();
+                                    } else {
+                                        audioObject.pause();
+                                        $( ".stocknote" ).hide();
+                                        $("#playeditmood").val("select playlist");
+                                    }
+                                    //$("#playeditmood").val("select playlist");
+                                    //$( ".stocknote" ).removeClass("lightSpeedIn");
+                                    //$( ".stocknote" ).addClass("lightSpeedOut");
+                                    
+
+                                });
 
                             }
                         });
