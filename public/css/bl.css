@@ -3811,6 +3811,12 @@ left:77.5%;
 .jumpadd, .jumptop{
     left: 80%;
 }
+.jumpadd{
+   background: url('/images/jumpadd.png') 0% 0% / 25px 26px no-repeat;width: 25px;height: 26px;
+}
+.jumptop{
+    background: url('/images/jumptop.png') 0% 0% / 25px 26px no-repeat;width: 25px;height: 26px;
+}
 .noshowmobile{
     display:none;
 }
