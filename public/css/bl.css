@@ -296,9 +296,9 @@ section {
   margin-right: 3px;
 padding-left: 11px;
 padding-top: 3px;
-  color: #2975b4;
+  color: white;/*#2975b4;*/
       margin-top: 2px;
-  background: radial-gradient(ellipse at center, white 50%, transparent 50%);
+  background: radial-gradient(ellipse at center, #00bc00 50%, transparent 50%);
 }
 #expandedit {
   height: 0px;
