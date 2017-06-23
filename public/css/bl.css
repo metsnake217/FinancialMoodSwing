@@ -3795,6 +3795,10 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+.stocknote{
+    margin-left: 0px;
+    width: 100px;
+}
 .moodbuttons{
     padding-left: 10px !important;
 }
