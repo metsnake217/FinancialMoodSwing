@@ -52,7 +52,7 @@ tbody tr{
 }
 
 #playeditmood{
-    border-color:#3d9dcb;margin-bottom:10px;margin-left: 100px;width: 91%;font-size: 14pt; color: #008500; font-weight: 500;
+    border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #manualprog{
 position: absolute;
@@ -1087,40 +1087,64 @@ display: none;
 }
 
 .checkboxThree {
-    width: 70px;
+    /*width: 70px;
     height: 25px;
-    /*background: #333;
-    margin: 20px 60px;*/
     background: rgba(255,255,255,0.9);
     border-radius: 50px;
     position: relative;
     border-color: #008500;
     border-style: solid;
+    border-width: thin;*/
+    position: relative;
+    left: 71.3%;
+    top: -109px;
+    width: 31px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 0px;
+    position: relative;
+    border-color: #008500;
     border-width: thin;
+
 }
 
 .checkboxThree:before {
-    content: 'Prog';
+    /*content: 'Prog';
     position: absolute;
     top: 5px;
     left: 8px;
     height: 2px;
     color: #2975b4;
     font-size: 10px;
-    font-weight:bold;
+    font-weight:bold;*/
+    content: 'Prog';
+    position: absolute;
+    top: 87px;
+    left: 3px;
+    /* height: 2px; */
+    color: #2975b4;
+    font-size: 11px;
+    font-weight: bold;
 }
 .checkboxThree:after {
-    content: 'Man';
+    /*content: 'Man';
     position: absolute;
     top: 5px;
     left: 40px;
     height: 2px;
     color: #008500;
     font-size: 10px;
-    font-weight:bold;
+    font-weight:bold;*/
+    content: 'Man';
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    height: 2px;
+    color: #008500;
+    font-size: 10px;
+    font-weight: bold;
 }
 .checkboxThree label {
-    display: block;
+    /*display: block;
     width: 30px;
     height: 15px;
     border-radius: 50px;
@@ -1131,6 +1155,17 @@ display: none;
     top: 4px;
     z-index: 1;
     left: 0px;
+    background: #008500;*/
+    display: block;
+    width: 30px;
+    height: 27px;
+    border-radius: 3px;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    left: -5px;
     background: #008500;
 }
 
@@ -1144,7 +1179,9 @@ display: none;
  * Create the checkbox event for the label
  */
 .checkboxThree input[type=checkbox]:checked + label {
-    left: 30px;
+    /*left: 30px;
+    background: #2975b4;*/
+    top: 85px;
     background: #2975b4;
 }
 #checkboxThreeInput{
@@ -3624,6 +3661,9 @@ span.num.greatherthanninetynine {
 }
 
  @media (max-width: 700px) {
+.checkboxThree{
+    left: 88.3%;
+}
 .logofin1{
     width:75px;
 }
@@ -3685,7 +3725,7 @@ span.num.greatherthanninetynine {
 
 @media (max-width: 600px){
 #playeditmood{
-    width: 67%;
+    /*width: 67%;*/
 }
 .addmusicplaylistsort{
     right: 11.5%;
