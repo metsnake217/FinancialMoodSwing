@@ -1097,7 +1097,7 @@ display: none;
     border-width: thin;*/
     position: relative;
     left: 71.3%;
-    top: -109px;
+    top: -95px;
     width: 31px;
     background: rgba(255,255,255,0.9);
     border-radius: 0px;
@@ -1118,7 +1118,7 @@ display: none;
     font-weight:bold;*/
     content: 'Prog';
     position: absolute;
-    top: 87px;
+    top: 77px;
     left: 3px;
     /* height: 2px; */
     color: #2975b4;
@@ -1136,7 +1136,7 @@ display: none;
     font-weight:bold;*/
     content: 'Man';
     position: absolute;
-    top: 5px;
+    top: 43px;
     left: 3px;
     height: 2px;
     color: #008500;
@@ -1158,12 +1158,12 @@ display: none;
     background: #008500;*/
     display: block;
     width: 30px;
-    height: 27px;
+    height: 24px;
     border-radius: 3px;
     transition: all .5s ease;
     cursor: pointer;
     position: absolute;
-    top: 0px;
+    top: 40px;
     z-index: 1;
     left: -5px;
     background: #008500;
@@ -1181,7 +1181,7 @@ display: none;
 .checkboxThree input[type=checkbox]:checked + label {
     /*left: 30px;
     background: #2975b4;*/
-    top: 85px;
+    top: 71px;
     background: #2975b4;
 }
 #checkboxThreeInput{
