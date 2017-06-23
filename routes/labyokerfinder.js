@@ -333,7 +333,7 @@ if(quotename == "XAX"){
 } else if(quotename == "^STOXX50E"){
 	quotedesc = "ESTX50 EUR P";
 } else if(quotename == "^DJI"){
-	quotedesc = "Dow Jones Industrial Average";
+	quotedesc = "Dow Jones Ind Avg";
 }
 
 var playlistname = this.playlistname;
