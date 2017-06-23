@@ -12,7 +12,6 @@ block content
             img(src="/images/test1.png" class="logofin")
         div(style="display:block;margin: 0 auto; text-align:center;padding-top: 5px;")
             h1!= "Mood Admin"
-        a(name="top")
         input(id="toggle" type="checkbox" class="inputexpand")
         label(for="toggle", class="labelexpand")!= "Create Playlist"
         div(id="expand")
@@ -41,6 +40,7 @@ block content
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
         label(for="toggleadd", class="labelexpandadd")!= "Add Music"
         div(id="expandadd")
+            a(name="top")
             section
                 //h1!= "Add Music"
                 p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
