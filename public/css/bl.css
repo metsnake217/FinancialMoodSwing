@@ -3794,6 +3794,19 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+.moodbuttons{
+    margin-left: 19px;
+}
+.covering{
+    width:46%;
+    margin:12px;
+}
+.fa-cog{
+    right: -50px;
+}
+.sectiontracks{
+    text-align: center;
+}
 
 .jumpadd, .jumptop{
     left: 80%;
