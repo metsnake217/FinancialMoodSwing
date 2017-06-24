@@ -979,7 +979,7 @@ block content
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
             $( this ).toggleClass( "highlightlabel" );
-            $( this ).toggleClass( "expandeditheight" );
+            $( ".expandedit" ).toggleClass( "expandeditheight" );
             searchPlaylistsEdit();
         });
 
@@ -987,17 +987,17 @@ block content
             $(".jumpadd").hide();
             $(".jumptop").toggle();
             $( this ).toggleClass( "highlightlabel" );
-            $( this ).toggleClass( "expandaddheight" );
+            $( ".expandadd"  ).toggleClass( "expandaddheight" );
         }); 
 
         $( ".labelexpand" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
-            $( this ).toggleClass( "expandheight" );
+            $( ".expand"  ).toggleClass( "expandheight" );
         });       
 
         $( ".labelexpandrules" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
-            $( this ).toggleClass( "expandrulesheight" );
+            $( ".expandrules"  ).toggleClass( "expandrulesheight" );
         }); 
 
         $( "#acousticup" ).mouseup(function() {

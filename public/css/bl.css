@@ -20,19 +20,19 @@ input::-webkit-inner-spin-button {
 */
 
 .expandaddheight {
-  height: 1000px;
+  height: 1000px !important;
 }
 
 .expandeditheight {
-  height: 250px;
+  height: 250px !important;
 }
 
 .expandrulesheight {
-  height: 1000px;
+  height: 1000px !important;
 }
 
 .expandheight {
-  height: 250px;
+  height: 250px !important;
 }
 
 body {
