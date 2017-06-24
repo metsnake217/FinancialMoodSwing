@@ -5,7 +5,7 @@ block content
 
     div(class="container", style="")
         a(href="#top" title="Jump to top" style="" class="handle jumptop")
-        a(href="#add" title="Jumo to Add music" style="" class="handle jumpadd")
+        a(href="#add" title="Jump to Add music" style="" class="handle jumpadd")
         a(href="/mood")
             img(src="/images/unknown.png" width="5%", class="logofin1")
         a(href="/login")
@@ -992,7 +992,7 @@ block content
             $( "#expandedit" ).toggleClass( "expandeditheight" );
             //.promise().done(function(){
                 if($( "#expandedit" ).hasClass( "expandeditheight" )){
-                location.hash = "#expandeditname";
+                $('html,body').animate({scrollTop: $("#expandedit").offset().top},'slow');
                 console.log("expanded edit");
                 }
             //}); 
@@ -1006,7 +1006,7 @@ block content
             $( "#expandadd"  ).toggleClass( "expandaddheight" );
             //.promise().done(function(){
                 if($( "#expandadd" ).hasClass( "expandaddheight" )){
-                location.hash = "#expandaddname";
+               $('html,body').animate({scrollTop: $("#expandadd").offset().top},'slow');
                 console.log("expanded add");
                 }
             //}); 
@@ -1017,7 +1017,7 @@ block content
             $( "#expand"  ).toggleClass( "expandheight" );
             //.promise().done(function(){
             if($( "#expand" ).hasClass( "expandheight" )){
-                location.hash = "#expandname";
+                $('html,body').animate({scrollTop: $("#expand").offset().top},'slow');
                 console.log("expanded");
             }
             //});
@@ -1029,7 +1029,7 @@ block content
             $( "#expandrules"  ).toggleClass( "expandrulesheight" );
             //.promise().done(function(){
                 if($( "#expandrules" ).hasClass( "expandrulesheight" )){
-                location.hash = "#expandrulesname";
+                $('html,body').animate({scrollTop: $("#expandrules").offset().top},'slow');
                 console.log("expanded riles");
                 }
             //});
