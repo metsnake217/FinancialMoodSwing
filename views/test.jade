@@ -12,15 +12,15 @@ block content
             img(src="/images/test1.png" class="logofin")
         div(style="display:block;margin: 0 auto; text-align:center;padding-top: 5px;")
             h1!= "Mood Admin"
-        div(style="margin-left:11%")
+        div(style="text-align: center;margin-top:50px;")
             input(id="toggle" type="checkbox" class="inputexpand")
-            label(for="toggle", class="labelexpand")!= "Create Playlist"
+            label(for="toggle", class="labelexpand", style="position: relative;top: -44px; display: inline-block;")!= "Create Playlist"
             input(id="toggleedit" type="checkbox" class="inputexpandedit")
-            label(for="toggleedit", class="labelexpandedit", style="position: relative;top: -100px;left: 150px;")!= "Edit Playlist"
+            label(for="toggleedit", class="labelexpandedit", style="display: inline-block;")!= "Edit Playlist"
             input(id="toggleadd" type="checkbox" class="inputexpandadd")
-            label(for="toggleadd", class="labelexpandadd", style="position: relative; margin-top: -255px;left: 312px")!= "Add Music"       
+            label(for="toggleadd", class="labelexpandadd", style="display: inline-block;")!= "Add Music"       
             input(id="togglerules" type="checkbox" class="inputexpandrules")
-            label(for="togglerules", class="labelexpandrules", style="position: relative;  top: -210px; left: 465px;")!= "Edit <br/>Rules"
+            label(for="togglerules", class="labelexpandrules", style="position: relative;top: -44px; display: inline-block;")!= "Edit <br/>Rules"
         div(id="expand", style="position: relative;top: -100px;")
             section
                 //h1!= "Create a Playlist"
