@@ -441,6 +441,10 @@ padding-top: 3px;
     background-color: #008500 !important;
 }
 
+.labelexpandadd:visited, .labelexpandedit:visited, .labelexpand:visited,.labelexpandrules:visited{
+    background-color: #008500 !important;
+}
+
 /*End Row Main Columns*/
 
 .boutton{
