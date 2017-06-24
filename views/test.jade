@@ -23,8 +23,8 @@ block content
                     input(type="text" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist()")
                 div(class="messageCreatePlaylist" style="margin-top: 25px;")
         input(id="toggleedit" type="checkbox" class="inputexpandedit")
-        label(for="toggleedit", class="labelexpandedit")!= "Edit Playlist"
-        div(id="expandedit")
+        label(for="toggleedit", class="labelexpandedit", style="position: relative;top: -100px;left: 150px;")!= "Edit Playlist"
+        div(id="expandedit", style="position: relative;top: -100px;")
             section
                 //h1!= "Edit a Playlist"
                 p!= "Select a playlist to load its contents."
@@ -38,8 +38,8 @@ block content
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
         input(id="toggleadd" type="checkbox" class="inputexpandadd")
-        label(for="toggleadd", class="labelexpandadd")!= "Add Music"
-        div(id="expandadd")
+        label(for="toggleadd", class="labelexpandadd", style="position: relative; margin-top: -261px;left: 312px")!= "Add Music"
+        div(id="expandadd", style="position: relative;top: 62px;")
             a(name="top")
             section
                 //h1!= "Add Music"
@@ -93,8 +93,8 @@ block content
                         input(type="text" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
         
         input(id="togglerules" type="checkbox" class="inputexpandrules")
-        label(for="togglerules", class="labelexpandrules")!= "Edit Rules"
-        div(id="expandrules")
+        label(for="togglerules", class="labelexpandrules", style="position: relative;  top: -222px; left: 465px;")!= "Edit <br/>Rules"
+        div(id="expandrules", style="position: relative;top: -100px;")
             - var results = rules
             - var acup = results[0].acousticness*100
             - var acdown = results[2].acousticness*100
