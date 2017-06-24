@@ -564,7 +564,8 @@ block content
 
                         console.log( "playlist is called: " + playlistid);
                         
-                        
+                        if(playlistid != "select playlist"){
+                            $("#playlisteditlist").show();
 
                                 $.ajax({
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
@@ -613,6 +614,10 @@ block content
 
                                 }
                             });
+
+                        } else {
+                            $("#playlisteditlist").hide();
+                        }
                 });
             }
             });
