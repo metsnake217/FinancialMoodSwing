@@ -21,22 +21,22 @@ input::-webkit-inner-spin-button {
 
 .expandaddheight {
   height: 1000px !important;
-  border-color: #1cbc20;
+  border-color: #1cbc20 !important;
 }
 
 .expandeditheight {
   height: 250px !important;
-  border-color: #1cbc20;
+  border-color: #1cbc20 !important;
 }
 
 .expandrulesheight {
   height: 1000px !important;
-  border-color: #1cbc20;
+  border-color: #1cbc20 !important;
 }
 
 .expandheight {
   height: 250px !important;
-  border-color: #1cbc20;
+  border-color: #1cbc20 !important;
 }
 
 body {
