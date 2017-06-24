@@ -402,6 +402,7 @@ padding-top: 3px;
   color: #666;
   font-size: 20pt; font-weight: bold;
   width:100%;
+  background-color: #2975b4 !important;
 }
 .labelexpandmood:hover {
   color: #000;
