@@ -471,7 +471,6 @@ padding-top: 3px;
     background-color: green;
     background-image: linear-gradient(#008500,#111);
     text-decoration: none;
-    font-weight: 100;
 }
 
 .labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover{
