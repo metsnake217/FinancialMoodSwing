@@ -985,8 +985,10 @@ block content
             console.dir($( ".labelexpandedit" ));
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandedit" ).toggleClass( "expandeditheight" ).promise().done(function(){
+                if($( "#expandedit" ).hasClass( "expandeditheight" )){
                 $(document).scrollTop( $("#expandedit").offset().top );
                 console.log("expanded edit");
+                }
             }); 
             searchPlaylistsEdit();
         });
@@ -996,16 +998,20 @@ block content
             $(".jumptop").toggle();
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandadd"  ).toggleClass( "expandaddheight" ).promise().done(function(){
+                if($( "#expandadd" ).hasClass( "expandaddheight" )){
                 $(document).scrollTop( $("#expandadd").offset().top );
                 console.log("expanded add");
+                }
             }); 
         }); 
 
         $( ".labelexpand" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
             $( "#expand"  ).toggleClass( "expandheight" ).promise().done(function(){
+            if($( "#expand" ).hasClass( "expandheight" )){
                 $(document).scrollTop( $("#expand").offset().top );
                 console.log("expanded");
+            }
             });
              
         });       
@@ -1013,8 +1019,10 @@ block content
         $( ".labelexpandrules" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandrules"  ).toggleClass( "expandrulesheight" ).promise().done(function(){
+                if($( "#expandrules" ).hasClass( "expandrulesheight" )){
                 $(document).scrollTop( $("#expandrules").offset().top );
                 console.log("expanded riles");
+                }
             });
         }); 
 
