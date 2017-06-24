@@ -18,7 +18,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 */
-
+.labelbuttons{
+text-align: center;margin-top:50px;
+}
 .expandaddheight {
   height: 1000px !important;
   border-color: #1cbc20 !important;
@@ -3887,6 +3889,12 @@ left:77.5%;
 
 
  @media (max-width: 440px) {
+.labelbuttons{
+    text-align: center;
+    margin-top: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
 .labelexpandadd, .labelexpandedit, .labelexpand, .labelexpandrules {
     color: white !important;
     border-radius: 39px;
