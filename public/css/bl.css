@@ -237,7 +237,7 @@ input::-moz-focus-outer {
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
-  content: "+";
+  /*content: "+";*/
   vertical-align: text-top;
   display: inline-block;
   width: 30px;
@@ -266,7 +266,7 @@ section {
   height: 250px;
 }
 #toggle:checked ~ .labelexpand::before {
-  content: "-";
+  /*content: "-";*/
 }
 
 /*Expand sections on page*/
@@ -289,7 +289,7 @@ section {
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
-  content: "+";
+  /*content: "+";*/
   vertical-align: text-top;
   display: inline-block;
   width: 30px;
@@ -317,7 +317,7 @@ padding-top: 3px;
   height: 250px;
 }
 #toggleedit:checked ~ .labelexpandedit::before {
-  content: "-";
+  /*content: "-";*/
 }
 
 /*Expand sections on page*/
@@ -340,7 +340,7 @@ padding-top: 3px;
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
-  content: "+";
+  /*content: "+";*/
   vertical-align: text-top;
   display: inline-block;
   width: 30px;
@@ -368,7 +368,7 @@ padding-top: 3px;
   height: 1000px;
 }
 #toggleadd:checked ~ .labelexpandadd::before {
-  content: "-";
+  /*content: "-";*/
 }
 
 /*Expand sections on page*/
@@ -391,7 +391,7 @@ padding-top: 3px;
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
   font-size: 15px;
-  content: "+";
+  /*content: "+";*/
   vertical-align: text-top;
   display: inline-block;
   width: 30px;
@@ -419,7 +419,7 @@ padding-top: 3px;
   height: 1000px;
 }
 #togglerules:checked ~ .labelexpandrules::before {
-  content: "-";
+  /*content: "-";*/
 }
 
 .highlightlabel{
@@ -428,12 +428,21 @@ padding-top: 3px;
 .labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
     /*padding-top: 20px !important;*/
     /*background-color: #008500 !important;*/ /*#8a6d3b !important;*/
-    color: white !important;
+    /*color: white !important;
     border-radius: 50px;
 
     border-width: thick;
     border-color: #008500 !important;
+    border-style: solid;*/
+    color: white !important;
+    border-radius: 84px;
+    border-width: thick;
+    border-color: #008500 !important;
     border-style: solid;
+    width: 150px;
+    height: 150px;
+    padding-top: 28px;
+    text-align: center;
 }
 
 .labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover{
