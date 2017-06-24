@@ -23,7 +23,8 @@ block content
             label(for="togglerules", class="labelexpandrules", style="position: relative;top: -44px; display: inline-block;")!= "Edit <br/>Rules"
         div(id="expand", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             section
-                //h1!= "Create a Playlist"
+                a(name="expandname")
+                h1!= "Create a Playlist"
                 p!= "Type a playlist name and click on 'Create'."
                 form(id="playlist-form")
                     input(type="text" id="queryplay" value="" class="form-control" placeholder="Type Playlist title")
@@ -32,7 +33,8 @@ block content
 
         div(id="expandedit", style="position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             section
-                //h1!= "Edit a Playlist"
+                a(name="expandeditname")
+                h1!= "Edit a Playlist"
                 p!= "Select a playlist to load its contents."
                 form(id="playlistedit-form")
                     div(id="playlistedit")
@@ -47,7 +49,8 @@ block content
         div(id="expandadd", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             a(name="top")
             section
-                //h1!= "Add Music"
+                a(name="expandaddname")
+                h1!= "Add Music & Mood"
                 p!= "Type an artist name, album or track title. Then, select an existing playlist to add music to based on the metadata provided."
                 form(id="search-form")
                     input(style="width:90%;padding: 10px;height: 60px;font-size: 20pt;color: #8a6d3b !important;" type="text" id="query" value="" class="form-control" placeholder="Type track keywords")
@@ -132,6 +135,8 @@ block content
             - var valwayup = results[1].valence*100
             - var valwaydown = results[3].valence*100
             section
+                a(name="expandrulesname")
+                h1!= "Set Up Business Rules"
                 p!= "Set up the business rules for the stock market."
                 form(id="playlistrules-form" action="/updaterule" method="post")
                     div(id="rulesup" style="")
@@ -987,7 +992,7 @@ block content
             $( "#expandedit" ).toggleClass( "expandeditheight" );
             //.promise().done(function(){
                 if($( "#expandedit" ).hasClass( "expandeditheight" )){
-                $(document).scrollTop( $("#expandedit").offset().top + 500);
+                location.hash = "#expandeditname";
                 console.log("expanded edit");
                 }
             //}); 
@@ -1001,7 +1006,7 @@ block content
             $( "#expandadd"  ).toggleClass( "expandaddheight" );
             //.promise().done(function(){
                 if($( "#expandadd" ).hasClass( "expandaddheight" )){
-                $(document).scrollTop( $("#expandadd").offset().top + 500);
+                location.hash = "#expandaddname";
                 console.log("expanded add");
                 }
             //}); 
@@ -1012,7 +1017,7 @@ block content
             $( "#expand"  ).toggleClass( "expandheight" );
             //.promise().done(function(){
             if($( "#expand" ).hasClass( "expandheight" )){
-                $(document).scrollTop( $("#expand").offset().top + 500);
+                location.hash = "#expandname";
                 console.log("expanded");
             }
             //});
@@ -1024,7 +1029,7 @@ block content
             $( "#expandrules"  ).toggleClass( "expandrulesheight" );
             //.promise().done(function(){
                 if($( "#expandrules" ).hasClass( "expandrulesheight" )){
-                $(document).scrollTop( $("#expandrules").offset().top + 500);
+                location.hash = "#expandrulesname";
                 console.log("expanded riles");
                 }
             //});
