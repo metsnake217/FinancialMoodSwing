@@ -3717,8 +3717,10 @@ span.num.greatherthanninetynine {
 .logofin1{
     width:70px;
 }
-.labelexpandrules, .labelexpand, .labelexpandadd, .labelexpandedit{
-    width: 100%;
+.labelexpandadd, .labelexpandedit{
+    /*width: 100%;*/
+    position: relative;
+    top: -44px;
 }
 
 
