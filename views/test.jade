@@ -985,6 +985,7 @@ block content
             console.dir($( ".labelexpandedit" ));
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandedit" ).toggleClass( "expandeditheight" );
+            $(document).scrollTop( $("#expandedit").offset().top ); 
             searchPlaylistsEdit();
         });
 
@@ -993,16 +994,19 @@ block content
             $(".jumptop").toggle();
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandadd"  ).toggleClass( "expandaddheight" );
+            $(document).scrollTop( $("#expandadd").offset().top ); 
         }); 
 
         $( ".labelexpand" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
             $( "#expand"  ).toggleClass( "expandheight" );
+            $(document).scrollTop( $("#expand").offset().top ); 
         });       
 
         $( ".labelexpandrules" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
             $( "#expandrules"  ).toggleClass( "expandrulesheight" );
+            $(document).scrollTop( $("#expandrules").offset().top ); 
         }); 
 
         $( "#acousticup" ).mouseup(function() {
