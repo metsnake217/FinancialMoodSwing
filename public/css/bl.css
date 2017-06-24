@@ -422,6 +422,9 @@ padding-top: 3px;
   content: "-";
 }
 
+.highlightlabel{
+    background-color: #008500 !important;
+}
 .labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
     /*padding-top: 20px !important;*/
     /*background-color: #008500 !important;*/ /*#8a6d3b !important;*/

@@ -975,13 +975,23 @@ block content
 
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
+            $( this ).toggleClass( "highlightlabel" );
             searchPlaylistsEdit();
         });
 
         $( ".labelexpandadd" ).click(function() {
             $(".jumpadd").hide();
             $(".jumptop").toggle();
+            $( this ).toggleClass( "highlightlabel" );
+        }); 
+
+        $( ".labelexpandedit" ).click(function() {
+            $( this ).toggleClass( "highlightlabel" );
         });       
+
+        $( ".labelexpandrules" ).click(function() {
+            $( this ).toggleClass( "highlightlabel" );
+        }); 
 
         $( "#acousticup" ).mouseup(function() {
           console.log( "Handler for .mouseup() called: " + $(this).val());
