@@ -984,8 +984,10 @@ block content
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
             $( this ).toggleClass( "highlightlabel" );
-            $( "#expandedit" ).toggleClass( "expandeditheight" );
-            $(document).scrollTop( $("#expandedit").offset().top ); 
+            $( "#expandedit" ).toggleClass( "expandeditheight" ).promise().done(function(){
+                $(document).scrollTop( $("#expandedit").offset().top );
+                console.log("expanded edit");
+            }); 
             searchPlaylistsEdit();
         });
 
@@ -993,20 +995,27 @@ block content
             $(".jumpadd").hide();
             $(".jumptop").toggle();
             $( this ).toggleClass( "highlightlabel" );
-            $( "#expandadd"  ).toggleClass( "expandaddheight" );
-            $(document).scrollTop( $("#expandadd").offset().top ); 
+            $( "#expandadd"  ).toggleClass( "expandaddheight" ).promise().done(function(){
+                $(document).scrollTop( $("#expandadd").offset().top );
+                console.log("expanded add");
+            }); 
         }); 
 
         $( ".labelexpand" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
-            $( "#expand"  ).toggleClass( "expandheight" );
-            $(document).scrollTop( $("#expand").offset().top ); 
+            $( "#expand"  ).toggleClass( "expandheight" ).promise().done(function(){
+                $(document).scrollTop( $("#expand").offset().top );
+                console.log("expanded");
+            });
+             
         });       
 
         $( ".labelexpandrules" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
-            $( "#expandrules"  ).toggleClass( "expandrulesheight" );
-            $(document).scrollTop( $("#expandrules").offset().top ); 
+            $( "#expandrules"  ).toggleClass( "expandrulesheight" ).promise().done(function(){
+                $(document).scrollTop( $("#expandrules").offset().top );
+                console.log("expanded riles");
+            });
         }); 
 
         $( "#acousticup" ).mouseup(function() {
