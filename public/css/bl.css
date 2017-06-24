@@ -18,6 +18,23 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 */
+
+.expandaddheight {
+  height: 1000px;
+}
+
+.expandeditheight {
+  height: 250px;
+}
+
+.expandrulesheight {
+  height: 1000px;
+}
+
+.expandheight {
+  height: 250px;
+}
+
 body {
     padding-top:5px;
     background-color:#111;

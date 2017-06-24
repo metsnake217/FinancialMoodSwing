@@ -12,15 +12,16 @@ block content
             img(src="/images/test1.png" class="logofin")
         div(style="display:block;margin: 0 auto; text-align:center;padding-top: 5px;")
             h1!= "Mood Admin"
-        input(id="toggle" type="checkbox" class="inputexpand")
-        label(for="toggle", class="labelexpand")!= "Create Playlist"
-        input(id="toggleedit" type="checkbox" class="inputexpandedit")
-        label(for="toggleedit", class="labelexpandedit", style="position: relative;top: -100px;left: 150px;")!= "Edit Playlist"
-        input(id="toggleadd" type="checkbox" class="inputexpandadd")
-        label(for="toggleadd", class="labelexpandadd", style="position: relative; margin-top: -261px;left: 312px")!= "Add Music"       
-        input(id="togglerules" type="checkbox" class="inputexpandrules")
-        label(for="togglerules", class="labelexpandrules", style="position: relative;  top: -222px; left: 465px;")!= "Edit <br/>Rules"
-        div(id="expand")
+        div
+            input(id="toggle" type="checkbox" class="inputexpand")
+            label(for="toggle", class="labelexpand")!= "Create Playlist"
+            input(id="toggleedit" type="checkbox" class="inputexpandedit")
+            label(for="toggleedit", class="labelexpandedit", style="position: relative;top: -100px;left: 150px;")!= "Edit Playlist"
+            input(id="toggleadd" type="checkbox" class="inputexpandadd")
+            label(for="toggleadd", class="labelexpandadd", style="position: relative; margin-top: -261px;left: 312px")!= "Add Music"       
+            input(id="togglerules" type="checkbox" class="inputexpandrules")
+            label(for="togglerules", class="labelexpandrules", style="position: relative;  top: -222px; left: 465px;")!= "Edit <br/>Rules"
+        div(id="expand", style="position: relative;top: -100px;")
             section
                 //h1!= "Create a Playlist"
                 p!= "Type a playlist name and click on 'Create'."
@@ -43,7 +44,7 @@ block content
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
 
-        div(id="expandadd", style="position: relative;top: 62px;")
+        div(id="expandadd", style="position: relative;top: -100px;")
             a(name="top")
             section
                 //h1!= "Add Music"
@@ -978,6 +979,7 @@ block content
         $( ".labelexpandedit" ).click(function() {
             console.dir($( ".labelexpandedit" ));
             $( this ).toggleClass( "highlightlabel" );
+            $( this ).toggleClass( "expandeditheight" );
             searchPlaylistsEdit();
         });
 
@@ -985,14 +987,17 @@ block content
             $(".jumpadd").hide();
             $(".jumptop").toggle();
             $( this ).toggleClass( "highlightlabel" );
+            $( this ).toggleClass( "expandaddheight" );
         }); 
 
         $( ".labelexpand" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
+            $( this ).toggleClass( "expandheight" );
         });       
 
         $( ".labelexpandrules" ).click(function() {
             $( this ).toggleClass( "highlightlabel" );
+            $( this ).toggleClass( "expandrulesheight" );
         }); 
 
         $( "#acousticup" ).mouseup(function() {
