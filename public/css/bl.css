@@ -424,10 +424,23 @@ padding-top: 3px;
 
 .labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
     /*padding-top: 20px !important;*/
-    background-color: #008500 !important; /*#8a6d3b !important;*/
+    /*background-color: #008500 !important;*/ /*#8a6d3b !important;*/
     color: white !important;
     border-radius: 50px;
+
+    border-width: thick;
+    border-color: #008500 !important;
+    border-style: solid;
 }
+
+.labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover{
+    background-color: #008500 !important;
+}
+
+.labelexpandadd:active, .labelexpandedit:active, .labelexpand:active,.labelexpandrules:active{
+    background-color: #008500 !important;
+}
+
 /*End Row Main Columns*/
 
 .boutton{
