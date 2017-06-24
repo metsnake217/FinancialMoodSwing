@@ -987,7 +987,7 @@ block content
             $( "#expandedit" ).toggleClass( "expandeditheight" );
             //.promise().done(function(){
                 if($( "#expandedit" ).hasClass( "expandeditheight" )){
-                $(document).scrollTop( $("#expandedit").offset().top + 50);
+                $(document).scrollTop( $("#expandedit").offset().top - 50);
                 console.log("expanded edit");
                 }
             //}); 
@@ -1001,7 +1001,7 @@ block content
             $( "#expandadd"  ).toggleClass( "expandaddheight" );
             //.promise().done(function(){
                 if($( "#expandadd" ).hasClass( "expandaddheight" )){
-                $(document).scrollTop( $("#expandadd").offset().top + 50);
+                $(document).scrollTop( $("#expandadd").offset().top - 50);
                 console.log("expanded add");
                 }
             //}); 
@@ -1012,7 +1012,7 @@ block content
             $( "#expand"  ).toggleClass( "expandheight" );
             //.promise().done(function(){
             if($( "#expand" ).hasClass( "expandheight" )){
-                $(document).scrollTop( $("#expand").offset().top + 50);
+                $(document).scrollTop( $("#expand").offset().top - 50);
                 console.log("expanded");
             }
             //});
@@ -1024,7 +1024,7 @@ block content
             $( "#expandrules"  ).toggleClass( "expandrulesheight" );
             //.promise().done(function(){
                 if($( "#expandrules" ).hasClass( "expandrulesheight" )){
-                $(document).scrollTop( $("#expandrules").offset().top + 50);
+                $(document).scrollTop( $("#expandrules").offset().top - 50);
                 console.log("expanded riles");
                 }
             //});
