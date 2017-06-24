@@ -21,7 +21,7 @@ block content
             label(for="toggleadd", class="labelexpandadd", style="display: inline-block;")!= "Add Music"       
             input(id="togglerules" type="checkbox" class="inputexpandrules")
             label(for="togglerules", class="labelexpandrules", style="position: relative;top: -44px; display: inline-block;")!= "Edit <br/>Rules"
-        div(id="expand", style="position: relative;top: -100px;")
+        div(id="expand", style="position: relative;top: 25px;")
             section
                 //h1!= "Create a Playlist"
                 p!= "Type a playlist name and click on 'Create'."
@@ -30,7 +30,7 @@ block content
                     input(type="text" id="createplaylist" class="btn btn-primary boutton" value="Create" style="color: white !important;" onclick="createPlaylist()")
                 div(class="messageCreatePlaylist" style="margin-top: 25px;")
 
-        div(id="expandedit", style="position: relative;top: -100px;")
+        div(id="expandedit", style="position: relative;top: 25px;")
             section
                 //h1!= "Edit a Playlist"
                 p!= "Select a playlist to load its contents."
@@ -44,7 +44,7 @@ block content
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
 
-        div(id="expandadd", style="position: relative;top: -100px;")
+        div(id="expandadd", style="position: relative;top: 25px;")
             a(name="top")
             section
                 //h1!= "Add Music"
@@ -97,7 +97,7 @@ block content
                         a(name="add")
                         input(type="text" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
  
-        div(id="expandrules", style="position: relative;top: -100px;")
+        div(id="expandrules", style="position: relative;top: 25px;")
             - var results = rules
             - var acup = results[0].acousticness*100
             - var acdown = results[2].acousticness*100
