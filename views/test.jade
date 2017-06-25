@@ -536,6 +536,20 @@ block content
             });
         };
 
+        $(document).ready(function() {
+            $('.labelexpand').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                $('.labelexpandedit').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                    $('.labelexpandmood').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                        $('.labelexpandadd').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                            $('.labelexpandrules').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+
+                            });
+                        });
+                    });
+                });
+            });
+        });
+
 
         var searchPlaylistsEdit = function () {
             console.log("looking for playlists");
