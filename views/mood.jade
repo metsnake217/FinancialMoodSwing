@@ -29,7 +29,7 @@ block content
         Handlebars.registerHelper('getWidth', function(passedString) {
         console.log("before getWidth");
             var widthString = "30px";
-            if(passedString == "mode_waydown" || passedString == "mode_wayup")
+            if(passedString == "mode_waydown" || passedString == "mode_wayup"){
                 widthString = "20px";
             } 
             console.log("widthString is: " + widthString);
