@@ -404,9 +404,7 @@ padding-top: 3px;
   width:100%;
   background-color: rgba(41, 117, 180, 0.36) !important;
 }
-.labelexpandmood:hover {
-  background-color: #2975b4 !important;
-}
+
 .labelexpandmood::before {
   font-family: Consolas, monaco, monospace;
   font-weight: bold;
@@ -506,7 +504,7 @@ padding-top: 3px;
 
 }
 
-.labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover{
+.labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover, .labelexpandmood:hover{
     background-color: #008500 !important;
     background-image: none;
 }
