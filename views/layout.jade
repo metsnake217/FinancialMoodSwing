@@ -3,21 +3,12 @@ html(lang='en')
    head
      title= 'Financial Mood Swing - ' + title
      link(href='/css/animate.css', rel='stylesheet')
-     link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css")
-     //link(href='/css/popup.css', rel='stylesheet')
      link(href='/css/bootstrap.css', rel='stylesheet')
-     //link(href='/css/bootstrap-combined.min.css', rel='stylesheet')
      link(href='/css/bl.css', rel='stylesheet')
      link(href='/css/fontello.css', rel='stylesheet')
      link(href='/css/font-awesome.css', rel='stylesheet')
      link(href='/css/animation.css', rel='stylesheet')
      script(type="text/javascript" src="/javascripts/handlebars.min.js")
-     if (title=='Users')
-       link(href='/css/normalize.css', rel='stylesheet')
-       link(href='/css/component.css', rel='stylesheet')
-       link(href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet')
-     if (title=='Orders')
-      link(href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet')
      meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
      meta(http-equiv='X-UA-Compatible', content='IE=edge')
      meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=0')
@@ -25,11 +16,6 @@ html(lang='en')
      link(rel='shortcut icon', href='/images/BLlogin.png')
      script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
      script(type = "text/javascript" src = "/javascripts/jquery-ui-1.12.1.custom/jquery-ui.min.js")
-     script(type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js")
-     if (title=='Share')
-       script(type="text/javascript" src="/javascripts/canvas2svg.js")
-       script(type="text/javascript" src="/javascripts/jvenn.min.js")
-       script(type="text/javascript" src="/javascripts/jquery.twbsPagination.min.js")
      link(rel="shortcut icon" href="/images/favicon.png" type="image/x-icon")
      link(rel="icon" href="/images/favicon.png" type="image/x-icon")
 
@@ -141,22 +127,8 @@ html(lang='en')
 
      block content
      script(type="text/javascript" src="/javascripts/bootstrap.min.js")
-     if (title=='Users')
-       script(type="text/javascript" src="/javascripts/custom-file-input.js")
-     if (title=='Reports' || title=='Account' || title=='Register')
-       script(type="text/javascript" src="/javascripts/jquery.maskedinput.min.js")
-     - if (title!='Forgot Password' && title!='Register' && title!='About Us' && title!='Help' && title!='Login' && title!='Change Password')
-       div(style="position: relative;width: 100%;text-align: center;z-index: -1;")
-            //img(src="/images/yoke4.png", alt="The Yoke", title="Yoke", class="yokelogofooter")
        script.
           var h = $(window).height() - 125;
           $(".marginbottom").css("min-height",h);
      div(style="margin-top: 40px; background-color: #8a6d3b; position: fixed;bottom: 0;width: 100%;", class="noshowmobile")
             div(style="color:white; text-align:center; font-size:11px;")="@FinMoodSwing"
-    script.
-        $(".nav-menu-logout").click(function() {
-                    $( this ).addClass( "animated hinge" );
-                    setTimeout(function() {
-                      window.location.href = "/logout";
-                    }, 2000);
-                    });
