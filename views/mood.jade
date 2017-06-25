@@ -43,7 +43,7 @@ block content
             console.log("access token in playlists: " + bearer);
             $.ajax({
                 //url: 'https://api.spotify.com/v1/me/playlists',
-                url: 'https://financialmoodswing.herokuapp.com/playlistfetch',
+                url: '/playlistfetch',
                 //headers: {'Authorization': bearer},
                 success: function (response) {
                     editPlaceholder.innerHTML = templateedit(response.res);
@@ -69,7 +69,7 @@ block content
                         if(listname !="Select Playlist"){
 
                         $.ajax({
-                            url: 'https://financialmoodswing.herokuapp.com/stockfetch',
+                            url: '/stockfetch',
                             data: {playlistname: listname, prog: prog},
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
