@@ -252,7 +252,7 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
-    router.get('/mood', isLoggedIn, function(req, res) {
+    router.get('/mood', function(req, res) {
       var access_token = req.session.access;
         console.log("set access test: " + access_token);
 
