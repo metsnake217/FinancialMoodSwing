@@ -538,9 +538,13 @@ block content
 
         $(document).ready(function() {
             $('.labelexpand').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                console.log("highlight0");
                 $('.labelexpandedit').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                    console.log("highlight1");
                     $('.labelexpandmood').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                        console.log("highlight2");
                         $('.labelexpandadd').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
+                            console.log("highlight3");
                             $('.labelexpandrules').effect("highlight", {color:"#008500"}, 3000).promise().done(function(){
 
                             });
