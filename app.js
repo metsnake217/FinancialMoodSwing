@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var passport = require('passport');
 var flash = require('connect-flash');
+var cors = require('cors');
 var store  = new session.MemoryStore;
 var router = express.Router();
 
