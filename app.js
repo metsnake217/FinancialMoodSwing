@@ -33,7 +33,17 @@ app.use(session({
 	  },
 	  secret: 'wearethebest'
 	}));
-
+var whitelist = [
+    'https://financialmoodswing.herokuapp.com',
+];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
