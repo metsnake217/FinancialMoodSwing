@@ -275,20 +275,20 @@ router.get('/refresh_token', function(req, res) {
   });
 
     
-router.get('/playlistfetch', isLoggedIn, function(req, res) {
-   if(req.session.access != undefined){
-      var musicRules = new MusicRules();
+router.get('/playlistfetch', function(req, res) {
+   //if(req.session.access != undefined){
+  var musicRules = new MusicRules();
       musicRules.playlistfetch(function(error, results) { 
     res.send({res:results});
   });
 
-  } else{
-    res.redirect('/mood');
-  }
+  //} else{
+  //  res.redirect('/mood');
+  //}
 
 });
 
-router.get('/stockfetch', isLoggedIn, function(req, res) {
+router.get('/stockfetch', function(req, res) {
       var access_token = req.session.access;
       var playlistname = req.query.playlistname;
       var prog = req.query.prog;
