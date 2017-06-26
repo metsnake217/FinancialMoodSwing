@@ -379,6 +379,10 @@ block content
                     resultsPlaceholder.innerHTML = template(response);
                     console.log("success albums: " + resultsPlaceholder.innerHTML);
                     console.dir(response);
+                            $( "#playSelect" ).change(function() {
+                                console.dir($( "#addtoplaylist" ));
+                                $( "#addtoplaylist" ).show();
+                            });
                 }
             });
         };
@@ -398,6 +402,10 @@ block content
                     console.log("success albums: " + resultsPlaceholder.innerHTML);
                     console.dir(response);
 
+                    $( "#playSelect" ).change(function() {
+                        console.dir($( "#addtoplaylist" ));
+                        $( "#addtoplaylist" ).show();
+                    });
                     var trackids = "";
                     var i=0;
                     /*$( "div[data-track-id]" ).each(function(){
@@ -1025,11 +1033,6 @@ block content
             $('.logofin2').hide();
             $(".jumpadd").toggle();
 
-        });
-
-        $( "#playSelect" ).change(function() {
-            console.dir($( "#addtoplaylist" ));
-            $( "#addtoplaylist" ).show();
         });
 
         $( ".labelexpandedit" ).click(function() {
