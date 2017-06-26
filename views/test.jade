@@ -624,7 +624,11 @@ block content
                                     success: function (resp) {
                                         $('.logofin3').hide();
                                         console.log(resp.items.length);
+                                        if(resp.items.length > 0 ){
                                         tracklistPlaceholder.innerHTML = templatelist(resp);
+                                        } else {
+                                            tracklistPlaceholder.innerHTML = "This playlist does not contain any music tracks. Please select another Playlist!";
+                                        }
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
                                         console.dir(resp.items);
