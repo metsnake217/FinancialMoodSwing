@@ -623,6 +623,7 @@ block content
                                     headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                     success: function (resp) {
                                         $('.logofin3').hide();
+                                        console.dir(resp.length);
                                         tracklistPlaceholder.innerHTML = templatelist(resp);
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
