@@ -23,17 +23,17 @@ text-align: center;margin-top:40px;
 }
 .expandaddheight {
   height: 1000px !important;
-  border-color: #1cbc20 !important;
+  border-color: #8a6d3b !important;
 }
 
 .expandeditheight {
   height: 250px !important;
-  border-color: #1cbc20 !important;
+  border-color: #8a6d3b !important;
 }
 
 .expandrulesheight {
   height: 1000px !important;
-  border-color: #1cbc20 !important;
+  border-color: #8a6d3b !important;
 }
 
 .expandheight {
@@ -283,7 +283,7 @@ padding-top: 3px;
     margin-left: 5px;
 }
 section {
-  padding: 25px 15px;
+  padding: 0px 15px 25px 15px;
 }
 #toggle:checked ~ #expand {
   height: 250px;
