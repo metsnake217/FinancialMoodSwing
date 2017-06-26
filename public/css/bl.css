@@ -133,9 +133,14 @@ input{
     width:5%;
 }
 
-.logofin, .logofin2, .logofin3{
+.logofin,{
     text-align: center; margin: 0 auto; display: block;
     width: 40%;
+}
+.logofin2, .logofin3{
+    text-align: center; margin: 0 auto; display: block;
+    width: 20%;
+    margin-top: 25px;
 }
 
 #rulesup, #rulesdown, #ruleswayup, #ruleswaydown{
@@ -3818,6 +3823,9 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 600px){
+.logofin2, .logofin3{
+width: 40%;
+}
 #playeditmood{
     /*width: 67%;*/
 }
