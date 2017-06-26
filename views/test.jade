@@ -48,7 +48,7 @@ block content
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
-                img(src="/images/test1.png" class="logofin2")
+                img(src="/images/test1.png" class="logofin3")
 
         div(id="expandadd", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             a(name="top")
@@ -622,7 +622,7 @@ block content
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
                                     headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                     success: function (resp) {
-                                        $('.logofin2').hide();
+                                        $('.logofin3').hide();
                                         tracklistPlaceholder.innerHTML = templatelist(resp);
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
