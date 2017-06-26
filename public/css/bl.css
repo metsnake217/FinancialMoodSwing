@@ -255,7 +255,7 @@ input::-moz-focus-outer {
   padding: 0.2em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
-  font-size: 20pt; font-weight: bold;
+  font-size: 15pt; font-weight: bold; /*big 20pt*/
   margin-top: 25px;
   width:40%;
 }
@@ -308,7 +308,7 @@ section {
   padding: 0.2em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
-  font-size: 20pt; font-weight: bold;
+  font-size: 15pt; font-weight: bold;/*big 20pt*/
   width:60%;
 }
 .labelexpandedit:hover {
@@ -359,7 +359,7 @@ padding-top: 3px;
   padding: 0.2em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
-  font-size: 20pt; font-weight: bold;
+  font-size: 15pt; font-weight: bold; /*big 20pt*/
   width:80%;
 }
 .labelexpandadd:hover {
@@ -406,7 +406,7 @@ padding-top: 3px;
   padding: 0.2em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
-  font-size: 20pt; font-weight: bold;
+  font-size: 15pt; font-weight: bold; /*big 20pt*/
   width:100%;
   background-color: rgba(41, 117, 180, 0.36);
 }
@@ -438,7 +438,7 @@ padding-top: 3px;
   padding: 0.2em;
   /*border-bottom: 1px solid #CCC;*/
   color: #666;
-  font-size: 20pt; font-weight: bold;
+  font-size: 15pt; font-weight: bold; /*big 20pt*/
   width:100%;
 }
 .labelexpandrules:hover {
@@ -498,8 +498,8 @@ padding-top: 3px;
     /*border-color: #008500 !important;*/
     border-color: transparent !important;
     border-style: solid;
-    width: 150px;
-    height: 150px;
+    width: 130px; /*big 150px*/
+    height: 130px; /*big 150px*/
     padding-top: 28px;
     text-align: center;
 
