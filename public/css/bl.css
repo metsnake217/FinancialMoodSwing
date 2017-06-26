@@ -402,7 +402,7 @@ padding-top: 3px;
   color: #666;
   font-size: 20pt; font-weight: bold;
   width:100%;
-  background-color: rgba(41, 117, 180, 0.36) !important;
+  background-color: rgba(41, 117, 180, 0.36);
 }
 
 .labelexpandmood::before {
@@ -498,10 +498,12 @@ padding-top: 3px;
     text-align: center;
 
     display: inline-block;
-    background-color: rgba(0, 133, 0, 0.36);
     /*background-image: linear-gradient(#008500,#111);*/
     text-decoration: none;
 
+}
+.labelexpandadd, .labelexpandedit, .labelexpand,.labelexpandrules{
+background-color: rgba(0, 133, 0, 0.36);
 }
 
 .labelexpandadd:hover, .labelexpandedit:hover, .labelexpand:hover,.labelexpandrules:hover, .labelexpandmood:hover{
