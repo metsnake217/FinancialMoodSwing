@@ -22,17 +22,17 @@ input::-webkit-inner-spin-button {
 text-align: center;margin-top:40px;
 }
 .expandaddheight {
-  height: 1000px !important;
+  height: 600px !important;
   border-color: #8a6d3b !important;
 }
 
 .expandeditheight {
-  height: 250px !important;
+  height: 320px !important;
   border-color: #8a6d3b !important;
 }
 
 .expandrulesheight {
-  height: 1000px !important;
+  height: 600px !important;
   border-color: #8a6d3b !important;
 }
 
