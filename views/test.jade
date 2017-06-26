@@ -627,7 +627,7 @@ block content
                                         if(resp.items.length > 0 ){
                                         tracklistPlaceholder.innerHTML = templatelist(resp);
                                         } else {
-                                            tracklistPlaceholder.innerHTML = "This playlist does not contain any music tracks. Please select another Playlist!";
+                                            tracklistPlaceholder.innerHTML = "<br/>This playlist does not contain any music tracks. Please select another Playlist!";
                                         }
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
