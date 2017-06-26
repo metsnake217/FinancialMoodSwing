@@ -48,6 +48,7 @@ block content
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
                             <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
+                img(src="/images/test1.png" class="logofin2")
 
         div(id="expandadd", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             a(name="top")
@@ -102,7 +103,8 @@ block content
                     div
                         a(name="add")
                         input(type="text" style="margin: 0 auto;margin-bottom:20px;display:none" id="addtoplaylist" class="btn btn-primary boutton bouttoncontainer" value="Add to Playlist")
- 
+            img(src="/images/test1.png" class="logofin2")
+
         div(id="expandrules", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color:transparent;")
             - var results = rules
             - var acup = results[0].acousticness*100
@@ -615,6 +617,7 @@ block content
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
                                     headers: {'Authorization': bearer,'Content-Type': 'application/json'},
                                     success: function (resp) {
+                                        $('.logofin2').hide();
                                         tracklistPlaceholder.innerHTML = templatelist(resp);
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
@@ -1019,10 +1022,14 @@ block content
 
 
         $( "#searchmusic" ).click(function() {
-            console.dir($( "#addtoplaylist" ));
-            $( "#addtoplaylist" ).show();
+            $('.logofin2').hide();
             $(".jumpadd").toggle();
 
+        });
+
+        $( "#playSelect" ).change(function() {
+            console.dir($( "#addtoplaylist" ));
+            $( "#addtoplaylist" ).show();
         });
 
         $( ".labelexpandedit" ).click(function() {

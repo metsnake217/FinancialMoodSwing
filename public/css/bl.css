@@ -137,6 +137,10 @@ input{
     text-align: center; margin: 0 auto; display: block;
     width: 40%;
 }
+.logofin2{
+    text-align: center; margin: 0 auto; display: block;
+    width: 40%;
+}
 #rulesup, #rulesdown, #ruleswayup, #ruleswaydown{
     position: relative; float: left;margin-top:30px;
 }
