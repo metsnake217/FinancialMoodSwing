@@ -147,6 +147,7 @@ block content
 
                                   // you can do more stuff with the player variable
                                   $( ".stocknote" ).click(function() {
+                                  console.log("player state: " + player.getPlayerState());
                                     if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
                                         player.pauseVideo();
                                         $( ".stocknote" ).hide();
