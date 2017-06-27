@@ -134,12 +134,12 @@ block content
                                       loop: false,
                                       events: {
                                           onReady: function (e) {
-                                              info.innerHTML = 'video is loaded';
+                                              //info.innerHTML = 'video is loaded';
                                               e.target.playVideo();
                                           },
                                           onStateChange: function (event) {
                                               if (event.data === 1) {
-                                                  info.innerHTML = 'video started playing';
+                                                  //info.innerHTML = 'video started playing';
                                               }
                                           }
                                       }
