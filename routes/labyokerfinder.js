@@ -338,7 +338,7 @@ if(quotename == "XAX"){
 
 var playlistname = this.playlistname;
 
-var ret = {index:"", desc:"", url:"", artist:"", title:"", mood: ""};
+var ret = {index:"", desc:"", url:"", artist:"", title:"", mood: "", youtube:""};
 
 console.log("quote open: "+ quote.open);
 console.log("quote close: "+ quote.close);
