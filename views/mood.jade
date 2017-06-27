@@ -135,11 +135,13 @@ block content
                                       loop: false,
                                       events: {
                                           onReady: function (e) {
+                                            console.log("now playing");
                                               //info.innerHTML = 'video is loaded';
                                               e.target.playVideo();
                                           },
                                           onStateChange: function (event) {
                                               if (event.data === 1) {
+                                                console.log("started");
                                                   //info.innerHTML = 'video started playing';
                                               }
                                           }
@@ -149,11 +151,15 @@ block content
                                   // you can do more stuff with the player variable
                                   $( ".stocknote" ).click(function() {
                                   console.log("player state: " + player.getPlayerState());
-                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
+                                    if(player.getPlayerState() == YT.PlayerState.PLAYING){
                                         player.pauseVideo();
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
-                                    } else{
+                                    } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
+                                        console.log("buffering so playing now");
+                                        player.playVideo();
+                                    } else {
+                                        console.log("not started so playing now");
                                         player.playVideo();
                                     }
                                   });
