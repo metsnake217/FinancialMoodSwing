@@ -401,6 +401,8 @@ console.log("youtube search: " + ys);
 youTube.search(ys , 2, function(error, youtuberesult) {
   if (error) {
     console.log(error);
+        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
+        res.send(results);
   }
   else {
     console.log("youtuberesult0");
@@ -412,12 +414,12 @@ youTube.search(ys , 2, function(error, youtuberesult) {
     var vid = youtuberesult.items[0].id.videoId;
     results.youtube = vid;
     console.log("youtube vid: " + vid);
-    
+        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
+        res.send(results);   
   }
 });
 
-        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
-        res.send(results);
+
   });
     //res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
 });;
