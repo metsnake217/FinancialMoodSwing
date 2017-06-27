@@ -403,10 +403,18 @@ youTube.search(ys , 2, function(error, youtuberesult) {
     console.log(error);
   }
   else {
-    var vid = youtuberesult.items.id.videoId;
+    console.log("youtuberesult0");
+    console.log(JSON.stringify(youtuberesult, null, 2));
+     console.log("youtuberesult1");
+     console.log(JSON.stringify(youtuberesult.items, null, 2));
+      console.log("youtuberesult2");
+     console.log(JSON.stringify(youtuberesult.items[0], null, 2));
+      console.log("youtuberesult3");
+     console.log(JSON.stringify(youtuberesult.items.0, null, 2));
+    var vid = youtuberesult.items.0.id.videoId;
     results.youtube = vid;
     console.log("youtube vid: " + vid);
-    console.log(JSON.stringify(youtuberesult, null, 2));
+    
   }
 });
 
