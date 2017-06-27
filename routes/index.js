@@ -30,6 +30,14 @@ var _ = require('lodash');
 //var fs = require('fs');
 //html-pdf
 
+var YouTube = require('youtube-node');
+
+var youTube = new YouTube();
+
+youTube.setKey('AIzaSyCGxHBSVlDJqD6gnQpmZ8hEm54K3s2UuR8');
+
+
+
 var storage = multer.diskStorage({ //multers disk storage settings
         destination: function (req, file, cb) {
             cb(null, './uploads/')
@@ -258,6 +266,16 @@ router.get('/refresh_token', function(req, res) {
 
       var musicRules = new MusicRules();
       musicRules.getrules(function(error, results) { 
+
+youTube.search('World War z Trailer', 2, function(error, result) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(JSON.stringify(result, null, 2));
+  }
+});
+
     res.render('mood', {
       rules: results,
       /*ordersnum: req.session.orders,
