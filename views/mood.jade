@@ -154,6 +154,7 @@ block content
                                   console.log("player state: " + player.getPlayerState());
                                     if(player.getPlayerState() == YT.PlayerState.PLAYING){
                                         player.stopVideo();
+                                        console.log("now stopping video");
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
                                     } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
