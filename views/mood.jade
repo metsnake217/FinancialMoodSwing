@@ -139,6 +139,9 @@ block content
                                             console.log("now playing");
                                               //info.innerHTML = 'video is loaded';
                                               e.target.playVideo();
+                                              $(".stocknote").on('click', function() {
+                                                  player.playVideo();
+                                                });
                                           },
                                           onStateChange: function (event) {
                                               if (event.data === 1) {
@@ -157,7 +160,7 @@ block content
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
                                     } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
-                                        player.playVideo();
+                                        //player.playVideo();
                                     } else{
                                         player.playVideo();
                                     }
