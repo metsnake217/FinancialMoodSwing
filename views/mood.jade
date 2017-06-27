@@ -94,6 +94,7 @@ block content
 
 
                                 function onYouTubePlayerAPIReady() {
+                                    console.log("youtube player");
                                   var player = new YT.Player('player', {
                                       videoId: youtubeid, // this is the id of the video at youtube (the stuff after "?v=")
                                       loop: false,
@@ -109,6 +110,7 @@ block content
                                           }
                                       }
                                   });
+
                                   // you can do more stuff with the player variable
                                   $( ".stocknote" ).click(function() {
                                     if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
