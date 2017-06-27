@@ -22,7 +22,9 @@ block content
                         <span style="color: #8a6d3b;float: right;top: -35px;right: 2.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
-                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span></span><img src="/images/{{mood}}_1.png" width={{getWidth mood}} height="50px"/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="150px" class="stocknote animated zoomInUp /* tada infinite*/"/>
+                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span></span><img src="/images/{{mood}}_1.png" width={{getWidth mood}} height="50px"/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="150px" class="stocknote animated zoomInUp /* tada infinite*/"/><div data-video="{{youtube}}" data-autoplay="1" data-loop="0" id="youtube-audio"></div>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
         br(style="clear: both;")
 
     script.
