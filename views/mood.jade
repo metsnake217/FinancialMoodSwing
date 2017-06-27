@@ -87,10 +87,45 @@ block content
                                 console.log("success got stocks: " + response);
                                 console.dir(response);
                                 var preview = response.url;
+                                var youtubeid = response.youtube;
                                 $("#stocknote").show();
+
+                                var info = document.getElementById('info');
+
+
+                                function onYouTubePlayerAPIReady() {
+                                  var player = new YT.Player('player', {
+                                      videoId: youtubeid, // this is the id of the video at youtube (the stuff after "?v=")
+                                      loop: false,
+                                      events: {
+                                          onReady: function (e) {
+                                              info.innerHTML = 'video is loaded';
+                                              e.target.playVideo();
+                                          },
+                                          onStateChange: function (event) {
+                                              if (event.data === 1) {
+                                                  info.innerHTML = 'video started playing';
+                                              }
+                                          }
+                                      }
+                                  });
+                                  // you can do more stuff with the player variable
+                                  $( ".stocknote" ).click(function() {
+                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
+                                        player.pauseVideo();
+                                        $( ".stocknote" ).hide();
+                                        $("#playeditmood").val("select playlist");
+                                    } else{
+                                        player.playVideo();
+                                    }
+                                  });
+                                }
+
+
+
                                 $(window).scrollTop($('#stock').offset().top).scrollLeft($('#stock').offset().left);
                                 audioObject = new Audio(preview);
-                                audioObject.play();
+                                //audioObject.play();
                                 console.dir(audioObject);
 
                                 audioObject.onpause=function(){
@@ -108,13 +143,14 @@ block content
 
                                 });
                                 $( ".stocknote" ).click(function() {
-                                    if(audioObject.paused){
+
+                                    /*if(audioObject.paused){
                                         audioObject.play();
                                     } else {
                                         audioObject.pause();
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
-                                    }
+                                    }*/
                                     //$("#playeditmood").val("select playlist");
                                     //$( ".stocknote" ).removeClass("lightSpeedIn");
                                     //$( ".stocknote" ).addClass("lightSpeedOut");
