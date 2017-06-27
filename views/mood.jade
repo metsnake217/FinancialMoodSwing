@@ -131,8 +131,9 @@ block content
                                 //function onYouTubePlayerAPIReady() {
                                     console.log("youtube player");
                                    player = new YT.Player('player', {
-                                      videoId: youtubeid, // this is the id of the video at youtube (the stuff after "?v=")
+                                      videoId: youtubeid,
                                       loop: false,
+                                      autoplay:true,
                                       events: {
                                           onReady: function (e) {
                                             console.log("now playing");
@@ -151,15 +152,11 @@ block content
                                   // you can do more stuff with the player variable
                                   $( ".stocknote" ).click(function() {
                                   console.log("player state: " + player.getPlayerState());
-                                    if(player.getPlayerState() == YT.PlayerState.PLAYING){
+                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || player.getPlayerState() == YT.PlayerState.BUFFERING){
                                         player.pauseVideo();
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
-                                    } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
-                                        console.log("buffering so playing now");
-                                        player.playVideo();
-                                    } else {
-                                        console.log("not started so playing now");
+                                    } else{
                                         player.playVideo();
                                     }
                                   });
