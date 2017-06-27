@@ -140,6 +140,7 @@ block content
                                               //info.innerHTML = 'video is loaded';
                                               e.target.playVideo();
                                               $(".stocknote").on('click', function() {
+                                                  console.log("inside");
                                                   player.playVideo();
                                                 });
                                           },
@@ -162,7 +163,7 @@ block content
                                     } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
                                         //player.playVideo();
                                     } else{
-                                        player.playVideo();
+                                        //player.playVideo();
                                     }
                                   });
                                 //}
