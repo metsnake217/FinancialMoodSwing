@@ -152,15 +152,19 @@ block content
                                   // you can do more stuff with the player variable
                                   $( ".stocknote" ).click(function() {
                                   console.log("player state: " + player.getPlayerState());
-                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || player.getPlayerState() == YT.PlayerState.BUFFERING){
-                                        player.pauseVideo();
+                                    if(player.getPlayerState() == YT.PlayerState.PLAYING){
+                                        player.stopVideo();
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
+                                    } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
+                                        player.playVideo();
                                     } else{
                                         player.playVideo();
                                     }
                                   });
                                 //}
+
+
 
                             }
                         });
