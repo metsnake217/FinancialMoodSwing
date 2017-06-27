@@ -92,39 +92,6 @@ block content
 
                                 var info = document.getElementById('info');
 
-
-                                function onYouTubePlayerAPIReady() {
-                                    console.log("youtube player");
-                                  var player = new YT.Player('player', {
-                                      videoId: youtubeid, // this is the id of the video at youtube (the stuff after "?v=")
-                                      loop: false,
-                                      events: {
-                                          onReady: function (e) {
-                                              info.innerHTML = 'video is loaded';
-                                              e.target.playVideo();
-                                          },
-                                          onStateChange: function (event) {
-                                              if (event.data === 1) {
-                                                  info.innerHTML = 'video started playing';
-                                              }
-                                          }
-                                      }
-                                  });
-
-                                  // you can do more stuff with the player variable
-                                  $( ".stocknote" ).click(function() {
-                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
-                                        player.pauseVideo();
-                                        $( ".stocknote" ).hide();
-                                        $("#playeditmood").val("select playlist");
-                                    } else{
-                                        player.playVideo();
-                                    }
-                                  });
-                                }
-
-
-
                                 $(window).scrollTop($('#stock').offset().top).scrollLeft($('#stock').offset().left);
                                 audioObject = new Audio(preview);
                                 //audioObject.play();
@@ -159,6 +126,36 @@ block content
                                     
 
                                 });
+
+                                //function onYouTubePlayerAPIReady() {
+                                    console.log("youtube player");
+                                  var player = new YT.Player('player', {
+                                      videoId: youtubeid, // this is the id of the video at youtube (the stuff after "?v=")
+                                      loop: false,
+                                      events: {
+                                          onReady: function (e) {
+                                              info.innerHTML = 'video is loaded';
+                                              e.target.playVideo();
+                                          },
+                                          onStateChange: function (event) {
+                                              if (event.data === 1) {
+                                                  info.innerHTML = 'video started playing';
+                                              }
+                                          }
+                                      }
+                                  });
+
+                                  // you can do more stuff with the player variable
+                                  $( ".stocknote" ).click(function() {
+                                    if(player.getPlayerState() == YT.PlayerState.PLAYING || Player.getPlayerState() == YT.PlayerState.BUFFERING){
+                                        player.pauseVideo();
+                                        $( ".stocknote" ).hide();
+                                        $("#playeditmood").val("select playlist");
+                                    } else{
+                                        player.playVideo();
+                                    }
+                                  });
+                                //}
 
                             }
                         });
