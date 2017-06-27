@@ -267,15 +267,6 @@ router.get('/refresh_token', function(req, res) {
       var musicRules = new MusicRules();
       musicRules.getrules(function(error, results) { 
 
-youTube.search('World War z Trailer', 2, function(error, result) {
-  if (error) {
-    console.log(error);
-  }
-  else {
-    console.log(JSON.stringify(result, null, 2));
-  }
-});
-
     res.render('mood', {
       rules: results,
       /*ordersnum: req.session.orders,
@@ -405,6 +396,20 @@ yahooFinance.historical({
 
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
       musicStock.getmusic(function(error, results) { 
+        var ys = results.artist + " " + results.title;
+console.log("youtube search: " + ys);
+youTube.search(ys , 2, function(error, youtuberesult) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    var vid = youtuberesult.items.id.videoId;
+    results.youtube = vid;
+    console.log("youtube vid: " + vid);
+    console.log(JSON.stringify(youtuberesult, null, 2));
+  }
+});
+
         console.log("stock " + results.index + " - music: " + results.url + " is successful.");
         res.send(results);
   });

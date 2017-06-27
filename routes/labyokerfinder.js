@@ -338,7 +338,7 @@ if(quotename == "XAX"){
 
 var playlistname = this.playlistname;
 
-var ret = {index:"", desc:"", url:"", mood: ""};
+var ret = {index:"", desc:"", url:"", artist:"", title:"", mood: ""};
 
 console.log("quote open: "+ quote.open);
 console.log("quote close: "+ quote.close);
@@ -386,8 +386,13 @@ console.log("sql: " + sql);
 		console.log("quotename: "+ quotename);
 		console.log("results is: "+ JSON.stringify(results));
 		if(results.length > 0 && results[b].trackurl != ""){
-			ret.url = results[b].trackurl;	
-			console.log("trackid: "+ results[b].trackurl);
+			ret.url = results[b].trackurl;
+			ret.artist = results[b].trackartist;
+			ret.title = results[b].tracktitle;
+			console.log("trackid: "+ results[b].trackid);
+			console.log("trackurl: "+ results[b].trackurl);
+			console.log("trackartist: "+ results[b].trackartist);
+			console.log("tracktitle: "+ results[b].tracktitle);
 		} else {
 			ret.url = "https://p.scdn.co/mp3-preview/6e37d5d777e46133b925e94732a7511c65ca8367?cid=7c7e3e774ee3460292e5fe3695819cb0";
 		}
@@ -451,7 +456,7 @@ var vals = "", ids="";
     	console.log("t: " + t);
     	console.log("resultsids.indexOf(t) : " + resultsids.indexOf(t) );
     	if(resultsids.indexOf(t) < 0){
-    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "'),"
+    	vals += "('" +item.trackid+ "','" + playlistname + "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + "," + item.prog_up + "," + item.prog_down + "," + item.prog_wayup + "," + item.prog_waydown + ",'" + item.trackurl + "','" + item.trackartist + "'),"
     	} else {
     		if(item.mode_up == 1){
     		updatevars_modeup += " trackid='" + item.trackid + "' and ";

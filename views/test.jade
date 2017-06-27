@@ -94,7 +94,7 @@ block content
                             {{#if tracks.items}}
                             <div class="sectiontracks" style=""><h2 style="color: #00bc00 !important;">Pick Tracks</h2>
                             {{#each tracks.items}}
-                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-preview-url="{{preview_url}}" data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/spot.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:center;margin:0 auto;top: -20px; position: relative;" class="moodbuttons"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" trackurl="{{preview_url}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"  data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input tracktitle="{{name}}" trackurl="{{preview_url}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" trackurl="{{preview_url}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" trackurl="{{preview_url}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
+                            <div data-track-id="{{id}}" class="covering" id="{{id}}">{{#if album.images.0.url}}<img data-preview-url="{{preview_url}}" data-album-id="{{id}}" src="{{album.images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/spot.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span><span class="tooltip2"><span class="fa fa-cog"></span><span id="title-{{id}}" data-tooltip="tooltip" class="tooltiptext" title=""></span></span></div><div style="display:block;text-align:center;margin:0 auto;top: -20px; position: relative;" class="moodbuttons"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" trackartist="{{artists[0].name}}" tracktitle="{{name}}" trackurl="{{preview_url}}" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"  data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input trackartist="{{artists[0].name}}" tracktitle="{{name}}" trackurl="{{preview_url}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" trackartist="{{artists[0].name}}" tracktitle="{{name}}" trackurl="{{preview_url}}" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{name}}" trackartist="{{artists[0].name}}" trackurl="{{preview_url}}" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood" data-danceability="" data-energy="" data-loudness="" data-mode="" data-speechiness="" data-acousticness="" data-instrumentalness="" data-liveness="" data-valence="" data-tempo="" data-key=""><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div></div>
                             {{/each}}
                             </div>
                             {{/if}}
@@ -749,7 +749,7 @@ block content
 
             
             for(var m in moods){
-                var addmusic = {trackid:"", tracktitle:"", trackurl:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0, prog_up:0, prog_down:0, prog_waydown:0, prog_wayup:0}
+                var addmusic = {trackid:"", tracktitle:"", trackurl:"", trackartist:"", mode_up:0, mode_down:0, mode_waydown:0, mode_wayup:0, prog_up:0, prog_down:0, prog_waydown:0, prog_wayup:0}
                 var tracks = [];
                 var inputid;
                 var checked;
@@ -773,10 +773,12 @@ block content
 
                     inputid = $($(".mood")[i])[0].id;
                     var tracktitle = $($(".mood")[i]).attr("tracktitle");
+                    var trackartist = $($(".mood")[i]).attr("trackartist");
                     var trackurl = $($(".mood")[i]).attr("trackurl");
                     console.log("inputid: " + inputid);
                     console.log("tracktitle: " + tracktitle);
                     console.log("trackurl: " + trackurl);
+                    console.log("trackartist: " + trackartist);
 
                     var split = inputid.split("-");
                     var mood = split[0];
@@ -791,6 +793,7 @@ block content
                         addmusic.trackid= trackid;
                         addmusic.tracktitle= tracktitle;
                         addmusic.trackurl= trackurl;
+                        addmusic.trackartist= trackartist;
                         urislist += "spotify:track:" + trackid + ",";
                         if(mood == "moodup"){
                             addmusic.mode_up = 1;
