@@ -409,9 +409,7 @@ youTube.search(ys , 2, function(error, youtuberesult) {
      console.log(JSON.stringify(youtuberesult.items, null, 2));
       console.log("youtuberesult2");
      console.log(JSON.stringify(youtuberesult.items[0], null, 2));
-      console.log("youtuberesult3");
-     console.log(JSON.stringify(youtuberesult.items.0, null, 2));
-    var vid = youtuberesult.items.0.id.videoId;
+    var vid = youtuberesult.items[0].id.videoId;
     results.youtube = vid;
     console.log("youtube vid: " + vid);
     
