@@ -95,7 +95,7 @@ block content
 
                                 $(window).scrollTop($('#stock').offset().top).scrollLeft($('#stock').offset().left);
                                 audioObject = new Audio(preview);
-                                //audioObject.play();
+                                audioObject.play();
                                 console.dir(audioObject);
 
                                 audioObject.onpause=function(){
@@ -114,13 +114,13 @@ block content
                                 });
                                 $( ".stocknote" ).click(function() {
 
-                                    /*if(audioObject.paused){
+                                    if(audioObject.paused){
                                         audioObject.play();
                                     } else {
                                         audioObject.pause();
                                         $( ".stocknote" ).hide();
                                         $("#playeditmood").val("select playlist");
-                                    }*/
+                                    }
                                     //$("#playeditmood").val("select playlist");
                                     //$( ".stocknote" ).removeClass("lightSpeedIn");
                                     //$( ".stocknote" ).addClass("lightSpeedOut");
@@ -129,7 +129,7 @@ block content
                                 });
 
                                 //function onYouTubePlayerAPIReady() {
-                                    console.log("youtube player");
+                                /*    console.log("youtube player");
                                    player = new YT.Player('player', {
                                       videoId: youtubeid,
                                       loop: false,
@@ -138,20 +138,20 @@ block content
                                       events: {
                                           onReady: function (e) {
                                             console.log("now playing");
-                                              //info.innerHTML = 'video is loaded';
+                                              
                                               e.target.playVideo();
                                           },
                                           onStateChange: function (event) {
                                               if (event.data === 1) {
                                                 console.log("started");
-                                                  //info.innerHTML = 'video started playing';
+                                                 playing';
                                               }
                                           }
                                       }
-                                  });
+                                  });*/
 
                                   // you can do more stuff with the player variable
-                                  $( ".stocknote" ).click(function() {
+                                 /* $( ".stocknote" ).click(function() {
                                   console.log("player state: " + player.getPlayerState());
                                     if(player.getPlayerState() == YT.PlayerState.PLAYING){
                                         player.stopVideo();
@@ -163,7 +163,7 @@ block content
                                     } else{
                                         player.playVideo();
                                     }
-                                  });
+                                  });*/
                                 //}
 
 
