@@ -47,8 +47,9 @@ block content
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 11.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
-                            <table><thead><th>Track</th><th>&nbsp;</th></thead><tbody>{{#each items}}<tr><td><a href="{{track.href}}" class="trackedit">{{track.name}}</a></td><td><span id="{{track.id}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
+                            <table><thead><th>Track</th><th>&nbsp;</th><th>&nbsp;</th></thead><tbody>{{#each this}}<tr><td><span class="trackedit">{{tracktitle}}</span></td><td><div style="display:block;text-align:center;margin:0 auto;position: relative;" class="moodbuttons"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="moodup-{{trackid}}" name="moodup-{{trackid}}" value="moodup" class="mood"><label for="moodup-{{trackid}}" title="up" class="labelcheck1 shadow {{activemood mode_up}}"></label></div><div style="" class="checkboxThree2"><input trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{trackid}}" name="moodwayup-{{trackid}}" value="moodwayup" class="mood"><label for="moodwayup-{{trackid}}" title="way up" class="labelcheck2 shadow {{activemood mode_wayup}}"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="mooddown-{{trackid}}" name="mooddown-{{trackid}}" value="mooddown" class="mood"><label for="mooddown-{{trackid}}" title="down" class="labelcheck3 shadow {{activemood mode_down}}"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{tracktitle}}" trackartist="{{trackartist}}" trackurl="{{trackurl}}" type="checkbox" id="moodwaydown-{{trackid}}" name="moodwaydown-{{trackid}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{trackid}}" title="way down" class="labelcheck4 shadow {{activemood mode_waydown}}"></label></div></div></td><td><span id="{{trackid}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
                 img(src="/images/test1.png" class="logofin3")
+
 
         div(id="expandadd", style="position: relative;top: 25px;position: relative;top: 25px;border-style:solid;border-top: none;border-right: none;border-left: none;border-color: transparent;")
             a(name="top")
@@ -642,14 +643,14 @@ block content
                             console.log("success getting playlist");
                             console.dir(resp0);
                             
-
+                            tracklistPlaceholder.innerHTML = templatelist(resp0);
 
 
 
                                         
                         }
                         });
-                                            tracklistPlaceholder.innerHTML = templatelist(resp);
+                                            //tracklistPlaceholder.innerHTML = templatelist(resp);
                                         } else {
                                             tracklistPlaceholder.innerHTML = "<br/>This playlist does not contain any music tracks. Please select another Playlist!";
                                         }
@@ -1012,6 +1013,17 @@ block content
                     //});
                 }
             }
+        });
+
+        Handlebars.registerHelper('activemood', function(moodvalue) {
+        console.log("before activemood");
+            var moodvalue = moodvalue;
+            var activem = "";
+            if(moodvalue == 1){
+                activem = "activemood";
+            }
+            console.log("activem is: " + activem);
+            return new Handlebars.SafeString(activem)
         });
 
         Handlebars.registerHelper('trimString', function(passedString) {

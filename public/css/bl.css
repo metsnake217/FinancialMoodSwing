@@ -18,6 +18,11 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 */
+
+.activemood {
+    background: #8a6d3b !important;
+}
+
 .labelbuttons{
 text-align: center;margin-top:40px;
 }
