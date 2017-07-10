@@ -328,10 +328,6 @@ if(quotename == "XAX"){
 	quotedesc = "Hang Seng Index";
 } else if(quotename == "^FTSE"){
 	quotedesc = "FTSE 100";
-} else if(quotename == "^BATSK"){
-	quotedesc = "BATS 1000 Index";
-} else if(quotename == "^STOXX50E"){
-	quotedesc = "ESTX50 EUR P";
 } else if(quotename == "^DJI"){
 	quotedesc = "Dow Jones Ind Avg";
 } else if(quotename == "GOOG"){
@@ -350,7 +346,12 @@ if(quotename == "XAX"){
 	quotedesc = "Salesforce.com, inc.";
 } else if(quotename == "CRM"){
 	quotedesc = "Oracle Corporation";
+} else if(quotename == "AAPL"){
+	quotedesc = "Apple Inc.";
+} else if(quotename == "^STOXX50E"){
+	quotedesc = "ESTX50 EUR P";
 }
+
 
 
 var playlistname = this.playlistname;
@@ -363,7 +364,7 @@ console.log("quoteyes open: "+ quoteyes.open);
 console.log("quoteyes close: "+ quoteyes.close);
 
 var differential = quote.close - quote.open;
-var differentialyes = quoteyes.close - quoteyes.open;
+//var differentialyes = quoteyes.close - quoteyes.open;
 console.log("differential: " + differential);
 var mode = "mode_up";
 if(differential >= 0){
