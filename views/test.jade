@@ -685,6 +685,7 @@ block content
             var checked = false;
             var builddata=[];
             var urislist = "";
+            var checktrackids = [];
             console.dir(moods);
             var test = [];
 
@@ -788,6 +789,7 @@ block content
                         addmusic.tracktitle= tracktitle;
                         addmusic.trackurl= trackurl;
                         addmusic.trackartist= trackartist;
+                        checktrackids = checktrackids.push(trackid);
                         urislist += "spotify:track:" + trackid + ",";
                         if(mood == "moodup"){
                             addmusic.mode_up = 1;
@@ -864,6 +866,9 @@ block content
                         },
                         success: function (response) {
                             console.log("success add music to playlist.");
+                            $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
+                            console.log("successfully updated DB playlist for " + user);
+                            var playfound = false;
 
                             $.ajax({
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
@@ -871,19 +876,26 @@ block content
                                     success: function (resp) {
                                     console.log("HERE");
                                     console.dir(resp);
+                                    var tracksfound = resp.items;
+                                    foreach(var trackfound in tracksfound){
+                                        var trackis = trackfound.track.id;
+                                        playfound = checktrackids.contains(trackis);
+                                        console.log("playfound: " + playfound);
+                                    }
+            if(!playfound){
+                $.ajax({
+                    method: 'POST',
+                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
+                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                    success: function (resp) {
+                        //$("#addmessage").html("<b>Playlist</b> has been successfully updated!");
+                        console.log("successfully updated SPOTIFY playlist for " + user);
 
-            $.ajax({
-                method: 'POST',
-                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
-                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                success: function (resp) {
-                    $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
-                    console.log("successfully updated playlist for " + user);
-
-                }, error: function (resp0) {
-                    console.dir(resp0);
-                }
-                });
+                    }, error: function (resp0) {
+                        console.dir(resp0);
+                    }
+                    });
+            }
 
                         }
                     });
