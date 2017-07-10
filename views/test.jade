@@ -624,7 +624,9 @@ block content
 
                     
                     var respids = [];
+                    console.log("response items:");
                     for(var r in resp.items){
+                        console.dir(r);
                         respids.push(r.track.id);
                     }
                     console.log( "response is : " + JSON.stringify(respids));
