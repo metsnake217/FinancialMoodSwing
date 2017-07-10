@@ -624,7 +624,6 @@ block content
 
                     console.log( "response is : " + JSON.stringify(resp));
                     $.ajax({
-                        method: "POST",
                         url: 'https://financialmoodswing.herokuapp.com/getplaylist',
                         data: {
                             databuild: JSON.stringify(resp),
