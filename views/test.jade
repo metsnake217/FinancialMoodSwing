@@ -868,7 +868,7 @@ block content
                             console.log("success add music to playlist.");
                             $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
                             console.log("successfully updated DB playlist for " + user);
-                            var playfound = false;
+                            var playfound = -1;
 
                             $.ajax({
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
@@ -879,10 +879,10 @@ block content
                                     var tracksfound = resp.items;
                                     tracksfound.forEach(function(trackfound){
                                         var trackis = trackfound.track.id;
-                                        playfound = checktrackids.contains(trackis);
+                                        playfound = checktrackids.indexOf(trackis);
                                         console.log("playfound: " + playfound);
                                     })
-            if(!playfound){
+            if(playfound != 0){
                 $.ajax({
                     method: 'POST',
                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
