@@ -647,7 +647,7 @@ var vals = "", ids="";
     ids = ids.replace(/,\s*$/, "");
     console.log("ids: " + ids);
 
-	var query2 = client.query("select trackid from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
+	var query2 = client.query("select * from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
 	query2.on("row", function(row, result2) {
 		result2.addRow(row);
 	});
@@ -656,11 +656,11 @@ var vals = "", ids="";
 		console.log("getplaylist details " + JSON.stringify(results2));
 		console.log("getplaylist length: " + results2.length);
 		
-		var resultsids = [];
+		/*var resultsids = [];
 		for(var i in results2){
 			resultsids.push(results2[i].trackid);
-		}
-		console.log("getplaylist resultsids.trackid: " + JSON.stringify(results2));
+		}*/
+		console.log("getplaylist results: " + JSON.stringify(results2));
 		callback(null, results2);
 	});
 };
