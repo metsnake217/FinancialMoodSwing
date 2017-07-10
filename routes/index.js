@@ -304,8 +304,8 @@ router.get('/getplaylist', isLoggedIn, function(req, res) {
       console.log("databuild spotify tracks for " + databuild);
   var musicAddtracks = new MusicAddTracks(databuild,playlistid,playlistname);
       musicAddtracks.getplaylist(function(error, results) { 
-        console.log("fetched tracks for " + playlistid + " is successful.");
-        res.end();
+        console.log("fetched tracks for " + playlistid + " is successful: " + results);
+        res.send(results);
   });
 
 });
