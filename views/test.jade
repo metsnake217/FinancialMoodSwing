@@ -868,6 +868,7 @@ block content
                             console.log("success add music to playlist.");
                             $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
                             console.log("successfully updated DB playlist for " + user);
+                            console.dir(checktrackids);
                             var playfound = -1;
 
                             $.ajax({
@@ -879,6 +880,7 @@ block content
                                     var tracksfound = resp.items;
                                     tracksfound.forEach(function(trackfound){
                                         var trackis = trackfound.track.id;
+                                        console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
                                         console.log("playfound: " + playfound);
                                     })
