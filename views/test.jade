@@ -657,6 +657,11 @@ block content
                                             var trackmood = s[0];
                                             var trackid= s[1];
                                             var trackmoodvalue = $( this ).prop('checked');
+                                            if(trackmoodvalue){
+                                                trackmoodvalue = 1;
+                                            } else {
+                                                trackmoodvalue = 0;
+                                            }
                                             console.log("trackmood is checked: " + trackmoodvalue);
                                             //var parentr = $(this).parent().parent();
                                             //var user;

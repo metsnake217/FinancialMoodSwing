@@ -496,6 +496,8 @@ youTube.search(ys , 2, function(error, youtuberesult) {
       var trackmoodval = req.body.trackmoodvalue;
       console.log("playlistname: " + playlistname);
       console.log("trackid: " + trackid);
+      console.log("trackmood: " + trackmood);
+      console.log("trackmoodval: " + trackmoodval);
 
       var musicMoodtracks = new MusicMoodTracks(playlistname,trackid,trackmood, trackmoodval);
       musicMoodtracks.editmoodtrack(function(error, results) { 
