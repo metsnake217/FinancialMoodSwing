@@ -643,7 +643,11 @@ block content
                             console.log("success getting playlist");
                             console.dir(resp0);
                             
+                            if(resp0.length > 0){
                             tracklistPlaceholder.innerHTML = templatelist(resp0);
+                            } else {
+                                tracklistPlaceholder.innerHTML = "<br/>No SynC - This playlist does not contain any music tracks synced to the FinMood Database. Please select another Playlist or start building a new one!";
+                            }
 
                                         $( ".editmood" ).click(function() {
                                             
@@ -691,7 +695,7 @@ block content
                         });
                                             //tracklistPlaceholder.innerHTML = templatelist(resp);
                                         } else {
-                                            tracklistPlaceholder.innerHTML = "<br/>This playlist does not contain any music tracks. Please select another Playlist!";
+                                            tracklistPlaceholder.innerHTML = "<br/>No Tracks - This playlist does not contain any music tracks. Please select another Playlist!";
                                         }
                                         //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
                                         console.log("successfully retrieved playlist tracks for " + user);
