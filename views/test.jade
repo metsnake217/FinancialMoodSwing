@@ -870,6 +870,7 @@ block content
                             console.log("successfully updated DB playlist for " + user);
                             console.dir(checktrackids);
                             var playfound = -1;
+                            var trackinexistant = true;
 
                             $.ajax({
                                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
@@ -878,13 +879,18 @@ block content
                                     console.log("HERE");
                                     console.dir(resp);
                                     var tracksfound = resp.items;
+                                    
                                     tracksfound.forEach(function(trackfound){
                                         var trackis = trackfound.track.id;
                                         console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
+                                        if(playfound != -1){
+                                            trackinexistant = false;
+                                        }
                                         console.log("playfound: " + playfound);
                                     })
-            if(playfound != 0){
+            if(trackinexistant){
+                console.log("track does not exist yet in playlist");
                 $.ajax({
                     method: 'POST',
                     url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
