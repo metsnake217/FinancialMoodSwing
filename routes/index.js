@@ -493,7 +493,7 @@ youTube.search(ys , 2, function(error, youtuberesult) {
       var playlistname = req.body.playlistname;
       var trackid = req.body.trackid;
       var trackmood = req.body.trackmood;
-      var trackmoodval = req.body.trackmoodvalue;
+      var trackmoodval = req.body.trackmoodval;
       console.log("playlistname: " + playlistname);
       console.log("trackid: " + trackid);
       console.log("trackmood: " + trackmood);
