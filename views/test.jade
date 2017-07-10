@@ -877,11 +877,11 @@ block content
                                     console.log("HERE");
                                     console.dir(resp);
                                     var tracksfound = resp.items;
-                                    foreach(var trackfound in tracksfound){
+                                    tracksfound.forEach(function(trackfound){
                                         var trackis = trackfound.track.id;
                                         playfound = checktrackids.contains(trackis);
                                         console.log("playfound: " + playfound);
-                                    }
+                                    })
             if(!playfound){
                 $.ajax({
                     method: 'POST',
