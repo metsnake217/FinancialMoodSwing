@@ -332,7 +332,7 @@ var SYMBOLS = [
        
 
 var datenow = moment(new Date).tz("America/New_York");
-////var dateyest = moment().add(-2, 'days');
+var dateyest = moment().add(-2, 'days');
 
 var daynow = datenow.weekday();
 var dayyest = dateyest.weekday();
@@ -340,7 +340,7 @@ console.log("day now is: " + daynow);
 
 
 
-/*if(daynow == 5){
+if(daynow == 5){
   console.log("here00");
   datenow = moment().add(-2, 'days');
   dateyest = moment().add(-3, 'days');
@@ -358,25 +358,25 @@ console.log("day now is: " + daynow);
   console.log("here30");
   dateyest = datenow.add(-3, 'days');
   console.log("here31");
-}*/
+}
   datenow = datenow.format('YYYY-MM-DD');
-  ////dateyest = dateyest.format('YYYY-MM-DD');
+  dateyest = dateyest.format('YYYY-MM-DD');
 
 console.log("here40: "+datenow);
 //datenow = datenow.format('YYYY-MM-DD');
-////console.log("here50: "+ dateyest);
+console.log("here50: "+ dateyest);
 //dateyest = dateyest.format('YYYY-MM-DD');
 console.log("here51");
 
 console.log("datenow is: " + datenow);
-////console.log("dateyest is: " + dateyest);
+console.log("dateyest is: " + dateyest);
 
 var quotesfinal = [];
 var quotesyesfinal = [];
 
 yahooFinance.historical({
   symbols: SYMBOLS,
-  from: datenow,
+  from: dateyest,
   to: datenow,
   period: 'd'
 }).then(function (result) {
