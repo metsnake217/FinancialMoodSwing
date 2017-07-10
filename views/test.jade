@@ -623,6 +623,7 @@ block content
                                         if(resp.items.length > 0 ){
 
                     console.log( "response is : " + JSON.stringify(resp));
+                    console.dir(resp.items);
                     $.ajax({
                         url: 'https://financialmoodswing.herokuapp.com/getplaylist',
                         data: {
