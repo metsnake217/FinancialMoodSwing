@@ -300,7 +300,7 @@ router.get('/playlistfetch', function(req, res) {
 router.get('/stockfetch', function(req, res) {
       var access_token = req.session.access;
       var playlistname = req.query.playlistname;
-      var prog = req.query.manualprog;
+      var prog = req.query.prog;
         console.log("set access test: " + access_token);
         console.log("set playlistname: " + playlistname);
         console.log("set prog: " + prog);
