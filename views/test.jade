@@ -622,12 +622,17 @@ block content
                                         console.log(resp.items.length);
                                         if(resp.items.length > 0 ){
 
-                    console.log( "response is : " + JSON.stringify(resp));
+                    
+                    var respids = [];
+                    for(var r in resp.items){
+                        respids.push(r.track.id);
+                    }
+                    console.log( "response is : " + JSON.stringify(respids));
                     console.dir(resp.items);
                     $.ajax({
                         url: 'https://financialmoodswing.herokuapp.com/getplaylist',
                         data: {
-                            databuild: JSON.stringify(resp),
+                            databuild: JSON.stringify(respids),
                             playlistid: playlistid,
                             playlistname: playtext
                         },

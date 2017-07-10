@@ -629,7 +629,7 @@ MusicAddTracks.prototype.getplaylist = function(callback) {
 var vals = "", ids="";
     for(var i in databuild){
     	item = databuild[i];
-    	item.tracktitle = item.tracktitle.replace("\'","");
+    	/*item.tracktitle = item.tracktitle.replace("\'","");
     	console.log("item is : " + JSON.stringify(item));
     	console.log("item0 is : " + JSON.stringify(item[0]));
     	console.log("item1 is : " + item[0]);
@@ -639,7 +639,8 @@ var vals = "", ids="";
     	console.log("mode_wayup: " + item.mode_wayup);
     	console.log("mode_down: " + item.mode_down);
     	console.log("mode_waydown: " + item.mode_waydown);
-    	ids += "'" + item.trackid + "',";
+    	*/
+    	ids += "'" + item + "',";
     	//vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
 
     }
