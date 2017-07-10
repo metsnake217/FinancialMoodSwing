@@ -318,7 +318,15 @@ var SYMBOLS = [
   '^HSI',
   '^FTSE',
   '^BATSK',
-  '^STOXX50E'
+  '^STOXX50E',
+  'GOOG',
+  'AABA',
+  'DIS',
+  'FB',
+  'WMT',
+  'AMZN',
+  'CRM',
+  'ORCL'
 ];
 
        

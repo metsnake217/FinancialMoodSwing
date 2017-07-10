@@ -334,7 +334,24 @@ if(quotename == "XAX"){
 	quotedesc = "ESTX50 EUR P";
 } else if(quotename == "^DJI"){
 	quotedesc = "Dow Jones Ind Avg";
+} else if(quotename == "GOOG"){
+	quotedesc = "Alphabet, Inc.";
+} else if(quotename == "AABA"){
+	quotedesc = "Altaba Inc.";
+} else if(quotename == "DIS"){
+	quotedesc = "The Walt Disney Company";
+} else if(quotename == "FB"){
+	quotedesc = "Facebook, Inc.";
+} else if(quotename == "WMT"){
+	quotedesc = "Wal-Mart Stores, Inc.";
+} else if(quotename == "AMZN"){
+	quotedesc = "Amazon.com, Inc.";
+} else if(quotename == "CRM"){
+	quotedesc = "Salesforce.com, inc.";
+} else if(quotename == "CRM"){
+	quotedesc = "Oracle Corporation";
 }
+
 
 var playlistname = this.playlistname;
 
