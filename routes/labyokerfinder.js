@@ -618,6 +618,51 @@ var vals = "", ids="";
 		callback(null, results);
 	});*/
 
+MusicAddTracks.prototype.getplaylist = function(callback) {
+	var results, results2;
+	console.log("getplaylist databuild: " + this.databuild);
+	console.log("getplaylist playlistid: " + this.playlistid);
+	console.log("getplaylist playlistname: " + this.playlistname);
+	var databuild = JSON.parse(this.databuild);
+	var playlistname = this.playlistname;
+
+var vals = "", ids="";
+    for(var i in databuild){
+    	item = databuild[i];
+    	item.tracktitle = item.tracktitle.replace("\'","");
+    	console.log("item is : " + JSON.stringify(item));
+    	console.log("item0 is : " + JSON.stringify(item[0]));
+    	console.log("item1 is : " + item[0]);
+    	console.log("trackid: " + item.trackid);
+    	console.log("tracktitle: " + item.tracktitle);
+    	console.log("mode_up: " + item.mode_up);
+    	console.log("mode_wayup: " + item.mode_wayup);
+    	console.log("mode_down: " + item.mode_down);
+    	console.log("mode_waydown: " + item.mode_waydown);
+    	ids += "'" + item.trackid + "',";
+    	//vals += "('" +item.trackid+ "','" + item.tracktitle + "'," + item.mode_up + "," + item.mode_down + "," + item.mode_wayup + "," + item.mode_waydown + ")"
+
+    }
+    ids = ids.replace(/,\s*$/, "");
+    console.log("ids: " + ids);
+
+	var query2 = client.query("select trackid from playlistrack where trackid in (" + ids + ") and playlistname='" + this.playlistname + "'");
+	query2.on("row", function(row, result2) {
+		result2.addRow(row);
+	});
+	query2.on("end", function(result2) {
+		results2 = result2.rows;
+		console.log("getplaylist details " + JSON.stringify(results2));
+		console.log("getplaylist length: " + results2.length);
+		
+		var resultsids = [];
+		for(var i in results2){
+			resultsids.push(results2[i].trackid);
+		}
+		console.log("getplaylist resultsids.trackid: " + JSON.stringify(results2));
+		callback(null, results2);
+	});
+};
 
 
 

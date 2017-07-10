@@ -80,7 +80,7 @@ block content
                             {{#if albums.items}}
                             <div class="sectionalbums", style="style=""><h2 style="color: #00bc00 !important;">Pick Albums</h2>
                             {{#each albums.items}}
-                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/spot.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span></div><!--<div style="display:block;text-align:ccenter;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" class="labelcheck4 shadow"></label></div></div>--></div>
+                            <div style="/*background-image:url({{images.0.url}})*/" data-album-id="{{id}}" class="covering">{{#if images.0.url}}<img data-album-id="{{id}}" src="{{images.0.url}}" width="100px" height="100px" class="cover"/>{{else}}<img data-album-id="{{id}}" src="/images/spot.png" width="100px" height="100px" class="cover"/>{{/if}}<div><span class="wrap">{{trimString name}}</span></div><!--<div style="display:block;text-align:ccenter;margin:0 auto;"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodup-{{id}}" name="moodup-{{id}}" value="moodup" class="mood"><label for="moodup-{{id}}" title="up" class="labelcheck1 shadow"></label></div><div style="" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{id}}" name="moodwayup-{{id}}" value="moodwayup" class="mood"><label for="moodwayup-{{id}}" title="way up" class="labelcheck2 shadow"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="mooddown-{{id}}" name="mooddown-{{id}}" value="mooddown" class="mood"><label for="mooddown-{{id}}" title="down" class="labelcheck3 shadow"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodwaydown-{{id}}" name="moodwaydown-{{id}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{id}}" title="way down" class="labelcheck4 shadow"></label></div></div>--></div>
                             {{/each}}
                             </div>
                             {{/if}}
@@ -606,8 +606,10 @@ block content
                         console.log("playedit selected");
                         //var playlistid = $(this).attr('id');
                         var playlistid = $(this).val();
+                        var playtext = $( "#playedit option:selected" ).text();
 
                         console.log( "playlist is called: " + playlistid);
+                         console.log( "playtext is called: " + playtext);
                         
                         if(playlistid != "select playlist"){
                             $("#playlisteditlist").show();
@@ -619,7 +621,28 @@ block content
                                         $('.logofin3').hide();
                                         console.log(resp.items.length);
                                         if(resp.items.length > 0 ){
-                                        tracklistPlaceholder.innerHTML = templatelist(resp);
+
+                    console.log( "response is : " + JSON.stringify(resp));
+                    $.ajax({
+                        method: "POST",
+                        url: 'https://financialmoodswing.herokuapp.com/getplaylist',
+                        data: {
+                            databuild: JSON.stringify(resp),
+                            playlistid: playlistid,
+                            playlistname: playtext
+                        },
+                        success: function (resp0) {
+                            console.log("success getting playlist");
+                            console.dir(resp0);
+                            
+
+
+
+
+                                        
+                        }
+                        });
+                                            tracklistPlaceholder.innerHTML = templatelist(resp);
                                         } else {
                                             tracklistPlaceholder.innerHTML = "<br/>This playlist does not contain any music tracks. Please select another Playlist!";
                                         }

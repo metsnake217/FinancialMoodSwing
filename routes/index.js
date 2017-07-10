@@ -297,6 +297,19 @@ router.get('/playlistfetch', function(req, res) {
 
 });
 
+router.get('/getplaylist', isLoggedIn, function(req, res) {
+      var databuild = req.query.databuild;
+      var playlistid = req.query.playlistid;
+      var playlistname = req.query.playlistname;
+      console.log("databuild spotify tracks for " + databuild);
+  var musicAddtracks = new MusicAddTracks(databuild,playlistid,playlistname);
+      musicAddtracks.getplaylist(function(error, results) { 
+        console.log("fetched tracks for " + playlistid + " is successful.");
+        res.end();
+  });
+
+});
+
 router.get('/stockfetch', function(req, res) {
       var access_token = req.session.access;
       var playlistname = req.query.playlistname;
