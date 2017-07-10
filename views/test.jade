@@ -853,13 +853,7 @@ block content
             console.log("urislist: " + urislist);
             if(play != "select playlist"){
 
-            $.ajax({
-                method: 'POST',
-                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
-                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                success: function (resp) {
-                    $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
-                    console.log("successfully updated playlist for " + user);
+
                     $.ajax({
                         method: "POST",
                         url: 'https://financialmoodswing.herokuapp.com/addtoplaylist',
@@ -871,15 +865,30 @@ block content
                         success: function (response) {
                             console.log("success add music to playlist.");
 
-                        }
-                    });
+                            $.ajax({
+                                    url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks',
+                                    headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                    success: function (resp) {
+                                    console.log("HERE");
+                                    console.dir(resp);
+
+            $.ajax({
+                method: 'POST',
+                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+play+'/tracks?uris='+urislist,
+                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                success: function (resp) {
+                    $("#addmessage").html("<b>Playlist</b> has been successfully updated!");
+                    console.log("successfully updated playlist for " + user);
+
                 }, error: function (resp0) {
                     console.dir(resp0);
                 }
                 });
 
-
-
+                        }
+                    });
+                    }
+                    });
 
             } else {
                 $("#addmessage").html("Please select a playlist above. Then try again.");
