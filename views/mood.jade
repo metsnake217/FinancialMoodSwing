@@ -64,7 +64,7 @@ block content
                         var prog = 0;
                         var check = $("#manualprog:checked").val();
                         console.log("check is: " + check);
-                        if(check != undefined && $("#manualprog:checked").length == 0){
+                        if(check == undefined){
                             prog = 1;
                         }
                         
