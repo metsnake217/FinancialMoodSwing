@@ -41,6 +41,13 @@ MusicDeleteTracks = function(playlistname,trackid) {
 	this.trackid = trackid;
 };
 
+MusicMoodTracks = function(playlistname,trackid,trackmood,trackmoodval) {
+	this.playlistname = playlistname;
+	this.trackid = trackid;
+	this.trackmood = trackmood;
+	this.trackmoodval = trackmoodval;
+};
+
 LabYokeFinder = function(today) {
 	this.now = today
 };
@@ -238,6 +245,19 @@ MusicDeleteTracks.prototype.deletetrack = function(callback) {
 	query.on("end", function(result) {
 		results = result.rows;
 		console.log("deleted track from playlist");
+		callback(null, results);
+	});
+};
+
+MusicMoodTracks.prototype.editmoodtrack = function(callback) {
+	var results;
+	var query = client.query("Update playlistrack set " + this.trackmood + " = " + this.trackmoodval + " where playlistname='" + this.playlistname + "' and trackid='" + this.trackid + "'");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("edited track from playlist");
 		callback(null, results);
 	});
 };
@@ -3248,6 +3268,7 @@ exports.MusicRules = MusicRules;
 exports.MusicUpdateRules = MusicUpdateRules;
 exports.MusicAddTracks = MusicAddTracks;
 exports.MusicDeleteTracks = MusicDeleteTracks;
+exports.MusicMoodTracks = MusicMoodTracks;
 exports.MusicStock = MusicStock;
 
 exports.Labyoker = Labyoker;

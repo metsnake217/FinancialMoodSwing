@@ -10,6 +10,7 @@ var MusicRules = musicFinderClass.MusicRules;
 var MusicUpdateRules = musicFinderClass.MusicUpdateRules;
 var MusicAddTracks = musicFinderClass.MusicAddTracks;
 var MusicDeleteTracks = musicFinderClass.MusicDeleteTracks;
+var MusicMoodTracks = musicFinderClass.MusicMoodTracks;
 var MusicStock = musicFinderClass.MusicStock;
 var express = require('express');
 var util = require('util');
@@ -479,6 +480,26 @@ youTube.search(ys , 2, function(error, youtuberesult) {
       var musicDeletetracks = new MusicDeleteTracks(playlistname,trackid);
       musicDeletetracks.deletetrack(function(error, results) { 
         console.log("deleted track " + trackid + " for " + playlistname + " is successful.");
+        res.end();
+  });
+
+  } 
+
+  });
+
+    router.post('/editmoodtrack', isLoggedIn, function(req, res) {
+      var access_token = req.session.access;
+    if(req.session.access != undefined){
+      var playlistname = req.body.playlistname;
+      var trackid = req.body.trackid;
+      var trackmood = req.body.trackmood;
+      var trackmoodval = req.body.trackmoodvalue;
+      console.log("playlistname: " + playlistname);
+      console.log("trackid: " + trackid);
+
+      var musicMoodtracks = new MusicMoodTracks(playlistname,trackid,trackmood, trackmoodval);
+      musicMoodtracks.editmoodtrack(function(error, results) { 
+        console.log("edit track " + trackid + " for " + playlistname + " is successful.");
         res.end();
   });
 

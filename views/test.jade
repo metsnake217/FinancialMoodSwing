@@ -47,7 +47,7 @@ block content
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 11.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
                         script(id="playlisteditlist-template" type="text/x-handlebars-template")
-                            <table><thead><th>Track</th><th>&nbsp;</th><th>&nbsp;</th></thead><tbody>{{#each this}}<tr><td><span class="trackedit">{{tracktitle}}</span></td><td><div style="display:block;text-align:center;margin:0 auto;position: relative;" class="moodbuttons"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="moodup-{{trackid}}" name="moodup-{{trackid}}" value="moodup" class="mood"><label for="moodup-{{trackid}}" title="up" class="labelcheck1 shadow {{activemood mode_up}}"></label></div><div style="" class="checkboxThree2"><input trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" style="position:absolute;left: -9999px;" type="checkbox" id="moodwayup-{{trackid}}" name="moodwayup-{{trackid}}" value="moodwayup" class="mood"><label for="moodwayup-{{trackid}}" title="way up" class="labelcheck2 shadow {{activemood mode_wayup}}"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="mooddown-{{trackid}}" name="mooddown-{{trackid}}" value="mooddown" class="mood"><label for="mooddown-{{trackid}}" title="down" class="labelcheck3 shadow {{activemood mode_down}}"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{tracktitle}}" trackartist="{{trackartist}}" trackurl="{{trackurl}}" type="checkbox" id="moodwaydown-{{trackid}}" name="moodwaydown-{{trackid}}" value="moodwaydown" class="mood"><label for="moodwaydown-{{trackid}}" title="way down" class="labelcheck4 shadow {{activemood mode_waydown}}"></label></div></div></td><td><span id="{{trackid}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
+                            <table><thead><th>Track</th><th>&nbsp;</th><th>&nbsp;</th></thead><tbody>{{#each this}}<tr><td><span class="trackedit">{{tracktitle}}</span></td><td><div style="display:block;text-align:center;margin:0 auto;position: relative;" class="moodbuttons"><div style="" class="checkboxThree1"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="mood_up-{{trackid}}" name="mood_up-{{trackid}}" value="mood_up" class="mood editmood" {{checkactivemood mode_up}}><label for="mood_up-{{trackid}}" title="up" class="labelcheck1 shadow {{activemood mode_up}}"></label></div><div style="" class="checkboxThree2"><input trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" style="position:absolute;left: -9999px;" type="checkbox" id="mood_wayup-{{trackid}}" name="mood_wayup-{{trackid}}" value="mood_wayup" class="mood editmood" {{checkactivemood mode_wayup}}><label for="mood_wayup-{{trackid}}" title="way up" class="labelcheck2 shadow {{activemood mode_wayup}}"></label></div><div style="" class="checkboxThree3"><input style="position:absolute;left: -9999px;" trackartist="{{trackartist}}" tracktitle="{{tracktitle}}" trackurl="{{trackurl}}" type="checkbox" id="mood_down-{{trackid}}" name="mood_down-{{trackid}}" value="mood_down" class="mood editmood" {{checkactivemood mode_down}}><label for="mood_down-{{trackid}}" title="down" class="labelcheck3 shadow {{activemood mode_down}}"></label></div><div style="" class="checkboxThree4"><input style="position:absolute;left: -9999px;" tracktitle="{{tracktitle}}" trackartist="{{trackartist}}" trackurl="{{trackurl}}" type="checkbox" id="mood_waydown-{{trackid}}" name="mood_waydown-{{trackid}}" value="mood_waydown" class="mood editmood" {{checkactivemood mode_waydown}}><label for="mood_waydown-{{trackid}}" title="way down" class="labelcheck4 shadow {{activemood mode_waydown}}"></label></div></div></td><td><span id="{{trackid}}" class="fa fa-trash-o trashtrack"></span></td></tr>{{/each}}</table>
                 img(src="/images/test1.png" class="logofin3")
 
 
@@ -645,7 +645,41 @@ block content
                             
                             tracklistPlaceholder.innerHTML = templatelist(resp0);
 
+                                        $( ".editmood" ).click(function() {
+                                            
+                                            var play = $("#playedit").val();
+                                            console.log("playlistid: " + play);
+                                            var playstr = "'" + play + "'";
+                                            console.log("playstr: " + playstr);
+                                            var playlistname = $("#playedit option[value=" + playstr + "]").text();
+                                            var trackmoodid = $(this).attr("id");
+                                            var s = trackmoodid.split("-");
+                                            var trackmood = s[0];
+                                            var trackid= s[1];
+                                            var trackmoodvalue = $( this ).prop('checked');
+                                            console.log("trackmood is checked: " + trackmoodvalue);
+                                            //var parentr = $(this).parent().parent();
+                                            //var user;
+                                            console.log("edit track id: " + trackid);
+                                             console.log("edit track mood: " + trackmood);
+                                            console.log("user: " + user);
 
+                                                $.ajax({
+                                                    method: "POST",
+                                                    url: 'https://financialmoodswing.herokuapp.com/editmoodtrack',
+                                                    data: {
+                                                        playlistname: playlistname,
+                                                        trackid: trackid,
+                                                        trackmood: trackmood,
+                                                        trackmoodval: trackmoodvalue
+                                                    },
+                                                    success: function (response) {
+                                                        console.log("success editmood " + trackmood + " of track.");
+                                                    }
+                                                });
+
+                                                
+                                        });
 
                                         
                         }
@@ -1021,6 +1055,17 @@ block content
             var activem = "";
             if(moodvalue == 1){
                 activem = "activemood";
+            }
+            console.log("activem is: " + activem);
+            return new Handlebars.SafeString(activem)
+        });
+
+        Handlebars.registerHelper('checkactivemood', function(moodvalue) {
+        console.log("before checkactivemood");
+            var moodvalue = moodvalue;
+            var activem = "";
+            if(moodvalue == 1){
+                activem = "checked";
             }
             console.log("activem is: " + activem);
             return new Handlebars.SafeString(activem)
