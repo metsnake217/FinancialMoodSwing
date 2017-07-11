@@ -650,7 +650,7 @@ block content
                             }
 
                                         $( ".editmood" ).click(function() {
-                                            
+                                            var mood = $( this );
                                             var play = $("#playedit").val();
                                             console.log("playlistid: " + play);
                                             var playstr = "'" + play + "'";
@@ -683,6 +683,9 @@ block content
                                                         trackmoodval: trackmoodvalue
                                                     },
                                                     success: function (response) {
+                                                        if(trackmoodvalue == 0){
+                                                            mood.next('label').removeClass("activemood");
+                                                        }
                                                         console.log("success editmood " + trackmood + " of track.");
                                                     }
                                                 });
