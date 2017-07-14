@@ -20,8 +20,8 @@ input::-webkit-inner-spin-button {
 */
 
 .trashtrack{
-    /*position: relative;
-    float: right;*/
+    position: relative;
+    float: right;
 }
 .activemood {
     background: #8a6d3b !important;

@@ -644,7 +644,46 @@ block content
                             console.dir(resp0);
                             
                             if(resp0.length > 0){
-                            tracklistPlaceholder.innerHTML = templatelist(resp0);
+                                tracklistPlaceholder.innerHTML = templatelist(resp0);
+                                //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
+                                console.log("successfully retrieved playlist tracks for " + user);
+                                console.dir(resp.items);
+
+                                $( ".trashtrack" ).click(function() {
+                                    var play = $("#playedit").val();
+                                    console.log("playlistid: " + play);
+                                    var playstr = "'" + play + "'";
+                                    console.log("playstr: " + playstr);
+                                    var playlistname = $("#playedit option[value=" + playstr + "]").text();
+                                    var trackid = $(this).attr("id");
+                                    var parentr = $(this).parent().parent();
+                                    //var user;
+                                    console.log("deleting track : " + trackid);
+                                    console.log("user: " + user);
+                                    $.ajax({
+                                        method: 'DELETE',
+                                        url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
+                                        data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
+                                        headers: {'Authorization': bearer,'Content-Type': 'application/json'},
+                                        success: function (resp2) {
+                                            console.log("trackid " + trackid + " :  successfully deleted.");
+                                            parentr.addClass("deletedtrack");
+
+                                        $.ajax({
+                                            method: "POST",
+                                            url: 'https://financialmoodswing.herokuapp.com/deletetrack',
+                                            data: {
+                                                playlistname: playlistname,
+                                                trackid: trackid
+                                            },
+                                            success: function (response) {
+                                                console.log("success deletion of track.");
+                                            }
+                                        });
+
+                                        }
+                                    });
+                                });
                             } else {
                                 tracklistPlaceholder.innerHTML = "<br/>No SynC - This playlist does not contain any music tracks synced to the FinMood Database. Please select another Playlist or start building a new one!";
                             }
@@ -700,45 +739,7 @@ block content
                                         } else {
                                             tracklistPlaceholder.innerHTML = "<br/>No Tracks - This playlist does not contain any music tracks. Please select another Playlist!";
                                         }
-                                        //$(".tracksplaylist").html("<b>" + playlistname + "</b> successfully created!");
-                                        console.log("successfully retrieved playlist tracks for " + user);
-                                        console.dir(resp.items);
 
-                                        $( ".trashtrack" ).click(function() {
-                                            var play = $("#playedit").val();
-                                            console.log("playlistid: " + play);
-                                            var playstr = "'" + play + "'";
-                                            console.log("playstr: " + playstr);
-                                            var playlistname = $("#playedit option[value=" + playstr + "]").text();
-                                            var trackid = $(this).attr("id");
-                                            var parentr = $(this).parent().parent();
-                                            //var user;
-                                            console.log("deleting track : " + trackid);
-                                            console.log("user: " + user);
-                                            $.ajax({
-                                                method: 'DELETE',
-                                                url: 'https://api.spotify.com/v1/users/'+user+'/playlists/'+playlistid+'/tracks',
-                                                data: JSON.stringify({tracks:[{ "uri": "spotify:track:"+ trackid}]}),
-                                                headers: {'Authorization': bearer,'Content-Type': 'application/json'},
-                                                success: function (resp2) {
-                                                    console.log("trackid " + trackid + " :  successfully deleted.");
-                                                    parentr.addClass("deletedtrack");
-
-                                                $.ajax({
-                                                    method: "POST",
-                                                    url: 'https://financialmoodswing.herokuapp.com/deletetrack',
-                                                    data: {
-                                                        playlistname: playlistname,
-                                                        trackid: trackid
-                                                    },
-                                                    success: function (response) {
-                                                        console.log("success deletion of track.");
-                                                    }
-                                                });
-
-                                                }
-                                            });
-                                        });
 
                                 }
                             });
