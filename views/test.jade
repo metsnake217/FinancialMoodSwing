@@ -668,6 +668,7 @@ block content
                                         success: function (resp2) {
                                             console.log("trackid " + trackid + " :  successfully deleted.");
                                             parentr.addClass("deletedtrack");
+                                            parentr.find(".moodbuttons").hide()
 
                                         $.ajax({
                                             method: "POST",
