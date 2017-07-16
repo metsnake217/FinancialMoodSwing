@@ -964,8 +964,13 @@ block content
                                         console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
                                         console.log("playfound: " + playfound);
+
                                         if(playfound != -1){
-                                            checktrackids.splice(playfound, playfound);
+                                            var playfoundto = playfound;
+                                            if(playfound == 0){
+                                                playfoundto = 1;
+                                            }
+                                            checktrackids.splice(playfound, playfoundto);
                                             console.log("splice checktrackids: " + checktrackids);
                                             console.log("splice playfound: " + playfound);
                                         }
