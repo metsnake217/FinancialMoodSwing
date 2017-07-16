@@ -963,11 +963,14 @@ block content
                                         var trackis = trackfound.track.id;
                                         console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
+                                        console.log("playfound: " + playfound);
                                         if(playfound != -1){
                                             checktrackids.splice(playfound, playfound);
+                                            console.log("splice checktrackids: " + checktrackids);
+                                            console.log("splice playfound: " + playfound);
                                         }
                                         console.log("checktrackids: " + checktrackids.length);
-                                        console.log("playfound: " + playfound);
+                                        
                                     });
             
             urislist = "";
