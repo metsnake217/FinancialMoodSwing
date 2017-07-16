@@ -964,12 +964,22 @@ block content
                                         console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
                                         if(playfound != -1){
-                                            trackinexistant = false;
+                                            checktrackids.remove(trackis);
                                         }
+                                        console.log("checktrackids: " + checktrackids.length);
                                         console.log("playfound: " + playfound);
                                     });
-            console.log("addtoplaylist trackinexistant: " + trackinexistant);
-            if(trackinexistant){
+            
+            urislist = "";
+            var l = 0;
+            for(var track in checktrackids){
+                
+                urislist += "spotify:track:" + checktrackids[l] + ",";
+                l++;
+            }
+            urislist = urislist.replace(/,\s*$/, "");
+            console.log("addtoplaylist urislist: " + urislist);
+            //if(trackinexistant){
                 console.log("track does not exist yet in playlist");
                 $.ajax({
                     method: 'POST',
@@ -983,7 +993,7 @@ block content
                         console.dir(resp0);
                     }
                     });
-            }
+            //}
 
                         }
                     });
