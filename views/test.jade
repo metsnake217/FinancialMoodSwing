@@ -964,7 +964,7 @@ block content
                                         console.log("trackis: " + trackis);
                                         playfound = checktrackids.indexOf(trackis);
                                         if(playfound != -1){
-                                            checktrackids.remove(trackis);
+                                            checktrackids.splice(playfound, playfound);
                                         }
                                         console.log("checktrackids: " + checktrackids.length);
                                         console.log("playfound: " + playfound);
