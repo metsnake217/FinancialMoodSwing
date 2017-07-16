@@ -987,7 +987,7 @@ block content
             }
             urislist = urislist.replace(/,\s*$/, "");
             console.log("addtoplaylist urislist: " + urislist);
-            //if(trackinexistant){
+            if(urislist != ""){
                 console.log("track does not exist yet in playlist");
                 $.ajax({
                     method: 'POST',
@@ -1001,7 +1001,7 @@ block content
                         console.dir(resp0);
                     }
                     });
-            //}
+            }
 
                         }
                     });
