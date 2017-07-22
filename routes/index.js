@@ -284,7 +284,30 @@ router.get('/refresh_token', function(req, res) {
 
   });
 
-    
+ 
+    router.get('/finmood', function(req, res) {
+      var access_token = req.session.access;
+        console.log("set access test: " + access_token);
+
+      var musicRules = new MusicRules();
+      musicRules.getrules(function(error, results) { 
+
+    res.render('finmood', {
+      rules: results,
+      /*ordersnum: req.session.orders,
+      sharesnum: req.session.shares,*/
+      title : 'Financial Mood',
+      access_token:access_token,
+      user_id:req.session.userid,
+      /*loggedIn : req.session.loggedin,
+      labyoker : req.session.user,
+      isLoggedInAdmin: req.session.admin,*/
+      menu : 'mood'
+    });
+  });
+
+  });
+
 router.get('/playlistfetch', function(req, res) {
    //if(req.session.access != undefined){
   var musicRules = new MusicRules();
