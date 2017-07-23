@@ -558,8 +558,8 @@ console.log("here51");
 console.log("datenow is: " + datenow);
 console.log("dateyest is: " + dateyest);
 
-var quotesfinal = [];
-var quotesyesfinal = [];
+var quotesfinal;
+var quotesyesfinal;
 
 yahooFinance.historical({
   symbols: stocksymbol,
@@ -574,8 +574,8 @@ yahooFinance.historical({
       quotes.length
     ).cyan);
     if (quotes[0]) {
-      quotesfinal.push(quotes[0]);
-      quotesyesfinal.push(quotes[quotes.length - 1]);
+      quotesfinal = quotes[0];
+      quotesyesfinal = quotes[quotes.length - 1];
       console.log(
         '%s\n...\n%s',
         JSON.stringify(quotes[0], null, 2),
