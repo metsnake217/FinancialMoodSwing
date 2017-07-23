@@ -588,7 +588,7 @@ yahooFinance.historical({
 }).finally(function() {
     // get a random index
   var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
-
+console.log('b' + b);
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
       musicStock.getmusic(function(error, results) { 
         var ys = results.artist + " " + results.title;
