@@ -11,14 +11,14 @@ block content
         div(class="checkboxThree")
                         input(type="checkbox" name="manualprog" id="manualprog" value="prog" checked)
                         label(for="manualprog" class="labelcheck shadow")
-        div(style="display:block;margin: 0 auto; text-align:center;padding:40px;    padding-top: 20px;")
+        div(style="display:block;margin: 0 auto; text-align:center;padding:40px;    padding-top: 20px;color: black;")
             h1!= "Mood Swing"
             p!= "Select a playlist to set the mood."
             form(id="playlistedit-form")
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
                         <select name="playeditmood" type="text" id="playeditmood" class="form-control" style="" placeholder="Select Playlist">
-                        <option value="select playlist">Select Playlist</option>{{#each this}}<option value="{{playlistname}}">{{playlistname}}</option>{{/each}}</select>
+                        <option value="select portfolio">Select Stock</option><option value="all">All Portfolio</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -35px;right: 2.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
@@ -53,11 +53,11 @@ block content
             console.log("access token in playlists: " + bearer);
             $.ajax({
                 //url: 'https://api.spotify.com/v1/me/playlists',
-                url: 'https://financialmoodswing.herokuapp.com/playlistfetch',
+                url: 'https://financialmoodswing.herokuapp.com/stocksfetch',
                 headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE','Access-Control-Allow-Headers': 'Authorization, Lang'},
                 success: function (response) {
                     editPlaceholder.innerHTML = templateedit(response.res);
-                    console.log("success get playlists.");
+                    console.log("success get portfolio.");
                     console.dir(response.res);
                     $( "#playeditmood" ).change(function() {
 
@@ -74,15 +74,15 @@ block content
 
                         var playlistid = $(this).val();
                         var playstr = "'" + playlistid + "'";
-                        console.log("playstr: " + playstr);
-                        var listname = $("#playeditmood option[value=" + playstr + "]").text();
+                        console.log("stock symbol: " + playlistid);
+                        var listname = "test2";//$("#playeditmood option[value=" + playstr + "]").text();
                         console.log("listname: " + listname);
-                        if(listname !="Select Playlist"){
+                        if(listname !="Select Portfolio"){
 
                         $.ajax({
-                            url: 'https://financialmoodswing.herokuapp.com/stockfetch',
+                            url: 'https://financialmoodswing.herokuapp.com/stockfetchfinmood',
                             headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE','Access-Control-Allow-Headers': 'Authorization, Lang'},
-                            data: {playlistname: listname, prog: prog},
+                            data: {playlistname: listname, prog: prog, stocksymbol: playlistid},
                             success: function (response) {
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 $("#stock").show();

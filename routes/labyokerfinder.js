@@ -223,6 +223,19 @@ MusicRules.prototype.playlistfetch = function(callback) {
 	});
 };
 
+MusicRules.prototype.stocksfetch = function(callback) {
+	var results;
+	var query = client.query("SELECT * FROM portfolio");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("get stocksfetch details " + JSON.stringify(results));
+		callback(null, results);
+	});
+};
+
 MusicRules.prototype.getrules = function(callback) {
 	var results;
 	var query = client.query("SELECT * FROM rules order by id asc");
@@ -318,6 +331,8 @@ MusicUpdateRules.prototype.updateruleint = function(callback) {
 		callback(null, results);
 	});
 };
+
+
 
 MusicStock.prototype.getmusic = function(callback) {
 var quote = this.quotes;

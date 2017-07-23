@@ -321,6 +321,15 @@ router.get('/playlistfetch', function(req, res) {
 
 });
 
+router.get('/stocksfetch', function(req, res) {
+  var musicRules = new MusicRules();
+      musicRules.stocksfetch(function(error, results) { 
+    res.send({res:results});
+  });
+});
+
+
+
 router.get('/getplaylist', isLoggedIn, function(req, res) {
       var databuild = req.query.databuild;
       var playlistid = req.query.playlistid;
@@ -440,6 +449,147 @@ yahooFinance.historical({
   var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
 
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
+      musicStock.getmusic(function(error, results) { 
+        var ys = results.artist + " " + results.title;
+console.log("youtube search: " + ys);
+youTube.search(ys , 2, function(error, youtuberesult) {
+  if (error) {
+    console.log(error);
+        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
+        res.send(results);
+  }
+  else {
+    console.log("youtuberesult0");
+    console.log(JSON.stringify(youtuberesult, null, 2));
+     console.log("youtuberesult1");
+     console.log(JSON.stringify(youtuberesult.items, null, 2));
+      console.log("youtuberesult2");
+     console.log(JSON.stringify(youtuberesult.items[0], null, 2));
+    var vid = youtuberesult.items[0].id.videoId;
+    results.youtube = vid;
+    console.log("youtube vid: " + vid);
+        console.log("stock " + results.index + " - music: " + results.url + " is successful.");
+        res.send(results);   
+  }
+});
+
+
+  });
+    //res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
+});;
+
+
+
+  });
+
+router.get('/stockfetchfinmood', function(req, res) {
+      var access_token = req.session.access;
+      var playlistname = req.query.playlistname;
+      var prog = req.query.prog;
+      var stocksymbol = req.query.stocksymbol;
+        console.log("set access test: " + access_token);
+        console.log("set playlistname: " + playlistname);
+        console.log("set prog: " + prog);
+        console.log("stocksymbol: " + stocksymbol);
+var SYMBOLS = [
+  'XAX',
+  '^FCHI',
+  '^IXIC',
+  '^NDX',
+  '^DJI',
+  '^GSPC',
+  '^OEX',
+  '^RUT',
+  '^GDAXI',
+  '^N225',
+  '^HSI',
+  '^FTSE',
+  'GOOG',
+  'AABA',
+  'DIS',
+  'FB',
+  'WMT',
+  'AMZN',
+  'CRM',
+  'ORCL',
+  'AAPL',
+  '^STOXX50E'
+];
+
+       
+
+var datenow = moment(new Date).tz("America/New_York");
+var dateyest = moment().add(-2, 'days');
+
+var daynow = datenow.weekday();
+var dayyest = dateyest.weekday();
+console.log("day now is: " + daynow);
+
+
+
+if(daynow == 5){
+  console.log("here00");
+  datenow = moment().add(-2, 'days');
+  dateyest = moment().add(-3, 'days');
+  console.log("here01");
+} else if(daynow == 1){
+  console.log("here10");
+  datenow = moment().add(-3, 'days');
+  dateyest = moment().add(-4, 'days');
+  console.log("here11");
+} else if(dateyest == 0){
+  console.log("here20");
+  dateyest = datenow.add(-4, 'days');
+      console.log("here021");
+} else if(dateyest == 6){
+  console.log("here30");
+  dateyest = datenow.add(-3, 'days');
+  console.log("here31");
+}
+  datenow = datenow.format('YYYY-MM-DD');
+  dateyest = dateyest.format('YYYY-MM-DD');
+
+console.log("here40: "+datenow);
+//datenow = datenow.format('YYYY-MM-DD');
+console.log("here50: "+ dateyest);
+//dateyest = dateyest.format('YYYY-MM-DD');
+console.log("here51");
+
+console.log("datenow is: " + datenow);
+console.log("dateyest is: " + dateyest);
+
+var quotesfinal = [];
+var quotesyesfinal = [];
+
+yahooFinance.historical({
+  symbols: stocksymbol,
+  from: dateyest,
+  to: datenow,
+  period: 'd'
+}).then(function (result) {
+  _.each(result, function (quotes, symbol) {
+    console.log(util.format(
+      '=== %s (%d) ===',
+      symbol,
+      quotes.length
+    ).cyan);
+    if (quotes[0]) {
+      quotesfinal.push(quotes[0]);
+      quotesyesfinal.push(quotes[quotes.length - 1]);
+      console.log(
+        '%s\n...\n%s',
+        JSON.stringify(quotes[0], null, 2),
+        JSON.stringify(quotes[quotes.length - 1], null, 2)
+      );
+    } else {
+      console.log('N/A');
+    }
+  });
+}).finally(function() {
+    // get a random index
+  //var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
+
+  var musicStock = new MusicStock(quotesfinal,quotesyesfinal, playlistname, prog);
       musicStock.getmusic(function(error, results) { 
         var ys = results.artist + " " + results.title;
 console.log("youtube search: " + ys);
