@@ -117,7 +117,16 @@ td, th {
 }
 
 select{
-    border: 0 !important; border-radius: 5px !important;
+    border-radius: 5px !important;
+}
+
+.noborder{
+  border: 0 !important;
+}
+
+.form-controlfin{
+  height: 40px;
+  padding: 6px 12px;
 }
 
 input{

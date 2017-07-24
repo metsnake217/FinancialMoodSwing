@@ -42,7 +42,7 @@ block content
                 form(id="playlistedit-form")
                     div(id="playlistedit")
                         script(id="playlistedit-template" type="text/x-handlebars-template")
-                            <select name="playedit" type="text" id="playedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
+                            <select name="playedit" type="text" id="playedit" class="form-control noborder" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>{{#each items}}<option value="{{id}}">{{name}}</option>{{/each}}</select>
                             <span style="color: #8a6d3b;float: right;top: -35px;lef;right: 11.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
                     div(id="playlisteditlist")
@@ -69,7 +69,7 @@ block content
                             <p style="width: 150px;padding-left: 30px;" class="checkboxThree2"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample2" name="moodexample2" value="moodexample2"  class="moodexample"><label for="moodexample2" class="labelcheck1 shadow"></label> Mood is Way Up</p>
                             <p style="width: 150px;padding-left: 30px;" class="checkboxThree3"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample3" name="moodexampl3" value="moodexample3"  class="moodexample"><label for="moodexample3" class="labelcheck1 shadow"></label> Mood is Down</p>
                             <p style="width: 160px;padding-left: 30px;" class="checkboxThree4"><input style="position:absolute;left: -9999px;" type="checkbox" id="moodexample4" name="moodexample4" value="moodexample4"  class="moodexample"><label for="moodexample4" class="labelcheck1 shadow"></label> Mood is Way Down</p><br/><br/><br/>
-                            <select name="playSelect" type="text" id="playSelect" class="form-control" style="" placeholder="Select Playlist">
+                            <select name="playSelect" type="text" id="playSelect" class="noborder form-control" style="" placeholder="Select Playlist">
                             <option value="select playlist">Select Playlist</option>
                             {{#each items}}
                             <option value="{{id}}">{{name}}</option>
@@ -151,7 +151,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{enup}" min="0" max="100" id="enup" name="enup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
-                            select(name="keyup" type="text" id="keyup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
+                            select(name="keyup" type="text" id="keyup" class="form-control noborder" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
                                 option(value="0" selected=(keyup==0 ? "selected" : undefined))!="0"
                                 option(value="1" selected=(keyup==1 ? "selected" : undefined))!="1"
                                 option(value="2" selected=(keyup==2 ? "selected" : undefined))!="2"
@@ -168,7 +168,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{liveup}" min="0" max="100" id="liveup" name="liveup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode" 
-                            select(name="modeup" type="text" id="modeup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
+                            select(name="modeup" type="text" id="modeup" class="form-control noborder" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
                                 option(value="select playlist" selected=(modeup==="none" ? "selected" : undefined))!="None"
                                 option(value="minor" selected=(modeup=="minor" ? "selected" : undefined))!="Minor"
                                 option(value="major" selected=(modeup=="major" ? "selected" : undefined))!="Major"
@@ -191,7 +191,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{enwayup}" min="0" max="100" id="enwayup" name="enwayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
-                            select(name="keywayup" type="text" id="keywayup" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
+                            select(name="keywayup" type="text" id="keywayup" class="noborder form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
                                 option(value="0" selected=(keywayup==0 ? "selected" : undefined))!="0"
                                 option(value="1" selected=(keywayup==1 ? "selected" : undefined))!="1"
                                 option(value="2" selected=(keywayup==2 ? "selected" : undefined))!="2"
@@ -208,7 +208,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{livewayup}" min="0" max="100" id="livewayup" name="livewayup")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
-                            select(name="modewayup" type="text" id="modewayup" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
+                            select(name="modewayup" type="text" id="modewayup" class="noborder form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
                                 option(value="select playlist" selected=(modewayup=="none" ? "selected" : undefined))!="None"
                                 option(value="minor"  selected=(modewayup=="minor" ? "selected" : undefined))!="Minor"
                                 option(value="major" selected=(modewayup=="major" ? "selected" : undefined))!="Major"
@@ -231,7 +231,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{endown}" min="0" max="100" id="endown" name="endown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
-                            select(name="keydown" type="text" id="keydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
+                            select(name="keydown" type="text" id="keydown" class="form-control noborder" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
                                 option(value="0" selected=(keydown==0 ? "selected" : undefined))!="0"
                                 option(value="1" selected=(keydown==1 ? "selected" : undefined))!="1"
                                 option(value="2" selected=(keydown==2 ? "selected" : undefined))!="2"
@@ -248,7 +248,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{livedown}" min="0" max="100" id="livedown" name="livedown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
-                            select(name="modedown" type="text" id="modedown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
+                            select(name="modedown" type="text" id="modedown" class="form-control noborder" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
                                 option(value="select playlist" selected=(modedown=="none" ? "selected" : undefined))!="None"
                                 option(value="minor" selected=(modedown=="minor" ? "selected" : undefined))!="Minor"
                                 option(value="major" selected=(modedown=="major" ? "selected" : undefined))!="Major"
@@ -271,7 +271,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{enwaydown}" min="0" max="100" id="enwaydown" name="enwaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Key"
-                            select(name="keywaydown" type="text" id="keywaydown" class="form-control" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
+                            select(name="keywaydown" type="text" id="keywaydown" class="form-control noborder" style="height: 30px; width: 42px;margin-bottom:10px" placeholder="Select")
                                 option(value="0" selected=(keywaydown==0 ? "selected" : undefined))!="0"
                                 option(value="1" selected=(keywaydown==1 ? "selected" : undefined))!="1"
                                 option(value="2" selected=(keywaydown==2 ? "selected" : undefined))!="2"
@@ -288,7 +288,7 @@ block content
                           input(class="range-slider__range" type="range" value="#{livewaydown}" min="0" max="100" id="livewaydown" name="livewaydown")
                           span(class="range-slider__value")!="0"
                         div(class="range-slider")!="Mode"
-                            select(name="modewaydown" type="text" id="modewaydown" class="form-control" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
+                            select(name="modewaydown" type="text" id="modewaydown" class="form-control noborder" style="height: 30px; width: 65px;margin-bottom:10px" placeholder="Select")
                                 option(value="select playlist" selected=(modewaydown=="none" ? "selected" : undefined))!="None"
                                 option(value="minor" selected=(modewaydown=="minor" ? "selected" : undefined))!="Minor"
                                 option(value="major" selected=(modewaydown=="major" ? "selected" : undefined))!="Major"

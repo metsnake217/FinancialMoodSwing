@@ -1,4 +1,4 @@
-n    
+    
 extends layout
 
 block content
@@ -17,7 +17,7 @@ block content
             form(id="playlistedit-form")
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
-                        <select name="playeditmood" type="text" id="playeditmood" class="form-control" style="" placeholder="Select Playlist">
+                        <select name="playeditmood" type="text" id="playeditmood" class="form-control noborder" style="" placeholder="Select Playlist">
                         <option value="select playlist">Select Playlist</option>{{#each this}}<option value="{{playlistname}}">{{playlistname}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -35px;right: 2.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
