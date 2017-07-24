@@ -516,7 +516,8 @@ router.get('/stockfetchfinmood', function(req, res) {
   '^STOXX50E'
 ];*/
 
-var SYMBOLS = ["'"+stocksymbol+"'"];
+var SYMBOLS = [];
+SYMBOLS.push(stocksymbol);
 console.log("symbols: " +  SYMBOLS)
 
 var datenow = moment(new Date).tz("America/New_York");
