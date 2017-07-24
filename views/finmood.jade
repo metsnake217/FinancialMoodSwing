@@ -23,6 +23,8 @@ block content
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
                         <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span></span><img src="/images/{{mood}}_1.png" width={{getWidth mood}} height="50px"/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="150px" class="stocknote animated zoomInUp /* tada infinite*/"/><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
+            div(id="stocknodata" style="display:none;margin-top: 30px")
+                    
         br(style="clear: both;")
 
     script.
@@ -84,6 +86,7 @@ block content
                             headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE','Access-Control-Allow-Headers': 'Authorization, Lang'},
                             data: {playlistname: listname, prog: prog, stocksymbol: playlistid},
                             success: function (response) {
+                                if(response != "nodata"){
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 $("#stock").show();
                                 console.log("success got stocks: " + response);
@@ -167,7 +170,10 @@ block content
                                   });*/
                                 //}
 
-
+                            } else {
+                                $("#stocknodata").show();
+                                $("#stocknodata").innerHTML = "No data could be fetched for this stock option.";
+                            }
 
                             }
                         });

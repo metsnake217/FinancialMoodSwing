@@ -583,6 +583,7 @@ yahooFinance.historical({
       );
     } else {
       console.log('N/A');
+      res.send("nodata");
     }
   });
 }).finally(function() {
