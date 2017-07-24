@@ -90,6 +90,7 @@ block content
                             console.dir(response);
                                 if(response != "nodata"){
                                 stockPlaceholder.innerHTML = templatestock(response);
+                                $("#stocknodata").hide();
                                 $("#stock").show();
                                 console.log("success got stocks: " + response);
                                 console.dir(response);
