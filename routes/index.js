@@ -491,7 +491,7 @@ router.get('/stockfetchfinmood', function(req, res) {
         console.log("set playlistname: " + playlistname);
         console.log("set prog: " + prog);
         console.log("stocksymbol: " + stocksymbol);
-var SYMBOLS = [
+/*var SYMBOLS = [
   'XAX',
   '^FCHI',
   '^IXIC',
@@ -514,9 +514,9 @@ var SYMBOLS = [
   'ORCL',
   'AAPL',
   '^STOXX50E'
-];
+];*/
 
-       
+var SYMBOLS = [stocksymbol];    
 
 var datenow = moment(new Date).tz("America/New_York");
 var dateyest = moment().add(-2, 'days');
@@ -562,7 +562,7 @@ var quotesfinal = [];
 var quotesyesfinal = [];
 
 yahooFinance.historical({
-  symbols: stocksymbol,
+  symbols: SYMBOLS,
   from: dateyest,
   to: datenow,
   period: 'd'
