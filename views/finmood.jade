@@ -17,8 +17,8 @@ block content
             form(id="playlistedit-form")
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
-                        <select name="playeditmood" type="text" id="playeditmood" class="form-control" style="" placeholder="Select Playlist">
-                        <option value="select portfolio">Select Stock</option><option value="all">All Portfolio</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
+                        <select name="playeditmood" type="text" id="playeditmood" class="form-control" style="" placeholder="Select Portfolio">
+                        <option value="select portfolio">Select Portfolio Stock</option><option value="all">All Portfolio</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -35px;right: 2.5%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
@@ -126,7 +126,7 @@ block content
                                     } else {
                                         audioObject.pause();
                                         $( ".stocknote" ).hide();
-                                        $("#playeditmood").val("select playlist");
+                                        $("#playeditmood").val("select portfolio");
                                     }
                                     //$("#playeditmood").val("select playlist");
                                     //$( ".stocknote" ).removeClass("lightSpeedIn");
