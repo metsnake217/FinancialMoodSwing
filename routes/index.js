@@ -616,15 +616,16 @@ youTube.search(ys , 2, function(error, youtuberesult) {
         console.log("stock " + results.index + " - music: " + results.url + " is successful.");
         res.send(results);   
   }
-} else {
-  console.log('no data found');
-  res.send("nodata");
-}
+
 });
 
 
   });
     //res.send({quotes:quotesfinal,quotesyes:quotesyesfinal});
+} else {
+  console.log('no data found');
+  res.send("nodata");
+}
 });;
 
 
