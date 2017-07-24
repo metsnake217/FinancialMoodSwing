@@ -1215,9 +1215,10 @@ display: none;
     border-color: #008500;
     border-style: solid;
     border-width: thin;*/
+    margin-top: 20%;
     position: relative;
     left: 65%;
-    top: -95px;
+    top: -20px;
     width: 31px;
     background: rgba(255,255,255,0.9);
     border-radius: 0px;
