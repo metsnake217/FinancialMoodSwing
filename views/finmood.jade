@@ -86,6 +86,8 @@ block content
                             headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE','Access-Control-Allow-Headers': 'Authorization, Lang'},
                             data: {playlistname: listname, prog: prog, stocksymbol: playlistid},
                             success: function (response) {
+                            console.log("response nodata?: " + response);
+                            console.dir(response);
                                 if(response != "nodata"){
                                 stockPlaceholder.innerHTML = templatestock(response);
                                 $("#stock").show();
