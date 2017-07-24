@@ -560,6 +560,7 @@ console.log("dateyest is: " + dateyest);
 
 var quotesfinal = [];
 var quotesyesfinal = [];
+var resexists = true;
 
 yahooFinance.historical({
   symbols: SYMBOLS,
@@ -583,11 +584,13 @@ yahooFinance.historical({
       );
     } else {
       console.log('N/A');
-      res.send("nodata");
+      resexists = false;
+      
     }
   });
 }).finally(function() {
     // get a random index
+    if(resexists){
   var b = Math.floor((Math.random() * quotesfinal.length-1) + 1);
 console.log('b' + b);
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
@@ -613,6 +616,10 @@ youTube.search(ys , 2, function(error, youtuberesult) {
         console.log("stock " + results.index + " - music: " + results.url + " is successful.");
         res.send(results);   
   }
+} else {
+  console.log('no data found');
+  res.send("nodata");
+}
 });
 
 
