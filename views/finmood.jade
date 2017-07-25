@@ -22,7 +22,7 @@ block content
                         <span style="color: #8a6d3b;float: right;top: -30px;right: 27%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
-                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px"/></span><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="75px" class="stocknote animated zoomInUp /* tada infinite*/" style="top: -15px; position: relative;"/><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
+                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px" style="margin-top: 15px"/></span><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="30px" class="stocknote animated zoomInUp /* tada infinite*/" style="top: 5px; position: relative;"/><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
             div(id="stocknodata" style="display:none;margin-top: 30px")
                     
         br(style="clear: both;")
