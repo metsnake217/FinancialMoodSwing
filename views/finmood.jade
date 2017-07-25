@@ -40,12 +40,12 @@ block content
         Handlebars.registerHelper('getClass', function(passedString) {
         console.log("before getWidth");
             var intstring = parseInt(passedString);
-            var class = "tickerpos";
+            var classname = "tickerpos";
             if(intstring < 0){
-               class = "tickerneg";
+               classname = "tickerneg";
             } 
             console.log("intstring is: " + intstring);
-            return new Handlebars.SafeString(class)
+            return new Handlebars.SafeString(classname)
         });
         var bearer = "Bearer " + "#{access_token}";
         var user;
