@@ -598,6 +598,7 @@ console.log('b' + b);
   var musicStock = new MusicStock(quotesfinal[b],quotesyesfinal[b], playlistname, prog);
       musicStock.getmusic(function(error, results) { 
         var ys = results.artist + " " + results.title;
+console.log("differential: " + results.diff);
 console.log("youtube search: " + ys);
 youTube.search(ys , 2, function(error, youtuberesult) {
   if (error) {

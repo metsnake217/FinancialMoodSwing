@@ -19,6 +19,22 @@ input::-webkit-inner-spin-button {
 }
 */
 
+.tickerpos{
+  background-color: #0be00b;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12pt;
+    margin: 10px;
+}
+.tickerneg{
+  background-color: red;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12pt;
+    margin: 10px;
+}
 .trashtrack{
     position: relative;
     float: right;

@@ -391,7 +391,7 @@ if(quotename == "XAX"){
 
 var playlistname = this.playlistname;
 
-var ret = {index:"", desc:"", url:"", artist:"", title:"", mood: "", youtube:""};
+var ret = {index:"", desc:"", url:"", artist:"", title:"", mood: "", youtube:"", diff:""};
 
 console.log("quote open: "+ quote.open);
 console.log("quote close: "+ quote.close);
@@ -414,7 +414,9 @@ if(differential < 0 ){
 if(differential <= -10){
 	mode = "mode_waydown";
 }
+ret.diff = differential;
 console.log("mode is " + mode);
+
 
 ret.mood = mode;
 var sql = "Select * from playlistrack where " + mode +" = 1 and playlistname='" + playlistname + "'";
