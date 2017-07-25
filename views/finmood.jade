@@ -42,7 +42,7 @@ block content
             var intstring = passedString;
             var classname = "tickerpos";
             var op = "+ ";
-            if(intstring <= 0){
+            if(intstring < 0){
                classname = "tickerneg";
                
             }
@@ -53,7 +53,7 @@ block content
         console.log("before getWidth");
             var intstring = passedString;
             var op = "+ ";
-            if(intstring <= 0){
+            if(intstring < 0){
                intstring = intstring * -1;
                op = "- ";
             }
