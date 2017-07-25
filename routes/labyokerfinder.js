@@ -414,7 +414,7 @@ if(differential < 0 ){
 if(differential <= -10){
 	mode = "mode_waydown";
 }
-ret.diff = differential;
+ret.diff = parseFloat(differential).toFixed(2);
 console.log("mode is " + mode);
 
 
