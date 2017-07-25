@@ -39,7 +39,7 @@ block content
         });
         Handlebars.registerHelper('getClass', function(passedString) {
         console.log("before getWidth");
-            var intstring = parseInt(passedString);
+            var intstring = passedString;
             var classname = "tickerpos";
             if(intstring <= 0){
                classname = "tickerneg";
