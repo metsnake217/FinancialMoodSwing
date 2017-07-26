@@ -531,11 +531,11 @@ padding-top: 3px;
     background-image: none !important;
 }
 .quoteBubble{
-background-color: rgba(0, 133, 0, 0.36) !important;
+background-color: rgba(0, 133, 0) !important;
 }
 
 .quoteBubble:hover{
-    background-color: #008500 !important;
+    background-color: rgb(22, 185, 22) !important;
     background-image: none;
 }
 
@@ -550,8 +550,8 @@ background-color: rgba(0, 133, 0, 0.36) !important;
     /*border-color: #008500 !important;*/
     border-color: transparent !important;
     border-style: solid;
-    width: 150px; /*big 150px*/
-    height: 150px; /*big 150px*/
+    width: 165px; /*big 150px*/
+    height: 165px; /*big 150px*/
     padding-top: 5px;
     text-align: center;
 
