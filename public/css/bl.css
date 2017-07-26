@@ -19,6 +19,10 @@ input::-webkit-inner-spin-button {
 }
 */
 
+#stock{
+  padding: 30px !important;
+}
+
 .tickerpos{
   background-color: #0be00b;
     padding: 7px;
@@ -102,9 +106,14 @@ tbody tr{
     cursor:pointer;
     margin-left:40px;
 }
-
+.stocknotefin{
+    cursor:pointer;
+}
 #playeditmood{
     border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
+}
+#playeditmoodfin{
+    width:50%;border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #manualprog{
 position: absolute;
@@ -3866,8 +3875,16 @@ span.num.greatherthanninetynine {
 .logofin2, .logofin3{
 width: 40%;
 }
-#playeditmood{
-    /*width: 67%;*/
+#playeditmoodfin{
+    width: 75%;
+}
+.tickerpos{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.tickerneg{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .addmusicplaylistsort{
     right: 11.5%;

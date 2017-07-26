@@ -17,12 +17,12 @@ block content
             form(id="playlistedit-form")
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
-                        <select name="playeditmood" type="text" id="playeditmood" class="form-control form-controlfin" style="width: 50%;text-align: center;margin: 0 auto;" placeholder="Select Portfolio">
+                        <select name="playeditmoodfin" type="text" id="playeditmoodfin" class="form-control form-controlfin" style="width: 50%;text-align: center;margin: 0 auto;" placeholder="Select Portfolio">
                         <option value="select portfolio">Select Portfolio Stock</option><option value="all">All Portfolio</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
                         <span style="color: #8a6d3b;float: right;top: -30px;right: 27%;position: relative;font-size: 14pt;" class="fa fa-sort"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
-                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{getClassInt diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px" style="margin-top: 15px"/></span><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="30px" class="stocknote animated zoomInUp /* tada infinite*/" style="top: 5px; position: relative;"/><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
+                        <span style="font-size: 18pt;margin-right:10px"><span style="color: #00bc00;">stock: </span>{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{getClassInt diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px" style="margin-top: 15px"/><br/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="30px" class="stocknotefin animated zoomInUp /* tada infinite*/" style="top: 5px; position: relative;"/></span><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
             div(id="stocknodata" style="display:none;margin-top: 30px")
                     
         br(style="clear: both;")
@@ -85,7 +85,7 @@ block content
                     editPlaceholder.innerHTML = templateedit(response.res);
                     console.log("success get portfolio.");
                     console.dir(response.res);
-                    $( "#playeditmood" ).change(function() {
+                    $( "#playeditmoodfin" ).change(function() {
 
                         var prog = 0;
                         var check = $("#manualprog:checked").val();
@@ -101,7 +101,7 @@ block content
                         var playlistid = $(this).val();
                         var playstr = "'" + playlistid + "'";
                         console.log("stock symbol: " + playlistid);
-                        var listname = "test2";//$("#playeditmood option[value=" + playstr + "]").text();
+                        var listname = "test2";//$("#playeditmoodfin option[value=" + playstr + "]").text();
                         console.log("listname: " + listname);
                         if(listname !="Select Portfolio"){
 
@@ -138,7 +138,7 @@ block content
                                     //if(audioObject){
                                     //    audioObject.pause();
                                    // }
-                                    //$("#playeditmood").val("select playlist");
+                                    //$("#playeditmoodfin").val("select playlist");
                                     //$( ".stocknote" ).removeClass("lightSpeedIn");
                                     //$( ".stocknote" ).addClass("lightSpeedOut");
                                     //$( ".stocknote" ).hide();
@@ -151,9 +151,9 @@ block content
                                     } else {
                                         audioObject.pause();
                                         $( ".stocknote" ).hide();
-                                        $("#playeditmood").val("select portfolio");
+                                        $("#playeditmoodfin").val("select portfolio");
                                     }
-                                    //$("#playeditmood").val("select playlist");
+                                    //$("#playeditmoodfin").val("select playlist");
                                     //$( ".stocknote" ).removeClass("lightSpeedIn");
                                     //$( ".stocknote" ).addClass("lightSpeedOut");
                                     
@@ -189,7 +189,7 @@ block content
                                         player.stopVideo();
                                         console.log("now stopping video");
                                         $( ".stocknote" ).hide();
-                                        $("#playeditmood").val("select playlist");
+                                        $("#playeditmoodfin").val("select playlist");
                                     } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
                                         player.playVideo();
                                     } else{
