@@ -112,7 +112,7 @@ tbody tr{
     border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #playeditmoodfin{
-    width:50%;border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
+    width:50%;border-color:#3d9dcb;margin-bottom:10px;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #manualprog{
 position: absolute;
