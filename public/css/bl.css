@@ -19,7 +19,7 @@ input::-webkit-inner-spin-button {
 }
 */
 .selectarrow{
-  color: #8a6d3b;float: right;top: -30px;right: 27%;position: relative;font-size: 14pt;
+  color: #8a6d3b;float: right;top: -27px;right: 27%;position: relative;font-size: 14pt;
 }
 
 .tickerpos{
@@ -3872,13 +3872,13 @@ span.num.greatherthanninetynine {
 
 @media (max-width: 600px){
 .selectarrow{
-  right: 10%;
+  right: 20%;
 }
 .logofin2, .logofin3{
 width: 40%;
 }
 #playeditmoodfin{
-    width: 90%;
+    width: 70%;
 }
 .tickerpos{
     padding-left: 10px;
