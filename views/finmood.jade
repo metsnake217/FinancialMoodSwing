@@ -120,7 +120,7 @@ block content
                                 console.dir(response);
                                 var preview = response.url;
                                 var youtubeid = response.youtube;
-                                $("#stocknote").show();
+                                $("#stocknotefin").show();
 
                                 var info = document.getElementById('info');
 
@@ -131,31 +131,31 @@ block content
 
                                 audioObject.onpause=function(){
                                 console.log("audio paused");
-                                $(".stocknote").hide();
+                                $(".stocknotefin").hide();
                                 $("#stock").css("margin-top","65px");
                                 };
-                                $( ".stocknote" ).click(function() {
+                                $( ".stocknotefin" ).click(function() {
                                     //if(audioObject){
                                     //    audioObject.pause();
                                    // }
                                     //$("#playeditmoodfin").val("select playlist");
-                                    //$( ".stocknote" ).removeClass("lightSpeedIn");
-                                    //$( ".stocknote" ).addClass("lightSpeedOut");
-                                    //$( ".stocknote" ).hide();
+                                    //$( ".stocknotefin" ).removeClass("lightSpeedIn");
+                                    //$( ".stocknotefin" ).addClass("lightSpeedOut");
+                                    //$( ".stocknotefin" ).hide();
 
                                 });
-                                $( ".stocknote" ).click(function() {
+                                $( ".stocknotefin" ).click(function() {
 
                                     if(audioObject.paused){
                                         audioObject.play();
                                     } else {
                                         audioObject.pause();
-                                        $( ".stocknote" ).hide();
+                                        $( ".stocknotefin" ).hide();
                                         $("#playeditmoodfin").val("select portfolio");
                                     }
                                     //$("#playeditmoodfin").val("select playlist");
-                                    //$( ".stocknote" ).removeClass("lightSpeedIn");
-                                    //$( ".stocknote" ).addClass("lightSpeedOut");
+                                    //$( ".stocknotefin" ).removeClass("lightSpeedIn");
+                                    //$( ".stocknotefin" ).addClass("lightSpeedOut");
                                     
 
                                 });
@@ -183,12 +183,12 @@ block content
                                   });*/
 
                                   // you can do more stuff with the player variable
-                                 /* $( ".stocknote" ).click(function() {
+                                 /* $( ".stocknotefin" ).click(function() {
                                   console.log("player state: " + player.getPlayerState());
                                     if(player.getPlayerState() == YT.PlayerState.PLAYING){
                                         player.stopVideo();
                                         console.log("now stopping video");
-                                        $( ".stocknote" ).hide();
+                                        $( ".stocknotefin" ).hide();
                                         $("#playeditmoodfin").val("select playlist");
                                     } else if(player.getPlayerState() == YT.PlayerState.BUFFERING){
                                         player.playVideo();
