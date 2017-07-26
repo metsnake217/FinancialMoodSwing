@@ -23,6 +23,7 @@ input::-webkit-inner-spin-button {
     /*float: right;
     top: 75px;*/
     right: 20px;
+    top: 1px;
     position: relative;
     font-size: 14pt !important;
     pointer-events: none;
