@@ -28,6 +28,11 @@ block content
         br(style="clear: both;")
 
     script.
+        $('#playeditmoodfin option').each(function()
+        {
+            var myStr = $(this).text();
+            if(myStr.length > 11){$(this).text(myStr.substring(11) + "...");}
+        });
         Handlebars.registerHelper('getWidth', function(passedString) {
         console.log("before getWidth");
             var widthString = "30px";
