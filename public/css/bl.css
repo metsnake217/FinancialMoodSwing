@@ -19,7 +19,12 @@ input::-webkit-inner-spin-button {
 }
 */
 .selectarrow{
-  color: #8a6d3b;float: right;top: -27px;right: 27%;position: relative;font-size: 14pt;
+  color: #17e41d;
+    float: right;
+    top: 75px;
+    right: 43%;
+    position: relative;
+    font-size: 14pt !important;
 }
 
 .tickerpos{
@@ -3903,7 +3908,7 @@ span.num.greatherthanninetynine {
 
 @media (max-width: 600px){
 .selectarrow{
-  right: 20%;
+  right: 33%;
 }
 .logofin2, .logofin3{
 width: 40%;
