@@ -112,7 +112,7 @@ tbody tr{
     border-color:#3d9dcb;margin-bottom:10px;/*margin-left: 100px;*/width: 100%;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #playeditmoodfin{
-    width:50%;border-color:#3d9dcb;margin-bottom:10px;font-size: 14pt; color: #008500; font-weight: 500;
+    /*width:50%;*/border-color:#3d9dcb;margin-bottom:10px;font-size: 14pt; color: #008500; font-weight: 500;
 }
 #manualprog{
 position: absolute;
@@ -531,7 +531,7 @@ padding-top: 3px;
     background-image: none !important;
 }
 .quoteBubble{
-background-color: rgba(0, 133, 0, 0.36);
+background-color: rgba(0, 133, 0, 0.36) !important;
 }
 
 .quoteBubble:hover{
@@ -545,14 +545,14 @@ background-color: rgba(0, 133, 0, 0.36);
 
 .quoteBubble{
     color: white !important;
-    border-radius: 84px;
+    border-radius: 84px !important;
     border-width: thick;
     /*border-color: #008500 !important;*/
     border-color: transparent !important;
     border-style: solid;
     width: 150px; /*big 150px*/
     height: 150px; /*big 150px*/
-    padding-top: 28px;
+    padding-top: 5px;
     text-align: center;
 
     display: inline-block;
@@ -3909,7 +3909,7 @@ span.num.greatherthanninetynine {
 width: 40%;
 }
 #playeditmoodfin{
-    width: 70%;
+    /*width: 70%;*/
 }
 .tickerpos{
     padding-left: 10px;
