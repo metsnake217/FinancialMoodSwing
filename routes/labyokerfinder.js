@@ -401,17 +401,18 @@ console.log("quoteyes close: "+ quoteyes.close);
 var differential = quote.close - quote.open;
 //var differentialyes = quoteyes.close - quoteyes.open;
 console.log("differential: " + differential);
+var SET_VAR_DIFF = 5;
 var mode = "mode_up";
 if(differential >= 0){
 	mode = "mode_up";
 }
-if(differential >= 10){
+if(differential >= SET_VAR_DIFF){
 	mode = "mode_wayup";
 }
 if(differential < 0 ){
 	mode = "mode_down";
 }
-if(differential <= -10){
+if(differential <= (SET_VAR_DIFF * -1)){
 	mode = "mode_waydown";
 }
 ret.diff = parseFloat(differential).toFixed(2);
