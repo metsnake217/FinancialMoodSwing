@@ -21,9 +21,6 @@ input::-webkit-inner-spin-button {
 .selectarrow{
   color: #8a6d3b;float: right;top: -30px;right: 27%;position: relative;font-size: 14pt;
 }
-#stock{
-  padding: 30px !important;
-}
 
 .tickerpos{
   background-color: #0be00b;
