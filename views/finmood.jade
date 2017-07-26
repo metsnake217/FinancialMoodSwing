@@ -28,12 +28,15 @@ block content
         br(style="clear: both;")
 
     script.
+        $( document ).ready(function() {
         $('#playeditmoodfin option').each(function()
         {
             var myStr = $(this).text();
             console.log("here: " + myStr);
             if(myStr.length > 11){$(this).text(myStr.substring(0,11) + "...");}
         });
+        });
+
         Handlebars.registerHelper('getWidth', function(passedString) {
         console.log("before getWidth");
             var widthString = "30px";
