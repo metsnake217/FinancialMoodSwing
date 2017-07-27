@@ -22,7 +22,7 @@ block content
                         <span class="fa fa-sort selectarrow"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
-                        <span style="font-size: 18pt;margin-right:10px"><!--<span style="color: #00bc00;">stock: </span>--><span>{{index}}</span><span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{getClassInt diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px" style="margin-top: 15px"/><br/><br/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="45px" class="stocknotefin animated zoomInUp /* tada infinite*/" style="/*top: 10px; position: relative;*/"/></span><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
+                        <span style="font-size: 18pt;margin-right:10px"><!--<span style="color: #00bc00;">stock: </span>-->{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{getClassInt diff}}</span><br/><img src="/images/fin{{mood}}.png" width="31px" height="31px" style="margin-top: 15px"/><br/><br/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="45px" class="stocknotefin animated zoomInUp /* tada infinite*/" style="/*top: 10px; position: relative;*/"/></span><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
             div(id="stocknodata" style="display:none;margin-top: 30px")
                     
         br(style="clear: both;")
