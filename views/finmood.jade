@@ -19,7 +19,7 @@ block content
                     script(id="playlistedit-template" type="text/x-handlebars-template")
                         <select name="playeditmoodfin" type="text" id="playeditmoodfin" class="form-control form-controlfin quoteBubble shadow" style="text-align: center;margin: 0 auto;text-align-last: center;" placeholder="Select Portfolio">
                         <option value="select portfolio">Portfolios</option><option value="all">All</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
-                        <!--<span class="fa fa-sort selectarrow"></span>-->
+                        <span class="fa fa-sort selectarrow"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
                         <span style="font-size: 18pt;margin-right:10px"><!--<span style="color: #00bc00;">stock: </span>-->{{index}}<span style="font-size:8pt">{{desc}}</span><span class="{{getClass diff}}">{{getClassInt diff}}</span><br/><img src="/images/fin{{mood}}.png" width="40px" height="40px" style="margin-top: 25px"/><br/><br/><img src="/images/vol{{mood}}.gif" trackurl="{{url}}" width="100px" height="45px" class="stocknotefin animated zoomInUp /* tada infinite*/" style="/*top: 10px; position: relative;*/"/></span><!--<div id="player" style="position: absolute; top: -9999px; left: -9999px;"></div>-->
@@ -88,6 +88,15 @@ block content
                     $('#playeditmoodfin option').each(function()
                     {
                         var myStr = $(this).text();
+                        console.log("here: " + myStr);
+                        if(myStr.length > 12){$(this).text(myStr.substring(0,12) + "..");}
+                    });
+
+                    /*
+
+                    $('#playeditmoodfin option').each(function()
+                    {
+                        var myStr = $(this).text();
                         if(myStr.length > 12){
                            myStr = myStr.substring(0,12) + "..";
                         }
@@ -103,6 +112,8 @@ block content
                         console.log("here length: " + myStr.length);
                         $(this).text(myStr);
                     });
+
+                    */
 
                     console.dir(response.res);
                     $( "#playeditmoodfin" ).change(function() {
