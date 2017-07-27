@@ -18,6 +18,10 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 */
+
+.finmood{
+  display:block;margin: 0 auto; text-align:center;padding-top: 13%;color: black;
+}
 .selectarrow{
   color: #17e41d;
     /*float: right;
@@ -3913,6 +3917,9 @@ span.num.greatherthanninetynine {
 @media (max-width: 600px){
 .selectarrow{
   /*right: 33%;*/
+}
+.finmood{
+  padding-top: 5%;
 }
 .logofin2, .logofin3{
 width: 40%;
