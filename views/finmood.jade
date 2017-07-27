@@ -88,8 +88,20 @@ block content
                     $('#playeditmoodfin option').each(function()
                     {
                         var myStr = $(this).text();
+                        if(myStr.length > 12){
+                           myStr = myStr.substring(0,12) + "..";
+                        }
+                        var l = myStr.length;
+                        var s = 14 - l;
+                        console.log("here s: " + s);
+                        var w = "";
+                        for(var i=0; i < s/2; i++){
+                            w = " " + w;
+                        }
+                        myStr = w + myStr + w;
                         console.log("here: " + myStr);
-                        if(myStr.length > 12){$(this).text(myStr.substring(0,12) + "..");}
+                        console.log("here length: " + myStr.length);
+                        $(this).text(myStr);
                     });
 
                     console.dir(response.res);
