@@ -225,7 +225,7 @@ MusicRules.prototype.playlistfetch = function(callback) {
 
 MusicRules.prototype.stocksfetch = function(callback) {
 	var results;
-	var query = client.query("SELECT * FROM portfolio");
+	var query = client.query("SELECT * FROM portfolio order by symbol asc");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
