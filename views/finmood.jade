@@ -18,7 +18,7 @@ block content
                 div(id="playlistedit")
                     script(id="playlistedit-template" type="text/x-handlebars-template")
                         <select name="playeditmoodfin" type="text" id="playeditmoodfin" class="form-control form-controlfin quoteBubble shadow" style="text-align: center;margin: 0 auto;text-align-last: center;" placeholder="Select Portfolio">
-                        <option value="select portfolio">Portfolio</option><option value="all">All Portfolio</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
+                        <option value="select portfolio">Portfolio</option><option value="all">All</option>{{#each this}}<option value="{{symbol}}">{{name}}</option>{{/each}}</select>
                         <span class="fa fa-sort selectarrow"></span>
             div(id="stock" style="display:none;margin-top: 30px")
                     script(id="stock-template" type="text/x-handlebars-template")
